@@ -1,0 +1,22 @@
+version: "3.7"
+
+services:
+  app:
+    container_name: "${COMPOSE_PROJECT_NAME}"
+    env_file: .env
+    build:
+      context: ./docker
+      dockerfile: Dockerfile.local
+    volumes:
+      - .:/var/www
+    ports:
+      - "8080:8080"
+    external_links:
+      - mysql-8.0:db
+    networks:
+      - default
+      - external-services
+
+networks:
+  external-services:
+    external: true
