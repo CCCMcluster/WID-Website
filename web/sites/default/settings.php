@@ -88,7 +88,7 @@
  * ];
  * @endcode
  */
-$databases['default']['default'] = array (
+$databases['default']['default'] = array(
   'database' => getenv('DB_DATABASE'),
   'username' => getenv('DB_USERNAME'),
   'password' => getenv('DB_PASSWORD'),
@@ -322,7 +322,7 @@ $settings['hash_salt'] = 'FTm7-HKrZXhAXBttJTlj8nCsIby7cUVrYq3eo1Enag1V3rrBMUBRzf
  * After finishing the upgrade, be sure to open this file again and change the
  * TRUE back to a FALSE!
  */
-$settings['update_free_access'] = FALSE;
+$settings['update_free_access'] = false;
 
 /**
  * External access proxy settings:
@@ -772,7 +772,7 @@ $settings['entity_update_batch_size'] = 50;
  * well as the original entity type and field storage definitions should be
  * retained after a successful entity update process.
  */
-$settings['entity_update_backup'] = TRUE;
+$settings['entity_update_backup'] = true;
 
 /**
  * Node migration type.
@@ -785,7 +785,7 @@ $settings['entity_update_backup'] = TRUE;
  * complete node migrations. Set this to TRUE to force the use of the classic
  * node migrations.
  */
-$settings['migrate_node_migrate_type_classic'] = FALSE;
+$settings['migrate_node_migrate_type_classic'] = false;
 
 /**
  * Load local development override configuration, if available.
@@ -798,7 +798,7 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
  * Keep this code block at the end of this file to take full effect.
  */
 #
-# if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
-#   include $app_root . '/' . $site_path . '/settings.local.php';
-# }
+if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
+    include $app_root . '/' . $site_path . '/settings.local.php';
+}
 $settings['config_sync_directory'] = '../config/sync';

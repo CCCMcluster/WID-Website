@@ -6,6 +6,8 @@
 /web/themes/contrib/
 /web/profiles/contrib/
 /web/libraries/
+/web/.gitignore
+/web/sites/.gitignore
 
 # Ignore Drupal's file directory
 /web/sites/*/files/
@@ -19,6 +21,9 @@
 
 # Ignore .env files as they are personal
 /.env
+node_modules/
+cghooks.lock
+yarn-error.log
 
 # Docker
 docker-compose.yml
