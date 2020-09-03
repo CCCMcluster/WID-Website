@@ -1,0 +1,6 @@
+name: Custom Twig Extension
+type: module
+description: "Adds Custom Twig function"
+core: 8.x
+dependencies:
+  - node
