@@ -26,6 +26,7 @@
         "drupal/console": "^1.0.2",
         "drupal/core": "^8.8.0",
         "drupal/core-composer-scaffold": "^8.8.0",
+        "drupal/country": "^1.0@beta",
         "drupal/ctools": "^3.4",
         "drupal/devel": "^4.0",
         "drupal/mailchimp": "^1.11",
