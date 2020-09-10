@@ -1,0 +1,26 @@
+<?php
+
+use Drupal\wid_latest_news_features\Controller\LatestNewsFeaturesController;
+use Drupal\node\NodeInterface;
+
+/**
+ * @file
+ * Contains wid_latest_news_features.module.
+ */
+
+
+/**
+ * Implements hook_theme().
+ */
+function wid_latest_news_features_theme() {
+  $feature_news = LatestNewsFeaturesController::getFeatureNews();
+  $news = LatestNewsFeaturesController::getLatestNews();
+  return [
+    'wid_latest_news_features-block' => [
+      'variables' => [
+        'news' => $news,
+        'feature_news' => $feature_news
+      ]
+    ],
+  ];
+}

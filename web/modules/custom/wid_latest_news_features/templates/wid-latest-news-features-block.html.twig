@@ -1,0 +1,60 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+<div class="latest-news-features-block">
+  <div class="row">
+    <div class="col-sm-8 featured-news">
+      <div class="row">
+        {% for single_feature_news in feature_news %}
+          <div class="news-report">
+            <div class="news-single">
+              <h3 class="news-title">{{ single_feature_news.title[0].value }}</h3>
+              {% set text = single_feature_news.body[0].value |render|striptags %}
+              <span class="news-body">
+                    {% autoescape false %}{{ text|length > 60 ? text|slice(0, 60) ~ '...' : text }}{% endautoescape %}
+                  </span>
+              {% set image_url = media_file_url(single_feature_news.field_featured_media[0].target_id) %}
+              <img src="{{ image_url }}" alt="feature-news"/>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="news">
+        <div class="row news-header">
+          <h2>Latest News</h2>
+        </div>
+        <div class=" row report-content">
+          {% for single_news in news %}
+            <div class="news-report">
+                <div class="news-single">
+                  <h3 class="news-title">{{ single_news.title[0].value }}</h3>
+                  {% set text = single_news.body[0].value |render|striptags %}
+                  <span class="news-body">
+                    {% autoescape false %}{{ text|length > 60 ? text|slice(0, 60) ~ '...' : text }}{% endautoescape %}
+                  </span>
+                  {% set image_url = media_file_url(single_news.field_featured_media[0].target_id) %}
+                  <img src="{{ image_url }}" alt="news"/>
+                </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
