@@ -1,0 +1,18 @@
+d3js:
+  version: 6.1.1
+  js:
+    https://d3js.org/d3.v6.min.js: { type: external }
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupal
+    - core/drupalSettings
+    - core/drupal.ajax
+
+widmap:
+  version: 1.x
+  js:
+    assets/js/module.js: {}
+  css:
+    theme:
+      assets/css/module.css: {}

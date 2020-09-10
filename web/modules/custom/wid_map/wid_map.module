@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains wid_map.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function wid_map_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the wid_map module.
+    case 'help.page.wid_map':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Adds D3 map module and block') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function wid_map_theme() {
+  return [
+    'wid_map-map' => [
+      'variables' => ['var1' => 'test'],
+    ],
+  ];
+}
