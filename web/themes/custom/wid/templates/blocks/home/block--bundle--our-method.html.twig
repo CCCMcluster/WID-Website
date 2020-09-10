@@ -11,9 +11,14 @@
 ]
 %}
 <div {{ attributes.addClass(classes) }}>
-  <div class="row">
-    <div class="col-sm-6 our-method-content">
-      <div class="our-method container">
+  <div class="row our-method-container">
+    {% set alt_text = content.field_our_method_media[0]['#media'].thumbnail[0].alt %}
+    {% set image_url = media_file_url(content.field_our_method_media[0]['#media'].mid[0].value) %}
+    <div class="col-sm-6 px-0">
+      <img src="{{image_url}}" alt="{{alt_text}}" class="img-fluid w-100" />
+    </div>
+    <div class="col-sm-6 our-method">
+      <div class="our-method">
         {{ title_prefix }}
         {% if label %}
           <h2{{ title_attributes }}>{{ label }}</h2>
@@ -24,12 +29,8 @@
             <div>{{content.body}}</div>
           </div>
         {% endblock %}
+        <span class="arrow-btn"><i class="fa fa-arrow-right"></i></span>
       </div>
-    </div>
-    {% set alt_text = content.field_our_method_media[0]['#media'].thumbnail[0].alt %}
-    {% set image_url = media_file_url(content.field_our_method_media[0]['#media'].mid[0].value) %}
-    <div class="col-sm-6 our-method-container">
-      <img src="{{image_url}}" alt="{{alt_text}}" class="our-method-image" />
     </div>
   </div>
 </div>
