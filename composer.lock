@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b9cbccb81ef503409faf446cbe413b86",
+    "content-hash": "da7aab91eff859580bd54aed4b45d0bf",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2820,6 +2820,53 @@
                 "drupal"
             ],
             "time": "2020-05-29T11:36:27+00:00"
+        },
+        {
+            "name": "drupal/country",
+            "version": "1.0.0-beta5",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/country.git",
+                "reference": "8.x-1.0-beta5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/country-8.x-1.0-beta5.zip",
+                "reference": "8.x-1.0-beta5",
+                "shasum": "3204a4d1c03848f62db834c0de4deb798be42aaf"
+            },
+            "require": {
+                "drupal/core": "~8.1"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.0-beta5",
+                    "datestamp": "1586224957",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Deji Akala",
+                    "homepage": "https://github.com/dakala",
+                    "email": "dejiakala@gmail.com",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "A simple country field for Drupal 8",
+            "homepage": "http://drupal.org/project/country",
+            "support": {
+                "source": "http://cgit.drupalcode.org/country",
+                "issues": "http://drupal.org/project/issues/country"
+            }
         },
         {
             "name": "drupal/ctools",
@@ -10771,6 +10818,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "drupal/better_exposed_filters": 10,
+        "drupal/country": 10,
         "drupal/page_manager": 10
     },
     "prefer-stable": true,

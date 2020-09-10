@@ -1,0 +1,35 @@
+{%
+  set classes = [
+  'block',
+  'block-' ~ configuration.provider|clean_class,
+  'block-' ~ plugin_id|clean_class
+]
+%}
+{%
+  set contentClasses = [
+  'content'
+]
+%}
+<div {{ attributes.addClass(classes) }}>
+  <div class="row">
+    <div class="col-sm-6 our-mission-content">
+      <div class="our-mission container">
+        {{ title_prefix }}
+        {% if label %}
+          <h2{{ title_attributes }}>{{ label }}</h2>
+        {% endif %}
+        {{ title_suffix }}
+        {% block content %}
+          <div{{ content_attributes.addClass(contentClasses) }}>
+            <div>{{content.body}}</div>
+          </div>
+        {% endblock %}
+      </div>
+    </div>
+    {% set alt_text = content.field_our_mission_media[0]['#media'].thumbnail[0].alt %}
+    {% set image_url = media_file_url(content.field_our_mission_media[0]['#media'].mid[0].value) %}
+    <div class="col-sm-6 our-mission-container">
+      <img src="{{image_url}}" alt="{{alt_text}}" class="our-mission-image" />
+    </div>
+  </div>
+</div>
