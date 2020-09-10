@@ -1,24 +1,63 @@
 footer {
+  padding: 40px 20px !important;
+  background: $color-blue !important;
   .site-footer__top {
     display: flex;
     border-bottom: 1px solid #ffffff;
-    padding-bottom: 10px;
+    padding-bottom: 100px;
 
     .region {
       width: 25%;
 
       .block {
         h2 {
+          font-size: 24px;
           color: #ffffff;
-          font-size: $font-size-lg;
-          font-family: $font-lato;
+          font-family: $font-raleway;
           padding-bottom: 20px;
+          font-weight: 600;
+          line-height: 1.18;
         }
 
         .content {
-          color: #ffffff;
-          font-size: $font-size-sm;
-          font-family: $font-raleway;
+          p{
+            font-size: 16px;
+            font-family: $font-lato;
+            font-weight: normal;
+            line-height: 1.21;
+            color: #ffffff;
+          }
+          
+        }
+        .newsletter-block{
+          .subscribe-text{
+            font-size: 16px;
+            font-family: $font-lato;
+            font-weight: normal;
+            line-height: 1.21;
+            color: #ffffff;
+          }
+          form{
+            padding-top: 20px;
+            display: flex;
+            input{
+              border-radius: 20px;
+              box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.16);
+              background-color: #ffffff;
+              border: none;
+              display: none;
+              
+            }
+            .email-input{
+              display: block;
+              padding: 6px 8px;
+            }
+            .btn-signup{
+              display: block;
+              padding: 6px 10px;
+              margin-left: 15px;
+            }
+          }
         }
       }
 
@@ -26,10 +65,34 @@ footer {
         ul {
           li {
             a {
+              font-size: 16px;
+              font-family: $font-lato;
+              font-weight: normal;
+              line-height: 1.21;
               color: #ffffff;
-              font-size: $font-size-sm;
-              font-family: $font-raleway;
               padding: 0;
+            }
+          }
+        }
+      }
+      .block-social-media-links-block{
+        ul{
+          li{
+            padding: 0 8px;
+            a{
+              span{
+                color: #ffffff;
+                border: 1px solid #ffffff;
+                border-radius: 50%;
+                font-size: 16px;
+                padding: 7px;
+                transition: 0.5s;
+                &:hover{
+                  color: $color-blue;
+                  border: 1px solid $color-blue;
+                  background: #ffffff;
+                }
+              }
             }
           }
         }
@@ -38,15 +101,20 @@ footer {
   }
 
   .site-footer__bottom {
-    margin-top: 40px;
+    margin-top: 10px;
 
     .region {
       .block {
         .content {
-          color: #ffffff;
-          font-size: $font-size-sm;
-          font-family: $font-raleway;
-          text-align: center;
+          p{
+            font-size: 14px;
+            font-family: $font-lato;
+            font-weight: normal;
+            line-height: 1.2;
+            color: #ffffff;
+            text-align: center;
+            margin: 0;
+          }
         }
       }
     }
