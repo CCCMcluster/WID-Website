@@ -1,0 +1,9 @@
+name: 'D3 map for wid'
+type: module
+description: 'Adds D3 map module and block'
+core: 8.x
+package: 'Custom'
+dependencies:
+  - node
+  - block
+  - drupal:serialization

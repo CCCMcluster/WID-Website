@@ -1,0 +1,7 @@
+wid_map.getReportByCountry:
+  path: "/report/country"
+  defaults:
+    _controller: '\Drupal\wid_map\Controller\MapController::getReportByCountry'
+  requirements:
+    _permission: "access content"
+    _format: json
