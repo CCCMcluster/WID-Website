@@ -1,0 +1,60 @@
+#content {
+  padding: 0;
+}
+
+#page-wrapper {
+  #page {
+    header {
+      .bg-primary {
+        background: rgba(85, 108, 255, 0.6) !important;
+      }
+
+      nav {
+        .navbar-nav {
+          margin-right: 100px;
+
+          li {
+            a {
+              font-family: $font-raleway;
+              font-size: 18px;
+              font-weight: 600;
+              line-height: 1.18;
+              color: #ffffff !important;
+              transition: 0.4s;
+
+              &:hover {
+                color: #0079C0 !important;
+              }
+            }
+          }
+        }
+
+        form {
+          .form-row {
+            .js-form-item {
+              margin: 0;
+
+              .form-text {
+                margin: 0;
+              }
+
+              label {
+                display: none;
+              }
+
+              #edit-search-api-fulltext {
+                border-radius: 25px;
+                box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+                background-color: #ffffff;
+              }
+            }
+          }
+
+          .form-actions {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}

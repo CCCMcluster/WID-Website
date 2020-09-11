@@ -5,33 +5,74 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
+// custom font
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url("../fonts/HelveticaNeue-Bold.ttf") format('truetype');
+  font-weight: 700;
+}
+
+;
+
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url("../fonts/HelveticaNeue-Medium.ttf") format('truetype');
+  font-weight: 500;
+}
+
+;
+
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url("../fonts/HelveticaNeue-Medium.ttf") format('truetype');
+  font-weight: 400;
+}
+
+;
+
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url("../fonts/HelveticaNeue-Medium.ttf") format('truetype');
+  font-weight: normal;
+}
+
+;
+
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url("../fonts/HelveticaNeue-Light.ttf") format('truetype');
+  font-weight: 200;
+}
+
+;
+
 
 @media screen and (min-width: 320px) {
-    html {
-        font-size: calc(14px + 2 * ((100vw - 320px) / 680));
-    }
+  html {
+    font-size: calc(14px + 2 * ((100vw - 320px) / 680));
+  }
 }
 
 @media screen and (min-width: 1024px) {
-    html {
-        font-size: 16px;
-    }
+  html {
+    font-size: 16px;
+  }
 }
 
 @media screen and (min-width: 2560px) {
-    html {
-        font-size: calc(16px + (18 - 16) * ((100vw - 2560px) / (2880 - 2560)));
-    }
+  html {
+    font-size: calc(16px + (18 - 16) * ((100vw - 2560px) / (2880 - 2560)));
+  }
 }
 
 @media screen and (min-width: 3840px) {
-    html {
-        font-size: calc(18px + (22 - 18) * ((100vw - 2880px) / (3840 - 2880)));
-    }
+  html {
+    font-size: calc(18px + (22 - 18) * ((100vw - 2880px) / (3840 - 2880)));
+  }
 }
 
 @function em($pixels, $context: 16) {
-    @return #{$pixels/$context}em;
+  @return #{$pixels/$context}em;
 }
 
 // $font-size-xxl: em(34); // 2.125em
@@ -45,8 +86,11 @@
 // $font-size-sm: em(14); // 0.875em
 // $font-size-xs: em(12); // 0.75em
 
-$font-lato: 'Lato', sans-serif;
-$font-raleway: 'Raleway', sans-serif;
+$font-lato: 'Lato',
+sans-serif;
+$font-raleway: 'Raleway',
+sans-serif;
+$font-helvetica : 'Helvetica Neue';
 
 $font-size-base: 1rem; // Assumes the browser default, typically `16px`
 $font-size-lg: $font-size-base * 1.25;

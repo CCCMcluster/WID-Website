@@ -1,0 +1,37 @@
+.views-element-container {
+  text-align: center;
+  background: $color-yellow;
+  padding: 75px 0 100px;
+
+  h2 {
+    font-family: $font-raleway;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.18;
+    color: $color-blue;
+    background-color: #ffffff;
+    display: inline-block;
+    padding: 7px 75px;
+    border-radius: 40px;
+    box-shadow: 0 3px 6px 0 rgba(59, 54, 54, 0.16);
+  }
+
+  .view-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+
+    .partner-single {
+      width: 25%;
+
+      a {
+        img {
+          height: 120px;
+          width: auto;
+          object-fit: contain;
+        }
+      }
+    }
+  }
+}
