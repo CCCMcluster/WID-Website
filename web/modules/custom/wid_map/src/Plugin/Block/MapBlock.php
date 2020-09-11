@@ -21,13 +21,15 @@ class MapBlock extends BlockBase {
    */
   public function build() {
     $items = [];
-    $mapData = MapController::getData();
+    $data = MapController::getData();
+
     return [
       '#items' => $items,
       '#theme' => 'wid_map-map',
       '#attached' => [
         'drupalSettings' => [
-          'mapData' => $mapData,
+          'mapData' => $data['mapData'],
+          'geoJson' => $data['geoJson'],
         ],
         'library' => ['wid_map/d3js', 'wid_map/widmap'],
       ],
