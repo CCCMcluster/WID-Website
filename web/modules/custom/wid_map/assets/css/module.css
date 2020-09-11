@@ -1,0 +1,56 @@
+#wid-map {
+    position: relative;
+    background-image: linear-gradient(to right, rgba(0,0,0,0.2), rgba(0,0,0,0.4)),
+        url('../../../../../sites/default/files/images/wid-map-background.jpg');
+    background-size: cover;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+}
+
+#map {
+    margin-left: -8%;
+}
+
+.report-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 25%;
+}
+
+.report {
+    border-radius: 20px;
+    box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.16);
+    padding: 15px 60px 15px 30px;
+    background-color: white;
+    margin: 12px 0;
+}
+.report__active {
+    background-color: #556cff;
+    color: white;
+}
+
+.report-country {
+    text-decoration: underline;
+    font-weight: bold;
+    color: #f7785d;
+}
+
+.report-title {
+    font-weight: bold;
+}
+
+.marker {
+	fill: #556cff;
+	transition: all .2s ease-in-out;
+}
+.marker__active {
+    fill: #f7785d;
+}
+.marker:hover {
+    fill: #f7785d;
+    fill-opacity: 1;
+    cursor: pointer;
+}
