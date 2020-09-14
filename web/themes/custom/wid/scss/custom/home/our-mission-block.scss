@@ -1,31 +1,36 @@
 .our-mission-container {
-    background-color: $color-yellow;
-    margin: 50px 0 50px 0;
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
+  background-color: $primary-color;
+  margin: 50px 0 50px 0;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
 
-    .our-mission {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 0px 50px;
-        text-align: center;
-        color: $color-white;
+  .our-mission {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 50px;
+    text-align: center;
+    color: #ffff;
 
-        h2 {
-            font-size: 22px;
-        }
-
-        .arrow-btn {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 10px;
-            border-radius: 5px;
-            background-color: $color-pink;
-            color: $color-white;
-        }
+    h2 {
+      font-size: 22px;
     }
+
+    .arrow-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 6px 35px;
+      border-radius: 10px;
+      background-color: $accent-color;
+      color: #fff;
+
+      i {
+        margin-left: 15px;
+        font-size: 14px;
+      }
+    }
+  }
 }

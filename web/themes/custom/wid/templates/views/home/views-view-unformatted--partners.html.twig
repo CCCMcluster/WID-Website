@@ -18,15 +18,19 @@
 {% if title %}
   <h3>{{ title }}</h3>
 {% endif %}
-{% for row in rows %}
-  {% set entity = row.content['#row']._entity %}
-  {% set row_classes = [
-    default_row_class ? 'views-row',
-  ] %}
-  <div class="partner-single">
-    {% set image_url = media_file_url(entity.field_partner_image[0].target_id) %}
-    <a target="_blank" href="{{ entity.field_url[0].uri }}">
-      <img src="{{ image_url }}" alt="partner-logo"/>
-    </a>
+  <div class="container">
+    <div class="partner-wrapper">
+      {% for row in rows %}
+        {% set entity = row.content['#row']._entity %}
+        {% set row_classes = [
+          default_row_class ? 'views-row',
+        ] %}
+        <div class="partner-single">
+          {% set image_url = media_file_url(entity.field_partner_image[0].target_id) %}
+          <a target="_blank" href="{{ entity.field_url[0].uri }}">
+            <img src="{{ image_url }}" alt="partner-logo"/>
+          </a>
+        </div>
+        {% endfor %}
   </div>
-{% endfor %}
+</div>
