@@ -13,7 +13,7 @@
         .region {
           .block {
             h2 {
-              font-size: 24px;
+              font-size: $font-size-title;
               color: #ffffff;
               font-family: $font-raleway;
               padding-bottom: 20px;
@@ -23,7 +23,7 @@
 
             .content {
               p {
-                font-size: 16px;
+                font-size: $font-size-text;
                 font-family: $font-lato;
                 font-weight: normal;
                 line-height: 1.21;
@@ -33,7 +33,7 @@
 
             .newsletter-block {
               .subscribe-text {
-                font-size: 16px;
+                font-size: $font-size-text;
                 font-family: $font-lato;
                 font-weight: normal;
                 line-height: 1.21;
@@ -87,7 +87,7 @@
             ul {
               li {
                 a {
-                  font-size: 16px;
+                  font-size: $font-size-text;
                   font-family: $font-lato;
                   font-weight: normal;
                   line-height: 1.21;
@@ -108,7 +108,7 @@
                     color: #ffffff;
                     border: 1px solid #ffffff;
                     border-radius: 50%;
-                    font-size: 16px;
+                    font-size: $font-size-text;
                     padding: 7px;
                     transition: 0.5s;
 
@@ -132,7 +132,7 @@
           .block {
             .content {
               p {
-                font-size: 14px;
+                font-size: $font-size-base;
                 font-family: $font-helvetica;
                 font-weight: 200;
                 line-height: 1.2;

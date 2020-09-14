@@ -15,13 +15,22 @@
     color: #fff;
 
     h2 {
-      font-size: 22px;
+      font-size: $font-size-title-sm;
+      font-family: $font-raleway;
+      font-weight: 600;
+      line-height: 1.18;
+    }
+    p{
+      font-size: $font-size-base;
+      font-family: $font-lato;
+      line-height: 1.77;
     }
 
     .arrow-btn {
       display: flex;
       justify-content: center;
       align-items: center;
+      font-size: $font-size-base;
       padding: 6px 35px;
       border-radius: 10px;
       background-color: $accent-color;
