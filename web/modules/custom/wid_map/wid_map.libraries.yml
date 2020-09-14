@@ -1,7 +1,8 @@
 d3js:
-  version: 6.1.1
+  version: 4.13.0
   js:
-    https://d3js.org/d3.v6.min.js: { type: external }
+    https://d3js.org/d3.v4.min.js: { type: external }
+    https://d3js.org/d3-geo-projection.v2.min.js: { type: external }
   dependencies:
     - core/jquery
     - core/jquery.once
