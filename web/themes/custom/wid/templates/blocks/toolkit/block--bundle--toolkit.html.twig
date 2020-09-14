@@ -1,0 +1,56 @@
+{% set classes = [
+  'block',
+  'block-' ~ configuration.provider|clean_class,
+  'block-' ~ plugin_id|clean_class
+] %}
+{% set contentClasses = [
+  'content'
+] %}
+<div class="container">
+  <div {{ attributes.addClass(classes) }}>
+    <div class="row">
+      <nav>
+        {% set vocabulary_trees = load_vocabulary_term('toolkit') %}
+        {% for vocabulary_tree in vocabulary_trees %}
+          <a href="#">{{ vocabulary_tree.name }}</a>
+        {% endfor %}
+      </nav>
+
+    </div>
+    <div class="row">
+      {{ title_prefix }}
+      {% if label %}
+        <h2{{ title_attributes }}>{{ label }}</h2>
+      {% endif %}
+      {{ title_suffix }}
+      {% block content %}
+        <div{{ content_attributes.addClass(contentClasses) }}>
+          <div>{{ content.body }}</div>
+        </div>
+        {% if content.field_toolkit_background_image %}
+          <img src="{{ file_url(content.field_toolkit_background_image.0['#item'].entity.uri.value) }}"
+               alt="{{ content.field_toolkit_background_image.0['#item'].alt }}">
+        {% endif %}
+      {% endblock %}
+    </div>
+    <div class="row">
+      <h2>Interactive step-by-step diagram</h2>
+      {% for vocabulary_tree in vocabulary_trees %}
+        <a href="#">{{ vocabulary_tree.name }}</a>
+      {% endfor %}
+    </div>
+    <div class="row">
+      <h2>Steps Descriptions</h2>
+      {% for vocabulary_tree in vocabulary_trees %}
+        <div>
+          <h2>{{ loop.index }} - {{ vocabulary_tree.name }}</h2>
+          {% set taxonomy_term = load_tax_term(vocabulary_tree.id) %}
+          {% autoescape false %}
+            {{ taxonomy_term.description.value }}
+          {% endautoescape %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
