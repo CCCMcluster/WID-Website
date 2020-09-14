@@ -14,6 +14,7 @@ use Drupal\file\Entity\File;
  * Extend Drupal's Twig_Extension class.
  */
 class CustomTwigExtension extends Twig_Extension {
+
   /**
    * Name of twig.
    */
@@ -26,9 +27,30 @@ class CustomTwigExtension extends Twig_Extension {
    */
   public function getFunctions() {
     $functions = [
+      new Twig_SimpleFunction('load_vocabulary_term', [$this, 'loadVocabularyTerm']),
       new Twig_SimpleFunction('media_file_url', [$this, 'mediaFileUrl']),
     ];
     return $functions;
+  }
+
+  /**
+   * Returns tree of the vocabulary.
+   *
+   * @param string $vid
+   *   Vid of the vocabulary.
+   *
+   * @return array
+   *   Tree of vocabulary.
+   */
+  public static function loadVocabularyTerm($vid) {
+    $terms = Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid);
+    foreach ($terms as $term) {
+      $term_data[] = [
+        'id' => $term->tid,
+        'name' => $term->name
+      ];
+    }
+    return $term_data;
   }
 
   /**
@@ -55,4 +77,5 @@ class CustomTwigExtension extends Twig_Extension {
     }
     return NULL;
   }
+
 }
