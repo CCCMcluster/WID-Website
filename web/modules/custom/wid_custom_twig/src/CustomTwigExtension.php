@@ -28,6 +28,7 @@ class CustomTwigExtension extends Twig_Extension {
   public function getFunctions() {
     $functions = [
       new Twig_SimpleFunction('load_vocabulary_term', [$this, 'loadVocabularyTerm']),
+      new Twig_SimpleFunction('load_tax_term', [$this, 'loadTaxTerm']),
       new Twig_SimpleFunction('media_file_url', [$this, 'mediaFileUrl']),
     ];
     return $functions;
@@ -51,6 +52,20 @@ class CustomTwigExtension extends Twig_Extension {
       ];
     }
     return $term_data;
+  }
+
+  /**
+   * Returns taxonomy term.
+   *
+   * @param string $tid
+   *   Tid of the taxonomy.
+   *
+   * @return array
+   *   Taxonomy term.
+   */
+  public static function loadTaxTerm($tid) {
+    $taxonomy_term = Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($tid);
+    return $taxonomy_term;
   }
 
   /**
