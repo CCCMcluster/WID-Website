@@ -1,6 +1,6 @@
 .views-element-container {
   text-align: center;
-  background: $color-yellow;
+  background: #e8edff;
   padding: 75px 0 100px;
 
   h2 {
@@ -8,7 +8,7 @@
     font-size: 24px;
     font-weight: 600;
     line-height: 1.18;
-    color: $color-blue;
+    color: $primary-color;
     background-color: #ffffff;
     display: inline-block;
     padding: 7px 75px;
@@ -16,15 +16,13 @@
     box-shadow: 0 3px 6px 0 rgba(59, 54, 54, 0.16);
   }
 
-  .view-content {
+  .partner-wrapper {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     margin-top: 70px;
 
     .partner-single {
-      width: 25%;
-
       a {
         img {
           height: 120px;

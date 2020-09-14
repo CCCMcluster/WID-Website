@@ -1,7 +1,10 @@
 #content {
   padding: 0;
 }
-.row{
+.container {
+  max-width: 90%;
+}
+.row {
   margin: 0;
 }
 
@@ -9,7 +12,7 @@
   #page {
     header {
       .bg-primary {
-        background: rgba(85, 108, 255, 0.6) !important;
+        background: $primary-color !important;
       }
 
       nav {
@@ -26,7 +29,7 @@
               transition: 0.4s;
 
               &:hover {
-                color: #0079C0 !important;
+                color: #0079c0 !important;
               }
             }
           }
