@@ -1,9 +1,11 @@
 #content {
   padding: 0;
 }
+
 .container {
   max-width: 90%;
 }
+
 .row {
   margin: 0;
 }
@@ -11,6 +13,10 @@
 #page-wrapper {
   #page {
     header {
+      #navbar-top {
+        display: none;
+      }
+
       .bg-primary {
         background: $primary-color !important;
       }
@@ -22,7 +28,7 @@
           li {
             a {
               font-family: $font-raleway;
-              font-size: 18px;
+              font-size: $font-size-base;
               font-weight: 600;
               line-height: 1.18;
               color: #ffffff !important;
@@ -53,6 +59,10 @@
                 box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
                 background-color: #ffffff;
               }
+            }
+
+            .form-actions {
+              display: none;
             }
           }
 
