@@ -6,31 +6,44 @@
 {% set contentClasses = [
   'content'
 ] %}
-<div class="container">
-  <div {{ attributes.addClass(classes) }}>
-    <div class="row">
-      {{ title_prefix }}
-      {% if label %}
-        <h2{{ title_attributes }}>{{ label }}</h2>
-      {% endif %}
-      {{ title_suffix }}
-      {% block content %}
-        <div{{ content_attributes.addClass(contentClasses) }}>
-          <div>{{ content.body }}</div>
-        </div>
-        {% if content.field_our_countries_report_image %}
-          <img
-            src="{{ file_url(content.field_our_countries_report_image.0['#item'].entity.uri.value | image_style('large')) }}"
-            alt="{{ content.field_our_countries_report_image.0['#item'].alt }}">
-        {% endif %}
-        {% if content.field_active_countries %}
-          <ul>
-            {% for active_country in content.field_active_countries|children %}
-              <li><a href="#">{{ active_country }}</a></li>
-            {% endfor %}
-          </ul>
-        {% endif %}
-      {% endblock %}
+<div class="our-countries-report-wrapper">
+  <div class="container">
+    <div {{ attributes.addClass(classes) }}>
+      <div class="row">
+        <div class="country-map-container">
+          <div class="country-report-container">
+              <div class="country-report-content">
+                  {{ title_prefix }}
+                  {% if label %}
+                    <h2{{ title_attributes }}>{{ label }}</h2>
+                  {% endif %}
+                  {{ title_suffix }}
+                  {% block content %}
+                  <div{{ content_attributes.addClass(contentClasses) }}>
+                    <div>{{ content.body }}</div>
+                  </div>
+              </div>
+              <div class="country-report-image">
+                {% if content.field_our_countries_report_image %}
+                  <img
+                    src="{{ file_url(content.field_our_countries_report_image.0['#item'].entity.uri.value) }}"
+                    alt="{{ content.field_our_countries_report_image.0['#item'].alt }}">
+                {% endif %}
+              </div>
+            </div>
+            <div class="map-container">
+              <h2>Visit countries where Women in Displacement is active</h2>
+              {% if content.field_active_countries %}
+                <ul>
+                  {% for active_country in content.field_active_countries|children %}
+                    <li><a href="#">{{ active_country }}</a></li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </div>
+          {% endblock %}
+          </div>
+      </div>
     </div>
   </div>
 </div>
