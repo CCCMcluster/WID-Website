@@ -13,19 +13,25 @@
 <div class="container">
   <div {{ attributes.addClass(classes) }}>
     <div class="row">
-          {{ title_prefix }}
-          {% if label %}
-            <h2{{ title_attributes }}>{{ label }}</h2>
-          {% endif %}
-          {{ title_suffix }}
-          {% block content %}
-            <div{{ content_attributes.addClass(contentClasses) }}>
-              <div>{{content.body}}</div>
+          <div class="global-report-wrapper">
+            <div class="global-report-container">
+              {{ title_prefix }}
+              {% if label %}
+                <h2{{ title_attributes }}>{{ label }}</h2>
+              {% endif %}
+              {{ title_suffix }}
+              {% block content %}
+                <div{{ content_attributes.addClass(contentClasses) }}>
+                  <div>{{content.body}} <p class="global-report-button"><a href="#">Visit our global reports page <i class="fa fa-arrow-right"></i></a></p></div>
+                </div>
             </div>
-            {% if content.field_global_report_image %}
-              <img src="{{ file_url(content.field_global_report_image.0['#item'].entity.uri.value | image_style('large')) }}"
-                   alt="{{ content.field_global_report_image.0['#item'].alt }}">
-            {% endif %}
+            <div class="global-report-image">
+              {% if content.field_global_report_image %}
+                <img src="{{ file_url(content.field_global_report_image.0['#item'].entity.uri.value) }}"
+                    alt="{{ content.field_global_report_image.0['#item'].alt }}">
+              {% endif %}
+            </div>
+          </div>
           {% endblock %}
     </div>
   </div>
