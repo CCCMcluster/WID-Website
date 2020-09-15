@@ -156,8 +156,21 @@
       .site-footer {
         .site-footer__top {
           flex-direction: column;
+
           .region {
             margin-top: 20px;
+          }
+        }
+
+        .site-footer__bottom {
+          .region {
+            .block {
+              .content {
+                p {
+                  width: 100%;
+                }
+              }
+            }
           }
         }
       }
@@ -171,8 +184,21 @@
       .site-footer {
         .site-footer__top {
           flex-direction: column;
+
           .region {
             margin-top: 20px;
+          }
+        }
+
+        .site-footer__bottom {
+          .region {
+            .block {
+              .content {
+                p {
+                  width: 100%;
+                }
+              }
+            }
           }
         }
       }
@@ -186,8 +212,21 @@
       .site-footer {
         .site-footer__top {
           flex-direction: column;
+
           .region {
             margin-top: 20px;
+          }
+        }
+
+        .site-footer__bottom {
+          .region {
+            .block {
+              .content {
+                p {
+                  width: 100%;
+                }
+              }
+            }
           }
         }
       }

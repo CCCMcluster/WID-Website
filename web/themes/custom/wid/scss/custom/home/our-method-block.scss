@@ -20,7 +20,8 @@
       font-weight: 600;
       line-height: 1.18;
     }
-    p{
+
+    p {
       font-size: $font-size-base;
       font-family: $font-lato;
       line-height: 1.77;
@@ -40,6 +41,31 @@
         margin-left: 15px;
         font-size: 14px;
       }
+    }
+  }
+}
+
+// Responsive
+@media (min-width: 320px) and (max-width: 480px) {
+  .our-method-container {
+    .our-method {
+      padding: 20px 5px;
+    }
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .our-method-container {
+    .our-method {
+      padding: 20px 5px;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .our-method-container {
+    .our-method {
+      padding: 20px 5px;
     }
   }
 }
