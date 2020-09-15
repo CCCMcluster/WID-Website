@@ -1,3 +1,22 @@
+.mission-wrapper {
+  text-align: center;
+  margin-top: 50px;
+
+  .mission-button {
+    font-family: $font-raleway;
+    font-size: $font-size-title-sm;
+    font-weight: 600;
+    line-height: 1.16;
+    color: $primary-color;
+    display: inline-block;
+    padding: 7px 75px;
+    border-radius: 40px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    background-color: #e8edff;
+    margin-bottom: 30px;
+  }
+}
+
 .our-mission-container {
   background-color: $primary-color;
   margin: 50px 0 50px 0;
@@ -20,7 +39,8 @@
       font-weight: 600;
       line-height: 1.18;
     }
-    p{
+
+    p {
       font-size: $font-size-base;
       font-family: $font-lato;
       line-height: 1.77;
@@ -40,6 +60,56 @@
         margin-left: 15px;
         font-size: 14px;
       }
+    }
+  }
+}
+
+
+// Responsive
+@media (min-width: 320px) and (max-width: 480px) {
+  .mission-wrapper {
+    margin-top: 0;
+
+    .mission-button {
+      padding: 12px 20px;
+    }
+  }
+
+  .our-mission-container {
+    .our-mission {
+      padding: 20px 5px;
+    }
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .mission-wrapper {
+    margin-top: 0;
+
+    .mission-button {
+      padding: 12px 20px;
+    }
+  }
+
+  .our-mission-container {
+    .our-mission {
+      padding: 20px 5px;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .mission-wrapper {
+    margin-top: 0;
+
+    .mission-button {
+      padding: 12px 20px;
+    }
+  }
+
+  .our-mission-container {
+    .our-mission {
+      padding: 20px 5px;
     }
   }
 }

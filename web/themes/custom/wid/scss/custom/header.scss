@@ -22,6 +22,14 @@
       }
 
       nav {
+        a {
+          img {
+            height: 75px;
+            width: auto;
+            object-fit: contain;
+          }
+        }
+
         .navbar-nav {
           margin-right: 100px;
 
@@ -35,7 +43,7 @@
               transition: 0.4s;
 
               &:hover {
-                color: #0079c0 !important;
+                color: #000 !important;
               }
             }
           }
@@ -68,6 +76,60 @@
 
           .form-actions {
             margin: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  #page-wrapper {
+    #page {
+      header {
+        nav {
+          a {
+            img {
+              height: 50px;
+              width: auto;
+              object-fit: contain;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  #page-wrapper {
+    #page {
+      header {
+        nav {
+          a {
+            img {
+              height: 50px;
+              width: auto;
+              object-fit: contain;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  #page-wrapper {
+    #page {
+      header {
+        nav {
+          a {
+            img {
+              height: 50px;
+              width: auto;
+              object-fit: contain;
+            }
           }
         }
       }

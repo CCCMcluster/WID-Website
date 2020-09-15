@@ -50,3 +50,20 @@
   line-height: 1.2;
   color: #ffffff;
 }
+
+/* Responsive */
+@media (min-width: 320px) and (max-width: 480px) {
+  .banner-wrapper .banner-image img {
+    height: 254px;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .banner-wrapper .banner-image img {
+    height: 254px;
+    width: 100%;
+    object-fit: cover;
+  }
+}

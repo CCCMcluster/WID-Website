@@ -7,7 +7,7 @@
     font-family: $font-raleway;
     font-size: $font-size-title-sm;
     font-weight: 600;
-    line-height: 1.18;
+    line-height: 1.16;
     color: $primary-color;
     background-color: #ffffff;
     display: inline-block;
@@ -28,6 +28,47 @@
           height: 120px;
           width: auto;
           object-fit: contain;
+        }
+      }
+    }
+  }
+}
+
+// Responsive
+@media (min-width: 320px) and (max-width: 480px) {
+  .views-element-container {
+    .partner-wrapper {
+      flex-direction: column;
+
+      .partner-single {
+        margin: 20px 0;
+
+        a {
+          img {
+            height: 100px;
+            width: auto;
+            object-fit: contain;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .views-element-container {
+    .partner-wrapper {
+      flex-direction: column;
+
+      .partner-single {
+        margin: 20px 0;
+
+        a {
+          img {
+            height: 100px;
+            width: auto;
+            object-fit: contain;
+          }
         }
       }
     }
