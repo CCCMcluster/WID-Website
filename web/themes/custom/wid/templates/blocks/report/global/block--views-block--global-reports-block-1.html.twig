@@ -15,7 +15,9 @@
           <h2{{ title_attributes }}>{{ label }}</h2>
         {% endif %}
         {{ title_suffix }}
-        {{ content }}
+        <div class="wid-scroll-content">
+          {{ content }}
+        </div>
       </div>
     </div>
   {% endblock %}
