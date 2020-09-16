@@ -30,6 +30,7 @@ class CustomTwigExtension extends Twig_Extension {
       new Twig_SimpleFunction('load_vocabulary_term', [$this, 'loadVocabularyTerm']),
       new Twig_SimpleFunction('load_tax_term', [$this, 'loadTaxTerm']),
       new Twig_SimpleFunction('media_file_url', [$this, 'mediaFileUrl']),
+      new Twig_SimpleFunction('media_file_type', [$this, 'mediaFileType']),
     ];
     return $functions;
   }
@@ -89,6 +90,32 @@ class CustomTwigExtension extends Twig_Extension {
     if ($file) {
       $url = $file->createFileUrl();
       return $url;
+    }
+    return NULL;
+  }
+
+  /**
+   * Returns the file type from a media entity.
+   *
+   * @param string $mid
+   *   The media entity target id.
+   * @param string $field
+   *   The media field.
+   *
+   * @return string
+   *   The file type.
+   */
+  public function mediaFileType($mid, $field = 'field_media_file') {
+    if (!$mid) {
+      return NULL;
+    }
+    $media = Media::load($mid);
+    $fid = $media->$field->target_id;
+    $file = File::load($fid);
+    if ($file) {
+      $type = $file->getFilename();
+      $ext = pathinfo($type, PATHINFO_EXTENSION);
+      return $ext;
     }
     return NULL;
   }

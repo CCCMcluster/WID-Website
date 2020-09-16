@@ -23,6 +23,7 @@
         "drupal/better_exposed_filters": "^5.0@beta",
         "drupal/bootstrap_barrio": "^5.0",
         "drupal/bootstrap_sass": "^5.0",
+        "drupal/conditional_fields": "^1.0@alpha",
         "drupal/console": "^1.0.2",
         "drupal/core": "^8.8.0",
         "drupal/core-composer-scaffold": "^8.8.0",
