@@ -1,0 +1,46 @@
+{% set classes = [
+  'block',
+  'block-' ~ configuration.provider|clean_class,
+  'block-' ~ plugin_id|clean_class
+] %}
+{% set contentClasses = [
+  'content'
+] %}
+<div class="container">
+  <div {{ attributes.addClass(classes) }}>
+    <div class="row">
+      {{ title_prefix }}
+      {% if label %}
+        <h2{{ title_attributes }}>{{ label }}</h2>
+      {% endif %}
+      {{ title_suffix }}
+      {% block content %}
+        <div{{ content_attributes.addClass(contentClasses) }}>
+          {{ content.body }}
+          {% if content.field_baseline_cover_image %}
+            <img
+              src="{{ file_url(content.field_baseline_cover_image.0['#item'].entity.uri.value | image_style('large')) }}"
+              alt="{{ content.field_baseline_cover_image.0['#item'].alt }}">
+          {% endif %}
+        </div>
+      {% endblock %}
+      <div>
+        <div>
+          {% set filename = content.field_baseline_document[0]['#media'].field_media_document.entity.filename.value %}
+          {% set fileCreationDate = content.field_baseline_document[0]['#media'].field_media_document.entity.created.value | date('m/d/Y') %}
+          <p>{{ filename }}</p>
+          <p>{{ fileCreationDate }}</p>
+        </div>
+
+        <div class="download">
+          {% set fileExtension = media_file_type(content.field_baseline_document['#items'][0].target_id, 'field_media_document') %}
+          <p>{{ fileExtension }}</p>
+          {% set document_url = file_url(content.field_baseline_document[0]['#media'].field_media_document.entity.uri.value) %}
+          <a href="{{ document_url }}" download>
+            <button>Download</button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
