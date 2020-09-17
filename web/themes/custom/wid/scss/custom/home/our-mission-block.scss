@@ -72,10 +72,13 @@
 
     .mission-button {
       padding: 12px 20px;
+      margin-bottom: 15px;
     }
   }
 
   .our-mission-container {
+    margin: 25px 0;
+
     .our-mission {
       padding: 20px 5px;
     }
@@ -95,6 +98,12 @@
     .our-mission {
       padding: 20px 5px;
     }
+
+    img {
+      height: 250px;
+      width: 100%;
+      object-fit: cover;
+    }
   }
 }
 
@@ -110,6 +119,26 @@
   .our-mission-container {
     .our-mission {
       padding: 20px 5px;
+    }
+
+    img {
+      height: 300px;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .our-mission-container {
+    .our-mission {
+      padding: 30px 50px;
+    }
+
+    img {
+      height: 350px;
+      width: 100%;
+      object-fit: cover;
     }
   }
 }
