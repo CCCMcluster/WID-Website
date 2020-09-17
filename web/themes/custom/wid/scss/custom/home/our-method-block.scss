@@ -48,6 +48,8 @@
 // Responsive
 @media (min-width: 320px) and (max-width: 480px) {
   .our-method-container {
+    margin: 25px 0;
+
     .our-method {
       padding: 20px 5px;
     }
@@ -59,6 +61,12 @@
     .our-method {
       padding: 20px 5px;
     }
+
+    img {
+      height: 250px;
+      width: 100%;
+      object-fit: cover;
+    }
   }
 }
 
@@ -66,6 +74,26 @@
   .our-method-container {
     .our-method {
       padding: 20px 5px;
+    }
+
+    img {
+      height: 300px;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .our-method-container {
+    .our-method {
+      padding: 30px 50px;
+    }
+
+    img {
+      height: 350px;
+      width: 100%;
+      object-fit: cover;
     }
   }
 }

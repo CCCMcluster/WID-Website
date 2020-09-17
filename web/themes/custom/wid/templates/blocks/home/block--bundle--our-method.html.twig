@@ -15,10 +15,10 @@
     <div class="row our-method-container">
       {% set alt_text = content.field_our_method_media[0]['#media'].thumbnail[0].alt %}
       {% set image_url = media_file_url(content.field_our_method_media[0]['#media'].mid[0].value) %}
-      <div class="col-sm-6 px-0">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 px-0">
         <img src="{{image_url}}" alt="{{alt_text}}" class="img-fluid w-100" />
       </div>
-      <div class="col-sm-6 our-method">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 our-method">
         <div class="our-method">
           {{ title_prefix }}
           {% if label %}
