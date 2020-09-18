@@ -17,7 +17,7 @@
 
       a {
         font-family: $font-lato;
-        font-size: 20px;
+        font-size: $font-size-text-alt;
         font-weight: normal;
         line-height: 1.2;
         color: $accent-alt-color;
@@ -76,7 +76,7 @@
 
     h2 {
       font-family: $font-raleway;
-      font-size: 20px;
+      font-size: $font-size-text-alt;
       font-weight: 600;
       line-height: 1.2;
       color: #ffffff;
@@ -219,7 +219,7 @@
 
     h2 {
       font-family: $font-raleway;
-      font-size: 20px;
+      font-size: $font-size-text-alt;
       font-weight: 600;
       line-height: 1.2;
       color: $primary-color;

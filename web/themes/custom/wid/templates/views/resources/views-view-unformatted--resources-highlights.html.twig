@@ -15,34 +15,26 @@
  * @see template_preprocess_views_view_unformatted()
  */
 #}
+
 {% if title %}
   <h3>{{ title }}</h3>
 {% endif %}
-<div class="container resources-highlights-wrapper">
-  <div class="row">
-    <div class="card">
-      <div class="resources-highlights-description">
-        <span data-quickedit-entity-id="taxonomy_term/33"></span>
-        {{ drupal_field('name', 'taxonomy_term', 33) }}
-        {{ drupal_field('description', 'taxonomy_term', 33) }}
-      </div>
-      <div class="row">
-        {% for key,row in rows %}
-          {% set resources_class = 'resources-highlights' ~ loop.index %}
-          {% set row_classes = [
-            default_row_class ? 'views-row', 'resource-highlights-content', resources_class,
-          ] %}
-          <div {{ row.attributes.addClass(row_classes) }}>
-            {% set entity = row.content['#row']._entity %}
-            <div class="resources-highlights-media">
-              {{ view.style_plugin.getField(key, 'field_resources_media') }}
+<div class="highlight-wrapper" style="background: url('https://homepages.cae.wisc.edu/~ece533/images/watch.png'); background-size:cover" alt="highlight">
+    <div class="container">
+        <div class="highlight-container">
+            <h2 class="highlight-title">{{ drupal_field('name', 'taxonomy_term', 33) }}</h2>
+            <div class="highlight-desc">
+                {{ drupal_field('description', 'taxonomy_term', 33) }} 
             </div>
-            <div class="resources-highlights-title">
-              {{ view.style_plugin.getField(key, 'title') }}
+            <div class="highlight-image-wrapper">
+                {% for key,row in rows %}
+                <div class="highlight-image-container {{ 'resources-highlights' ~ loop.index }}" >
+                    {{ view.style_plugin.getField(key, 'field_resources_media') }}
+                    <p>{{ view.style_plugin.getField(key, 'title') }}</p>
+                </div>
+                {% endfor %}
             </div>
-          </div>
-        {% endfor %}
-      </div>
+        </div>
     </div>
-  </div>
 </div>
+<hr class="hr-highlight">
