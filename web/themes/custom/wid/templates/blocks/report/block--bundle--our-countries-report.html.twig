@@ -33,6 +33,9 @@
             </div>
             <div class="map-container">
               <h2>Visit countries where Women in Displacement is active</h2>
+              <div class="report-map">
+                <img src="{{ directory }}/images/report-map.png" alt="report-map">
+              </div>
               {% if content.field_active_countries %}
                 <ul>
                   {% for active_country in content.field_active_countries|children %}

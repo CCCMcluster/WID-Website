@@ -1,11 +1,27 @@
+.home-map-wrapper{
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.4)
+  ),
+  url("../../../../../sites/default/files/images/wid-map-background.jpg");
+  text-align: center;
+}
+.home-map-wrapper h2{
+  font-family: "Raleway", sans-serif;;
+  font-size: 1.5em;
+  font-weight: 600;
+  line-height: 1.16;
+  background-color: #ffffff;
+  color: #556cff;
+  display: inline-block;
+  padding: 10px 75px;
+  margin: 50px 0 20px;
+  border-radius: 40px;
+  box-shadow: 0 3px 6px 0 rgba(59, 54, 54, 0.16);
+}
 #wid-map {
   position: relative;
-  background-image: linear-gradient(
-      to right,
-      rgba(0, 0, 0, 0.2),
-      rgba(0, 0, 0, 0.4)
-    ),
-    url("../../../../../sites/default/files/images/wid-map-background.jpg");
   background-size: cover;
   display: flex;
   flex-direction: row-reverse;

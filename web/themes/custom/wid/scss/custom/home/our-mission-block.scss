@@ -7,12 +7,12 @@
     font-size: $font-size-title-sm;
     font-weight: 600;
     line-height: 1.16;
-    color: $primary-color;
+    color: #ffffff;
     display: inline-block;
-    padding: 7px 75px;
-    border-radius: 40px;
+    padding: 10px 75px;
+    border-radius: 20px;
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-    background-color: #e8edff;
+    background-color: $primary-color;
     margin-bottom: 30px;
   }
 }
@@ -53,8 +53,8 @@
       font-size: $font-size-base;
       padding: 6px 35px;
       border-radius: 10px;
-      background-color: $accent-color;
-      color: #fff;
+      background-color:  #e8edff;
+      color: $primary-color;
 
       i {
         margin-left: 15px;
@@ -78,6 +78,8 @@
 
   .our-mission-container {
     margin: 25px 0;
+    flex-direction: column-reverse;
+    border-radius: 0;
 
     .our-mission {
       padding: 20px 5px;
@@ -95,6 +97,8 @@
   }
 
   .our-mission-container {
+    flex-direction: column-reverse;
+    border-radius: 0;
     .our-mission {
       padding: 20px 5px;
     }
@@ -117,6 +121,8 @@
   }
 
   .our-mission-container {
+    flex-direction: column-reverse;
+    border-radius: 0;
     .our-mission {
       padding: 20px 5px;
     }
@@ -131,6 +137,8 @@
 
 @media (min-width: 1025px) and (max-width: 1200px) {
   .our-mission-container {
+    flex-direction: column-reverse;
+    border-radius: 0;
     .our-mission {
       padding: 30px 50px;
     }

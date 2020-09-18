@@ -27,13 +27,13 @@
   height: 50px;
 }
 .banner-1 .banner-desc {
-  background-color: #eabf4e;
+  background-color: #9c1de7;
 }
 .banner-2 .banner-desc {
   background-color: #556cff;
 }
 .banner-3 .banner-desc {
-  background-color: #eabf4e;
+  background-color: #9c1de7;
 }
 .banner-4 .banner-desc {
   background-color: #556cff;
@@ -50,6 +50,28 @@
   line-height: 1.2;
   color: #ffffff;
 }
+
+.latest-news-features-block .card-news .card-content{
+  overflow: auto;
+}
+
+.latest-news-features-block .card-news a{
+  margin: 25px 0 0;
+}
+
+.latest-news-features-block .card-news a span{
+  padding: 5px 20px;
+  border-radius: 10px;
+}
+
+.latest-news-features-block .card-news a span i{
+  margin-left: 15px;
+}
+
+.latest-news-features-block .card-news {
+  flex-direction: column;
+}
+
 
 /* Responsive */
 @media (min-width: 320px) and (max-width: 480px) {

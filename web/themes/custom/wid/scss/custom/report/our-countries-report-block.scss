@@ -3,8 +3,10 @@
   justify-content: center;
   align-items: center;
   padding: 100px 0;
-  border: solid 1px #707070;
-  background-color: rgba(0, 0, 0, 0.35);
+  background-image: url("../../../../../../themes/custom/wid/images/country-report-background.png");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
 
   .country-map-container {
     .country-report-container {
@@ -57,6 +59,10 @@
       padding: 75px 0;
       text-align: center;
       border-radius: 0 0 20px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
 
       h2 {
         display: inline-block;
@@ -69,6 +75,15 @@
         border-radius: 40px;
         padding: 10px 40px;
         margin-bottom: 75px;
+      }
+
+      .report-map{
+        margin: 0 0 50px;
+        img{
+          height: 350px;
+          width: auto;
+          object-fit: contain;
+        }
       }
 
       ul {
