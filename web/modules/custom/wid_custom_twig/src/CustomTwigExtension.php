@@ -9,6 +9,8 @@ use Twig_Extension;
 use Drupal\node\Entity\Node;
 use Drupal\media\Entity\Media;
 use Drupal\file\Entity\File;
+use Drupal\block_content\Entity\BlockContent;
+use Drupal\block\Entity\Block;
 
 /**
  * Extend Drupal's Twig_Extension class.
@@ -27,10 +29,17 @@ class CustomTwigExtension extends Twig_Extension {
    */
   public function getFunctions() {
     $functions = [
-      new Twig_SimpleFunction('load_vocabulary_term', [$this, 'loadVocabularyTerm']),
+      new Twig_SimpleFunction('load_vocabulary_term', [
+        $this,
+        'loadVocabularyTerm',
+      ]),
       new Twig_SimpleFunction('load_tax_term', [$this, 'loadTaxTerm']),
       new Twig_SimpleFunction('media_file_url', [$this, 'mediaFileUrl']),
       new Twig_SimpleFunction('media_file_type', [$this, 'mediaFileType']),
+      new Twig_SimpleFunction('get_social_media_links', [
+        $this,
+        'getSocialMediaLinks',
+      ]),
     ];
     return $functions;
   }
@@ -45,11 +54,13 @@ class CustomTwigExtension extends Twig_Extension {
    *   Tree of vocabulary.
    */
   public static function loadVocabularyTerm($vid) {
-    $terms = Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid);
+    $terms = Drupal::entityTypeManager()
+      ->getStorage('taxonomy_term')
+      ->loadTree($vid);
     foreach ($terms as $term) {
       $term_data[] = [
         'id' => $term->tid,
-        'name' => $term->name
+        'name' => $term->name,
       ];
     }
     return $term_data;
@@ -65,7 +76,9 @@ class CustomTwigExtension extends Twig_Extension {
    *   Taxonomy term.
    */
   public static function loadTaxTerm($tid) {
-    $taxonomy_term = Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($tid);
+    $taxonomy_term = Drupal::entityTypeManager()
+      ->getStorage('taxonomy_term')
+      ->load($tid);
     return $taxonomy_term;
   }
 
@@ -118,6 +131,34 @@ class CustomTwigExtension extends Twig_Extension {
       return $ext;
     }
     return NULL;
+  }
+
+  /**
+   * Returns social media links.
+   *
+   * @param string $block_id
+   *   Block ID.
+   *
+   * @return array
+   *   List of social media links.
+   */
+  public function getSocialMediaLinks($block_id) {
+    $block = Block::load($block_id);
+    $social_media = [];
+    if ($block) {
+      $platforms = $block->get('settings')['platforms'];
+      $link_attributes = $block->get('settings')['link_attributes'];
+      foreach ($platforms as $platform => $platform_detail) {
+        if (!empty($platform_detail['value'])) {
+          $platform_detail['target'] = $link_attributes['target'];
+          $social_media[$platform] = $platform_detail;
+        }
+      }
+      return $social_media;
+    }
+    else {
+      return NULL;
+    }
   }
 
 }
