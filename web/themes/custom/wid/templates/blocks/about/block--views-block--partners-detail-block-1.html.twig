@@ -1,0 +1,23 @@
+{% set classes = [
+  'block',
+  'our-partners-block',
+  'block-' ~ configuration.provider|clean_class,
+  'block-' ~ plugin_id|clean_class,
+] %}
+
+<div{{ attributes.addClass(classes) }} data-title="{{ label }}">
+  {% block content %}
+    <div{{ content_attributes.addClass('content') }}>
+      <div class="container">
+        {{ title_prefix }}
+        {% if label %}
+          <h2{{ title_attributes }}>{{ label }}</h2>
+        {% endif %}
+        {{ title_suffix }}
+        <div class="about-our-partners">
+          {{ content }}
+        </div>
+      </div>
+    </div>
+  {% endblock %}
+</div>
