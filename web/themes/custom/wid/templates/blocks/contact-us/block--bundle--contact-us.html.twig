@@ -1,0 +1,85 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - content: The content of this block.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ */
+#}
+{% set classes = [
+  'block',
+  'block-' ~ configuration.provider|clean_class,
+  'block-' ~ plugin_id|clean_class,
+  'contact-us'
+] %}
+{% set contentClasses = [
+  'content'
+] %}
+<div class="container">
+  <h1>About</h1>
+  <div {{ attributes.addClass(classes) }}>
+    <div class="row">
+      {{ title_prefix }}
+      {% if label %}
+        <h2{{ title_attributes }}>{{ label }}</h2>
+      {% endif %}
+      {{ title_suffix }}
+      {% block content %}
+      {{ content.body }}
+      <div class="about-us-background-image">
+        {% if content.field_contact_us_background %}
+          <img src="{{ file_url(content.field_contact_us_background.0['#item'].entity.uri.value) }}"
+               alt="{{ content.field_contact_us_background.0['#item'].alt }}">
+        {% endif %}
+      </div>
+      <div class="contact-link">
+        <ul>
+          {% if content.field_faq_link %}
+            <li>
+              <a href="{{ content.field_faq_link.0['#url'] }}" target="_blank">
+                <span>
+                  Ask us question
+                  <i class="fa fa-arrow-right"></i>
+                </span>
+              </a>
+            </li>
+          {% endif %}
+          {% endblock %}
+          {% set social_media_links = get_social_media_links('socialmedialinks') %}
+          {% if social_media_links %}
+            {% for platform, platform_detail in social_media_links %}
+              <li>
+                <a class="social-media-link-icon--{{ platform }}" href="{{ platform_detail.url }}"
+                   target="{{ platform_detail.target }}">
+                  <span class="social-media-platform-{{ platform }}">
+                    {{ platform_detail.description }}
+                    <i class="fa fa-arrow-right"></i>
+                  </span>
+                </a>
+              </li>
+            {% endfor %}
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
