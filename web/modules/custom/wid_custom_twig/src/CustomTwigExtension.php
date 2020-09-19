@@ -9,7 +9,6 @@ use Twig_Extension;
 use Drupal\node\Entity\Node;
 use Drupal\media\Entity\Media;
 use Drupal\file\Entity\File;
-use Drupal\block_content\Entity\BlockContent;
 use Drupal\block\Entity\Block;
 
 /**
@@ -145,12 +144,38 @@ class CustomTwigExtension extends Twig_Extension {
   public function getSocialMediaLinks($block_id) {
     $block = Block::load($block_id);
     $social_media = [];
+    $host = Drupal::request()->getHost();
+    $social_media_platforms = [
+      'rss' => $host . '/',
+      'email' => 'mailto:',
+      'youtube_channel' => 'https://www.youtube.com/channel/',
+      'website' => '',
+      'instagram' => 'https://www.instagram.com/',
+      'vimeo' => 'https://www.vimeo.com/',
+      'bitbucket' => 'https://bitbucket.org/',
+      'drupal' => 'https://www.drupal.org/u/',
+      'tumblr' => '',
+      'contact' => $host . '/',
+      'behance' => 'https://www.behance.net/',
+      'flickr' => 'https://www.flickr.com/photos/',
+      'linkedin' => 'https://www.linkedin.com/',
+      'twitter' => 'https://www.twitter.com/',
+      'xing' => 'https://www.xing.com/',
+      'youtube' => 'https://www.youtube.com/',
+      'pinterest' => 'https://www.pinterest.com/',
+      'whatsapp' => 'https://api.whatsapp.com/send?phone=',
+      'vkontakte' => 'https://vk.com/',
+      'facebook' => 'https://www.facebook.com/',
+      'googleplus' => 'https://plus.google.com/',
+      'slideshare' => 'https://www.slideshare.net/',
+    ];
     if ($block) {
       $platforms = $block->get('settings')['platforms'];
       $link_attributes = $block->get('settings')['link_attributes'];
       foreach ($platforms as $platform => $platform_detail) {
         if (!empty($platform_detail['value'])) {
           $platform_detail['target'] = $link_attributes['target'];
+          $platform_detail['url'] = $social_media_platforms[$platform] . trim($platform_detail['value']);
           $social_media[$platform] = $platform_detail;
         }
       }

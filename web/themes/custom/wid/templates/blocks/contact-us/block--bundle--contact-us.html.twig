@@ -44,19 +44,42 @@
       {% endif %}
       {{ title_suffix }}
       {% block content %}
-        {{ content.body }}
-        <div class="about-us-background-image">
-          {% if content.field_contact_us_background %}
-            <img src="{{ file_url(content.field_contact_us_background.0['#item'].entity.uri.value) }}"
-                 alt="{{ content.field_contact_us_background.0['#item'].alt }}">
-          {% endif %}
-        </div>
-        <div>
+      {{ content.body }}
+      <div class="about-us-background-image">
+        {% if content.field_contact_us_background %}
+          <img src="{{ file_url(content.field_contact_us_background.0['#item'].entity.uri.value) }}"
+               alt="{{ content.field_contact_us_background.0['#item'].alt }}">
+        {% endif %}
+      </div>
+      <div class="contact-link">
+        <ul>
           {% if content.field_faq_link %}
-            <a href="{{ content.field_faq_link.0['#url'] }}" target="_blank">Ask us question</a>
+            <li>
+              <a href="{{ content.field_faq_link.0['#url'] }}" target="_blank">
+                <span>
+                  Ask us question
+                  <i class="fa fa-arrow-right"></i>
+                </span>
+              </a>
+            </li>
           {% endif %}
-        </div>
-      {% endblock %}
+          {% endblock %}
+          {% set social_media_links = get_social_media_links('socialmedialinks') %}
+          {% if social_media_links %}
+            {% for platform, platform_detail in social_media_links %}
+              <li>
+                <a class="social-media-link-icon--{{ platform }}" href="{{ platform_detail.url }}"
+                   target="{{ platform_detail.target }}">
+                  <span class="social-media-platform-{{ platform }}">
+                    {{ platform_detail.description }}
+                    <i class="fa fa-arrow-right"></i>
+                  </span>
+                </a>
+              </li>
+            {% endfor %}
+          {% endif %}
+        </ul>
+      </div>
     </div>
   </div>
 </div>
