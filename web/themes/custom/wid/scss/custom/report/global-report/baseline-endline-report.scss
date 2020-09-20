@@ -1,0 +1,76 @@
+.card {
+    border: none;
+    border-radius: 15px;
+}
+
+.resource-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 4px 0 rgba(0, 0, 0, 0.19);
+
+    .resource-image {
+      width:100%;
+      height: 150px;
+      object-fit: cover;
+      border-top-left-radius:15px;
+      border-top-right-radius:15px;
+    }
+
+    .resource-title {
+        text-align: center;
+        color: $primary-color;
+        font-size: $font-size-title;
+    }
+
+    .resource-description {
+        text-align: center;
+        font-size: $font-size-xs;
+        color: $primary-color;
+    }
+
+    .resource-file-content {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      background-color:  #e8edff;
+      border-radius: 7px;
+      box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 4px 0 rgba(0, 0, 0, 0.19);
+
+        .col-sm-7 {
+            .resource-file-name {
+                color: $primary-color;
+                font-size: $font-size-base;
+            }
+
+            .resource-file-date-content {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-start;
+                color: $accent-color;
+                font-size:$font-size-sm;
+            }
+        }
+
+        .col-sm-5 {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: flex-end;
+
+            .extension-icon {
+                height: 30px;
+                width: auto;
+            }
+
+            .download-button {
+                text-decoration: none;
+                font-size: $font-size-xs;
+                padding: 6px 10px;
+                border-radius: 10px;
+                background-color: $accent-color;
+                color: $white;
+            }
+        }
+    }
+}

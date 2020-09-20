@@ -8,36 +8,39 @@
 ] %}
 <div class="container">
   <div {{ attributes.addClass(classes) }}>
-    <div class="row">
-      {{ title_prefix }}
-      {% if label %}
-        <h2{{ title_attributes }}>{{ label }}</h2>
-      {% endif %}
-      {{ title_suffix }}
+    <div class="card resource-card col-sm m-2 py-3">
       {% block content %}
         <div{{ content_attributes.addClass(contentClasses) }}>
-          {{ content.body }}
           {% if content.field_baseline_cover_image %}
             <img
+              class="card-img-top resource-image"
               src="{{ file_url(content.field_baseline_cover_image.0['#item'].entity.uri.value | image_style('large')) }}"
               alt="{{ content.field_baseline_cover_image.0['#item'].alt }}">
           {% endif %}
+          {{ title_prefix }}
+            {% if label %}
+              <h4 class="resource-title py-3" {{ title_attributes }}>{{ label }}</h2>
+            {% endif %}
+          {{ title_suffix }}
+          <div class="resource-description px-1"> {{ content.body }} </div>
         </div>
       {% endblock %}
-      <div>
-        <div>
+      <div class="resource-file-content mx-4 my-3 px-1 py-2">
+        <div class="col-sm-7">
           {% set filename = content.field_baseline_document[0]['#media'].field_media_document.entity.filename.value %}
           {% set fileCreationDate = content.field_baseline_document[0]['#media'].field_media_document.entity.created.value | date('m/d/y') %}
-          <p>{{ filename }}</p>
-          <p>{{ fileCreationDate }}</p>
+          <h6 class="resource-file-name">{{ filename }}</h6>
+          <div class="resource-file-date-content">
+            <div><i class="calender-icon fa fa-calendar-o"></i></div>
+            <div class="pl-3">{{ fileCreationDate }}</div>
+          </div>
         </div>
-
-        <div class="download">
+        <div class="col-sm-5">
           {% set fileExtension = media_file_type(content.field_baseline_document['#items'][0].target_id, 'field_media_document') %}
-          <p>{{ fileExtension }}</p>
+          <img class="extension-icon mb-1 mr-3" src="{{ directory }}/images/icons/{{ fileExtension }}.svg" alt={{ fileExtension }} />
           {% set document_url = file_url(content.field_baseline_document[0]['#media'].field_media_document.entity.uri.value) %}
-          <a href="{{ document_url }}" download>
-            <button>Download</button>
+          <a class="download-button" href="{{ document_url }}" download>
+            Download
           </a>
         </div>
       </div>

@@ -30,10 +30,8 @@
 {% elseif view.field.field_attachment_type.original_value == 'Link' %}
   <div>
     <a href="{{ row._entity.field_report_link[0].uri }}" target="_blank">
-      <button>
-        {{ row._entity.field_report_link[0].title }}
-        <i class="fa fa-external-link"></i>
-      </button>
+      {{ row._entity.field_report_link[0].title }}
+      <i class="fa fa-external-link"></i>
     </a>
   </div>
 {% endif %}
