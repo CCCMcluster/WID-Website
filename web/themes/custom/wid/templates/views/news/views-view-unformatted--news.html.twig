@@ -1,0 +1,58 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+
+<hr class="hr-news">
+
+<div class="latest-update-wrapper">
+  {% block content %}
+    <div class="container">
+      <div class="latest-update-container">
+        {% if title %}
+          <h2 class="latest-update-main-title">{{ title }}</h2>
+        {% else %}
+          <h2 class="latest-update-main-title">Latest Update</h2>
+        {% endif %}
+        <div class="latest-update-card-container">
+          <div class="latest-update-cards">
+            {% for row in rows %}
+              {% set entity = row.content['#row']._entity %}
+              {% set row_classes = [
+                default_row_class ? 'views-row',
+              ] %}
+              <div class="single-card">
+                {% set title = entity.title.value %}
+                {% set text = entity.body.summary |render|striptags %}
+                {% set news_created_date = entity.created.value | date('m/d/y') %}
+                {% set news_image_url = file_url(entity.field_featured_media.entity.field_media_image.entity.fileuri | image_style('large')) %}
+                {% set news_image_alt = entity.field_featured_media.entity.field_media_image.alt %}
+                <img src="{{ news_image_url }}" alt="{{ news_image_alt }}"/>
+                <h2>{{ title }}</h2>
+                <p>
+                  {% autoescape false %}{{ text|length > 80 ? text|slice(0, 80) : text }}{% endautoescape %}
+                </p>
+                <span>{{ news_created_date }}</span>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endblock %}
+</div>
+
+<hr class="hr-news">
