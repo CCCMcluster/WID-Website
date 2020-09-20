@@ -4,6 +4,12 @@
 .latest-news-features-block {
   padding: 0 0 50px;
 }
+.featured-news {
+  padding-left: 0 !important;
+}
+.latest-news {
+  padding-right: 0 !important;
+}
 .featured-news .col-md-3,
 .featured-news .col-md-4,
 .featured-news .col-md-8,
