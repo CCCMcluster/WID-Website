@@ -1,118 +1,133 @@
-.block-region-bottom {
-    background-color: $white;
-    padding: 80px 0; 
-    
-    .views-element-container {
-        background-color: $accent-color !important;
-        border-radius: 10px;
+.our-global-report-block {
+    background-color: $accent-color !important;
+    border-radius: 10px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
 
-        .wid-scroll-content {
-            margin: 40px 0;
-            height: 530px;
-            padding-right: 15px;
-            overflow: hidden;
-            overflow-y: scroll;
+    .wid-scroll-content {
+        margin: 40px 0;
+        height: 530px;
+        padding-right: 15px;
+        overflow: hidden;
+        overflow-y: scroll;
 
-            &::-webkit-scrollbar {
-                width: 15px;
+        &::-webkit-scrollbar {
+            width: 15px;
+        }
+        &::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        &::-webkit-scrollbar-thumb {
+            border-radius: 1rem;
+            border: 1px solid #707070;
+            background-color: $white;
+        }
+
+        .views-row {
+            position: relative;
+            display: flex;
+            background-color: $white;
+            border-radius: 10px;
+            margin-bottom: 17px;
+            height: 160px;
+            width: 100%;
+            box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.16);
+
+            .views-field-field-report-image {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: auto;
+
+                .field-content {
+                    img {
+                        object-fit: cover;
+                        height: 160px !important;
+                        width: 180px !important;
+                        border-top-left-radius: 10px;
+                        border-bottom-left-radius: 10px;
+                    }
+                }
             }
-            &::-webkit-scrollbar-track {
-                background: transparent;
+
+            .views-field-title {
+                position: absolute;
+                left: 200px;
+                top: 10px;
+
+                .field-content {
+                    a{
+                        font-size: $font-size-text;
+                        color: $primary-color;
+                        font-weight: 500;
+                    }
+                }
             }
-            &::-webkit-scrollbar-thumb {
-                border-radius: 1rem;
-                border: 1px solid #707070;
-                background-color: $white;
+
+            .views-field-created {
+                position: absolute;
+                left: 200px;
+                bottom: 10px;
+
+                span {
+                    font-size: $font-size-sm;
+                    color: $accent-color;
+                }
             }
 
-            .views-row {
-                position: relative;
-                display: flex;
-                background-color: $white;
-                border-radius: 10px;
-                margin-bottom: 17px;
-                height: 160px;
-                width: 100%;
-                box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.16);
-
-                .views-field-field-report-image {
-                    position: absolute;
-                    left: 0;
-                    top: 0;
-                    width: auto;
-
-                    .field-content {
-                        img {
-                            object-fit: cover;
-                            height: 160px !important;
-                            width: 180px !important;
-                            border-top-left-radius: 10px;
-                            border-bottom-left-radius: 10px;
-                        }
+            .views-field-body {
+                .field-content {
+                    p {
+                        text-align: left;
+                        position: absolute;
+                        top: 45px;
+                        left: 200px;
+                        font-size: $font-size-xs;
+                        color: $primary-color;
+                        width: 400px;
+                        height: 75px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 2;
+                        line-clamp: 2;
+                        -webkit-box-orient: vertical;
                     }
                 }
+            }
 
-                .views-field-title {
-                    position: absolute;
-                    left: 200px;
-                    top: 10px;
+            .views-field-field-attachment-type {
+                position: absolute;
+                right: 10px;
+                bottom: 10px;
 
-                    .field-content {
-                        a{
-                            font-size: $font-size-text;
-                            color: $primary-color;
-                            font-weight: 500;
-                        }
-                    }
-                }
+                .field-content {
+                    div {
+                        padding: 10px;
+                        flex: 1;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-around;
 
-                .views-field-created {
-                    position: absolute;
-                    left: 200px;
-                    bottom: 10px;
+                        a {
+                            margin-top: 20px;
+                            display: inline-block;
+                            text-decoration: none;
+                            padding: 3px 10px;
+                            border-radius: 40px;
+                            box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+                            background-color: $accent-color;
+                            color: $white;
+                            text-decoration: none;
+                            cursor: pointer;
+                            transition: 0.4s;
+                            &:hover {
+                                color: $accent-color;
+                                background-color:$white;
+                            }
 
-                    span {
-                        font-size: $font-size-sm;
-                        color: $accent-color;
-                    }
-                }
-
-                .views-field-body {
-                    .field-content {
-                        p {
-                            text-align: left;
-                            position: absolute;
-                            top: 45px;
-                            left: 200px;
-                            font-size: $font-size-xs;
-                            color: $primary-color;
-                            width: 400px;
-                            height: 75px;
-                            overflow: hidden;
-                            text-overflow: ellipsis;
-                            display: -webkit-box;
-                            -webkit-line-clamp: 2;
-                            line-clamp: 2;
-                            -webkit-box-orient: vertical;
-                        }
-                    }
-                }
-
-                .views-field-field-attachment-type {
-                    position: absolute;
-                    right: 10px;
-                    bottom: 10px;
-
-                    .field-content {
-                        div {
-                            padding: 10px;
-                            flex: 1;
-                            display: flex;
-                            flex-direction: column;
-                            justify-content: space-around;
-
-                            a {
-                                margin-top: 20px;
+                            button {
                                 display: inline-block;
                                 text-decoration: none;
                                 padding: 3px 10px;
@@ -120,28 +135,11 @@
                                 box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
                                 background-color: $accent-color;
                                 color: $white;
-                                text-decoration: none;
                                 cursor: pointer;
                                 transition: 0.4s;
                                 &:hover {
                                     color: $accent-color;
-                                    background-color:$white;
-                                }
-
-                                button {
-                                    display: inline-block;
-                                    text-decoration: none;
-                                    padding: 3px 10px;
-                                    border-radius: 40px;
-                                    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-                                    background-color: $accent-color;
-                                    color: $white;
-                                    cursor: pointer;
-                                    transition: 0.4s;
-                                    &:hover {
-                                        color: $accent-color;
-                                        background-color: $white;
-                                    }
+                                    background-color: $white;
                                 }
                             }
                         }
