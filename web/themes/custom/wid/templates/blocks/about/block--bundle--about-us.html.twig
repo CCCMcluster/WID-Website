@@ -1,29 +1,26 @@
 {% set classes = [
   'block',
   'block-' ~ configuration.provider|clean_class,
-  'block-' ~ plugin_id|clean_class
+  'block-' ~ plugin_id|clean_class,
+  'about-us-wrapper'
 ] %}
 {% set contentClasses = [
   'content'
 ] %}
-<div class="container">
-  <h1>About</h1>
-  <div {{ attributes.addClass(classes) }}>
-    <div class="row">
-      {{ title_prefix }}
-      {% if label %}
-        <h2{{ title_attributes }}>{{ label }}</h2>
-      {% endif %}
-      {{ title_suffix }}
-      {% block content %}
-        {{ content.body }}
-        <div class="about-us-background-image">
-          {% if content.field_about_us_background_image %}
-            <img src="{{ file_url(content.field_about_us_background_image.0['#item'].entity.uri.value) }}"
-                 alt="{{ content.field_about_us_background_image.0['#item'].alt }}">
+<div {{ attributes.addClass(classes) }}>
+  <div class="about-header-block">
+    {% block content %}
+      {% if content.field_about_us_background_image %}
+        {% set our_country_report_background_image = file_url(content.field_about_us_background_image.0['#item'].entity.uri.value) %}
+        <div class="about-us-background-image" style="background-image: url('{{ our_country_report_background_image }}');">
+          <h1>About</h1>
+          {{ title_prefix }}
+          {% if label %}
+            <h2 {{ title_attributes }}>{{ label }}</h2>
           {% endif %}
         </div>
-      {% endblock %}
-    </div>
+        {{ content.body }}
+      {% endif %}
+    {% endblock %}
   </div>
 </div>
