@@ -3,7 +3,6 @@
   justify-content: center;
   align-items: center;
   padding: 100px 0;
-  background-image: url("../../../../../../themes/custom/wid/images/country-report-background.png");
   background-size: cover;
   background-position: center;
   width: 100%;
@@ -77,9 +76,10 @@
         margin-bottom: 75px;
       }
 
-      .report-map{
+      .report-map {
         margin: 0 0 50px;
-        img{
+
+        img {
           height: 350px;
           width: auto;
           object-fit: contain;
