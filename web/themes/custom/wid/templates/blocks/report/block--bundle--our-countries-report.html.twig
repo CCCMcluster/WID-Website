@@ -6,7 +6,7 @@
 {% set contentClasses = [
   'content'
 ] %}
-{% set our_country_report_background_image = file_url(content.field_our_country_report_backgro.0['#item'].entity.uri.value) %}
+{% set our_country_report_background_image = file_url(content.field_our_country_report_bg_img.0['#item'].entity.uri.value) %}
 <div class="our-countries-report-wrapper" style="background-image: url('{{ our_country_report_background_image }}');">
   <div class="container">
     <div {{ attributes.addClass(classes) }}>

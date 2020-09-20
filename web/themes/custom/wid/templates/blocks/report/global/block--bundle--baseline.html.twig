@@ -6,6 +6,30 @@
 {% set contentClasses = [
   'content'
 ] %}
+
+{% set our_country_report_block_id = 12 %}
+{% set our_country_report_description = drupal_field('body', 'block_content', our_country_report_block_id)['#items'].0.value %}
+{% set active_countries = drupal_field('field_active_countries', 'block_content', our_country_report_block_id) %}
+{% set our_country_report_bg_img = drupal_field('field_our_country_report_bg_img', 'block_content', our_country_report_block_id) %}
+{% set our_country_report_bg_img_url = file_url(our_country_report_bg_img['#items'].1.entity.uri.value) %}
+<div style="background-image: url('{{ our_country_report_bg_img_url }}');">
+  {% if active_countries %}
+    <ul>
+      {% for active_country in active_countries|children %}
+        <li><a href="#">{{ active_country }}</a></li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  <div>
+    <h4>
+      {{ drupal_entity('block_content', our_country_report_block_id)['#block_content'].info.value }}
+    </h4>
+    <p>
+      {% autoescape false %}{{ our_country_report_description }}{% endautoescape %}
+    </p>
+  </div>
+</div>
+
 <div class="container">
   <div {{ attributes.addClass(classes) }}>
     <div class="card resource-card col-sm m-2 py-3">
@@ -47,7 +71,7 @@
       </div>
     </div>
     <div class="card resource-card col-sm m-2 py-3">
-      {% set endline_block_id = 14  %}
+      {% set endline_block_id = 14 %}
       {% set description = drupal_field('body', 'block_content', endline_block_id)['#items'].0.value|render|striptags %}
       {% set endline_cover_image = drupal_field('field_endline_cover_image', 'block_content', endline_block_id) %}
       {% if endline_cover_image %}
