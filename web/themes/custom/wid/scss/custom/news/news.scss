@@ -1,3 +1,9 @@
+.view-news {
+  .row {
+    display: block;
+  }
+}
+
 .event-wrapper {
   background: url('https://homepages.cae.wisc.edu/~ece533/images/watch.png');
   background-size: cover;
@@ -155,7 +161,7 @@
       text-align: left;
       border-radius: 40px;
       box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.16);
-      background-color: #f2d588;
+      background-color: $accent-alt-light-color;
       padding: 100px 50px;
       margin: 50px 0;
       display: flex;
@@ -164,7 +170,6 @@
 
       .latest-update-cards {
         display: flex;
-        align-items: center;
         gap: 20px;
         flex-wrap: wrap;
 
@@ -173,7 +178,6 @@
           box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
           border-radius: 20px;
           display: flex;
-          justify-content: center;
           flex-direction: column;
           width: calc(33.33% - 20px);
 
@@ -337,7 +341,7 @@
 
   .social-media-container {
     box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.16);
-    background-color: rgba(242, 213, 136, 0.9);
+    background-color: #d888f9;
     border-radius: 40px;
     position: relative;
 
@@ -377,6 +381,7 @@
         text-align: center;
         color: #ffffff;
         width: 85%;
+        margin: 0 auto;
       }
     }
 
@@ -558,6 +563,116 @@
             }
           }
         }
+      }
+    }
+  }
+}
+
+
+// Responsive
+@media (min-width: 320px) and (max-width: 480px) {
+  .latest-update-wrapper {
+    .latest-update-container {
+      .latest-update-card-container {
+        .latest-update-cards {
+          flex-direction: column;
+
+          .single-card {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .social-media-wrapper {
+    .social-media-container {
+      background-color: transparent;
+
+      .social-media-info-container {
+        width: 100%;
+
+        h2 {
+          font-size: $font-size-text;
+          padding: 7px 30px;
+        }
+      }
+
+      .social-media {
+        flex-direction: column;
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .latest-update-wrapper {
+    .latest-update-container {
+      .latest-update-card-container {
+        .latest-update-cards {
+          flex-direction: column;
+
+          .single-card {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .social-media-wrapper {
+    .social-media-container {
+      background-color: transparent;
+
+      .social-media-info-container {
+        width: 100%;
+
+        h2 {
+          font-size: $font-size-text;
+          padding: 7px 30px;
+        }
+      }
+
+      .social-media {
+        flex-direction: column;
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .latest-update-wrapper {
+    .latest-update-container {
+      .latest-update-card-container {
+        .latest-update-cards {
+          flex-direction: column;
+
+          .single-card {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .social-media-wrapper {
+    .social-media-container {
+      background-color: transparent;
+
+      .social-media-info-container {
+        width: 100%;
+
+        h2 {
+          font-size: $font-size-text;
+          padding: 7px 30px;
+        }
+      }
+
+      .social-media {
+        flex-direction: column;
+        width: 100%;
       }
     }
   }
