@@ -34,52 +34,50 @@
 {% set contentClasses = [
   'content'
 ] %}
-<div class="container">
-  <h1>About</h1>
-  <div {{ attributes.addClass(classes) }}>
-    <div class="row">
-      {{ title_prefix }}
-      {% if label %}
-        <h2{{ title_attributes }}>{{ label }}</h2>
-      {% endif %}
-      {{ title_suffix }}
-      {% block content %}
-      {{ content.body }}
-      <div class="about-us-background-image">
-        {% if content.field_contact_us_background %}
-          <img src="{{ file_url(content.field_contact_us_background.0['#item'].entity.uri.value) }}"
-               alt="{{ content.field_contact_us_background.0['#item'].alt }}">
-        {% endif %}
+<div {{ attributes.addClass(classes) }}>
+  {% block content %}
+    {% if content.field_contact_us_background %}
+      {% set contact_us_background_image = file_url(content.field_contact_us_background.0['#item'].entity.uri.value) %}
+      <div class="contact-us-background-image" style="background-image: url('{{ contact_us_background_image }}');">
+        <div class="row contact-container">
+          <div class="col-lg-10 col-md-12 contact-info-content">
+            {{ title_prefix }}
+            {% if label %}
+              <h2 class="contact-info-content-title" {{ title_attributes }}>{{ label }}</h2>
+            {% endif %}
+            {{ title_suffix }}
+            <div class="contact-info-content-description">{{ content.body }}</div>
+          </div>
+          <div class="col-lg-2 col-md-12">
+            <div class="row">
+              {% if content.field_faq_link %}
+                <div class="col-lg-12 col-md-2 contact-link-container">
+                  <i class="contact-link-arrow-button fa fa-arrow-right"></i>
+                  <a href="{{ content.field_faq_link.0['#url'] }}" target="_blank">
+                    <span>
+                      Ask us question
+                    </span>
+                  </a>
+                </div>
+              {% endif %}
+              {% set social_media_links = get_social_media_links('socialmedialinks') %}
+              {% if social_media_links %}
+                {% for platform, platform_detail in social_media_links %}
+                   <div class="col-lg-12 col-md-2 contact-link-container">
+                    <i class="contact-link-arrow-button fa fa-arrow-right"></i>
+                    <a class="social-media-link-icon--{{ platform }}" href="{{ platform_detail.url }}"
+                      target="{{ platform_detail.target }}">
+                      <span class="social-media-platform-{{ platform }}">
+                        {{ platform_detail.description }}
+                      </span>
+                    </a>
+                  </div>
+                {% endfor %}
+              {% endif %}
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="contact-link">
-        <ul>
-          {% if content.field_faq_link %}
-            <li>
-              <a href="{{ content.field_faq_link.0['#url'] }}" target="_blank">
-                <span>
-                  Ask us question
-                  <i class="fa fa-arrow-right"></i>
-                </span>
-              </a>
-            </li>
-          {% endif %}
-          {% endblock %}
-          {% set social_media_links = get_social_media_links('socialmedialinks') %}
-          {% if social_media_links %}
-            {% for platform, platform_detail in social_media_links %}
-              <li>
-                <a class="social-media-link-icon--{{ platform }}" href="{{ platform_detail.url }}"
-                   target="{{ platform_detail.target }}">
-                  <span class="social-media-platform-{{ platform }}">
-                    {{ platform_detail.description }}
-                    <i class="fa fa-arrow-right"></i>
-                  </span>
-                </a>
-              </li>
-            {% endfor %}
-          {% endif %}
-        </ul>
-      </div>
-    </div>
-  </div>
+    {% endif %}
+  {% endblock %}
 </div>
