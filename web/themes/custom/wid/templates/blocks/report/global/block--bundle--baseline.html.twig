@@ -12,27 +12,27 @@
 {% set active_countries = drupal_field('field_active_countries', 'block_content', our_country_report_block_id) %}
 {% set our_country_report_bg_img = drupal_field('field_our_country_report_bg_img', 'block_content', our_country_report_block_id) %}
 {% set our_country_report_bg_img_url = file_url(our_country_report_bg_img['#items'].1.entity.uri.value) %}
-<div style="background-image: url('{{ our_country_report_bg_img_url }}');">
+<div class="global-report-header-background" style="background-image: url('{{ our_country_report_bg_img_url }}');">
   {% if active_countries %}
-    <ul>
+    <div class="global-report-country-nav">
       {% for active_country in active_countries|children %}
-        <li><a href="#">{{ active_country }}</a></li>
+        <div class="global-report-country-nav-item"><a href="#">{{ active_country }}</a></div>
       {% endfor %}
-    </ul>
+    </div>
   {% endif %}
-  <div>
-    <h4>
+  <div class="global-report-header-card">
+    <h4 class="global-report-header-card-title">
       {{ drupal_entity('block_content', our_country_report_block_id)['#block_content'].info.value }}
     </h4>
-    <p>
+    <div class="global-report-header-card-description">
       {% autoescape false %}{{ our_country_report_description }}{% endautoescape %}
-    </p>
+    </div>
   </div>
 </div>
 
 <div class="baseline-endline-wrapper">
   <div {{ attributes.addClass(classes) }}>
-    <div class="row mx-5 px-5 my-5">
+    <div class="row mx-5 px-5 my-5 row-eq-height">
       <div class="col-sm-6">
         <div class="resource-card p-3">
           {% block content %}
