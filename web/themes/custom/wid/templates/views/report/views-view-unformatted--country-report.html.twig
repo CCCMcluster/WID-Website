@@ -19,7 +19,9 @@
 <div class="our-global-report-block">
   <div class="container">
     <div class="wid-scroll-content">
-      <h1>{{ country_name(view.title) }}</h1>
+      {% if country_name(view.title)  %}
+        <h1>{{ country_name(view.title) }}</h1>
+      {% endif %}
       {% for row in rows %}
         {% set entity = row.content['#row']._entity %}
         {% set title = entity.title.value %}

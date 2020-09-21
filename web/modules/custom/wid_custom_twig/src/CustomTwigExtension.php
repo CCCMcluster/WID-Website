@@ -35,6 +35,7 @@ class CustomTwigExtension extends Twig_Extension {
       new Twig_SimpleFunction('load_tax_term', [$this, 'loadTaxTerm']),
       new Twig_SimpleFunction('media_file_url', [$this, 'mediaFileUrl']),
       new Twig_SimpleFunction('media_file_type', [$this, 'mediaFileType']),
+      new Twig_SimpleFunction('country_name', [$this, 'getCountryName']),
       new Twig_SimpleFunction('get_social_media_links', [
         $this,
         'getSocialMediaLinks',
@@ -180,6 +181,26 @@ class CustomTwigExtension extends Twig_Extension {
         }
       }
       return $social_media;
+    }
+    else {
+      return NULL;
+    }
+  }
+
+  /**
+   * Returns country name.
+   *
+   * @param string $country_code
+   *   Country Code.
+   *
+   * @return string
+   *   Country Name.
+   */
+  public function getCountryName($country_code) {
+    if ($country_code) {
+      $country = Drupal::service('country_manager')
+        ->getList()[strtoupper($country_code)]->__toString();
+      return $country;
     }
     else {
       return NULL;
