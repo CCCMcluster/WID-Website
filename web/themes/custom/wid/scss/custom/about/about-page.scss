@@ -1,45 +1,47 @@
 .about-us-wrapper {
     .about-header-block {
         .about-us-background-image {
-            position: relative;
-            height: 100vh;
+            height: auto;
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding-top: 140px;
-    
-            h1 {
+            padding: 100px 0;
+            border-bottom: 4px solid $accent-alt-color;
+
+            .about-us-header-title-button {
                 background-color: $primary-color;
                 color: $white;
                 padding: 7px 70px;
+                margin-bottom: 80px;
                 border-radius: 15px;
                 font-size: $font-size-sm;
+                font-family:  $font-raleway;
             }
-    
-            h2 {
-                z-index: 10;
-                color: $primary-color;
-                margin-top: 100px;
-                font-size: $font-size-title;
+
+            .about-us-header-card {
+                background-color: $white;
+                margin: 0 150px;
+                padding: 40px 100px;
+                border-radius: 15px;
+                text-align: center;
+        
+                .about-us-header-card-title {
+                    color: $primary-color;
+                    font-size: $font-size-title-xs;
+                    padding-bottom: 20px;
+                    font-family:  $font-raleway;
+                }
+        
+                .about-us-header-card-description {
+                    color: $primary-color;
+                    font-size: $font-size-text-sm;
+                    font-family:  $font-lato;
+                }
             }
         }
-    }
-
-    .field--type-text-with-summary {
-        position: absolute;
-        z-index: 5;
-        margin-left: 120px;
-        margin-right: 120px;
-        margin-top: -65vh;
-        background-color: $white;
-        padding: 120px 100px 50px 100px;
-        border-radius: 10px;
-        text-align: center;
-        color: $primary-color;
-        font-size: $font-size-sm;
     }
 }
 
@@ -56,7 +58,7 @@
         border-radius: 10px;
         box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 
-        &:nth-last-child(even) {
+        &:nth-last-child(odd) {
             margin-top: 40px;
 
             .views-field-title {
@@ -64,7 +66,8 @@
                 top: 25px;
                 left: 425px;
                 font-size: $font-size-text;
-                font-weight: 500;
+                font-weight: 600;
+                font-family:  $font-raleway;
             }
 
             .views-field-field-url {
@@ -79,6 +82,7 @@
                     color: $white;
                     text-decoration: none;
                     font-size: $font-size-xs;
+                    font-family:  $font-lato;
                 }
             }
 
@@ -116,6 +120,7 @@
                         margin-right: 25px;
                         text-align: left;
                         font-size: $font-size-xs;
+                        font-family:  $font-lato
                     }
                 }
             }
@@ -135,7 +140,7 @@
             }
         }
 
-        &:nth-last-child(odd) {
+        &:nth-last-child(even) {
             margin-top: 40px;
 
             .views-field-title {
@@ -143,7 +148,8 @@
                 top: 30px;
                 left: 30px;
                 font-size: $font-size-text;
-                font-weight: 500;
+                font-weight: 600;
+                font-family:  $font-raleway;
             }
 
             .views-field-field-url {
@@ -158,6 +164,7 @@
                     color: $white;
                     text-decoration: none;
                     font-size: $font-size-xs;
+                    font-family:  $font-lato;
                 }
             }
 
@@ -195,6 +202,7 @@
                         margin-right: 425px;
                         text-align: left;
                         font-size: $font-size-xs;
+                        font-family:  $font-lato;
                     }
                 }
             }
