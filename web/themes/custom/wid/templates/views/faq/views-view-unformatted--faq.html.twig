@@ -1,0 +1,38 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+<div class="container">
+  {% if view.current_display == 'block_1' %}
+    <h1>FAQ</h1>
+  {% endif %}
+
+  {% set faq_class = view.id ~ '-' ~ view.current_display %}
+  <div class="card {{ faq_class }}">
+    <div class="row">
+      <h1>{% autoescape false %} {{ view.title }} {% endautoescape %}</h1>
+      <ul>
+        {% for row in rows %}
+          {% set entity = row.content['#row']._entity %}
+          {% set field_faq_question = entity.field_faq_question.value %}
+          {% set field_faq_answer = entity.field_faq_answer.value %}
+          <li>{{ field_faq_question }}</li>
+          <li>{{ field_faq_answer }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
