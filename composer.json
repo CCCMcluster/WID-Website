@@ -30,6 +30,7 @@
         "drupal/country": "^1.0@beta",
         "drupal/ctools": "^3.4",
         "drupal/devel": "^4.0",
+        "drupal/ds": "^3.9",
         "drupal/mailchimp": "^1.11",
         "drupal/page_manager": "^4.0@beta",
         "drupal/panels": "^4.6",
