@@ -1,0 +1,208 @@
+.faq-background-image {
+    height: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 0;
+    border-bottom: 4px solid $primary-color;
+
+    .faq-header-card {
+        background-color: $white;
+        padding: 40px 100px;
+        border-radius: 15px;
+        text-align: center;
+
+        .faq-header-card-title {
+            color: $primary-color;
+            font-size: $font-size-xl-alt;
+            padding-bottom: 20px;
+            font-family:  $font-raleway;
+        }
+
+        .faq-header-card-description {
+            color: $primary-color;
+            font-size: $font-size-text-alt;
+            font-family:  $font-lato;
+        }
+
+        .faq-category-container {
+            flex: 1;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+
+            .faq-category-content {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px 20px 10px 20px;
+                height: 160px;
+                width: 150px;
+                border-radius: 10px;
+                font-family: $font-raleway;
+                font-size: $font-size-base;
+                font-weight: 600;
+
+                .faq-category-content-img {
+                    height: 40px;
+                    width: auto;
+                    margin-bottom: 5px;
+                }
+
+            }
+            
+            .faq-project-overview {
+                color: $primary-color;
+                border: 1px solid $primary-color;
+            }
+            
+            .faq-methodology {
+                color:  $primary-color;
+                border: 1px solid  $primary-color;
+            }
+
+            .faq-project-implementation {
+                color: $accent-alt-color;
+                border: 1px solid $accent-alt-color;
+            }
+            
+            .faq-access-report {
+                color: $accent-color;
+                border: 1px solid $accent-color;
+            }
+        }
+    }
+}
+
+.faq-content-container-background{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #e8edff;
+
+    .faq-content-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+
+        .faq-content-container-title {
+            text-align: center;
+            background-color: $primary-color;
+            color: $white;
+            width: 250px;
+            padding: 7px 0;
+            border-radius: 20px;
+            font-size: $font-size-text-alt;
+            font-family:  $font-raleway;
+        }
+
+        .faq-content-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: none;
+            border-radius: 15px;
+            padding: 45px 80px;
+            background-color: $white;
+            box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.16);
+
+            .faq-content-header {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .faq-content-header-title {
+                    text-align: center;
+                    font-size: $font-size-text-alt;
+                    font-family: $font-raleway;
+                    font-weight: 600;
+                }
+            }
+            .faq-list-item {
+
+                .faq-accrodion-body {
+                    flex: 1;
+
+                    .faq-accordion {
+                        cursor: pointer;
+                        flex: 1;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        font-size: $font-size-text-alt;
+                        transition: 0.7s;
+                        padding: 5px 15px;
+                        border-bottom: 2px solid #e8edff;
+                        
+                        .faq-accordion-dot {
+                            margin-left: -1em;
+                            margin-bottom: 5px;
+                            font-size: $font-size-text;
+                        }
+
+                        .faq-accordion-question {
+                            flex: 1;
+                            text-align: left;
+                            font-size: $font-size-base;
+                            font-weight: 600;
+                            font-family: $font-raleway;
+                            color: $primary-color;
+                        }
+                        
+                        .faq-accordion-arrow {
+                            transition: transform 0.3s;
+                            font-size: $font-size-text-sm;
+                            color: $primary-color;
+                        }
+                    }
+
+                    .active {
+
+                        .faq-accordion-arrow {
+                            transform: rotate(90deg);
+                        }
+                    }
+
+                    .panel {
+                        max-height: 0;
+                        overflow: hidden;
+                        transition: max-height 0.5s ease-out;
+                        font-family: $font-raleway;
+                        font-size: $font-size-base;
+
+                        .panel-content {
+                            margin: 5px 0 0 20px;
+                            padding: 30px;
+                            background-color: #f1f9ff;
+                            border-radius: 10px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .faq-block_1 {
+            color: $primary-color;
+        }
+
+        .faq-block_2 {
+            color: $primary-color;
+        }
+
+        .faq-block_3 {
+            color: $accent-alt-color;
+        }
+
+        .faq-block_4 {
+            color: $accent-color;
+        }
+
+    }
+}

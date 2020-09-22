@@ -15,24 +15,38 @@
  * @see template_preprocess_views_view_unformatted()
  */
 #}
-<div class="container">
-  {% if view.current_display == 'block_1' %}
-    <h1>FAQ</h1>
-  {% endif %}
+<div class="faq-content-container-background py-5">
+  <div class="container">
+    <div class="mx-5 faq-content-container">
+      {% if view.current_display == 'block_1' %}
+        <h1 class="mb-5 faq-content-container-title">FAQ</h1>
+      {% endif %}
 
-  {% set faq_class = view.id ~ '-' ~ view.current_display %}
-  <div class="card {{ faq_class }}">
-    <div class="row">
-      <h1>{% autoescape false %} {{ view.title }} {% endautoescape %}</h1>
-      <ul>
-        {% for row in rows %}
-          {% set entity = row.content['#row']._entity %}
-          {% set field_faq_question = entity.field_faq_question.value %}
-          {% set field_faq_answer = entity.field_faq_answer.value %}
-          <li>{{ field_faq_question }}</li>
-          <li>{{ field_faq_answer }}</li>
-        {% endfor %}
-      </ul>
+      {% set faq_class = view.id ~ '-' ~ view.current_display %}
+      <div class="faq-content-card mx-5 {{ faq_class }}">
+        <div class="faq-content-header pb-5">
+          <div class="faq-content-header-title">{% autoescape false %} {{ view.title }} {% endautoescape %}</div>
+        </div>
+        <div class="row p-0 m-0">
+          <ul class="faq-list-item">
+            {% for row in rows %}
+              {% set entity = row.content['#row']._entity %}
+              {% set field_faq_question = entity.field_faq_question.value %}
+              {% set field_faq_answer = entity.field_faq_answer.value %}
+              <div class="faq-accrodion-body">
+                <div class="faq-accordion">
+                  <span class="faq-accordion-dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
+                  <span class="px-3 faq-accordion-question"> {{ field_faq_question }} </span>
+                  <span class="faq-accordion-arrow"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="panel">
+                  <div class="panel-content">{{ field_faq_answer }}</div>
+                </div>
+              </div>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </div>
