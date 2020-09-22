@@ -34,6 +34,7 @@ class CustomTwigExtension extends Twig_Extension {
       ]),
       new Twig_SimpleFunction('load_tax_term', [$this, 'loadTaxTerm']),
       new Twig_SimpleFunction('media_file_url', [$this, 'mediaFileUrl']),
+      new Twig_SimpleFunction('get_file_field_uri', [$this, 'fileFieldUri']),
       new Twig_SimpleFunction('media_file_type', [$this, 'mediaFileType']),
       new Twig_SimpleFunction('country_name', [$this, 'getCountryName']),
       new Twig_SimpleFunction('get_social_media_links', [
@@ -205,6 +206,55 @@ class CustomTwigExtension extends Twig_Extension {
     else {
       return NULL;
     }
+  }
+
+  /**
+   * Returns set or default image uri for a file image field (if either exist).
+   *
+   * @param string $entity
+   *   The entity.
+   * @param string $fieldName
+   *   The field name.
+   *
+   * @return string
+   *   file uri.
+   */
+  public function fileFieldUri($entity, $fieldName) {
+    $image_uri = NULL;
+    if ($entity->hasField($fieldName)) {
+      try {
+        $field = $entity->{$fieldName};
+        if ($field && $field->target_id) {
+          $file = File::load($field->target_id);
+          if ($file) {
+            $image_uri = $file->getFileUri();
+          }
+        }
+      }
+      catch (Exception $e) {
+        Drupal::logger('get_image_uri')->notice($e->getMessage(), []);
+      }
+      if (is_null($image_uri)) {
+        try {
+          $field = $entity->get($fieldName);
+          if ($field) {
+            $default_image = $field->getSetting('default_image');
+
+            if ($default_image && $default_image['uuid']) {
+              $entity_repository = Drupal::service('entity.repository');
+              $defaultImageFile = $entity_repository->loadEntityByUuid('file', $default_image['uuid']);
+              if ($defaultImageFile) {
+                $image_uri = $defaultImageFile->getFileUri();
+              }
+            }
+          }
+        }
+        catch (Exception $e) {
+          Drupal::logger('get_image_uri')->notice($e->getMessage(), []);
+        }
+      }
+    }
+    return $image_uri;
   }
 
 }
