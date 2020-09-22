@@ -17,7 +17,8 @@
                 padding: 7px 100px;
                 margin-bottom: 80px;
                 border-radius: 15px;
-                font-size: $font-size-sm;
+                font-size: $font-size-text;
+                font-weight: 600;
                 font-family:  $font-raleway;
             }
 
@@ -30,14 +31,14 @@
         
                 .about-us-header-card-title {
                     color: $primary-color;
-                    font-size: $font-size-title-xs;
+                    font-size: $font-size-xl-alt;
                     padding-bottom: 20px;
                     font-family:  $font-raleway;
                 }
         
                 .about-us-header-card-description {
                     color: $primary-color;
-                    font-size: $font-size-text-sm;
+                    font-size: $font-size-text;
                     font-family:  $font-lato;
                 }
             }
@@ -60,7 +61,7 @@
                 width: 250px;
                 padding: 7px 0;
                 border-radius: 15px;
-                font-size: $font-size-sm;
+                font-size: $font-size-text;
                 font-family:  $font-raleway;
             }
 
@@ -85,7 +86,8 @@
                             position: absolute;
                             top: 25px;
                             left: 425px;
-                            font-size: $font-size-text;
+                            font-size: $font-size-title;
+                            max-width: 385px;
                             font-weight: 600;
                             font-family:  $font-raleway;
                         }
@@ -101,7 +103,7 @@
                             a {
                                 color: $white;
                                 text-decoration: none;
-                                font-size: $font-size-xs;
+                                font-size: $font-size-base;
                                 font-family:  $font-lato;
                             }
                         }
@@ -130,11 +132,11 @@
                             width: 800px;
             
                             .field-content {
-                                max-height: 385px;
+                                max-height: 400px;
                                 overflow: hidden;
             
                                 p {
-                                    margin-top: 75px;
+                                    margin-top: 120px;
                                     margin-left: 425px;
                                     margin-bottom: -72px;
                                     margin-right: 25px;
@@ -167,7 +169,8 @@
                             position: absolute;
                             top: 30px;
                             left: 30px;
-                            font-size: $font-size-text;
+                            max-width: 385px;
+                            font-size: $font-size-title;
                             font-weight: 600;
                             font-family:  $font-raleway;
                         }
@@ -183,7 +186,7 @@
                             a {
                                 color: $white;
                                 text-decoration: none;
-                                font-size: $font-size-xs;
+                                font-size: $font-size-base;
                                 font-family:  $font-lato;
                             }
                         }
@@ -212,11 +215,11 @@
                             width: 800px;
             
                             .field-content {
-                                max-height: 375px;
+                                max-height: 400px;
                                 overflow: hidden;
             
                                 p {
-                                    margin-top: 75px;
+                                    margin-top: 120px;
                                     margin-left: 30px;
                                     margin-bottom: -72px;
                                     margin-right: 425px;

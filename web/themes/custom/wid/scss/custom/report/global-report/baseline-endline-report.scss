@@ -32,6 +32,8 @@
         a {
             text-decoration: none;
             color: $accent-color;
+            font-size: $font-size-text;
+            font-family: $font-lato;
         }
       }
     }
@@ -45,13 +47,15 @@
 
         .global-report-header-card-title {
             color: $accent-color;
-            font-size: $font-size-title-xs;
+            font-size: $font-size-xl-alt;
             padding-bottom: 20px;
+            font-family: $font-raleway;
         }
 
         .global-report-header-card-description {
             color: $primary-color;
-            font-size: $font-size-text-sm;
+            font-size: $font-size-title-xs;
+            font-family: $font-lato;
         }
     }
 }
@@ -64,7 +68,7 @@
     .resource-card {
         height: 100%;
         margin: 5px;
-        background-color: $white;
+        background-color: $accent-color;
         border: none;
         border-radius: 15px;
         box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 4px 0 rgba(0, 0, 0, 0.19);
@@ -79,22 +83,23 @@
 
         .resource-title {
             text-align: center;
-            color: $primary-color;
-            font-size: $font-size-title-xs;
-            font-family:  $font-lato;
+            color: $white;
+            font-size: $font-size-text-alt;
+            font-family:  $font-raleway;
         }
 
         .resource-description {
             text-align: center;
             font-size: $font-size-base;
-            color: $primary-color;
+            color: $white;
+            font-family: $font-lato;
         }
 
         .resource-file-content {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            background-color:  #e8edff;
+            background-color:  $white;
             border-radius: 7px;
             box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 4px 0 rgba(0, 0, 0, 0.19);
 

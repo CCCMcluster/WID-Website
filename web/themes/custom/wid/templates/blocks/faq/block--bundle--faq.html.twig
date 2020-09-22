@@ -39,31 +39,36 @@
     {% if content.field_faq_bg_img %}
       {% set faq_bg_img = file_url(content.field_faq_bg_img.0['#item'].entity.uri.value) %}
       <div class="faq-background-image" style="background-image: url('{{ faq_bg_img }}');">
-        <div class="row">
+        <div class="col-md-11 col-lg-9 faq-header-card">
           {{ title_prefix }}
           {% if label %}
-            <h2 class="contact-info-content-title" {{ title_attributes }}>{{ label }}</h2>
+            <h2 class="faq-header-card-title" {{ title_attributes }}>{{ label }}</h2>
           {% endif %}
           {{ title_suffix }}
-          {{ content.body }}
+            <div class="faq-header-card-description">{{ content.body }}</div>
           {% if content.field_faq_category %}
-            <div class="faq-project-overview">
-              <img src="{{ directory }}/images/icons/faq-project.svg" alt="faq-project-overview">
+          <div class="faq-category-container">
+            <div class="faq-category-content faq-project-overview">
+              <img class="faq-category-content-img" src="{{ directory }}/images/icons/faq-project.svg" alt="faq-project-overview">
               <p>{{ content.field_faq_category.0['#title'] }}</p>
+              <i class="fa fa-arrow-down"></i>
             </div>
-
-            <div class="faq-methodology">
-              <img src="{{ directory }}/images/icons/faq-project.svg" alt="faq-methodology">
+            <div class="faq-category-content faq-methodology">
+              <img class="faq-category-content-img" src="{{ directory }}/images/icons/faq-project.svg" alt="faq-methodology">
               <p>{{ content.field_faq_category.1['#title'] }}</p>
+              <i class="fa fa-arrow-down"></i>
             </div>
-            <div class="faq-project-implementation">
-              <img src="{{ directory }}/images/icons/faq-toolkit.svg" alt="faq-project-implementation">
+            <div class="faq-category-content faq-project-implementation">
+              <img class="faq-category-content-img" src="{{ directory }}/images/icons/faq-toolkit.svg" alt="faq-project-implementation">
               <p>{{ content.field_faq_category.2['#title'] }}</p>
+              <i class="fa fa-arrow-down"></i>
             </div>
-            <div class="faq-access-report">
-              <img src="{{ directory }}/images/icons/faq-access-report.svg" alt="faq-access-report">
+            <div class="faq-category-content faq-access-report">
+              <img class="faq-category-content-img" src="{{ directory }}/images/icons/faq-access-report.svg" alt="faq-access-report">
               <p>{{ content.field_faq_category.3['#title'] }}</p>
+              <i class="fa fa-arrow-down"></i>
             </div>
+          </div>
           {% endif %}
         </div>
       </div>

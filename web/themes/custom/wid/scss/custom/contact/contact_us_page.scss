@@ -20,14 +20,14 @@
             box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.16);
 
             .contact-info-content-title {
-                font-size: $font-size-title-xs;
+                font-size: $font-size-xl-alt;
                 padding-bottom: 60px;
                 font-weight: 600;
                 font-family:  $font-raleway;
             }
             
             .contact-info-content-description {
-                font-size: $font-size-text-sm;
+                font-size: $font-size-text;
                 font-family:  $font-lato;
             }
         }
@@ -71,9 +71,9 @@
                 flex-direction: column;
                 justify-content: space-between;
                 align-items: center;
-                font-size: $font-size-xs;
+                font-size: $font-size-base;
                 text-align: center;
-                padding: 5px 18px;
+                padding: 5px 10px;
                 text-decoration: none;
                 font-family:  $font-lato;
 

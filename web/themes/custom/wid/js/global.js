@@ -31,4 +31,18 @@
     }
   };
 
+  var accordion = document.getElementsByClassName("faq-accordion");
+  var accordionItem;
+  for (accordionItem = 0; accordionItem < accordion.length; accordionItem++) {
+    accordion[accordionItem].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var panel = this.nextElementSibling;
+      if (panel.style.maxHeight) {
+        panel.style.maxHeight = null;
+      } else {
+        panel.style.maxHeight = panel.scrollHeight + "px";
+      } 
+    });
+  }
+
 })(jQuery, Drupal);
