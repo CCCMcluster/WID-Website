@@ -23,7 +23,7 @@
 {% if view.field.field_attachment_type.original_value == 'Document' %}
   <div>
     {% set fileExtension = media_file_type(row._entity.field_report_document.value.0.target_id, 'field_media_document') %}
-    <img src="{{ directory }}/images/icons/{{ fileExtension }}.svg" alt={{ fileExtension }}>
+    <img src="/{{ directory }}/images/icons/{{ fileExtension }}.svg" alt={{ fileExtension }}>
     {% set document_url = media_file_url(row._entity.field_report_document.value.0.target_id, 'field_media_document') %}
     <a class="download-button" href="{{ document_url }}">Download</a>
   </div>

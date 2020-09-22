@@ -39,8 +39,13 @@
             </div>
             {% if content.field_active_countries %}
               <ul>
-                {% for active_country in content.field_active_countries|children %}
-                  <li><a href="#">{{ active_country }}</a></li>
+                {% for index in content.field_active_countries['#items']|keys %}
+                  <li>
+                    <a
+                      href="{{ path('view.country_report.page_1', {'country':  content.field_active_countries['#items'][index].value|lower }) }}">
+                      {{ content.field_active_countries[index] }}
+                    </a>
+                  </li>
                 {% endfor %}
               </ul>
             {% endif %}

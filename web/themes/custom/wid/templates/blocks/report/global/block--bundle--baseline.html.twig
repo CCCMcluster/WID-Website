@@ -15,8 +15,13 @@
 <div class="global-report-header-background" style="background-image: url('{{ our_country_report_bg_img_url }}');">
   {% if active_countries %}
     <div class="global-report-country-nav">
-      {% for active_country in active_countries|children %}
-        <div class="global-report-country-nav-item"><a href="#">{{ active_country }}</a></div>
+      {% for index in active_countries['#items']|keys %}
+        <div class="global-report-country-nav-item">
+          <a
+            href="{{ path('view.country_report.page_1', {'country':  active_countries['#items'][index].value|lower }) }}">
+            {{ active_countries[index] }}
+          </a>
+        </div>
       {% endfor %}
     </div>
   {% endif %}
@@ -45,7 +50,8 @@
               {% endif %}
               {{ title_prefix }}
               {% if label %}
-                <h4 class="resource-title py-2 px-4" {{ title_attributes }}>{{ content['#block_content'].info.value }}</h4>
+                <h4
+                  class="resource-title py-2 px-4" {{ title_attributes }}>{{ content['#block_content'].info.value }}</h4>
               {% endif %}
               {{ title_suffix }}
               <div class="resource-description px-3"> {{ content.body }} </div>
@@ -63,8 +69,8 @@
             </div>
             <div class="col-sm-5">
               {% set fileExtension = media_file_type(content.field_baseline_document['#items'][0].target_id, 'field_media_document') %}
-              <img class="extension-icon mb-1 mr-3" src="{{ directory }}/images/icons/{{ fileExtension }}.svg"
-                  alt={{ fileExtension }}/>
+              <img class="extension-icon mb-1 mr-3" src="/{{ directory }}/images/icons/{{ fileExtension }}.svg"
+                   alt={{ fileExtension }}/>
               {% set document_url = file_url(content.field_baseline_document[0]['#media'].field_media_document.entity.uri.value) %}
               <a class="download-button" href="{{ document_url }}" download>
                 Download
@@ -82,7 +88,7 @@
             {% set endline_cover_image_url = file_url(endline_cover_image['#items'].entity.uri.value | image_style('large')) %}
             {% set endline_cover_image_alt = endline_cover_image['#items'].0.value.alt %}
             <img class="card-img-top resource-image" src="{{ endline_cover_image_url }}"
-                alt="{{ endline_cover_image_alt }}">
+                 alt="{{ endline_cover_image_alt }}">
           {% endif %}
           <h4 class="resource-title py-2 px-4" {{ title_attributes }}>
             {{ drupal_entity('block_content', endline_block_id)['#block_content'].info.value }}
@@ -101,8 +107,8 @@
             </div>
             <div class="col-sm-5">
               {% set endline_document_ext = media_file_type(field_endline_document['#items'][0].target_id, 'field_media_document') %}
-              <img class="extension-icon mb-1 mr-3" src="{{ directory }}/images/icons/{{ endline_document_ext }}.svg"
-                  alt={{ endline_document_ext }}/>
+              <img class="extension-icon mb-1 mr-3" src="/{{ directory }}/images/icons/{{ endline_document_ext }}.svg"
+                   alt={{ endline_document_ext }}/>
               {% set endline_document_url = file_url(field_endline_document[0]['#media'].field_media_document.entity.uri.value) %}
               <a class="download-button" href="{{ endline_document_url }}" download>
                 Download
