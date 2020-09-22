@@ -14,7 +14,7 @@
             .about-us-header-title-button {
                 background-color: $primary-color;
                 color: $white;
-                padding: 7px 70px;
+                padding: 7px 100px;
                 margin-bottom: 80px;
                 border-radius: 15px;
                 font-size: $font-size-sm;
@@ -46,184 +46,207 @@
 }
 
 .block-views-blockpartners-detail-block-1 {
-    .views-row {
-        background-color: $white;
-        position: relative;
-        margin-bottom: 20px;
-        margin-top: 15px;
-        color: $primary-color;
-        height: 500px;
-        overflow: hidden;
-        margin: auto;
-        border-radius: 10px;
-        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    padding: 50px 0;
+    .content {
+        .container {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
 
-        &:nth-last-child(odd) {
-            margin-top: 40px;
-
-            .views-field-title {
-                position: absolute;
-                top: 25px;
-                left: 425px;
-                font-size: $font-size-text;
-                font-weight: 600;
+            h2 {
+                text-align: center;
+                background-color: $primary-color;
+                color: $white;
+                width: 250px;
+                padding: 7px 0;
+                border-radius: 15px;
+                font-size: $font-size-sm;
                 font-family:  $font-raleway;
             }
 
-            .views-field-field-url {
-                background-color: $primary-color;
-                padding: 1px 20px 4px 20px;
-                border-radius: 5px;
-                position: absolute;
-                left: 425px;
-                bottom: 25px;
+            .about-our-partners {
 
-                a {
-                    color: $white;
-                    text-decoration: none;
-                    font-size: $font-size-xs;
-                    font-family:  $font-lato;
-                }
-            }
-
-            .views-field-field-partner-image {
-                position: absolute;
-                top: 0px;
-                left: 0px;
-                height: 180px;
-                width: 180px;
-                z-index: 10;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                background-color: $white;
-                border-top-left-radius: 10px;
-                border-bottom-right-radius: 15px;
-
-                img {
-                    height: 80px;
-                    width: 80px;
-                }
-            }
-
-            .views-field-body {
-                width: 800px;
-
-                .field-content {
-                    max-height: 385px;
+                .views-row {
+                    background-color: $white;
+                    position: relative;
+                    margin-bottom: 20px;
+                    margin-top: 15px;
+                    color: $primary-color;
+                    height: 500px;
                     overflow: hidden;
-
-                    p {
-                        margin-top: 75px;
-                        margin-left: 425px;
-                        margin-bottom: -72px;
-                        margin-right: 25px;
-                        text-align: left;
-                        font-size: $font-size-xs;
-                        font-family:  $font-lato
+                    margin: auto;
+                    border-radius: 10px;
+                    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+            
+                    &:nth-last-child(odd) {
+                        margin-top: 40px;
+            
+                        .views-field-title {
+                            position: absolute;
+                            top: 25px;
+                            left: 425px;
+                            font-size: $font-size-text;
+                            font-weight: 600;
+                            font-family:  $font-raleway;
+                        }
+            
+                        .views-field-field-url {
+                            background-color: $primary-color;
+                            padding: 1px 20px 4px 20px;
+                            border-radius: 5px;
+                            position: absolute;
+                            left: 425px;
+                            bottom: 25px;
+            
+                            a {
+                                color: $white;
+                                text-decoration: none;
+                                font-size: $font-size-xs;
+                                font-family:  $font-lato;
+                            }
+                        }
+            
+                        .views-field-field-partner-image {
+                            position: absolute;
+                            top: 0px;
+                            left: 0px;
+                            height: 180px;
+                            width: 180px;
+                            z-index: 10;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            background-color: $white;
+                            border-top-left-radius: 10px;
+                            border-bottom-right-radius: 15px;
+            
+                            img {
+                                height: 80px;
+                                width: 80px;
+                            }
+                        }
+            
+                        .views-field-body {
+                            width: 800px;
+            
+                            .field-content {
+                                max-height: 385px;
+                                overflow: hidden;
+            
+                                p {
+                                    margin-top: 75px;
+                                    margin-left: 425px;
+                                    margin-bottom: -72px;
+                                    margin-right: 25px;
+                                    text-align: left;
+                                    font-size: $font-size-xs;
+                                    font-family:  $font-lato
+                                }
+                            }
+                        }
+            
+                        .views-field-field-partner-cover-image {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            object-fit: cover;
+            
+                            .field-content {
+                                img {
+                                    width: 400px;
+                                    height: 500px;
+                                }
+                            }
+                        }
                     }
-                }
-            }
-
-            .views-field-field-partner-cover-image {
-                position: absolute;
-                top: 0;
-                left: 0;
-                object-fit: cover;
-
-                .field-content {
-                    img {
-                        width: 400px;
-                        height: 500px;
+            
+                    &:nth-last-child(even) {
+                        margin-top: 40px;
+            
+                        .views-field-title {
+                            position: absolute;
+                            top: 30px;
+                            left: 30px;
+                            font-size: $font-size-text;
+                            font-weight: 600;
+                            font-family:  $font-raleway;
+                        }
+            
+                        .views-field-field-url {
+                            background-color: $primary-color;
+                            padding: 1px 20px 4px 20px;
+                            border-radius: 8px;
+                            position: absolute;
+                            left: 30px;
+                            bottom: 25px;
+            
+                            a {
+                                color: $white;
+                                text-decoration: none;
+                                font-size: $font-size-xs;
+                                font-family:  $font-lato;
+                            }
+                        }
+            
+                        .views-field-field-partner-image {
+                            position: absolute;
+                            top: 0px;
+                            right: 0px;
+                            height: 180px;
+                            width: 180px;
+                            z-index: 10;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            background-color: $white;
+                            border-top-right-radius: 10px;
+                            border-bottom-left-radius: 15px;
+            
+                            img {
+                                height: 80px;
+                                width: 80px;
+                            }
+                        }
+            
+                        .views-field-body {
+                            width: 800px;
+            
+                            .field-content {
+                                max-height: 375px;
+                                overflow: hidden;
+            
+                                p {
+                                    margin-top: 75px;
+                                    margin-left: 30px;
+                                    margin-bottom: -72px;
+                                    margin-right: 425px;
+                                    text-align: left;
+                                    font-size: $font-size-xs;
+                                    font-family:  $font-lato;
+                                }
+                            }
+                        }
+            
+                        .views-field-field-partner-cover-image {
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                            object-fit: cover;
+                            background-color: $white;
+                            width: 400px;
+                            height: 500px;
+            
+                            .field-content {
+                                img {
+                                    width: 400px;
+                                    height: 500px;
+                                }
+                            }
+                        }
                     }
+                    
                 }
             }
         }
-
-        &:nth-last-child(even) {
-            margin-top: 40px;
-
-            .views-field-title {
-                position: absolute;
-                top: 30px;
-                left: 30px;
-                font-size: $font-size-text;
-                font-weight: 600;
-                font-family:  $font-raleway;
-            }
-
-            .views-field-field-url {
-                background-color: $primary-color;
-                padding: 1px 20px 4px 20px;
-                border-radius: 8px;
-                position: absolute;
-                left: 30px;
-                bottom: 25px;
-
-                a {
-                    color: $white;
-                    text-decoration: none;
-                    font-size: $font-size-xs;
-                    font-family:  $font-lato;
-                }
-            }
-
-            .views-field-field-partner-image {
-                position: absolute;
-                top: 0px;
-                right: 0px;
-                height: 180px;
-                width: 180px;
-                z-index: 10;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                background-color: $white;
-                border-top-right-radius: 10px;
-                border-bottom-left-radius: 15px;
-
-                img {
-                    height: 80px;
-                    width: 80px;
-                }
-            }
-
-            .views-field-body {
-                width: 800px;
-
-                .field-content {
-                    max-height: 375px;
-                    overflow: hidden;
-
-                    p {
-                        margin-top: 75px;
-                        margin-left: 30px;
-                        margin-bottom: -72px;
-                        margin-right: 425px;
-                        text-align: left;
-                        font-size: $font-size-xs;
-                        font-family:  $font-lato;
-                    }
-                }
-            }
-
-            .views-field-field-partner-cover-image {
-                position: absolute;
-                top: 0;
-                right: 0;
-                object-fit: cover;
-                background-color: $white;
-                width: 400px;
-                height: 500px;
-
-                .field-content {
-                    img {
-                        width: 400px;
-                        height: 500px;
-                    }
-                }
-            }
-        }
-        
     }
 }
