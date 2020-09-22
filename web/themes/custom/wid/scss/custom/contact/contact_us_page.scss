@@ -41,7 +41,7 @@
             background-color: $white;
             margin: 5px 0;
             min-width: 100px;
-            height: 100px;
+            min-height: 100px;
             border-radius: 10px;
             box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.16);
 
@@ -72,6 +72,7 @@
                 justify-content: space-between;
                 align-items: center;
                 font-size: $font-size-base;
+                line-height: 1em;
                 text-align: center;
                 padding: 5px 10px;
                 text-decoration: none;
