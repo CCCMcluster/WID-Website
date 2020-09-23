@@ -1,0 +1,41 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+{% for row in rows %}
+  {% set row_classes = [
+    default_row_class ? 'views-row',
+  ] %}
+  {% set bg_img = file_url(
+    get_file_field_uri(
+    row.content['#row']._entity,
+    'field_country_gallery_bg_img'
+    )
+    ) %}
+  <div style="background-image: url('{{ bg_img }}')">
+    <div{{ row.attributes.addClass(row_classes) }}>
+      <h3>{{ view.title }}</h3>
+      <div class="images">
+        {% set gallery_images = row.content['#row']._entity.field_country_gallery_image %}
+        {% for image_entity in gallery_images %}
+          {% set img_class = 'country-gallery-image-' ~ loop.index %}
+          <img class="{{ img_class }}" src="{{ file_url(image_entity.entity.uri.value) }}"
+               alt="{{ image_entity.value.alt }}">
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endfor %}

@@ -1,0 +1,54 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+{% if title %}
+  <h3>{{ title }}</h3>
+{% endif %}
+
+{% set our_country_report_block_id = 12 %}
+{% set active_countries = drupal_field('field_active_countries', 'block_content', our_country_report_block_id) %}
+
+{% if active_countries %}
+  <div class="global-report-country-nav">
+    {% for index in active_countries['#items']|keys %}
+      <div class="global-report-country-nav-item">
+        <a
+          href="{{ path('view.country_report.page_1', {'country':  active_countries['#items'][index].value|lower }) }}">
+          {{ active_countries[index] }}
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
+
+{% for row in rows %}
+  {% set row_classes = [
+    default_row_class ? 'views-row',
+  ] %}
+  {% set bg_img = file_url(
+    get_file_field_uri(
+    row.content['#row']._entity,
+    'field_overview_report_bg_img'
+    )
+    ) %}
+  <div{{ row.attributes.addClass(row_classes) }} style="background-image: url('{{ bg_img }}')">
+    <div class="card">
+      {{ row.content }}
+    </div>
+    <span>Reports</span>
+  </div>
+{% endfor %}
