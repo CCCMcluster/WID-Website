@@ -16,7 +16,7 @@
       <h2 class="mission-button">Women’s Participation Project &amp; Toolkit</h2>
       <div class="row our-mission-container">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 our-mission">
-          <div class="our-mission">
+          <div class="our-mission my-4">
             {{ title_prefix }}
             {% if label %}
               <h2 class="pb-2" {{ title_attributes }}>{{ label }}</h2>
@@ -33,7 +33,7 @@
         {% set alt_text = content.field_our_mission_media[0]['#media'].thumbnail[0].alt %}
         {% set image_url = media_file_url(content.field_our_mission_media[0]['#media'].mid[0].value) %}
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 px-0">
-          <img src="{{image_url}}" alt="{{alt_text}}" class="img-fluid w-100" />
+          <img src="{{image_url}}" alt="{{alt_text}}" class="mission-img-fluid w-100" />
         </div>
       </div>
     </div>

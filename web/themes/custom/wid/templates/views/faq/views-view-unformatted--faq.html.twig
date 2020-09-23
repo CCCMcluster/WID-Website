@@ -17,13 +17,13 @@
 #}
 <div class="faq-content-container-background py-5">
   <div class="container">
-    <div class="mx-5 faq-content-container">
+    <div class="faq-content-container">
       {% if view.current_display == 'block_1' %}
         <h1 class="mb-5 faq-content-container-title">FAQ</h1>
       {% endif %}
 
       {% set faq_class = view.id ~ '-' ~ view.current_display %}
-      <div class="faq-content-card mx-5 {{ faq_class }}">
+      <div class="faq-content-card col-lg-11 col-md-12 {{ faq_class }}">
         <div class="faq-content-header pb-5">
           <div class="faq-content-header-title">{% autoescape false %} {{ view.title }} {% endautoescape %}</div>
         </div>
