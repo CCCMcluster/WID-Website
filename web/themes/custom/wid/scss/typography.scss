@@ -83,11 +83,11 @@ sans-serif;
 $font-helvetica : 'Helvetica Neue';
 
 $font-size-base: 1rem; // Assumes the browser default, typically `16px`
-$font-size-xxl: $font-size-base * 2.125;            //34px
+$font-size-xxl: $font-size-base * 2.125;              //34px
 $font-size-xl-alt: $font-size-base * 2;               //32px
 $font-size-title: $font-size-base * 1.75;             //28px
-$font-size-title-sm: $font-size-base * 1.5;             //24px
-$font-size-title-xs: $font-size-base * 1.375; //22px
+$font-size-title-sm: $font-size-base * 1.5;           //24px
+$font-size-title-xs: $font-size-base * 1.375;         //22px
 $font-size-text: $font-size-base * 1.125;             // 18px
 $font-size-text-sm: $font-size-base * .875;           // 14px
 $font-size-xs: $font-size-base * .75;                 // 12px

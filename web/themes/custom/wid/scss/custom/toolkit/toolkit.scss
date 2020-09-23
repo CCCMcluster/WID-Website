@@ -1,0 +1,356 @@
+.toolkit-wrapper {
+  .toolkit-purpose-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-size: cover;
+    padding: 100px 0;
+
+    nav {
+      border-radius: 40px;
+      box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.16);
+      background-color: #ffffff;
+      margin: 50px auto;
+      padding: 12px 60px;
+      width: 85%;
+
+      a {
+        font-family: $font-lato;
+        font-size: 20px;
+        font-weight: normal;
+        line-height: 1.2;
+        color: $accent-alt-color;
+        text-decoration: none;
+        margin: 5px 25px;
+        display: inline-block;
+
+        &:hover {
+          color: #5d0790;
+        }
+      }
+    }
+
+    .purpose-container {
+      display: flex;
+      justify-self: center;
+      align-items: center;
+      flex-direction: column;
+      border-radius: 20px;
+      box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.16);
+      background-color: #ffffff;
+      padding: 50px 0;
+
+      h2 {
+        font-family: $font-raleway;
+        font-size: $font-size-xl-alt;
+        font-weight: 600;
+        line-height: 1.16;
+        color: $accent-alt-color;
+        margin-bottom: 30px;
+      }
+
+      p {
+        font-family: $font-lato;
+        font-size: $font-size-base;
+        font-weight: normal;
+        line-height: 1.5;
+        color: $primary-color;
+        width: 85%;
+        margin: 0 auto;
+        text-align: center;
+      }
+    }
+  }
+
+  .toolkit-hr {
+    height: 5px;
+    margin: 0;
+    box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.16);
+    background-color: $accent-alt-color;
+  }
+
+  .approach-wrapper {
+    text-align: center;
+    padding: 100px 0;
+
+    h2 {
+      font-family: $font-raleway;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.2;
+      color: #ffffff;
+      background-color: $primary-color;
+      display: inline-block;
+      padding: 10px 65px;
+      border-radius: 20px;
+      box-shadow: 0 3px 6px 0 rgba(59, 54, 54, 0.16);
+      margin-bottom: 40px;
+    }
+
+    .approach-container {
+      text-align: left;
+      background: $accent-alt-light-color;
+      box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.16);
+      border-radius: 40px;
+      margin-top: 50px;
+      // width: 85%;
+      // margin: 0 auto;
+
+      .approach-steps {
+        background-size: contain;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 50px 50px;
+
+        img {
+          height: auto;
+          width: 85%;
+          object-fit: contain;
+        }
+
+        ul {
+          li {
+            list-style: none;
+            position: absolute;
+            transform: translate(-50%, -50%);
+
+            a {
+              text-decoration: none;
+
+              .step-card {
+                display: inline-flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                border: solid 3px $accent-color;
+                background-color: #ffffff;
+                border-radius: 50%;
+                height: 185px;
+                width: 185px;
+                gap: 20px;
+                cursor: pointer;
+                transition: 0.4s;
+
+                &:hover {
+                  background-color: $accent-color;
+
+                  .step-number,
+                  .step-name {
+                    color: #ffffff;
+                  }
+                }
+
+                .step-number {
+                  font-family: $font-lato;
+                  font-size: $font-size-xxl;
+                  font-weight: bold;
+                  line-height: 1.21;
+                  color: $primary-color;
+                }
+
+                .step-name {
+                  font-family: $font-lato;
+                  font-size: $font-size-title-xs;
+                  font-weight: normal;
+                  line-height: 1.23;
+                  color: $primary-color;
+                }
+              }
+            }
+          }
+
+          .step-card-1 {
+            top: 25%;
+            left: 25%;
+          }
+
+          .step-card-2 {
+            top: 25%;
+            left: 75%;
+          }
+
+          .step-card-3 {
+            top: 75%;
+            left: 25%;
+          }
+
+          .step-card-4 {
+            top: 75%;
+            left: 75%;
+          }
+        }
+
+        .choose-step {
+          position: absolute;
+          transform: translate(-50%, -50%);
+          top: 50%;
+          left: 50%;
+          display: inline-flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          background-color: #ffffff;
+          border-radius: 50%;
+          height: 220px;
+          width: 220px;
+          font-family: $font-lato;
+          font-size: $font-size-title;
+          font-weight: normal;
+          line-height: 1.21;
+          color: $primary-color;
+        }
+      }
+    }
+  }
+
+  .toolkit-steps-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-size: cover;
+    text-align: center;
+    padding: 100px 0;
+
+    h2 {
+      font-family: $font-raleway;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.2;
+      color: $primary-color;
+      display: inline-block;
+      padding: 10px 65px;
+      border-radius: 20px;
+      box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+      background-color: #fafafa;
+    }
+
+    .steps-card-wrapper {
+      text-align: left;
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      flex-wrap: wrap;
+      padding: 75px 0;
+
+      .steps-card {
+        border-radius: 20px;
+        box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.16);
+        background-color: #ffffff;
+        width: calc(50% - 50px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 20px 0;
+        position: relative;
+        transition: 0.4s;
+        cursor: pointer;
+
+        &:hover {
+          background-color: $accent-color;
+
+          h3,
+          p {
+            color: #ffffff;
+          }
+        }
+
+        h3 {
+          font-family: $font-lato;
+          font-size: $font-size-title;
+          font-weight: bold;
+          line-height: 1.21;
+          color: $primary-color;
+          padding-bottom: 20px;
+          text-align: center;
+        }
+
+        p {
+          font-family: $font-lato;
+          font-size: $font-size-text;
+          font-weight: normal;
+          line-height: 1.22;
+          color: $primary-color;
+          width: 80%;
+          text-align: center;
+        }
+
+        .card-button {
+          padding: 10px 12px;
+          box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.16);
+          background-color: $accent-color;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 10px;
+          position: absolute;
+          transform: translate(-50%, -50%);
+          top: 50%;
+          left: 100%;
+
+          i {
+            font-size: $font-size-base;
+            color: #ffffff;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .toolkit-wrapper {
+    .toolkit-purpose-container {
+      padding: 50px 0;
+
+      nav {
+        padding: 15px 0;
+        width: 100%;
+        text-align: center;
+
+        a {
+          display: block;
+        }
+      }
+    }
+
+    .toolkit-steps-wrapper {
+      padding: 50px 0;
+
+      .steps-card-wrapper {
+        flex-direction: column;
+
+        .steps-card {
+          width: 95%;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .toolkit-wrapper {
+    .toolkit-purpose-container {
+      padding: 50px 0;
+    }
+
+    .toolkit-steps-wrapper {
+      padding: 50px 0;
+
+      .steps-card-wrapper {
+        flex-direction: column;
+
+        .steps-card {
+          width: 95%;
+        }
+      }
+    }
+  }
+}
