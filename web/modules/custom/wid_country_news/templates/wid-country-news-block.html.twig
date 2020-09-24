@@ -1,0 +1,51 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+<div class="country-latest-update-wrapper">
+  <div class="container">
+    <div class="latest-update-container">
+      <h2 class="latest-update-main-title">Read all news</h2>
+      <div class="countries-list">
+        {% set active_countries = load_vocabulary_term('country_report_overview') %}
+        <ul>
+          {% for country in active_countries %}
+            {% set country_iso_code = load_tax_term(country.id).field_report_overview_country.value %}
+            <li value="{{ country_iso_code }}"><a href="#">{{ country.name }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="latest-update-card-container">
+        <div class="latest-update-cards">
+          {% for single_news in news %}
+            <div class="single-card">
+              {% if single_news.url %}
+                <img src="{{ single_news.url }}" alt="news">
+              {% endif %}
+              <h2>{{ single_news.title }}</h2>
+              <p>
+                {% autoescape false %}{{ single_news.body|length > 80 ? single_news.body|slice(0, 80) : single_news.body }}{% endautoescape %}
+              </p>
+              <span>{{ single_news.created_date }}</span>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="hr-news">
