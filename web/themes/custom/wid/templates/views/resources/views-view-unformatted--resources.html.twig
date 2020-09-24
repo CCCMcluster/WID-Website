@@ -16,42 +16,66 @@
  */
 #}
 <div class="container">
-  <div class="row">
-    {% for row in rows %}
-      {% set row_classes = [
-        default_row_class ? 'views-row', 'resource-row', 'card',
-      ] %}
-      <div{{ row.attributes.addClass(row_classes) }}>
-        {% if title %}
-          <div class="resource-type"><h2>{{ title }}</h2></div>
-        {% endif %}
-        {% set entity = row.content['#row']._entity %}
-        {% set title = entity.title.value %}
-        {% set summary = entity.body.value |render|striptags %}
-        {% set media_url = file_url(entity.field_resources_media.entity.field_media_image.entity.fileuri | image_style('large')) %}
-        {% set media_alt = entity.field_resources_media.entity.field_media_image.alt %}
-        <div class="resource-title">
-          <h3>{{ title }}</h3>
-        </div>
-        <div class="resource-summary">
-          <p>{% autoescape false %}{{ summary|length > 80 ? summary|slice(0, 80) : summary }}{% endautoescape %}</p>
-        </div>
-        <div class="resources-image">
-          <img src="{{ media_url }}" alt="{{ media_alt }}">
-        </div>
-        {% if entity.field_resources_attachment_type.value == 'Document' %}
-          <div class="resources-document">
-            {% set document_url = media_file_url(entity.field_resources_document.value.0.target_id, 'field_media_document') %}
-            <a href="{{ document_url }}" target="_blank">Download</a>
-          </div>
-        {% elseif entity.field_resources_attachment_type.value == 'Link' %}
-          <div class="resources-document">
-            <a href="{{ entity.field_resources_link[0].uri }}" target="_blank">
-              Download
-            </a>
-          </div>
-        {% endif %}
+  {% set view_index = rows|keys.0 %}
+  {% if view_index == 0 %}
+    <h1>Our mission &amp; Method</h1>
+    <div>
+      <div class="key-references">
+        <img src="/{{ directory }}/images/icons/key.svg" alt="key-references">
+        {{ drupal_field('name', 'taxonomy_term', 27) }}
       </div>
-    {% endfor %}
+      <div class="videos">
+        <img src="/{{ directory }}/images/icons/video.svg" alt="key-references">
+        {{ drupal_field('name', 'taxonomy_term', 28) }}
+      </div>
+    </div>
+  {% endif %}
+  <div class="container">
+    <div class="row">
+      {% if view_index == 0 %}
+        <div class="resources-key-references">
+          <h1>{{ view.title }}</h1>
+          <div class="resources-key-references-description">
+            {{ drupal_field('description', 'taxonomy_term', 27) }}
+          </div>
+        </div>
+      {% endif %}
+      {% for row in rows %}
+        {% set row_classes = [
+          default_row_class ? 'views-row', 'resource-row', 'card',
+        ] %}
+        <div{{ row.attributes.addClass(row_classes) }}>
+          {% if title %}
+            <div class="resource-type"><h2>{{ title }}</h2></div>
+          {% endif %}
+          {% set entity = row.content['#row']._entity %}
+          {% set title = entity.title.value %}
+          {% set summary = entity.body.value |render|striptags %}
+          {% set media_url = file_url(entity.field_resources_media.entity.field_media_image.entity.fileuri | image_style('large')) %}
+          {% set media_alt = entity.field_resources_media.entity.field_media_image.alt %}
+          <div class="resource-title">
+            <h3>{{ title }}</h3>
+          </div>
+          <div class="resource-summary">
+            <p>{% autoescape false %}{{ summary|length > 80 ? summary|slice(0, 80) : summary }}{% endautoescape %}</p>
+          </div>
+          <div class="resources-image">
+            <img src="{{ media_url }}" alt="{{ media_alt }}">
+          </div>
+          {% if entity.field_resources_attachment_type.value == 'Document' %}
+            <div class="resources-document">
+              {% set document_url = media_file_url(entity.field_resources_document.value.0.target_id, 'field_media_document') %}
+              <a href="{{ document_url }}" target="_blank">Download</a>
+            </div>
+          {% elseif entity.field_resources_attachment_type.value == 'Link' %}
+            <div class="resources-document">
+              <a href="{{ entity.field_resources_link[0].uri }}" target="_blank">
+                Download
+              </a>
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
   </div>
 </div>
