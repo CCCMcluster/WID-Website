@@ -142,3 +142,10 @@
         }
     }
 }
+
+.baseline-hr {
+    box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.16);
+    background-color: $accent-alt-color;
+    height: 5px;
+    margin: 0;
+}

@@ -38,8 +38,8 @@
   {% block content %}
     {% if content.field_faq_bg_img %}
       {% set faq_bg_img = file_url(content.field_faq_bg_img.0['#item'].entity.uri.value) %}
-      <div class="faq-background-image" style="background-image: url('{{ faq_bg_img }}');">
-        <div class="col-md-11 col-lg-9 faq-header-card">
+      <div class="py-5 faq-background-image" style="background-image: url('{{ faq_bg_img }}');">
+        <div class="my-5 col-md-11 col-lg-9 faq-header-card">
           {{ title_prefix }}
           {% if label %}
             <h2 class="faq-header-card-title" {{ title_attributes }}>{{ label }}</h2>
@@ -47,23 +47,23 @@
           {{ title_suffix }}
             <div class="faq-header-card-description">{{ content.body }}</div>
           {% if content.field_faq_category %}
-          <div class="faq-category-container">
-            <div class="faq-category-content faq-project-overview">
+          <div class="row faq-category-container">
+            <div class="m-2 faq-category-content faq-project-overview">
               <img class="faq-category-content-img" src="{{ directory }}/images/icons/faq-project.svg" alt="faq-project-overview">
               <p>{{ content.field_faq_category.0['#title'] }}</p>
               <i class="fa fa-arrow-down"></i>
             </div>
-            <div class="faq-category-content faq-methodology">
+            <div class="m-2 faq-category-content faq-methodology">
               <img class="faq-category-content-img" src="{{ directory }}/images/icons/faq-project.svg" alt="faq-methodology">
               <p>{{ content.field_faq_category.1['#title'] }}</p>
               <i class="fa fa-arrow-down"></i>
             </div>
-            <div class="faq-category-content faq-project-implementation">
+            <div class="m-2 faq-category-content faq-project-implementation">
               <img class="faq-category-content-img" src="{{ directory }}/images/icons/faq-toolkit.svg" alt="faq-project-implementation">
               <p>{{ content.field_faq_category.2['#title'] }}</p>
               <i class="fa fa-arrow-down"></i>
             </div>
-            <div class="faq-category-content faq-access-report">
+            <div class="m-2 faq-category-content faq-access-report">
               <img class="faq-category-content-img" src="{{ directory }}/images/icons/faq-access-report.svg" alt="faq-access-report">
               <p>{{ content.field_faq_category.3['#title'] }}</p>
               <i class="fa fa-arrow-down"></i>
@@ -72,6 +72,7 @@
           {% endif %}
         </div>
       </div>
+      <hr class="faq-hr" />
     {% endif %}
   {% endblock %}
 </div>

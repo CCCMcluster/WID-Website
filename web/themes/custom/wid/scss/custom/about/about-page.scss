@@ -9,14 +9,13 @@
             flex-direction: column;
             align-items: center;
             padding: 100px 0;
-            border-bottom: 4px solid $accent-alt-color;
 
             .about-us-header-title-button {
                 background-color: $primary-color;
                 color: $white;
-                padding: 7px 100px;
+                padding: 10px 120px;
                 margin-bottom: 80px;
-                border-radius: 15px;
+                border-radius: 20px;
                 font-size: $font-size-text;
                 font-weight: 600;
                 font-family:  $font-raleway;
@@ -44,6 +43,13 @@
             }
         }
     }
+
+    .about-header-hr {
+        box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.16);
+        background-color: $accent-alt-color;
+        height: 5px;
+        margin: 0;
+    }
 }
 
 .block-views-blockpartners-detail-block-1 {
@@ -59,8 +65,8 @@
                 background-color: $primary-color;
                 color: $white;
                 width: 250px;
-                padding: 7px 0;
-                border-radius: 15px;
+                padding: 10px 0;
+                border-radius: 20px;
                 font-size: $font-size-text;
                 font-family:  $font-raleway;
             }
