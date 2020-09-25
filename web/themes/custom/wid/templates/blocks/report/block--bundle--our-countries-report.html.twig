@@ -37,13 +37,15 @@
             <div class="report-map">
               <img src="{{ directory }}/images/report-map.png" alt="report-map">
             </div>
-            {% if content.field_active_countries %}
+            {% set active_countries = load_vocabulary_term('country_report_overview') %}
+            {% if active_countries %}
               <ul>
-                {% for index in content.field_active_countries['#items']|keys %}
+                {% for country in active_countries %}
+                  {% set country_iso_code = load_tax_term(country.id).field_report_overview_country.value %}
                   <li>
                     <a
-                      href="{{ path('view.country_report.page_1', {'country':  content.field_active_countries['#items'][index].value|lower }) }}">
-                      {{ content.field_active_countries[index] }}
+                      href="{{ path('view.country_report.page_1', {'country':  country_iso_code|lower }) }}">
+                      {{ country.name }}
                     </a>
                   </li>
                 {% endfor %}

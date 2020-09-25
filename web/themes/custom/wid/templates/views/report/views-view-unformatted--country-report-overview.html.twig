@@ -15,8 +15,7 @@
  * @see template_preprocess_views_view_unformatted()
  */
 #}
-  {% set our_country_report_block_id = 12 %}
-  {% set active_countries = drupal_field('field_active_countries', 'block_content', our_country_report_block_id) %}
+{% set active_countries = load_vocabulary_term('country_report_overview') %}
 
 {% for key, row in rows %}
   {% set row_classes = [
@@ -28,14 +27,21 @@
     'field_overview_report_bg_img'
     )
     ) %}
-  <div class="our-single-report-header" {{ row.attributes.addClass(row_classes) }} style="background-image: url('{{ bg_img }}')">
+  {% set country_report_iso = row.content['#row']._entity.field_report_overview_country.value %}
+  {% set country_title = '' %}
+  <div class="our-single-report-header" {{ row.attributes.addClass(row_classes) }}
+       style="background-image: url('{{ bg_img }}')">
     {% if active_countries %}
       <div class="our-single-report-header-nav row">
-        {% for index in active_countries['#items']|keys %}
+        {% for country in active_countries %}
+          {% set country_iso_code = load_tax_term(country.id).field_report_overview_country.value %}
+          {% if country_iso_code ==  country_report_iso %}
+            {% set country_title = country.name %}
+          {% endif %}
           <div class="our-single-report-header-nav-item">
             <a
-              href="{{ path('view.country_report.page_1', {'country':  active_countries['#items'][index].value|lower }) }}">
-              {{ active_countries[index] }}
+              href="{{ path('view.country_report.page_1', {'country':  country_iso_code|lower }) }}">
+              {{ country.name }}
             </a>
           </div>
         {% endfor %}
@@ -48,12 +54,20 @@
             {{ view.style_plugin.getField(key, 'field_report_overview_cover') }}
           </div>
           <div class="country-report-description col-sm-12 col-md-10 col-lg-9 py-2 px-3">
-            <div class="country-report-description-title">{{ view.style_plugin.getField(key, 'field_report_overview_country') }}</div>
-            <div class="country-report-description-body"{{ view.style_plugin.getField(key, 'description__value') }}</div>
-            <span class="country-report-description-button">Reports &nbsp <i class="fa fa-angle-down" aria-hidden="true"></i></span>
+            <div class="country-report-description-title" data-id="{{ country_title }}">
+              {{ country_title }}
+            </div>
+            <div class="country-report-description-body"{{ view.style_plugin.getField(key, 'description__value') }}
           </div>
+          <span class="country-report-description-button">Reports &nbsp <i class="fa fa-angle-down"
+                                                                           aria-hidden="true"></i></span>
         </div>
       </div>
     </div>
   </div>
+  </div>
 {% endfor %}
+<script>
+    let page_title = document.querySelector('.country-report-description-title').dataset.id;
+    document.title = page_title + ' | Women in Displacement';
+</script>
