@@ -40,7 +40,6 @@
 
     .global-report-header-card {
         background-color: $white;
-        margin: 0 150px;
         padding: 40px 100px;
         border-radius: 15px;
         text-align: center;
@@ -61,13 +60,15 @@
 }
 
 .baseline-endline-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: #e8edff;
-    padding: 50px 150px;
     border-bottom: 4px solid $accent-alt-color;
 
     .resource-card {
         height: 100%;
-        margin: 5px;
         background-color: $accent-color;
         border: none;
         border-radius: 15px;
@@ -148,4 +149,42 @@
     background-color: $accent-alt-color;
     height: 5px;
     margin: 0;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .global-report-header-background {    
+        .global-report-country-nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: transparent;
+    
+            .global-report-country-nav-item {
+                padding: 10px 5px;
+                margin: 1px;
+                background-color: $white;
+                border-radius: 5px;
+                text-align: center;
+                width: 320px;
+            }
+        }
+
+        .global-report-header-card {
+            background-color: $white;
+            padding: 10px 10px;
+            border-radius: 5px;
+    
+            .global-report-header-card-title {
+                font-size: $font-size-text;
+                padding-bottom: 10px;
+            }
+    
+            .global-report-header-card-description {
+                color: $primary-color;
+                font-size: $font-size-text-sm;
+                font-family: $font-lato;
+            }
+        }
+    }  
 }

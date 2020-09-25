@@ -25,7 +25,7 @@
       {% endfor %}
     </div>
   {% endif %}
-  <div class="global-report-header-card">
+  <div class="global-report-header-card col-sm-10">
     <h4 class="global-report-header-card-title">
       {{ drupal_entity('block_content', our_country_report_block_id)['#block_content'].info.value }}
     </h4>
@@ -35,10 +35,10 @@
   </div>
 </div>
 <hr class="baseline-hr" />
-<div class="baseline-endline-wrapper">
+<div class="baseline-endline-wrapper px-5">
   <div {{ attributes.addClass(classes) }}>
-    <div class="row mx-5 px-5 my-5 row-eq-height">
-      <div class="col-sm-6">
+    <div class="row px-5 my-5 row-eq-height">
+      <div class="col-sm-12 col-md-12 col-lg-6 mb-1">
         <div class="resource-card p-3">
           {% block content %}
             <div{{ content_attributes.addClass(contentClasses) }}>
@@ -79,7 +79,7 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-6">
+      <div class="col-sm-12 col-md-12 col-lg-6 mb-1">
         <div class="resource-card p-3">
           {% set endline_block_id = 14 %}
           {% set description = drupal_field('body', 'block_content', endline_block_id)['#items'].0.value|render|striptags %}
