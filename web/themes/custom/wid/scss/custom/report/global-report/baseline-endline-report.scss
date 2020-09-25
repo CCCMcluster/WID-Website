@@ -414,5 +414,99 @@
                 font-family: $font-lato;
             }
         }
-    }  
+    }
+
+    .baseline-endline-wrapper {
+
+        .global-report-row-wrapper {
+            .global-report-row {
+                border-radius: 10px;
+
+                .image-container {
+                    min-height: 300px;
+                    max-height: 300px;
+                    border-top-left-radius: 10px;
+                    border-top-right-radius: 10px;
+                    border-bottom-left-radius: 0px;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+    
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+    .global-report-header-background {    
+        .global-report-country-nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: transparent;
+    
+            .global-report-country-nav-item {
+                padding: 10px 5px;
+                margin: 1px;
+                background-color: $white;
+                border-radius: 5px;
+                text-align: center;
+                width: 320px;
+            }
+        }
+
+        .global-report-header-card {
+            background-color: $white;
+            padding: 10px 10px;
+            border-radius: 5px;
+    
+            .global-report-header-card-title {
+                font-size: $font-size-text;
+                padding-bottom: 10px;
+            }
+    
+            .global-report-header-card-description {
+                color: $primary-color;
+                font-size: $font-size-text-sm;
+                font-family: $font-lato;
+            }
+        }
+    }
+
+    .baseline-endline-wrapper {
+
+        .global-report-row-wrapper {
+            .global-report-row {
+                border-radius: 10px;
+
+                .image-container {
+                    min-height: 300px;
+                    max-height: 300px;
+                    border-top-left-radius: 10px;
+                    border-top-right-radius: 10px;
+                    border-bottom-left-radius: 0px;
+                    object-fit: cover;
+                }
+            }
+        }
+    }   
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+
+    .baseline-endline-wrapper {
+
+        .global-report-row-wrapper {
+            .global-report-row {
+                border-radius: 10px;
+
+                .image-container {
+                    border-top-left-radius: 10px;
+                    border-top-right-radius: 10px;
+                    border-bottom-left-radius: 0px;
+                    object-fit: cover;
+                }
+            }
+        }
+    }   
 }
