@@ -24,7 +24,11 @@
         <ul id="countries">
           {% for country in active_countries %}
             {% set country_iso_code = load_tax_term(country.id).field_report_overview_country.value %}
-            <li value="{{ country_iso_code }}">{{ country.name }}</li>
+            {% set active_class = '' %}
+            {% if country_iso_code == 'AF' %}
+              {% set active_class = 'active' %}
+            {% endif %}
+            <li class="{{ country_iso_code|lower }} {{ active_class }}" value="{{ country_iso_code }}">{{ country.name }}</li>
           {% endfor %}
         </ul>
       </div>
