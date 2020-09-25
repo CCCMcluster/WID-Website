@@ -1,8 +1,11 @@
 (function ($, Drupal, drupalSettings) {
   let mapData = JSON.parse(drupalSettings.mapData);
+  let base_url = drupalSettings.path.baseUrl;
+
+  const mobileThresholdWidth = 500;
   
-  const width = 950;
-  const height = 600;
+  let width = window.innerWidth <= mobileThresholdWidth ? 460 : 950;
+  let height = window.innerWidth <= mobileThresholdWidth ? 300 : 600;
 
   const svg = d3.select("#wid-map")
     .append('svg')
@@ -12,8 +15,8 @@
     .attr('viewBox', `0 0 ${width} ${height}`);
 
   const projection = d3.geoRobinson()
-      .translate([width / 2, height / 2])
-      .scale(width / 2 / Math.PI, height / 2 / Math.PI);
+    .translate([width / 2, height / 2])
+    .scale(width / 2 / Math.PI, height / 2 / Math.PI);
 
   d3.select('#wid-map').append('div').attr('class', 'report-section');
   setActiveCountry(mapData[0].iso_2);
@@ -53,7 +56,7 @@
 
   function setActiveCountry(countryCode) {
     d3.selectAll('.report').remove();
-    fetch(`${window.location.origin}/report/country?iso=${countryCode}`)
+    fetch(`${base_url}report/country?iso=${countryCode}`)
       .then(res => res.json())
       .then(data => {
         data.slice(0, 3).forEach((report, index) => {
@@ -69,4 +72,12 @@
         });
       });
   }
+
+  window.addEventListener("resize", () => {
+    if(window.innerWidth <= mobileThresholdWidth) {
+      return d3.select('#map').attr('width', mobileThresholdWidth - 20).attr('height', 305);
+    }
+    d3.select('#map').attr('width', 950).attr('height', 600);
+  });
+
 })(jQuery, Drupal, drupalSettings);

@@ -33,6 +33,18 @@
   margin-left: -8%;
 }
 
+@media (max-width: 500px) {
+  .home-map-wrapper {
+    min-height: 100vh;
+  }
+  #wid-map {
+    flex-direction: column;
+  }
+  #map {
+    margin-left: 0;
+  }
+}
+
 .report-section {
   display: flex;
   flex-direction: column;
