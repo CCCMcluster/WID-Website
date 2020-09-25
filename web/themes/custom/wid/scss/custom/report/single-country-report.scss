@@ -1,0 +1,348 @@
+.our-single-report-header {
+    flex: 1;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0;
+
+    .our-single-report-header-nav {
+        display: flex;
+        padding: 0 10px;
+        margin-top: 5vh;
+        margin-bottom: 5vh;
+        flex-direction: row;
+        background-color: $white;
+        align-items: center;
+        justify-content: center;
+        border-radius: 40px;
+
+      .our-single-report-header-nav-item {
+        padding: 10px 15px;
+        opacity: 0.9;
+        cursor: pointer;
+        
+        &:hover {
+            opacity: 1;
+        }
+
+        a {
+            text-decoration: none;
+            color: $accent-color;
+            font-size: $font-size-text;
+            font-family: $font-lato;
+        }
+      }
+    }
+
+    .our-single-report-header-card {
+        background-color: $white;
+        border-radius: 15px;
+        text-align: center;
+        padding: 5px;
+
+        .country-report-cover-image {
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .country-report-description {
+
+            .country-report-description-title {
+                color: $accent-color;
+                font-size: $font-size-xl-alt;
+                padding-bottom: 20px;
+                font-family: $font-raleway;
+                font-weight: 600;
+            }
+
+            .country-report-description-body {
+                color: $primary-color;
+                font-size: $font-size-title-xs;
+                font-family: $font-lato;
+            }
+
+            .country-report-description-button {
+                cursor: pointer;
+                background-color: $accent-color;
+                padding: 5px 20px;
+                border-radius: 10px;
+                color: $white;
+                font-size: $font-size-text-alt;
+                font-family: $font-lato;
+            }
+        }
+    }
+}
+
+
+.our-single-country-report-block {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $accent-color;
+    padding: 80px 10px;
+    border-radius: 20px;
+
+    h1 {
+        color: $primary-color;
+        padding: 7px 100px;
+        margin-bottom: 20px;
+        border-radius: 20px;
+        font-size: $font-size-text;
+        font-weight: 600;
+        font-family:  $font-raleway;
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+        background-color: $white;
+    }
+
+    .our-single-country-scroll-content {
+        width: 100%;
+        height: 550px;
+        padding: 40px 20px 40px 15px;
+        overflow: hidden;
+        overflow-y: scroll;
+
+        &::-webkit-scrollbar {
+            width: 15px;
+        }
+        &::-webkit-scrollbar-track {
+            margin-top: 40px;
+            margin-bottom: 40px;
+
+        }
+        &::-webkit-scrollbar-thumb {
+            border-radius: 1rem;
+            border: 1px solid #707070;
+            background-color: $white;
+        }
+
+        .our-single-country-views-row {
+            background-color: $white;
+            border-radius: 10px;
+            margin-bottom: 17px;
+            height: 160px;
+            width: 100%;
+            box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.16);
+
+            .our-single-country-image-view {
+                .our-single-country-image {
+                    overflow: hidden;
+                    height: 160px;
+                    object-fit: cover;
+                    border-top-left-radius: 10px;
+                    border-bottom-left-radius: 8px;
+                }
+            }
+
+            .our-single-country-content-view {
+                .row {
+                    .our-single-country-content-left-view {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        justify-content: space-between;
+
+                        .our-single-report-title {
+                            font-family: $font-raleway;
+                            font-size: 22px;
+                            color: $primary-color; 
+                            font-weight: 600;                  
+                        }
+                        .our-single-report-title-description {
+                            font-family: $font-raleway;
+                            font-size: 20px;
+                            color: $primary-color; 
+                        }
+                        .our-single-country-date {
+                            font-family: $font-lato;
+                            font-size: 14px;
+                            color: $accent-color;
+                        }
+                    }
+                }
+            }
+
+            .our-single-country-content-right-view {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                justify-content: flex-end;
+
+                img {
+                    margin-bottom: 10px;
+                    height: 50px;
+                }
+
+                a {
+                    font-family: $font-lato;
+                    text-decoration: none;
+                    font-size: $font-size-xs;
+                    padding: 5px 20px;
+                    border-radius: 15px;
+                    background-color: $accent-color;
+                    color: $white;
+                    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+                }
+            }
+        }
+    }
+}
+
+.single-country-report-hr {
+    box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.16);
+    background-color: $accent-color;
+    height: 4px;
+    margin: 0;
+    width: 100%;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .our-single-report-header {    
+        .our-single-report-header-nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: transparent;
+    
+            .our-single-report-header-nav-item {
+                padding: 10px 5px;
+                margin: 1px;
+                background-color: $white;
+                border-radius: 5px;
+                text-align: center;
+                width: 320px;
+            }
+        }
+    
+        .our-single-report-header-card {
+    
+            .country-report-cover-image {
+    
+                img {
+                    width: 100%;
+                    height: 150px;
+                    border-top-left-radius: 10px;
+                    border-top-right-radius: 10px;
+                }
+            }
+
+            .country-report-description {
+
+                .country-report-description-title {
+                    font-size: $font-size-title-xs;
+                }
+
+                .country-report-description-body {
+                    font-size: $font-size-text-sm;
+                }
+
+                .country-report-description-button {
+                    font-size: $font-size-text-alt;
+                }
+            }
+        }
+    }  
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+    .our-single-report-header {    
+        .our-single-report-header-nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: transparent;
+    
+            .our-single-report-header-nav-item {
+                padding: 10px 5px;
+                margin: 1px;
+                background-color: $white;
+                border-radius: 5px;
+                text-align: center;
+                width: 480px;
+            }
+        }
+    
+        .our-single-report-header-card {
+    
+            .country-report-cover-image {
+    
+                img {
+                    width: 100%;
+                    height: 150px;
+                    border-top-left-radius: 10px;
+                    border-top-right-radius: 10px;
+                }
+            }
+
+            .country-report-description {
+
+                .country-report-description-title {
+                    font-size: $font-size-title-sm;
+                }
+    
+                .country-report-description-body {
+                    font-size: $font-size-base;
+                }
+    
+                .country-report-description-button {
+                    font-size: $font-size-base;
+                }
+            }
+        }
+    }  
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .our-single-report-header {    
+        .our-single-report-header-nav {
+            border-radius: 10px;
+    
+            .our-single-report-header-nav-item {
+                padding: 5px 5px;
+
+                a {
+                    font-size: $font-size-text-sm;
+                }
+
+            }
+        }
+    
+        .our-single-report-header-card {
+    
+            .country-report-cover-image {
+    
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            .country-report-description {
+
+                .country-report-description-title {
+                    font-size: $font-size-title-sm;
+                }
+    
+                .country-report-description-body {
+                    font-size: $font-size-base;
+                }
+    
+                .country-report-description-button {
+                    font-size: $font-size-base;
+                }
+            }
+        }
+    }
+}

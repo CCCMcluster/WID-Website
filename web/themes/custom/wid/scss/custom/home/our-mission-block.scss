@@ -52,6 +52,11 @@
       line-height: 1.77;
     }
 
+    img {
+      height: 100% !important;
+      object-fit: cover;
+    }
+
     .arrow-btn {
       display: flex;
       justify-content: center;
