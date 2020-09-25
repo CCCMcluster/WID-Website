@@ -31,7 +31,7 @@
         </div>
         <div class="our-single-country-content-view col-sm-12 col-md-12 col-lg-9 pt-3 pb-1 px-3 m-0">
           <div class="row">
-            <div class="col-sm-9 our-single-country-content-left-view">
+            <div class="col-sm-12 col-md-9 our-single-country-content-left-view">
               {% set entity = row.content['#row']._entity %}
               {% set title = entity.title.value %}
               {% set report_created_date = entity.created.value | date('m/d/y') %}
@@ -42,7 +42,7 @@
               </div>
               <span class="pt-3 our-single-country-date">{{ report_created_date }}</span>
             </div>
-            <div class="col-sm-3 our-single-country-content-right-view">
+            <div class="col-md-3 col-sm-12 our-single-country-content-right-view">
               {% if entity.field_attachment_type.value == 'Document' %}
                 {% set fileExtension = media_file_type(entity.field_report_document.value.0.target_id, 'field_media_document') %}
                 <img src="/{{ directory }}/images/icons/{{ fileExtension }}.svg" alt={{ fileExtension }}>

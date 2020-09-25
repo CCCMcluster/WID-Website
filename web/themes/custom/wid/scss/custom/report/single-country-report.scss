@@ -130,17 +130,16 @@
             background-color: $white;
             border-radius: 10px;
             margin-bottom: 17px;
-            height: 160px;
             width: 100%;
             box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.16);
 
             .our-single-country-image-view {
                 .our-single-country-image {
                     overflow: hidden;
-                    height: 160px;
+                    height: 180px;
                     object-fit: cover;
                     border-top-left-radius: 10px;
-                    border-bottom-left-radius: 8px;
+                    border-bottom-left-radius: 10px;
                 }
             }
 
@@ -231,7 +230,7 @@
     
                 img {
                     width: 100%;
-                    height: 150px;
+                    height: 250px;
                     border-top-left-radius: 10px;
                     border-top-right-radius: 10px;
                 }
@@ -252,7 +251,30 @@
                 }
             }
         }
-    }  
+    }
+    
+    .our-single-country-report-block {
+
+        .our-single-country-scroll-content {
+            .our-single-country-views-row {
+                .our-single-country-image-view {
+                    .our-single-country-image {
+                        border-top-left-radius: 10px;
+                        border-top-right-radius: 10px;
+                        border-bottom-left-radius: 0px;
+                    }
+                }
+
+                .our-single-country-content-right-view {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: flex-end;
+                    justify-content: space-between;
+                    padding: 5px;
+                }
+            }
+        }
+    }
 }
 
 @media (min-width: 481px) and (max-width: 767px) {
@@ -280,7 +302,7 @@
     
                 img {
                     width: 100%;
-                    height: 150px;
+                    height: 300px;
                     border-top-left-radius: 10px;
                     border-top-right-radius: 10px;
                 }
@@ -301,7 +323,30 @@
                 }
             }
         }
-    }  
+    } 
+    
+    .our-single-country-report-block {
+
+        .our-single-country-scroll-content {
+            .our-single-country-views-row {
+                .our-single-country-image-view {
+                    .our-single-country-image {
+                        border-top-left-radius: 10px;
+                        border-top-right-radius: 10px;
+                        border-bottom-left-radius: 0px;
+                    }
+                }
+
+                .our-single-country-content-right-view {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: flex-end;
+                    justify-content: space-between;
+                    padding: 5px;
+                }
+            }
+        }
+    }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
