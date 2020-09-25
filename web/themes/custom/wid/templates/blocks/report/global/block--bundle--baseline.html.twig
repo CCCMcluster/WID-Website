@@ -73,7 +73,7 @@
               <div class="col-sm-5">
                 {% set fileExtension = media_file_type(content.field_baseline_document['#items'][0].target_id, 'field_media_document') %}
                 <img class="extension-icon mb-1 mr-3" src="/{{ directory }}/images/icons/{{ fileExtension }}.svg"
-                    alt={{ fileExtension }}/>
+                     alt={{ fileExtension }}/>
                 {% set document_url = file_url(content.field_baseline_document[0]['#media'].field_media_document.entity.uri.value) %}
                 <a class="download-button" href="{{ document_url }}" download>
                   Download
@@ -91,7 +91,7 @@
               {% set endline_cover_image_url = file_url(endline_cover_image['#items'].entity.uri.value | image_style('large')) %}
               {% set endline_cover_image_alt = endline_cover_image['#items'].0.value.alt %}
               <img class="card-img-top resource-image" src="{{ endline_cover_image_url }}"
-                  alt="{{ endline_cover_image_alt }}">
+                   alt="{{ endline_cover_image_alt }}">
             {% endif %}
             <h4 class="resource-title py-2 px-4" {{ title_attributes }}>
               {{ drupal_entity('block_content', endline_block_id)['#block_content'].info.value }}
@@ -111,7 +111,7 @@
               <div class="col-sm-5">
                 {% set endline_document_ext = media_file_type(field_endline_document['#items'][0].target_id, 'field_media_document') %}
                 <img class="extension-icon mb-1 mr-3" src="/{{ directory }}/images/icons/{{ endline_document_ext }}.svg"
-                    alt={{ endline_document_ext }}/>
+                     alt={{ endline_document_ext }}/>
                 {% set endline_document_url = file_url(field_endline_document[0]['#media'].field_media_document.entity.uri.value) %}
                 <a class="download-button" href="{{ endline_document_url }}" download>Downlaod</a>
               </div>
@@ -119,30 +119,78 @@
           </div>
         </div>
       </div>
-      <div class="global-report-row-wrapper pt-5">
-        <div class="global-report-row row mb-5">
-          <img class="col-sm-12 col-md-12 col-lg-5 w-100 p-0 image-container" src="https://cdn.zeplin.io/5f55bf9fe187128871c4e02f/assets/B4F156DB-2B1D-46F5-99A5-118933A8ACAF.png"/>
-          <div class="col-sm-12 col-md-12 col-lg-7 global-report-row-content p-5">
-            <div class="global-report-row-title">NRC - WOMEN’S PARTICIPATION; THE ROLE OF OLDER WOMEN: FINDINGS AND RECOMMENDATIONS FOR PRACTITIONERS AND COMMUNITY (PRESENTATION AND VIDEO)</div>
-            <div class="global-report-row-body py-3">These two sets of resources (video and presentation) are designed to disseminate the main findings and recommendations from the research on Women’s Participation: The Role of Older Women, conducted in 2019 by the Norwegian Refugee Council (NRC), with support from the International Organisation for Migration (IOM). The first set is addressed to the community and research informants, while the second set is addressed to CCCM practitioners and humanitarian workers. The research included field work in four locations (Afghanistan, Iraq, Kenya and Tanzania) and covered a range of displacement settings and different types of Camp Management interventions. The full report and the summary report of this research can be found in the ‘Reports’ section of this platform. I you wish to have the presentation in pwpt. format or if you have any question, please contact: womenindisplacement@iom.int, anna.hirschholland@gmail.com and giovanna.federici@nrc.no.</div>
-            <div class="row m-2 file-info-container py-2 px-3">
-              <div class="col-sm-10">
-                <div class="file-info-title">Findings and recommendations for practitioners and community</div>
-                <div>
-                  <span class="pr-2"><i class="fa fa-calendar-o pr-2" aria-hidden="true"></i>05/31/18</span>
-                  <span><i class="fa fa-file-text-o pr-2" aria-hidden="true"></i>05/31/18</span>
+      {% set global_reports = drupal_view_result('global_reports','block_1') %}
+      {% if global_reports is not empty %}
+        {% for globalReport in global_reports %}
+          {% set globalReportEntity = globalReport._entity %}
+          {% set globalReportTitle = globalReportEntity.title.value %}
+          {% set globalReportDescription = globalReportEntity.body.value %}
+          {% set globalCoverImage = file_url(globalReportEntity.field_report_image.entity.field_media_image.entity.fileuri) %}
+          {% set globalCoverImageAlt = globalReportEntity.field_report_image.entity.field_media_image.alt %}
+          {% set globalReportCreatedDate = globalReportEntity.created.value | date('m/d/y') %}
+          {% set documentFileExtension = '' %}
+          {% set globalReportDocumentTitle = '' %}
+          {% set documentFileSize = '' %}
+          {% set globalReportDocumentTitle = '' %}
+          {% if globalReportEntity.field_attachment_type.value == 'Document' %}
+            {% set globalReportDocumentTitle = globalReportEntity.field_report_doc_description.value %}
+            {% set documentFileExtension = media_file_type(globalReportEntity.field_report_document.value.0.target_id, 'field_media_document') %}
+            {% set documentFileSize = globalReportEntity.field_report_document.entity.field_media_document.entity.filesize.value / 1024 %}
+            {% set document_url = media_file_url(globalReportEntity.field_report_document.value.0.target_id, 'field_media_document') %}
+          {% elseif globalReportEntity.field_attachment_type.value == 'Link' %}
+            {% set globalReportDocumentTitle = globalReportEntity.field_report_link[0].title %}
+            {% set document_url = globalReportEntity.field_report_link[0].uri %}
+          {% endif %}
+          <div class="global-report-row-wrapper pt-5">
+            <div class="global-report-row row mb-5">
+              {% if globalCoverImage %}
+                <img class="col-sm-12 col-md-12 col-lg-5 w-100 p-0 image-container"
+                     src="{{ globalCoverImage }}" alt="globalCoverImageAlt"/>
+              {% endif %}
+              <div class="col-sm-12 col-md-12 col-lg-7 global-report-row-content p-5">
+                <div class="global-report-row-title">
+                  {{ globalReportTitle }}
                 </div>
-              </div>
-              <div class="col-sm-2 button-container">
-                <img class="extension-icon mb-2" src="/{{ directory }}/images/icons/pdf.svg"/>
-                <a class="download-button" href="#">
-                  Download
-                </a>
+                <div class="global-report-row-body py-3">
+                  {% autoescape false %}
+                    {{ globalReportDescription }}
+                  {% endautoescape %}
+                </div>
+                <div class="row m-2 file-info-container py-2 px-3">
+                  <div class="col-sm-10">
+                    <div class="file-info-title">{{ globalReportDocumentTitle }}</div>
+                    <div>
+                      <span class="pr-2">
+                        <i class="fa fa-calendar-o pr-2" aria-hidden="true"></i>
+                        {{ globalReportCreatedDate }}
+                      </span>
+                      {% if documentFileSize %}
+                        <span>
+                        <i class="fa fa-file-text-o pr-2" aria-hidden="true"></i>
+                        {{ documentFileSize|round(1, 'ceil') }}KB
+                      </span>
+                      {% endif %}
+                    </div>
+                  </div>
+                  <div class="col-sm-2 button-container">
+                    {% if documentFileExtension %}
+                      <img class="extension-icon mb-2"
+                           src="/{{ directory }}/images/icons/{{ documentFileExtension }}.svg"/>
+                    {% else %}
+                      <span>
+                        <i class="fa fa-external-link fa-2x"></i>
+                      </span>
+                    {% endif %}
+                    <a class="download-button" href="{{ document_url }}" target="_blank" download>
+                      Download
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        {% endfor %}
+      {% endif %}
     </div>
   </div>
 </div>

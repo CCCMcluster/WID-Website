@@ -16,25 +16,38 @@
  */
 #}
 {% for row in rows %}
-  {% set row_classes = [
-    default_row_class ? 'views-row',
-  ] %}
   {% set bg_img = file_url(
     get_file_field_uri(
     row.content['#row']._entity,
     'field_country_gallery_bg_img'
     )
     ) %}
-  <div style="background-image: url('{{ bg_img }}')">
-    <div{{ row.attributes.addClass(row_classes) }}>
-      <h3>{{ view.title }}</h3>
-      <div class="images">
-        {% set gallery_images = row.content['#row']._entity.field_country_gallery_image %}
+  {% set gallery_images = row.content['#row']._entity.field_country_gallery_image %}
+  <div class="single-country-gallery-background w-100"
+       style="background-image: url('{{ bg_img }}')">
+    <div class="container">
+      <h2 class="my-5">{{ view.title }}</h2>
+      <div class="single-country-gallery-container w-100">
         {% for image_entity in gallery_images %}
-          {% set img_class = 'country-gallery-image-' ~ loop.index %}
-          <img class="{{ img_class }}" src="{{ file_url(image_entity.entity.uri.value) }}"
-               alt="{{ image_entity.value.alt }}">
+          <div class="countryGallerySlides">
+            <img class="w-100" src="{{ file_url(image_entity.entity.uri.value) }}" alt="{{ image_entity.value.alt }}">
+          </div>
         {% endfor %}
+        <div class="single-country-gallery-row">
+          <div class="single-country-gallery-column">
+            <a class="prev" onclick="plusSlides(1)"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+          </div>
+          {% for image_entity in gallery_images %}
+            <div class="single-country-gallery-column">
+              <img class="galleryImage" src="{{ file_url(image_entity.entity.uri.value) }}"
+                   alt="{{ image_entity.value.alt }}"
+                   onclick="currentSlide({{ loop.index }})">
+            </div>
+          {% endfor %}
+          <div class="single-country-gallery-column">
+            <a class="next" onclick="plusSlides(1)"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
