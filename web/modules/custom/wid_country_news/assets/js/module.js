@@ -1,11 +1,21 @@
 (function ($, Drupal, drupalSettings) {
   let base_url = drupalSettings.path.baseUrl;
-  let news = drupalSettings.news;
-  
+
   const countries = document.getElementById('countries');
   countries.addEventListener('click', function(e) {
     if(e.target && e.target.nodeName == "LI") {
       const country_iso = e.target.getAttribute('value');
+
+      for (let i = 0; i < this.childNodes.length; i++) {
+        if (this.childNodes[i].className) {
+          let current_class = country_iso.toString().toLowerCase();
+          if (current_class == this.childNodes[i].className.trim()) {
+            this.childNodes[i].className += ' active';
+          } else {
+            this.childNodes[i].classList.remove('active');
+          }
+        }
+      }
 
       fetch(`${base_url}news/${country_iso}?_format=json`)
         .then(response => response.json())

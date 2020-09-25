@@ -254,20 +254,22 @@
         li {
           display: inline-block;
           margin: 0 25px;
+          text-decoration: none;
+          font-family: Lato;
+          font-size: $font-size-text;
+          font-weight: normal;
+          line-height: 1.21;
+          color: $primary-color;
 
-          a {
-            text-decoration: none;
-            font-family: Lato;
-            font-size: $font-size-text;
-            font-weight: normal;
-            line-height: 1.21;
-            color: $primary-color;
-
-            &:hover {
-              font-weight: 700;
-              border-bottom: 1px solid $primary-color;
-            }
+          &:hover {
+            cursor: pointer;
+            font-weight: 700;
+            border-bottom: 1px solid $primary-color;
           }
+        }
+        li.active{
+          font-weight: 700;
+          border-bottom: 1px solid $primary-color;
         }
       }
     }
