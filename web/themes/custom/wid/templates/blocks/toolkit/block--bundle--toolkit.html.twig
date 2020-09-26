@@ -8,66 +8,70 @@
 ] %}
 <div class="toolkit-wrapper">
   <div {{ attributes.addClass(classes) }}>
-      <div class="toolkit-purpose-container" style="background: url('{{ file_url(content.field_toolkit_background_image.0['#item'].entity.uri.value) }}')" alt="{{ content.field_toolkit_background_image.0['#item'].alt }}">
-          <div class="container">
-            <nav>
-              {% set vocabulary_trees = load_vocabulary_term('toolkit') %}
-              {% for vocabulary_tree in vocabulary_trees %}
-                <a href="#">{{ vocabulary_tree.name }}</a>
-              {% endfor %}
-            </nav>
-            <div class="purpose-container">
-              {{ title_prefix }}
-              {% if label %}
-                <h2{{ title_attributes }}>{{ label }}</h2>
-              {% endif %}
-              {{ title_suffix }}
-              {% block content %}
-                <div{{ content_attributes.addClass(contentClasses) }}>
-                  <div>{{ content.body }}</div>
-                </div>
-                {# {% if content.field_toolkit_background_image %}
-                  <img src="{{ file_url(content.field_toolkit_background_image.0['#item'].entity.uri.value) }}"
-                      alt="{{ content.field_toolkit_background_image.0['#item'].alt }}">
-                {% endif %} #}
-              {% endblock %}
-            </div>
-          </div>
-      </div>
-      <hr class="toolkit-hr">
-    <div class="approach-wrapper">
+    <div class="toolkit-purpose-container"
+         style="background: url('{{ file_url(content.field_toolkit_background_image.0['#item'].entity.uri.value) }}')"
+         alt="{{ content.field_toolkit_background_image.0['#item'].alt }}">
       <div class="container">
-        <h2>Phased Approach</h2>
-          <div class="approach-container">
-              <div class="approach-steps">
-                  <img src="{{ directory }}/images/approach-step-daigram.png" alt="approach-steps">
-                <ul>
-                  {% for vocabulary_tree in vocabulary_trees %}
-                    <li class="step-card-{{ loop.index }}"><a href="#card-{{ loop.index }}"><div class="step-card"><span class="step-number">{{ loop.index }}</span> <span class="step-name">{{ vocabulary_tree.name }}</span></div></a></li>
-                  {% endfor %}
-                </ul>
-                <div class="choose-step">Choose a step</div>
-              </div>
-          </div>
+        <nav>
+          {% set vocabulary_trees = load_vocabulary_term('toolkit', 1) %}
+          {% for vocabulary_tree in vocabulary_trees %}
+            <a href="#">{{ vocabulary_tree.name }}</a>
+          {% endfor %}
+        </nav>
+        <div class="purpose-container">
+          {{ title_prefix }}
+          {% if label %}
+            <h2{{ title_attributes }}>{{ label }}</h2>
+          {% endif %}
+          {{ title_suffix }}
+          {% block content %}
+            <div{{ content_attributes.addClass(contentClasses) }}>
+              <div>{{ content.body }}</div>
+            </div>
+          {% endblock %}
+        </div>
       </div>
     </div>
     <hr class="toolkit-hr">
-    <div class="toolkit-steps-wrapper" style="background: url('{{ file_url(content.field_toolkit_background_image.0['#item'].entity.uri.value) }}')" alt="{{ content.field_toolkit_background_image.0['#item'].alt }}">
+    <div class="approach-wrapper">
+      <div class="container">
+        <h2>Phased Approach</h2>
+        <div class="approach-container">
+          <div class="approach-steps">
+            <img src="{{ directory }}/images/approach-step-daigram.png" alt="approach-steps">
+            <ul>
+              {% for vocabulary_tree in vocabulary_trees %}
+                <li class="step-card-{{ loop.index }}"><a href="#card-{{ loop.index }}">
+                    <div class="step-card"><span class="step-number">{{ loop.index }}</span> <span
+                        class="step-name">{{ vocabulary_tree.name }}</span></div>
+                  </a></li>
+              {% endfor %}
+            </ul>
+            <div class="choose-step">Choose a step</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="toolkit-hr">
+    <div class="toolkit-steps-wrapper"
+         style="background: url('{{ file_url(content.field_toolkit_background_image.0['#item'].entity.uri.value) }}')"
+         alt="{{ content.field_toolkit_background_image.0['#item'].alt }}">
       <div class="container">
         <h2>Steps Descriptions</h2>
         <div class="steps-card-wrapper">
           {% for vocabulary_tree in vocabulary_trees %}
-              <div class="steps-card" id="card-{{ loop.index }}">
-                <h3>{{ loop.index }} . {{ vocabulary_tree.name }}</h3>
-                {% set taxonomy_term = load_tax_term(vocabulary_tree.id) %}
-                {% autoescape false %}
-                  {{ taxonomy_term.description.value }}
-                {% endautoescape %}
-                <div class="card-button">
-                  <i class="fa fa-arrow-right"></i>
-                </div>
+            <div class="steps-card" id="card-{{ loop.index }}">
+              <h3>{{ loop.index }} . {{ vocabulary_tree.name }}</h3>
+              {% set taxonomy_term = load_tax_term(vocabulary_tree.id) %}
+              {% autoescape false %}
+                {% set text = taxonomy_term.description.value %}
+                {{ text|length > 390 ? text|slice(0, 390) ~ '...' : text }}
+              {% endautoescape %}
+              <div class="card-button">
+                <i class="fa fa-arrow-right"></i>
               </div>
-            {% endfor %}
+            </div>
+          {% endfor %}
         </div>
       </div>
     </div>
