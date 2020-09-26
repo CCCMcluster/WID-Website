@@ -6,6 +6,14 @@
 {% set contentClasses = [
   'content'
 ] %}
+
+{% set toolkitPhaseUrl = [
+  {'url': '/toolkit/inception-phase'},
+  {'url': '/toolkit/project-design'},
+  {'url':'/toolkit/project-implementation'},
+  {'url':'/toolkit/evidence-learning'}
+] %}
+
 <div class="toolkit-wrapper">
   <div {{ attributes.addClass(classes) }}>
     <div class="toolkit-purpose-container"
@@ -15,7 +23,8 @@
         <nav>
           {% set vocabulary_trees = load_vocabulary_term('toolkit', 1) %}
           {% for vocabulary_tree in vocabulary_trees %}
-            <a href="#">{{ vocabulary_tree.name }}</a>
+            {% set loop_index = loop.index - 1 %}
+            <a href="{{ attribute(toolkitPhaseUrl[loop_index], 'url') }}">{{ vocabulary_tree.name }}</a>
           {% endfor %}
         </nav>
         <div class="purpose-container">
@@ -60,6 +69,7 @@
         <h2>Steps Descriptions</h2>
         <div class="steps-card-wrapper">
           {% for vocabulary_tree in vocabulary_trees %}
+            {% set loop_index = loop.index - 1 %}
             <div class="steps-card" id="card-{{ loop.index }}">
               <h3>{{ loop.index }} . {{ vocabulary_tree.name }}</h3>
               {% set taxonomy_term = load_tax_term(vocabulary_tree.id) %}
@@ -68,7 +78,7 @@
                 {{ text|length > 390 ? text|slice(0, 390) ~ '...' : text }}
               {% endautoescape %}
               <div class="card-button">
-                <i class="fa fa-arrow-right"></i>
+                <a href="{{ attribute(toolkitPhaseUrl[loop_index], 'url') }}"><i class="fa fa-arrow-right"></i></a>
               </div>
             </div>
           {% endfor %}

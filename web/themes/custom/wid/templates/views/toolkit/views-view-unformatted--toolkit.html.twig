@@ -1,0 +1,47 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+{% set toolkitPhaseUrl = [
+  {'url': '/toolkit/inception-phase'},
+  {'url': '/toolkit/project-design'},
+  {'url':'/toolkit/project-implementation'},
+  {'url':'/toolkit/evidence-learning'}
+] %}
+{% if title %}
+  <h3>{{ title }}</h3>
+{% endif %}
+{% for row in rows %}
+  {% set entity = row.content['#row']._entity %}
+  {% set media_url = file_url(entity.field_toolkit_img.entity.field_media_image.entity.fileuri) %}
+  <div {{ attributes.addClass(classes) }} style='background-image: url("{{ media_url }}")'>
+    <div class="container">
+      <nav>
+        {% set vocabulary_trees = load_vocabulary_term('toolkit', 1) %}
+        {% for vocabulary_tree in vocabulary_trees %}
+          {% set loop_index = loop.index - 1 %}
+          <a href="{{ attribute(toolkitPhaseUrl[loop_index], 'url') }}">{{ vocabulary_tree.name }}</a>
+        {% endfor %}
+      </nav>
+      {% set row_classes = [
+        default_row_class ? 'views-row', 'card',
+      ] %}
+      <div{{ row.attributes.addClass(row_classes) }}>
+        {{- row.content -}}
+      </div>
+    </div>
+  </div>
+{% endfor %}
