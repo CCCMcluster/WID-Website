@@ -1,0 +1,40 @@
+<?php
+
+/**
+ * @file
+ * Contains wid_toolkit_inception_phase.module.
+ */
+
+use Drupal\wid_toolkit_inception_phase\Controller\InceptionPhaseController;
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function wid_toolkit_inception_phase_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the wid_toolkit_inception_phase module.
+    case 'help.page.wid_toolkit_inception_phase':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Adds toolkit inception phase workshop and training resources') . '</p>';
+      return $output;
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function wid_toolkit_inception_phase_theme() {
+  $inception_phase_workshop = InceptionPhaseController::getInceptionPhase('inception_phase_workshop');
+  $inception_phase_training_resources = InceptionPhaseController::getInceptionPhase('inception_phase_training_resources');
+  return [
+    'wid_toolkit_inception_phase-block' => [
+      'variables' => [
+        'inception_phase_workshop' => $inception_phase_workshop,
+        'inception_phase_training_resources' => $inception_phase_training_resources,
+      ],
+    ],
+  ];
+}

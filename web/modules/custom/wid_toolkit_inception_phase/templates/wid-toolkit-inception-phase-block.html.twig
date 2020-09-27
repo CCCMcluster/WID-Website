@@ -1,0 +1,88 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+{% set inception_phase_workshop = inception_phase_workshop %}
+<div class="container">
+  <div class="row">
+    <h1>Workshop</h1>
+    {% for tax_id, workshops in inception_phase_workshop %}
+      {% set taxonomy_term = load_tax_term(tax_id) %}
+      {% set tax_term_cover_img = file_url(taxonomy_term.field_toolkit_img.entity.field_media_image.entity.fileuri) %}
+      {% set tax_term_cover_img_alt = taxonomy_term.field_toolkit_img.entity.field_media_image.alt %}
+      <h2>{{ taxonomy_term.name.value }}</h2>
+      <div class="description">
+        <img src="{{ tax_term_cover_img }}" alt="{{ tax_term_cover_img_alt }}">
+        {% autoescape false %}
+          {{ taxonomy_term.description.value }}
+        {% endautoescape %}
+      </div>
+      {% for workshop in workshops %}
+        <div class="card">
+          <h3>{{ workshop.title }}</h3>
+          {% if workshop.document is not empty %}
+            {% set fileExtension = workshop.document.type|split('/')[1] %}
+            <img src="/{{ directory }}/images/icons/{{ fileExtension }}.svg" alt={{ fileExtension }}>
+            <span>{{ workshop.document.size }}KB</span>
+            <a class="download-button" href="{{ workshop.document.url }}">Download</a>
+          {% elseif workshop.document_link %}
+            <a class="download-button" href="{{ workshop.document_link }}">Download</a>
+          {% endif %}
+          <div>{{ workshop.created_date }}</div>
+        </div>
+      {% endfor %}
+    {% endfor %}
+  </div>
+  <div class="row">
+    <div class="our-key-container">
+      <h2>Training Resources</h2>
+      <div class="our-key-content">
+        <div class="our-key-group">
+          {% for tax_id, training_resources in inception_phase_training_resources %}
+            <div class="our-key-cards">
+              {% set taxonomy_term = load_tax_term(tax_id) %}
+              <div class="single-card">
+                <h2>{{ taxonomy_term.name.value }}</h2>
+              </div>
+              {% for training_resource in training_resources %}
+                {% set training_resource_description = training_resource.description %}
+                <div class="single-card">
+                  <img src="{{ training_resource.cover_image.url }}" alt="{{ training_resource.cover_image.alt }}">
+                  <h2>{{ training_resource.title }}</h2>
+                  {% autoescape false %}
+                    <p>{{ training_resource_description|length > 80 ? training_resource_description|slice(0, 80) : training_resource_description }}</p>
+                  {% endautoescape %}
+                  <div class="download-section">
+                    <span class="download">
+                      {% if training_resource.document is not empty %}
+                        <a href="{{ training_resource.document.url }}" download>Download</a>
+                      {% elseif training_resource.document_link %}
+                        <a href="{{ training_resource.document_link }}" download>Download</a>
+                      {% endif %}
+                      </span>
+                  </div>
+                </div>
+              {% endfor %}
+              <div class="card-button">
+                <a href="#" tabindex="-1"><i class="fa fa-arrow-right"></i></a>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

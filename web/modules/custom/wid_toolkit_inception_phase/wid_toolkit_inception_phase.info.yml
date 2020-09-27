@@ -1,0 +1,9 @@
+name: "Toolkit Inception Phase"
+type: module
+description: "Adds toolkit inception phase workshop and training resources"
+core: 8.x
+package: "Custom"
+dependencies:
+  - node
+  - block
+  - drupal:serialization
