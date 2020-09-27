@@ -1,0 +1,97 @@
+.toolkit-header-wrapper {
+  width: 100%;
+
+  .toolkit-header {
+    padding: 150px 0;
+
+    nav {
+      border-radius: 40px;
+      box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.16);
+      background-color: #ffffff;
+      margin: 35px auto 50px;
+      padding: 12px 60px;
+      width: 85%;
+
+      a {
+        font-family: $font-lato;
+        font-size: $font-size-text-alt;
+        font-weight: normal;
+        line-height: 1.2;
+        color: $accent-alt-color;
+        text-decoration: none;
+        margin: 5px 25px;
+        display: inline-block;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      .active {
+        text-decoration: underline;
+      }
+    }
+
+    .toolkit-header-card {
+      display: flex;
+      justify-self: center;
+      align-items: center;
+      flex-direction: column;
+      border-radius: 20px;
+      box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.16);
+      background-color: #ffffff;
+      padding: 50px 0;
+      border: 50px solid $primary-color;
+      border-top: none;
+      border-bottom: none;
+      position: relative;
+
+      span {
+        font-family: $font-raleway;
+        font-size: $font-size-xl-alt;
+        font-weight: 600;
+        line-height: 1.16;
+        color: $accent-alt-color;
+        margin-bottom: 30px;
+        display: inline-block;
+      }
+
+      p {
+        font-family: $font-lato;
+        font-size: $font-size-base;
+        font-weight: normal;
+        line-height: 1.5;
+        color: $primary-color;
+        width: 85%;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .card-button {
+        padding: 10px 12px;
+        background-color: $primary-color;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        position: absolute;
+        transform: translate(-50%, -50%);
+
+        i {
+          font-size: $font-size-base;
+          color: #ffffff;
+        }
+      }
+
+      .card-button-left {
+        top: 50%;
+        left: calc(0% - 50px);
+      }
+
+      .card-button-right {
+        top: 50%;
+        left: calc(100% + 50px);
+      }
+    }
+  }
+}
