@@ -50,14 +50,16 @@ class CustomTwigExtension extends Twig_Extension {
    *
    * @param string $vid
    *   Vid of the vocabulary.
+   * @param string $depth
+   *   Number of levels of the tree to return.
    *
    * @return array
    *   Tree of vocabulary.
    */
-  public static function loadVocabularyTerm($vid) {
+  public static function loadVocabularyTerm($vid, $depth = NULL) {
     $terms = Drupal::entityTypeManager()
       ->getStorage('taxonomy_term')
-      ->loadTree($vid);
+      ->loadTree($vid, 0, $depth);
     foreach ($terms as $term) {
       $term_data[] = [
         'id' => $term->tid,
