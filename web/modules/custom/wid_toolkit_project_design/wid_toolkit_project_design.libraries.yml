@@ -1,0 +1,5 @@
+widtoolkitprojectdesign:
+  version: 1.x
+  css:
+    theme:
+      assets/css/module.css: {}

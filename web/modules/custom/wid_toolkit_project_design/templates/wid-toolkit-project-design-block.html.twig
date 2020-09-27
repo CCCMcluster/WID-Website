@@ -1,0 +1,101 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+{% set workshop_tools_icons = [
+  {'icon': ''},
+  {'icon': 'pd-community-engagement.svg'},
+  {'icon': 'pd-descrimination.svg'},
+  {'icon': 'pd-power.svg'},
+  {'icon': 'pd-barriers.svg'},
+  {'icon': ''}
+] %}
+<div class="container">
+  <div class="row">
+    <div>
+      {% set workshop_tools_term = load_tax_term(50) %}
+      <h1>{{ workshop_tools_term.name.value }}</h1>
+      <p>
+        {% autoescape false %}
+          {{ workshop_tools_term.description.value }}
+        {% endautoescape %}
+      </p>
+    </div>
+    <div>
+      <p>Choose a step</p>
+      {% for workshop_tools_icon in workshop_tools_icons %}
+        <img src="/{{ directory }}/images/icons/{{ workshop_tools_icon.icon }}"
+             alt="project-design-workshop-tools-icon">
+      {% endfor %}
+    </div>
+    <div>
+      {% set workshop_tools = load_tax_children(50) %}
+      {% for workshop_tool in workshop_tools %}
+        {% set workshop_tool_title = workshop_tool.name.value %}
+        {% set workshop_tool_description = workshop_tool.description.value %}
+        {% set loop_index = loop.index - 1 %}
+        <img src="/{{ directory }}/images/icons/{{ attribute(workshop_tools_icons[loop_index], 'icon') }}"
+             alt="project-design-workshop-tools-icon">
+        <h3>{{ workshop_tool_title }}</h3>
+        <p>
+          {% autoescape false %}
+            {{ workshop_tool_description }}
+          {% endautoescape %}
+        </p>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="row">
+    <h1>Workshop</h1>
+    <div>
+      {% for tax_id, project_design_workshops in project_design_workshops %}
+        <div class="our-key-cards">
+          {% set taxonomy_term = load_tax_term(tax_id) %}
+          {% set tax_term_cover_img = file_url(taxonomy_term.field_toolkit_img.entity.field_media_image.entity.fileuri) %}
+          {% set tax_term_cover_img_alt = taxonomy_term.field_toolkit_img.entity.field_media_image.alt %}
+          <div class="single-card">
+            <h2>{{ taxonomy_term.name.value }}</h2>
+            <img src="{{ tax_term_cover_img }}" alt="{{ tax_term_cover_img_alt }}">
+            <p>
+              {% autoescape false %}
+                {{ taxonomy_term.description.value }}
+              {% endautoescape %}
+            </p>
+          </div>
+          {% for project_design_workshop in project_design_workshops %}
+            {% set project_design_workshop_description = project_design_workshop.description %}
+            <div class="single-card">
+              <h2>{{ project_design_workshop.title }}</h2>
+              <div>{{ project_design_workshop.created_date }}</div>
+              <div class="download-section">
+                <span class="download">
+                  {% if project_design_workshop.document is not empty %}
+                    {% set fileExtension = project_design_workshop.document.type|split('/')[1] %}
+                    <img src="/{{ directory }}/images/icons/{{ fileExtension }}.svg" alt={{ fileExtension }}>
+                    <span>{{ project_design_workshop.document.size }}KB</span>
+                    <a href="{{ project_design_workshop.document.url }}" download>Download</a>
+                  {% elseif project_design_workshop.document_link %}
+                    <a href="{{ project_design_workshop.document_link }}" download>Download</a>
+                  {% endif %}
+                  </span>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

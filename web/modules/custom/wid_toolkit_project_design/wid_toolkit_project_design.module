@@ -1,0 +1,42 @@
+<?php
+
+use Drupal\wid_toolkit_project_design\Controller\ProjectDesignController;
+use Drupal\node\NodeInterface;
+
+function wid_toolkit_project_design_theme() {
+  $project_design_workshops = ProjectDesignController::getProjectDesign();
+  return [
+    'wid_toolkit_project_design-block' => [
+      'variables' => [
+        'project_design_workshops' => $project_design_workshops,
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for block.html.twig.
+ */
+function wid_toolkit_project_design_preprocess_block(&$vars) {
+  if ($vars['derivative_plugin_id'] == 'toolkit_project_design-project_design_workshop') {
+    $vars['#cache']['max-age'] = 0;
+  }
+}
+
+function wid_toolkit_project_design_node_update(NodeInterface $node) {
+  if ($node->bundle() === 'toolkit') {
+    drupal_flush_all_caches();
+  }
+}
+
+function toolkit_node_insert(NodeInterface $node) {
+  if ($node->bundle() == 'toolkit') {
+    drupal_flush_all_caches();
+  }
+}
+
+function toolkit_node_delete(NodeInterface $node) {
+  if ($node->bundle() == 'toolkit') {
+    drupal_flush_all_caches();
+  }
+}

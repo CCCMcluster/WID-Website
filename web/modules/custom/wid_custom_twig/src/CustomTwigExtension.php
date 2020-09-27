@@ -33,6 +33,7 @@ class CustomTwigExtension extends Twig_Extension {
         'loadVocabularyTerm',
       ]),
       new Twig_SimpleFunction('load_tax_term', [$this, 'loadTaxTerm']),
+      new Twig_SimpleFunction('load_tax_children', [$this, 'loadTaxChildren']),
       new Twig_SimpleFunction('media_file_url', [$this, 'mediaFileUrl']),
       new Twig_SimpleFunction('get_file_field_uri', [$this, 'fileFieldUri']),
       new Twig_SimpleFunction('media_file_type', [$this, 'mediaFileType']),
@@ -83,6 +84,22 @@ class CustomTwigExtension extends Twig_Extension {
       ->getStorage('taxonomy_term')
       ->load($tid);
     return $taxonomy_term;
+  }
+
+  /**
+   * Returns tree of the taxonomy.
+   *
+   * @param string $tid
+   *   Tid of the taxonomy.
+   *
+   * @return array
+   *   Tree of taxonomy.
+   */
+  public static function loadTaxChildren($tid) {
+    $children = Drupal::entityTypeManager()
+      ->getStorage('taxonomy_term')
+      ->loadChildren($tid);
+    return $children;
   }
 
   /**
