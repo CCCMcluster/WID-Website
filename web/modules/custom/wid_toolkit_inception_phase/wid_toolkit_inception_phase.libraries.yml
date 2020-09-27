@@ -1,0 +1,7 @@
+widtoolkitinceptionphase:
+  version: 1.x
+  js:
+    assets/js/module.js: {}
+  css:
+    theme:
+      assets/css/module.css: {}
