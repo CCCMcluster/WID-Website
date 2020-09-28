@@ -1,0 +1,7 @@
+name: Toolkit Project Design
+type: module
+description: 'Adds Toolkit Project Design'
+core: 8.x
+dependencies:
+  - node
+  - block

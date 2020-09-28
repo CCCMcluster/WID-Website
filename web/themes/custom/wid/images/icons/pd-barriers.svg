@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="surface1858666" width="53.867" height="45.361" viewBox="0 0 53.867 45.361">
+    <defs>
+        <style>
+            .cls-1{fill:#556cff}.cls-2{fill:#4788c7}
+        </style>
+    </defs>
+    <path id="Path_9676" d="M87.348 13.5a4.848 4.848 0 1 0 4.852 4.848 4.849 4.849 0 0 0-4.852-4.848zm0 0" class="cls-1" transform="translate(-46.251 -12.692)"/>
+    <path id="Path_9677" d="M86.656 13.616a4.04 4.04 0 1 1-4.04 4.04 4.045 4.045 0 0 1 4.04-4.04m0-1.616a5.656 5.656 0 1 0 5.656 5.656A5.655 5.655 0 0 0 86.656 12zm0 0" class="cls-2" transform="translate(-46.525 -12)"/>
+    <path id="Path_9678" d="M24.348 13.5a4.848 4.848 0 1 0 4.852 4.848 4.849 4.849 0 0 0-4.852-4.848zm0 0" class="cls-1" transform="translate(-11.578 -12.692)"/>
+    <path id="Path_9679" d="M23.656 13.616a4.04 4.04 0 1 1-4.04 4.04 4.045 4.045 0 0 1 4.04-4.04m0-1.616a5.656 5.656 0 1 0 5.656 5.656A5.655 5.655 0 0 0 23.656 12zm0 0" class="cls-2" transform="translate(-9.92 -12)"/>
+    <path id="Path_9680" d="M13.5 53.465h4.848v28.568H13.5zm0 0" class="cls-1" transform="translate(-7.844 -37.48)"/>
+    <path id="Path_9681" d="M16.848 53.581v26.952h-3.232V53.581h3.232m1.616-1.616H12v30.184h6.464zm0 0" class="cls-2" transform="translate(-7.152 -36.788)"/>
+    <path id="Path_9682" d="M22.5 85.5h32.859v4.848H22.5zm0 0" class="cls-1" transform="translate(-11.996 -52.259)"/>
+    <path id="Path_9683" d="M54.149 85.616v3.232H22.326v-3.232h31.823M55.475 84H21v6.464h34.475zm0 0" class="cls-2" transform="translate(-11.304 -51.567)"/>
+    <path id="Path_9684" d="M97.5 53.465h4.848v28.568H97.5zm0 0" class="cls-1" transform="translate(-54.137 -37.48)"/>
+    <path id="Path_9685" d="M100.848 53.581v26.952h-3.232V53.581h3.232m1.616-1.616H96v30.184h6.464zm0 0" class="cls-2" transform="translate(-53.445 -36.788)"/>
+    <path id="Path_9686" fill="#98ccfd" d="M4.5 31.5h52.251v12.928H4.5zm0 0" transform="translate(-3.692 -22.716)"/>
+    <path id="Path_9687" d="M55.449 31.616v11.312H4.418V31.616h51.031M56.867 30H3v14.544h53.867zm0 0" class="cls-2" transform="translate(-3 -21.961)"/>
+    <path id="Path_9688" fill="#fff" d="M17.686 33h-3.9L6 44.312h3.9zm9.736 0h-3.894l-7.79 11.312h3.894zm9.738 0h-3.894l-7.791 11.312h3.894zm9.74 0H43l-7.787 11.312h3.894zm9.738 0h-3.9l-7.789 11.312h3.9zm-1.952 11.312h1.949V41.08zM7.949 33H6v3.232zm0 0" transform="translate(-4.384 -23.466)"/>
+</svg>
