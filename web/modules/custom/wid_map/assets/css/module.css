@@ -5,6 +5,7 @@
     rgba(0, 0, 0, 0.4)
   ),
   url("../../../../../sites/default/files/images/wid-map-background.jpg");
+  background-size: cover;
   text-align: center;
 }
 .home-map-wrapper h2{
@@ -22,7 +23,6 @@
 }
 #wid-map {
   position: relative;
-  background-size: cover;
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
@@ -31,18 +31,6 @@
 
 #map {
   margin-left: -8%;
-}
-
-@media (max-width: 500px) {
-  .home-map-wrapper {
-    min-height: 100vh;
-  }
-  #wid-map {
-    flex-direction: column;
-  }
-  #map {
-    margin-left: 0;
-  }
 }
 
 .report-section {
@@ -89,19 +77,37 @@
 
 /* Responsive */
 @media (min-width: 320px) and (max-width: 480px) {
+  .home-map-wrapper {
+    min-height: 100vh;
+    background-size: auto;
+  }
+  #wid-map {
+    flex-direction: column;
+  }
+  #map {
+    margin-left: 0;
+  }
   .report-section {
     width: auto;
   }
 }
 
 @media (min-width: 481px) and (max-width: 767px) {
+  .home-map-wrapper {
+    min-height: 100vh;
+    background-size: auto;
+  }
+  #wid-map {
+    flex-direction: column;
+  }
   .report-section {
-    width: auto;
+    width: 80%;
   }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .report-section {
     width: auto;
+    max-width: 40%;
   }
 }
