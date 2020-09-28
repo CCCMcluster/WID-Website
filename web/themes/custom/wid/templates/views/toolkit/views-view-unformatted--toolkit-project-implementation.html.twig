@@ -22,13 +22,13 @@
       <div class="workshop-row-wrapper pt-5 px-4">
         <div class="workshop-row row mb-5">
           {% if title %}
-          <img class="col-sm-12 col-md-12 col-lg-5 w-100 p-0 image-container" src="{{ projectImplementationCoverImg }}" alt="{{ projectImplementationCoverAlt }}">
-          <div class="col-sm-12 col-md-12 col-lg-7 workshop-row-content p-5">
-            <h3 class="workshop-row-title">{{ title }}</h3>
-            {% set projectImplementationTid = rows.0.content['#row']._entity.field_toolkit.target_id %}
+          {% set projectImplementationTid = rows.0.content['#row']._entity.field_toolkit.target_id %}
             {% set projectImplementationTerm = load_tax_term(projectImplementationTid) %}
             {% set projectImplementationCoverImg = file_url(projectImplementationTerm.field_toolkit_img.entity.field_media_image.entity.fileuri) %}
             {% set projectImplementationCoverAlt = projectImplementationTerm.field_toolkit_img.entity.field_media_image.alt %}
+          <img class="col-sm-12 col-md-12 col-lg-5 w-100 p-0 image-container" src="{{ projectImplementationCoverImg }}" alt="{{ projectImplementationCoverAlt }}">
+          <div class="col-sm-12 col-md-12 col-lg-7 workshop-row-content p-5">
+            <h3 class="workshop-row-title">{{ title }}</h3>
             <p class="workshop-row-body py-3">
               {% autoescape false %}
                 {{ projectImplementationTerm.description.value }}
@@ -43,8 +43,8 @@
               <div class="col-sm-10">
                 <h2 class="file-info-title">{{ title }}</h2>
                 <div>
-                  <span class="pr-2"><i class="fa fa-calendar-o pr-2" aria-hidden="true"></i>05/31/18</span>
-                  <span><i class="fa fa-file-text-o pr-2" aria-hidden="true"></i>05/31/18{{ created_date }}</span>
+                  <span><i class="fa fa-calendar-o pr-2" aria-hidden="true"></i>{{ created_date }}</span>
+                  <span><i class="fa fa-file-text-o pr-2" aria-hidden="true"></i></span>
                 </div>
               </div>
               <div class="col-sm-2 button-container">
@@ -93,6 +93,11 @@
         <a class="control-right" href="#toolkitTestimonialSlide" role="button" data-slide="next">
           <i class="fa fa-arrow-right"></i>
         </a>
+        <ul id="toolkitTestimonialSlideIndicator" class="carousel-indicators">
+           {% for testimonial in testimonials %}
+          <li class="item-indicator" data-target="#toolkitTestimonialSlide" data-slide-to="{{ loop.index-1 }}"></li>
+          {% endfor %}
+        </ul>
       </div>
     </div>
   </div>

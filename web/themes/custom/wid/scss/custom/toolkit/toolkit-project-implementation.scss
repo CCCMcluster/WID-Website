@@ -34,7 +34,7 @@
                 box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 
                 .image-container {
-                    min-height: 500px;
+                    height: 550px;
                     background-color: #f5f5f5;
                     border-top-left-radius: 20px;
                     border-bottom-left-radius: 20px;
@@ -173,6 +173,20 @@
                 font-size: 10px;
             }
         }
+
+        .carousel-indicators {
+            position: absolute;
+            bottom: -50px;
+
+            .active {
+                background-color: $accent-color;
+            }
+            li {
+                width: 10px;
+                height: 10px;
+                border-radius: 100%;
+              }
+        }
     }
 }
 
@@ -196,7 +210,7 @@
                     border-radius: 10px;
              
                     .image-container {
-                        min-height: 300px;
+                        height: 300px;
                         border-top-left-radius: 10px;
                         border-top-right-radius: 10px;
                         border-bottom-left-radius: 0px;
@@ -240,7 +254,7 @@
         }
     
         .testimonial-slide-content {
-            padding: 20px 5px;
+            padding: 40px 5px;
             border-bottom-left-radius: 10px;
             border-bottom-right-radius: 10px;
     
@@ -282,7 +296,7 @@
                     border-radius: 10px;
              
                     .image-container {
-                        min-height: 300px;
+                        height: 300px;
                         border-top-left-radius: 10px;
                         border-top-right-radius: 10px;
                         border-bottom-left-radius: 0px;
@@ -326,7 +340,7 @@
         }
     
         .testimonial-slide-content {
-            padding: 20px 5px;
+            padding: 50px 5px;
             border-bottom-left-radius: 10px;
             border-bottom-right-radius: 10px;
     
@@ -368,7 +382,7 @@
                     border-radius: 10px;
              
                     .image-container {
-                        min-height: 350px;
+                        height: 350px;
                         border-top-left-radius: 10px;
                         border-top-right-radius: 10px;
                         border-bottom-left-radius: 0px;
@@ -412,7 +426,7 @@
         }
     
         .testimonial-slide-content {
-            padding: 40px 15px;
+            padding: 50px 15px;
             border-bottom-left-radius: 10px;
             border-bottom-right-radius: 10px;
     
