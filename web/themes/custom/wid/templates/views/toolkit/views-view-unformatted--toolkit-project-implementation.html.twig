@@ -1,0 +1,72 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+<div class="container">
+  <div class="row">
+    <h1>Workshop</h1>
+    {% if title %}
+      <h3>{{ title }}</h3>
+      {% set projectImplementationTid = rows.0.content['#row']._entity.field_toolkit.target_id %}
+      {% set projectImplementationTerm = load_tax_term(projectImplementationTid) %}
+      {% set projectImplementationCoverImg = file_url(projectImplementationTerm.field_toolkit_img.entity.field_media_image.entity.fileuri) %}
+      {% set projectImplementationCoverAlt = projectImplementationTerm.field_toolkit_img.entity.field_media_image.alt %}
+      <p>
+        {% autoescape false %}
+          {{ projectImplementationTerm.description.value }}
+        {% endautoescape %}
+      </p>
+      <img src="{{ projectImplementationCoverImg }}" alt="{{ projectImplementationCoverAlt }}">
+    {% endif %}
+    {% for row in rows %}
+      <div class="single-card">
+        {% set entity = row.content['#row']._entity %}
+        {% set title = entity.title.value %}
+        {% set created_date = entity.created.value | date('m/d/y') %}
+        <h2>{{ title }}</h2>
+        <span>{{ created_date }}</span>
+        <div class="download-section">
+          {% if entity.field_toolkit_attachment_type.value == 'Document' %}
+            {% set fileExtension = media_file_type(entity.field_toolkit_document.value.0.target_id, 'field_media_document') %}
+            <img src="/{{ directory }}/images/icons/{{ fileExtension }}.svg" alt={{ fileExtension }}>
+            {% set document_url = media_file_url(entity.field_toolkit_document.value.0.target_id, 'field_media_document') %}
+            <span class="download"><a href="{{ document_url }}" download>Download</a></span>
+          {% elseif entity.field_toolkit_attachment_type.value == 'Link' %}
+            <span class="download"><a href="{{ entity.field_toolkit_document[0].uri }}" download>Download</a></span>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="row">
+    <h1>Testimonials from Field Staff</h1>
+    {% set testimonials = drupal_view_result('testimonial','block_1') %}
+    {% for testimonial in testimonials %}
+      {% set testimonial_entity = testimonial._entity %}
+      <div class="region">
+        {{ testimonial_entity.field_testimonial_region.entity.name.value }}
+      </div>
+      <div class="testimonial-detail">
+        {% autoescape false %}
+          {{ testimonial_entity.body.value }}
+        {% endautoescape %}
+      </div>
+      <div class="position">
+        {{ testimonial_entity.field_testimonial_position.value }}
+      </div>
+    {% endfor %}
+  </div>
+</div>
