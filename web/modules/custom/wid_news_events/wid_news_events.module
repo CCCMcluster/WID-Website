@@ -1,0 +1,44 @@
+<?php
+
+use Drupal\wid_news_events\Controller\NewsEventsController;
+use Drupal\node\NodeInterface;
+
+function wid_news_events_theme() {
+  $events = NewsEventsController::getUpcomingEvent();
+  $news = NewsEventsController::getNews();
+  return [
+    'wid_news_events-block' => [
+      'variables' => [
+        'news' => $news,
+        'events' => $events,
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for block.html.twig.
+ */
+function wid_news_events_preprocess_block(&$vars) {
+  if ($vars['derivative_plugin_id'] == 'wid_news_events-block') {
+    $vars['#cache']['max-age'] = 0;
+  }
+}
+
+function wid_news_events_node_update(NodeInterface $node) {
+  if ($node->bundle() === 'events' || $node->bundle() === 'news') {
+    drupal_flush_all_caches();
+  }
+}
+
+function events_node_insert(NodeInterface $node) {
+  if ($node->bundle() == 'events' || $node->bundle() === 'news') {
+    drupal_flush_all_caches();
+  }
+}
+
+function events_node_delete(NodeInterface $node) {
+  if ($node->bundle() == 'events' || $node->bundle() === 'news') {
+    drupal_flush_all_caches();
+  }
+}

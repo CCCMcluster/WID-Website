@@ -5,7 +5,6 @@
 }
 
 .event-wrapper {
-  background: url('https://homepages.cae.wisc.edu/~ece533/images/watch.png');
   background-size: cover;
   width: 100%;
   display: flex;
@@ -593,17 +592,17 @@
       .countries-list {
         ul {
           flex-direction: column;
-          
+
           li {
             border-radius: 5px;
             padding: 10px 5px;
             margin: 1px;
             background-color: $white;
             width: 320px;
-            
+
             &:hover {
               text-decoration: underline;
-              border: none;  
+              border: none;
             }
           }
           li.active{
@@ -622,7 +621,7 @@
         }
       }
     }
-  }  
+  }
 
   .social-media-wrapper {
     .social-media-container {
@@ -665,17 +664,17 @@
       .countries-list {
         ul {
           flex-direction: column;
-          
+
           li {
             border-radius: 5px;
             padding: 10px 5px;
             margin: 1px;
             background-color: $white;
             width: 480px;
-            
+
             &:hover {
               text-decoration: underline;
-              border: none;  
+              border: none;
             }
           }
           li.active{
@@ -746,7 +745,7 @@
       .latest-update-card-container {
         .latest-update-cards {
           padding: 0 10%;
-          
+
           .single-card {
             width: 100%;
           }

@@ -1,0 +1,79 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+<div class="event-wrapper" style="background: url('/{{ directory }}/images/news-page-background.jpg')">
+  <div class="container">
+    <div class="event-container">
+      <div class="event">
+        {% if news is not empty %}
+          {% for single_news in news %}
+            {% set title = single_news.title.value %}
+            {% set news_description = single_news.body.summary %}
+            {% set news_created_date = single_news.created.value | date('m/d/y') %}
+            {% set news_image_url = file_url(single_news.field_featured_media.entity.field_media_image.entity.fileuri | image_style('large')) %}
+            {% set news_image_alt = single_news.field_featured_media.entity.field_media_image.alt %}
+            <div class="single-event">
+              <img src="{{ news_image_url }}" alt="{{ news_image_alt }}">
+              <h2>{{ title }}</h2>
+              <p>
+                {% autoescape false %}
+                  {{ news_description|length > 230 ? news_description|slice(0, 230) : news_description }}
+                {% endautoescape %}
+              </p>
+              <span class="pull-right">{{ news_created_date | date('m/d/y') }}</span>
+            </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+      <div class="event-list-container">
+        <h2>Events</h2>
+        <div class="event-list">
+          {% if events is not empty %}
+            {% for event in events %}
+              {% set eventTitle = event.title.value %}
+              {% set eventDate = event.field_event_date[0].value | date('m/d/Y') %}
+              <div class="single-event-list">
+                <span class="date">{{ eventDate }}</span>
+                <span class="event-title">
+                  {% if loop.first %}
+                    <a href="#">{{ eventTitle }}</a>
+                  {% else %}
+                    <a href="#">{{ eventTitle|length > 20 ? eventTitle|slice(0, 20) ~ '...' : eventTitle }}</a>
+                  {% endif %}
+                </span>
+                <span class="event-icons">
+                  {% if event.field_event_attachment_type.value == 'Document' %}
+                    {% set document_url = media_file_url(event.field_event_document.value.0.target_id, 'field_media_document') %}
+                    <a class="download-button" href="{{ document_url }}" download>Download</a>
+                  {% elseif event.field_event_attachment_type.value == 'Link' %}
+                    <a class="download-button" href="{{ event.field_event_document_link[0].uri }}" target="_blank">
+                      <i class="fa fa-external-link"></i>
+                    </a>
+                  {% endif %}
+              </span>
+              </div>
+            {% endfor %}
+          {% else %}
+            <div class="single-event-list">
+              <p>No upcoming events</p>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
