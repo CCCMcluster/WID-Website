@@ -2,10 +2,15 @@
   let mapData = JSON.parse(drupalSettings.mapData);
   let base_url = drupalSettings.path.baseUrl;
 
-  const mobileThresholdWidth = 500;
+  const mobileThresholdWidth = 480;
+  const mediumThresholdWidth = 767;
   
-  let width = window.innerWidth <= mobileThresholdWidth ? 460 : 950;
-  let height = window.innerWidth <= mobileThresholdWidth ? 300 : 600;
+  let width = window.innerWidth <= mediumThresholdWidth 
+    ? window.innerWidth <= mobileThresholdWidth
+      ? 460
+      : 540
+    : 950;
+  let height = window.innerWidth <= mediumThresholdWidth ? 300 : 600;
 
   const svg = d3.select("#wid-map")
     .append('svg')
@@ -75,7 +80,10 @@
 
   window.addEventListener("resize", () => {
     if(window.innerWidth <= mobileThresholdWidth) {
-      return d3.select('#map').attr('width', mobileThresholdWidth - 20).attr('height', 305);
+      return d3.select('#map').attr('width', mobileThresholdWidth - 20).attr('height', 300);
+    }
+    if(window.innerWidth <= mediumThresholdWidth) {
+      return d3.select('#map').attr('width', window.innerWidth - 40).attr('height', 300);
     }
     d3.select('#map').attr('width', 950).attr('height', 600);
   });
