@@ -98,21 +98,23 @@
         <div class="card-news">
           <div class="card-content">
             <h2 class="card-title">Latest News</h2>
-            {% for single_news in news %}
-              <div class="news-wrapper">
-                <div class="news-image">
-                  {% set image_url = media_file_url(single_news.field_featured_media[0].target_id) %}
-                  <img src="{{ image_url }}" alt="news">
+              <div class="news-container">
+              {% for single_news in news %}
+                <div class="news-wrapper">
+                  <div class="news-image">
+                    {% set image_url = media_file_url(single_news.field_featured_media[0].target_id) %}
+                    <img src="{{ image_url }}" alt="news">
+                  </div>
+                  <div class="news-content">
+                    <h3 class="news-title">{{ single_news.title[0].value }}</h3>
+                    {% set text = single_news.body[0].value |render|striptags %}
+                    <p class="news-desc">
+                      {% autoescape false %}{{ text|length > 40 ? text|slice(0, 40) : text }}{% endautoescape %}
+                    </p>
+                  </div>
                 </div>
-                <div class="news-content">
-                  <h3 class="news-title">{{ single_news.title[0].value }}</h3>
-                  {% set text = single_news.body[0].value |render|striptags %}
-                  <p class="news-desc">
-                    {% autoescape false %}{{ text|length > 40 ? text|slice(0, 40) : text }}{% endautoescape %}
-                  </p>
-                </div>
-              </div>
-            {% endfor %}
+              {% endfor %}
+            </div>
           </div>
           <a href="/news"><span class="btn-white">More<i class="fa fa-arrow-right"></i></span></a>
         </div>

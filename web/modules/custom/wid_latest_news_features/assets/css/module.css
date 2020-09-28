@@ -1,9 +1,6 @@
 .block-wid-latest-news-features {
   padding: 40px 0px;
 }
-.latest-news-features-block {
-  padding: 0 0 50px;
-}
 .featured-news {
   padding-left: 0 !important;
 }
@@ -21,31 +18,52 @@
   width: 100%;
   object-fit: cover;
 }
+.banner-1 {
+  overflow: hidden;
+  border-radius: 20px 0 0 20px;
+}
+.banner-3 {
+  overflow: hidden;
+  border-radius: 0px 20px 0 0;
+}
+.banner-5 {
+  overflow: hidden;
+  border-radius: 0 0 20px 0;
+}
 .banner-1 .banner-image img {
   height: 560px;
   width: 100%;
 }
 .banner-wrapper .banner-desc {
   box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.16);
-  padding: 0px 20px;
+  padding: 0px 14px;
   display: flex;
   align-items: center;
   height: 50px;
 }
 .banner-1 .banner-desc {
-  background-color: #9c1de7;
+  background-color: #e8edff;
+  color: #556cff;
+  border-radius-top-left: 10px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 }
 .banner-2 .banner-desc {
   background-color: #556cff;
+  color: #ffffff;
 }
 .banner-3 .banner-desc {
-  background-color: #9c1de7;
+  background-color: #e8edff;
+  color: #556cff;
 }
 .banner-4 .banner-desc {
   background-color: #556cff;
+  color: #ffffff;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 }
 .banner-5 .banner-desc {
-  background-color: #f7785d;
+  background-color: #e8edff;
+  color: #556cff;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 }
 .banner-wrapper .banner-desc p {
   margin: 0;
@@ -54,7 +72,6 @@
   font-size: 14px;
   font-weight: normal;
   line-height: 1.2;
-  color: #ffffff;
 }
 
 .latest-news-features-block .card-news .card-content {

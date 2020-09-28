@@ -4,33 +4,35 @@
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
 
+  .img-fluid {
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
   .our-method {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 0px 50px;
+    padding: 20px;
     text-align: center;
     color: #fff;
 
-    .method-img-fluid {
-      max-width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
     h2 {
-      font-size: $font-size-title-sm;
+      font-size: $font-size-section-title;
       font-family: $font-raleway;
       font-weight: 600;
       line-height: 1.18;
     }
 
     p {
-      font-size: $font-size-base;
+      font-size: $font-size-text-sm;
       font-family: $font-lato;
+      font-weight: 300;
       line-height: 1.77;
+      margin: 10px 0;
     }
 
     .img {
@@ -43,10 +45,11 @@
       justify-content: center;
       align-items: center;
       font-size: $font-size-base;
-      padding: 6px 35px;
+      padding: 4px 30px;
       border-radius: 10px;
       background-color:  #e8edff;
       color: $primary-color;
+      margin-top: 16px;
 
       i {
         margin-left: 15px;

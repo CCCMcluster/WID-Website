@@ -111,13 +111,13 @@
 
     h2 {
       font-family: $font-raleway;
-      font-size: $font-size-text-alt;
-      font-weight: 600;
+      font-size: $font-size-section-title;
+      font-weight: $font-weight-semibold;
       line-height: 1.2;
       color: #ffffff;
       background-color: $primary-color;
       display: inline-block;
-      padding: 10px 65px;
+      padding: 10px 75px;
       margin: 50px 0 75px;
       border-radius: 20px;
       box-shadow: 0 3px 6px 0 rgba(59, 54, 54, 0.16);
@@ -208,12 +208,12 @@
 
     h2 {
       font-family: $font-raleway;
-      font-size: $font-size-text-alt;
-      font-weight: 600;
+      font-size: $font-size-section-title;
+      font-weight: $font-weight-semibold;
       line-height: 1.18;
       color: $primary-color;
       display: inline-block;
-      padding: 7px 75px;
+      padding: 10px 75px;
       margin-bottom: 30px;
       border-radius: 40px;
       background-color: #ffffff;
@@ -396,12 +396,12 @@
 
       h2 {
         font-family: $font-raleway;
-        font-size: $font-size-text-alt;
-        font-weight: 600;
+        font-size: $font-size-section-title;
+        font-weight: $font-weight-semibold;
         line-height: 1.18;
         color: $primary-color;
         display: inline-block;
-        padding: 7px 75px;
+        padding: 10px 75px;
         margin-bottom: 30px;
         border-radius: 40px;
         background-color: #ffffff;

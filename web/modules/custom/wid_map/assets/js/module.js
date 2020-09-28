@@ -4,8 +4,8 @@
 
   const mobileThresholdWidth = 480;
   const mediumThresholdWidth = 767;
-  
-  let width = window.innerWidth <= mediumThresholdWidth 
+
+  let width = window.innerWidth <= mediumThresholdWidth
     ? window.innerWidth <= mobileThresholdWidth
       ? 460
       : 540
@@ -25,7 +25,7 @@
 
   d3.select('#wid-map').append('div').attr('class', 'report-section');
   setActiveCountry(mapData[0].iso_2);
-  
+
   d3.json("https://gist.githack.com/ft9dipesh/7de26da7df31263dd4ab2550f35f3882/raw/d2908030d79c7c1055af3098e49edbc8cacca8b8/world_noAQ.geojson",
     function(data){
       svg.append("g")
@@ -72,7 +72,7 @@
           index===0 && reportElement.append('p').attr('class', 'report-country').text(`Reports in ${report.country}`);
           reportElement.append('p').attr('class', 'report-title').text(report.title);
           reportElement.append('p')
-            .attr('class', 'report-body')
+            .attr('class', 'report-country-body')
             .text(`${report.body.split(" ").splice(0, index===0?40:5).join(" ")}...`);
         });
       });

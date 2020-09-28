@@ -16,8 +16,8 @@
                 padding: 10px 120px;
                 margin-bottom: 80px;
                 border-radius: 20px;
-                font-size: $font-size-text;
-                font-weight: 600;
+                font-size: $font-size-text-alt;
+                font-weight: $font-weight-semibold;
                 font-family:  $font-raleway;
             }
 
@@ -27,14 +27,14 @@
                 padding: 40px 100px;
                 border-radius: 15px;
                 text-align: center;
-        
+
                 .about-us-header-card-title {
                     color: $primary-color;
                     font-size: $font-size-xl-alt;
                     padding-bottom: 20px;
                     font-family:  $font-raleway;
                 }
-        
+
                 .about-us-header-card-description {
                     color: $primary-color;
                     font-size: $font-size-text;
@@ -67,7 +67,7 @@
                 width: 250px;
                 padding: 10px 0;
                 border-radius: 20px;
-                font-size: $font-size-text;
+                font-size: $font-size-text-alt;
                 font-family:  $font-raleway;
             }
 
@@ -84,10 +84,10 @@
                     margin: auto;
                     border-radius: 10px;
                     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-            
+
                     &:nth-last-child(odd) {
                         margin-top: 40px;
-            
+
                         .views-field-title {
                             position: absolute;
                             top: 25px;
@@ -97,7 +97,7 @@
                             font-weight: 600;
                             font-family:  $font-raleway;
                         }
-            
+
                         .views-field-field-url {
                             background-color: $primary-color;
                             padding: 1px 20px 4px 20px;
@@ -105,7 +105,7 @@
                             position: absolute;
                             left: 425px;
                             bottom: 25px;
-            
+
                             a {
                                 color: $white;
                                 text-decoration: none;
@@ -113,7 +113,7 @@
                                 font-family:  $font-lato;
                             }
                         }
-            
+
                         .views-field-field-partner-image {
                             position: absolute;
                             top: 0px;
@@ -127,20 +127,20 @@
                             background-color: $white;
                             border-top-left-radius: 10px;
                             border-bottom-right-radius: 15px;
-            
+
                             img {
                                 height: 80px;
                                 width: 80px;
                             }
                         }
-            
+
                         .views-field-body {
                             width: 800px;
-            
+
                             .field-content {
                                 max-height: 400px;
                                 overflow: hidden;
-            
+
                                 p {
                                     margin-top: 120px;
                                     margin-left: 425px;
@@ -152,13 +152,13 @@
                                 }
                             }
                         }
-            
+
                         .views-field-field-partner-cover-image {
                             position: absolute;
                             top: 0;
                             left: 0;
                             object-fit: cover;
-            
+
                             .field-content {
                                 img {
                                     width: 400px;
@@ -167,10 +167,10 @@
                             }
                         }
                     }
-            
+
                     &:nth-last-child(even) {
                         margin-top: 40px;
-            
+
                         .views-field-title {
                             position: absolute;
                             top: 30px;
@@ -180,7 +180,7 @@
                             font-weight: 600;
                             font-family:  $font-raleway;
                         }
-            
+
                         .views-field-field-url {
                             background-color: $primary-color;
                             padding: 1px 20px 4px 20px;
@@ -188,7 +188,7 @@
                             position: absolute;
                             left: 30px;
                             bottom: 25px;
-            
+
                             a {
                                 color: $white;
                                 text-decoration: none;
@@ -196,7 +196,7 @@
                                 font-family:  $font-lato;
                             }
                         }
-            
+
                         .views-field-field-partner-image {
                             position: absolute;
                             top: 0px;
@@ -210,20 +210,20 @@
                             background-color: $white;
                             border-top-right-radius: 10px;
                             border-bottom-left-radius: 15px;
-            
+
                             img {
                                 height: 80px;
                                 width: 80px;
                             }
                         }
-            
+
                         .views-field-body {
                             width: 800px;
-            
+
                             .field-content {
                                 max-height: 400px;
                                 overflow: hidden;
-            
+
                                 p {
                                     margin-top: 120px;
                                     margin-left: 30px;
@@ -235,7 +235,7 @@
                                 }
                             }
                         }
-            
+
                         .views-field-field-partner-cover-image {
                             position: absolute;
                             top: 0;
@@ -244,7 +244,7 @@
                             background-color: $white;
                             width: 400px;
                             height: 500px;
-            
+
                             .field-content {
                                 img {
                                     width: 400px;
@@ -253,7 +253,7 @@
                             }
                         }
                     }
-                    
+
                 }
             }
         }

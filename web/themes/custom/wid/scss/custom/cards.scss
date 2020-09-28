@@ -94,9 +94,9 @@
 }
 
 .card-news {
-  background-color: $accent-alt-color;
+  background-color: $primary-color-light;
   text-align: center;
-  padding: 20px 0;
+  padding: 20px;
   border-radius: 20px;
   box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.16);
   height: 610px;
@@ -104,24 +104,28 @@
   align-items: center;
 
   .card-content {
+    .news-container {
+      overflow-y: scroll;
+      margin-top: 16px;
+    }
+
     .card-title {
       display: inline-block;
       font-family: $font-raleway;
-      font-size: $font-size-title;
-      font-weight: 600;
+      font-size: $font-size-text-alt;
+      font-weight: $font-weight-semibold;
       line-height: 1.18;
       margin: 0 auto;
-      color: #ffffff;
-      border-bottom: 2px solid #ffffff;
+      color: $primary-color;
     }
     .news-wrapper {
       display: flex;
       justify-content: center;
-      border-radius: 20px;
-      box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.16);
+      border-radius: 10px;
+      box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.16);
       background-color: #ffffff;
-      margin: 25px;
-      padding: 20px;
+      margin: 10px;
+      padding: 20px 40px;
       .news-image {
         flex: 1;
         img {
@@ -134,9 +138,9 @@
       .news-content {
         flex: 2;
         .news-title {
-          font-size: $font-size-text-sm;
+          font-size: $font-size-xs;
           font-family: $font-lato;
-          font-weight: bold;
+          font-weight: 600;
           line-height: 1.22;
           color: $primary-color;
           text-align: left;

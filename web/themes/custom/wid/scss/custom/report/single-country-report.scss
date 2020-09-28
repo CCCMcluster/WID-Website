@@ -24,7 +24,7 @@
         padding: 10px 15px;
         opacity: 0.9;
         cursor: pointer;
-        
+
         &:hover {
             opacity: 1;
         }
@@ -68,7 +68,7 @@
 
             .country-report-description-body {
                 color: $primary-color;
-                font-size: $font-size-title-xs;
+                font-size: $font-size-text-alt;
                 font-family: $font-lato;
             }
 
@@ -92,16 +92,16 @@
     flex-direction: column;
     align-items: center;
     background-color: $accent-color;
-    padding: 80px 10px;
+    padding: 80px 40px;
     border-radius: 20px;
 
     h1 {
         color: $primary-color;
-        padding: 7px 100px;
+        padding: 10px 75px;
         margin-bottom: 20px;
         border-radius: 20px;
-        font-size: $font-size-text;
-        font-weight: 600;
+        font-size: $font-size-section-title;
+        font-weight: 500;
         font-family:  $font-raleway;
         box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
         background-color: $white;
@@ -109,7 +109,6 @@
 
     .our-single-country-scroll-content {
         width: 100%;
-        height: 550px;
         padding: 40px 20px 40px 15px;
         overflow: hidden;
         overflow-y: scroll;
@@ -131,7 +130,7 @@
         .our-single-country-views-row {
             background-color: $white;
             border-radius: 10px;
-            margin-bottom: 17px;
+            margin-bottom: 40px;
             width: 100%;
             box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.16);
 
@@ -155,18 +154,18 @@
 
                         .our-single-report-title {
                             font-family: $font-raleway;
-                            font-size: 22px;
-                            color: $primary-color; 
-                            font-weight: 600;                  
+                            font-size: $font-size-text-alt;
+                            color: $primary-color;
+                            font-weight: 600;
                         }
                         .our-single-report-title-description {
                             font-family: $font-raleway;
-                            font-size: 20px;
-                            color: $primary-color; 
+                            font-size: $font-size-text;
+                            color: $primary-color;
                         }
                         .our-single-country-date {
                             font-family: $font-lato;
-                            font-size: 14px;
+                            font-size: $font-size-text-sm;
                             color: $accent-color;
                         }
                     }
@@ -314,14 +313,14 @@
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
-    .our-single-report-header {    
+    .our-single-report-header {
         .our-single-report-header-nav {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             background-color: transparent;
-    
+
             .our-single-report-header-nav-item {
                 padding: 10px 5px;
                 margin: 1px;
@@ -331,11 +330,11 @@
                 width: 320px;
             }
         }
-    
+
         .our-single-report-header-card {
-    
+
             .country-report-cover-image {
-    
+
                 img {
                     width: 100%;
                     height: 250px;
@@ -360,7 +359,7 @@
             }
         }
     }
-    
+
     .our-single-country-report-block {
 
         .our-single-country-scroll-content {
@@ -418,14 +417,14 @@
 }
 
 @media (min-width: 481px) and (max-width: 767px) {
-    .our-single-report-header {    
+    .our-single-report-header {
         .our-single-report-header-nav {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             background-color: transparent;
-    
+
             .our-single-report-header-nav-item {
                 padding: 10px 5px;
                 margin: 1px;
@@ -435,11 +434,11 @@
                 width: 480px;
             }
         }
-    
+
         .our-single-report-header-card {
-    
+
             .country-report-cover-image {
-    
+
                 img {
                     width: 100%;
                     height: 300px;
@@ -453,18 +452,18 @@
                 .country-report-description-title {
                     font-size: $font-size-title-sm;
                 }
-    
+
                 .country-report-description-body {
                     font-size: $font-size-base;
                 }
-    
+
                 .country-report-description-button {
                     font-size: $font-size-base;
                 }
             }
         }
-    } 
-    
+    }
+
     .our-single-country-report-block {
 
         .our-single-country-scroll-content {
@@ -490,10 +489,10 @@
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
-    .our-single-report-header {    
+    .our-single-report-header {
         .our-single-report-header-nav {
             border-radius: 10px;
-    
+
             .our-single-report-header-nav-item {
                 padding: 5px 5px;
 
@@ -503,11 +502,11 @@
 
             }
         }
-    
+
         .our-single-report-header-card {
-    
+
             .country-report-cover-image {
-    
+
                 img {
                     width: 100%;
                     height: 100%;
@@ -519,11 +518,11 @@
                 .country-report-description-title {
                     font-size: $font-size-title-sm;
                 }
-    
+
                 .country-report-description-body {
                     font-size: $font-size-base;
                 }
-    
+
                 .country-report-description-button {
                     font-size: $font-size-base;
                 }
