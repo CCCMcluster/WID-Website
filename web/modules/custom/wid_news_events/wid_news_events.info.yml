@@ -1,0 +1,7 @@
+name: Events & News
+type: module
+description: 'Adds Events & News section'
+core: 8.x
+dependencies:
+  - node
+  - block
