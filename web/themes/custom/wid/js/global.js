@@ -46,5 +46,6 @@
   }
 
   $('#toolkitTestimonialSlide').find('.carousel-item').first().addClass('active');
+  $('#toolkitTestimonialSlideIndicator').find('.item-indicator').first().addClass('active');
 
 })(jQuery, Drupal);
