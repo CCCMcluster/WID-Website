@@ -45,4 +45,6 @@
     });
   }
 
+  $('#toolkitTestimonialSlide').find('.carousel-item').first().addClass('active');
+
 })(jQuery, Drupal);

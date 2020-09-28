@@ -15,58 +15,85 @@
  * @see template_preprocess_views_view_unformatted()
  */
 #}
-<div class="container">
-  <div class="row">
-    <h1>Workshop</h1>
-    {% if title %}
-      <h3>{{ title }}</h3>
-      {% set projectImplementationTid = rows.0.content['#row']._entity.field_toolkit.target_id %}
-      {% set projectImplementationTerm = load_tax_term(projectImplementationTid) %}
-      {% set projectImplementationCoverImg = file_url(projectImplementationTerm.field_toolkit_img.entity.field_media_image.entity.fileuri) %}
-      {% set projectImplementationCoverAlt = projectImplementationTerm.field_toolkit_img.entity.field_media_image.alt %}
-      <p>
-        {% autoescape false %}
-          {{ projectImplementationTerm.description.value }}
-        {% endautoescape %}
-      </p>
-      <img src="{{ projectImplementationCoverImg }}" alt="{{ projectImplementationCoverAlt }}">
-    {% endif %}
-    {% for row in rows %}
-      <div class="single-card">
-        {% set entity = row.content['#row']._entity %}
-        {% set title = entity.title.value %}
-        {% set created_date = entity.created.value | date('m/d/y') %}
-        <h2>{{ title }}</h2>
-        <span>{{ created_date }}</span>
-        <div class="download-section">
-          {% if entity.field_toolkit_attachment_type.value == 'Document' %}
-            {% set fileExtension = media_file_type(entity.field_toolkit_document.value.0.target_id, 'field_media_document') %}
-            <img src="/{{ directory }}/images/icons/{{ fileExtension }}.svg" alt={{ fileExtension }}>
-            {% set document_url = media_file_url(entity.field_toolkit_document.value.0.target_id, 'field_media_document') %}
-            <span class="download"><a href="{{ document_url }}" download>Download</a></span>
-          {% elseif entity.field_toolkit_attachment_type.value == 'Link' %}
-            <span class="download"><a href="{{ entity.field_toolkit_document[0].uri }}" download>Download</a></span>
-          {% endif %}
+<div class="toolkit-body-wrapper py-5 my-5">
+  <div class="container">
+    <div class="workshop-content">
+     <div class="workshop-title">Workshop</div>
+      <div class="workshop-row-wrapper pt-5 px-4">
+        <div class="workshop-row row mb-5">
+          {% if title %}
+          <img class="col-sm-12 col-md-12 col-lg-5 w-100 p-0 image-container" src="{{ projectImplementationCoverImg }}" alt="{{ projectImplementationCoverAlt }}">
+          <div class="col-sm-12 col-md-12 col-lg-7 workshop-row-content p-5">
+            <h3 class="workshop-row-title">{{ title }}</h3>
+            {% set projectImplementationTid = rows.0.content['#row']._entity.field_toolkit.target_id %}
+            {% set projectImplementationTerm = load_tax_term(projectImplementationTid) %}
+            {% set projectImplementationCoverImg = file_url(projectImplementationTerm.field_toolkit_img.entity.field_media_image.entity.fileuri) %}
+            {% set projectImplementationCoverAlt = projectImplementationTerm.field_toolkit_img.entity.field_media_image.alt %}
+            <p class="workshop-row-body py-3">
+              {% autoescape false %}
+                {{ projectImplementationTerm.description.value }}
+              {% endautoescape %}
+            </p>
+            {% endif %}
+            {% for row in rows %}
+            <div class="row m-2 file-info-container py-2 px-3">
+              {% set entity = row.content['#row']._entity %}
+              {% set title = entity.title.value %}
+              {% set created_date = entity.created.value | date('m/d/y') %}
+              <div class="col-sm-10">
+                <h2 class="file-info-title">{{ title }}</h2>
+                <div>
+                  <span class="pr-2"><i class="fa fa-calendar-o pr-2" aria-hidden="true"></i>05/31/18</span>
+                  <span><i class="fa fa-file-text-o pr-2" aria-hidden="true"></i>05/31/18{{ created_date }}</span>
+                </div>
+              </div>
+              <div class="col-sm-2 button-container">
+                {% if entity.field_toolkit_attachment_type.value == 'Document' %}
+                  {% set fileExtension = media_file_type(entity.field_toolkit_document.value.0.target_id, 'field_media_document') %}
+                  <img class="extension-icon mb-2" src="/{{ directory }}/images/icons/{{ fileExtension }}.svg" alt={{ fileExtension }}>
+                  {% set document_url = media_file_url(entity.field_toolkit_document.value.0.target_id, 'field_media_document') %}
+                  <span><a class="download-button" href="{{ document_url }}" download>Download</a></span>
+                {% elseif entity.field_toolkit_attachment_type.value == 'Link' %}
+                  <span><a class="download-button" href="{{ entity.field_toolkit_document[0].uri }}" download>Download</a></span>
+                {% endif %}
+              </div>
+            </div>
+            {% endfor %}
+          </div>
         </div>
       </div>
-    {% endfor %}
-  </div>
-  <div class="row">
-    <h1>Testimonials from Field Staff</h1>
-    {% set testimonials = drupal_view_result('testimonial','block_1') %}
-    {% for testimonial in testimonials %}
-      {% set testimonial_entity = testimonial._entity %}
-      <div class="region">
-        {{ testimonial_entity.field_testimonial_region.entity.name.value }}
+    </div>
+    <div class="testimonial-slide-content">
+      <h1 class="testimonial-slide-content-title mb-4">Testimonials from Field Staff</h1>
+      <div id="toolkitTestimonialSlide" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner" role="listbox">
+          {% set testimonials = drupal_view_result('testimonial','block_1') %}
+          {% for testimonial in testimonials %}
+            {% set testimonial_entity = testimonial._entity %}
+            <div class="carousel-item">
+              <div class="card my-2">
+                <div class="testimonial-title">
+                  {{ testimonial_entity.field_testimonial_region.entity.name.value }}
+                </div>
+                <div class="testimonial-body">
+                  {% autoescape false %}
+                    {{ testimonial_entity.body.value }}
+                  {% endautoescape %}
+                </div>
+                <div class="testimonial-source">
+                  {{ testimonial_entity.field_testimonial_position.value }}
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+        <a class="control-left" href="#toolkitTestimonialSlide" role="button" data-slide="prev">
+          <i class="fa fa-arrow-left"></i>
+        </a>
+        <a class="control-right" href="#toolkitTestimonialSlide" role="button" data-slide="next">
+          <i class="fa fa-arrow-right"></i>
+        </a>
       </div>
-      <div class="testimonial-detail">
-        {% autoescape false %}
-          {{ testimonial_entity.body.value }}
-        {% endautoescape %}
-      </div>
-      <div class="position">
-        {{ testimonial_entity.field_testimonial_position.value }}
-      </div>
-    {% endfor %}
+    </div>
   </div>
 </div>
