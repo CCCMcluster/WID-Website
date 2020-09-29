@@ -74,36 +74,4 @@
     </div>
   </div>
 </div>
-<div class="single-country-gallery-background w-100" style="background-image: url('https://nepware.com/static/media/apps.4be2ba3d.png');">
-  <div class="container">
-    <h2 class="my-5">Photo gallery of the country</h2>
-    <div class="single-country-gallery-container w-100">
-      <div class="countryGallerySlides">
-        <img src="https://nepware.com/static/media/apps.4be2ba3d.png" class="w-100">
-      </div>
-      <div class="countryGallerySlides">
-        <img src="https://nepware.com/static/media/website.90c9b006.png" class="w-100">
-      </div>
-      <div class="countryGallerySlides">
-        <img src="https://nepware.com/static/media/apps.4be2ba3d.png" class="w-100">
-      </div>
-      <div class="single-country-gallery-row">
-        <div class="single-country-gallery-column">
-          <a class="prev" onclick="plusSlides(1)"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
-        </div>
-        <div class="single-country-gallery-column">
-          <img class="galleryImage" src="https://nepware.com/static/media/apps.4be2ba3d.png" onclick="currentSlide(1)">
-        </div>
-        <div class="single-country-gallery-column">
-          <img class="galleryImage" src="https://nepware.com/static/media/website.90c9b006.png" onclick="currentSlide(2)">
-        </div>
-        <div class="single-country-gallery-column">
-          <img class="galleryImage" src="https://nepware.com/static/media/apps.4be2ba3d.png" onclick="currentSlide(3)">
-        </div>
-        <div class="single-country-gallery-column">
-          <a class="next" onclick="plusSlides(1)"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+{{ drupal_view('photo_gallery_country','block_1', view.title) }}
