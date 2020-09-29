@@ -34,22 +34,29 @@ html {
         .navbar-nav {
           margin-right: 100px;
 
-          li {
+          .nav-item {
+            margin: 0 8px;
+
             a {
               font-family: $font-raleway;
               font-size: $font-size-text-alt;
               font-weight: $font-weight-semibold;
               line-height: 1.18;
-              color: #ffffff !important;
               transition: 0.4s;
+              color: #dadada;
+            }
 
-              &:hover {
-                text-decoration: underline;
+            &:hover {
+              a {
+                color: #ffffff;
               }
             }
 
-            .active {
-              text-decoration: underline;
+            &.active {
+              border-bottom: 3px solid white;
+              a {
+                color: #ffffff;
+              }
             }
           }
         }
