@@ -43,8 +43,12 @@ html {
               transition: 0.4s;
 
               &:hover {
-                color: #000 !important;
+                text-decoration: underline;
               }
+            }
+
+            .active {
+              text-decoration: underline;
             }
           }
         }
