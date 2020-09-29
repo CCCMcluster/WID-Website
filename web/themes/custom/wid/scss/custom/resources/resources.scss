@@ -248,6 +248,10 @@
           .single-card {
             &:first-child {
               border-radius: 20px 20px 0px 0px;
+
+              h2 {
+                font-size: $font-size-title-sm;
+              }
             }
           }
         }
@@ -256,6 +260,10 @@
           .single-card {
             &:first-child {
               border-radius: 0px 0px 20px 20px;
+
+              h2 {
+                font-size: $font-size-title-sm;
+              }
             }
           }
         }
