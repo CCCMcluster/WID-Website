@@ -14,6 +14,7 @@ use Drupal\Core\Block\BlockBase;
  * )
  */
 class LatestNewsFeaturesBlock extends BlockBase {
+
   /**
    * {@inheritdoc}
    */

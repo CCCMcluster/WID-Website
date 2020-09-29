@@ -31,7 +31,7 @@ class LatestNewsFeaturesController extends ControllerBase {
     $news_query = Drupal::entityQuery('node');
     $news_query->condition('type', 'news')->sort('created', 'DESC')
       ->condition('status', 1)
-      ->range(0, 3);
+      ->range(0, 5);
     $node_ids = $news_query->execute();
     $news = Drupal::entityTypeManager()->getStorage('node')->loadMultiple($node_ids);
     return $news;

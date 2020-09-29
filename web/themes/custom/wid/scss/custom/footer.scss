@@ -39,45 +39,45 @@
                 line-height: 1.21;
                 color: #ffffff;
               }
+            }
 
-              form {
-                padding-top: 20px;
-                display: flex;
+            form {
+              padding-top: 20px;
+              display: flex;
 
-                input {
-                  border-radius: 10px;
-                  box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.16);
-                  background-color: #ffffff;
-                  border: none;
-                  display: none;
+              input {
+                border-radius: 10px;
+                box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.16);
+                background-color: #ffffff;
+                border: none;
+                display: none;
+              }
+
+              .email-input {
+                display: block;
+                padding: 10px 15px;
+
+                &::placeholder {
+                  font-size: 12px;
+                  font-weight: normal;
+                  line-height: 1.13;
+                  color: $primary-color;
+                  padding-left: 15px;
                 }
+              }
 
-                .email-input {
-                  display: block;
-                  padding: 10px 15px;
+              .btn-signup {
+                display: block;
+                padding: 10px 15px;
+                margin-left: 15px;
+                border-radius: 10px;
+                box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.16);
+                background-color: #ffffff;
+                border: none;
 
-                  &::placeholder {
-                    font-size: 12px;
-                    font-weight: normal;
-                    line-height: 1.13;
-                    color: $primary-color;
-                    padding-left: 15px;
-                  }
-                }
-
-                .btn-signup {
-                  display: block;
-                  padding: 10px 15px;
-                  margin-left: 15px;
-                  border-radius: 10px;
-                  box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.16);
-                  background-color: #ffffff;
-                  border: none;
-
-                  i {
-                    font-size: 12px;
-                    color: $primary-color;
-                  }
+                i {
+                  font-size: 12px;
+                  color: $primary-color;
                 }
               }
             }
