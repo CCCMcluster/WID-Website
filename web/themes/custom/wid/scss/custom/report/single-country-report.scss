@@ -75,7 +75,7 @@
             .country-report-description-button {
                 cursor: pointer;
                 background-color: $accent-color;
-                padding: 5px 20px;
+                padding: 4px 20px 6px;
                 border-radius: 10px;
                 color: $white;
                 font-size: $font-size-text-alt;
@@ -101,7 +101,7 @@
         margin-bottom: 20px;
         border-radius: 20px;
         font-size: $font-size-section-title;
-        font-weight: 500;
+        font-weight: $font-weight-semibold;
         font-family:  $font-raleway;
         box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
         background-color: $white;
@@ -150,17 +150,17 @@
                         display: flex;
                         flex-direction: column;
                         align-items: flex-start;
-                        justify-content: space-between;
+                        justify-content: space-around;
 
                         .our-single-report-title {
                             font-family: $font-raleway;
-                            font-size: $font-size-text-alt;
+                            font-size: $font-size-title-sm;
                             color: $primary-color;
                             font-weight: 600;
                         }
                         .our-single-report-title-description {
-                            font-family: $font-raleway;
-                            font-size: $font-size-text;
+                            font-family: $font-lato;
+                            font-size: $font-size-text-alt;
                             color: $primary-color;
                         }
                         .our-single-country-date {
@@ -221,7 +221,7 @@
         background-color: #e8edff;
         display: flex;
         flex-direction: column;
-        padding: 50px 80px 100px 80px;
+        padding: 50px 150px 100px 150px;
         border-radius: 20px;
         align-items: center;
 
@@ -234,6 +234,7 @@
             font-family: $font-raleway;
             font-size: $font-size-xl-alt;
             border-radius: 40px;
+            box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
         }
 
         .single-country-gallery-container {
@@ -387,7 +388,7 @@
         padding: 10px 0;
     
         .container{
-            padding: 5px 10px 10px 50px;
+            padding: 5px 10px 50px 10px;
             border-radius: 10px;
     
             h2 {
@@ -486,6 +487,38 @@
             }
         }
     }
+
+    .single-country-gallery-background{
+        padding: 10px 0;
+    
+        .container{
+            padding: 5px 20px 50px 20px;
+            border-radius: 10px;
+    
+            h2 {
+                font-size: $font-size-text-alt;
+                border-radius: 10px;
+            }
+    
+            .single-country-gallery-container {
+                padding: 5px;
+                border-radius: 5px;
+            
+                .single-country-gallery-row {
+                    padding: 5px 10px;
+    
+                    .single-country-gallery-column {
+                        .galleryImage {
+                            height: 50px;
+                            width: 50px;
+                            border-radius: 5px;
+                            margin: 2px;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
@@ -525,6 +558,37 @@
 
                 .country-report-description-button {
                     font-size: $font-size-base;
+                }
+            }
+        }
+    }
+
+    .single-country-gallery-background{
+        padding: 10px 0;
+    
+        .container{
+            padding: 5px 50px 50px 50px;
+            border-radius: 10px;
+    
+            h2 {
+                font-size: $font-size-title-xs;
+            }
+    
+            .single-country-gallery-container {
+                padding: 5px;
+                border-radius: 5px;
+            
+                .single-country-gallery-row {
+                    padding: 5px 10px;
+    
+                    .single-country-gallery-column {
+                        .galleryImage {
+                            height: 50px;
+                            width: 50px;
+                            border-radius: 5px;
+                            margin: 2px;
+                        }
+                    }
                 }
             }
         }
