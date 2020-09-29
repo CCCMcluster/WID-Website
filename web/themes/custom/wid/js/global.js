@@ -31,6 +31,11 @@
     }
   };
 
+  function styleSearch() {
+    $('.js-form-item-search-api-fulltext')
+      .append("<span class='fa fa-search form-control-feedback' style=' position: absolute; top: 12px; left: 20px; color: #556cff; '></span>");
+  }
+
   var accordion = document.getElementsByClassName("faq-accordion");
   var accordionItem;
   for (accordionItem = 0; accordionItem < accordion.length; accordionItem++) {
@@ -41,12 +46,14 @@
         panel.style.maxHeight = null;
       } else {
         panel.style.maxHeight = panel.scrollHeight + "px";
-      } 
+      }
     });
-  }  
+  }
 
   $('#toolkitTestimonialSlide').find('.carousel-item').first().addClass('active');
   $('#toolkitTestimonialSlideIndicator').find('.item-indicator').first().addClass('active');
+
+  styleSearch();
 
 })(jQuery, Drupal);
 
@@ -74,3 +81,4 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "block";
   dots[slideIndex-1].className += " active";
 }
+
