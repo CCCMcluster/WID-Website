@@ -95,3 +95,30 @@
     }
   }
 }
+
+// Responsive
+@media (min-width: 320px) and (max-width: 480px) {
+  .toolkit-header-wrapper {
+    .toolkit-header {
+      .toolkit-header-card {
+        width: 95%;
+        margin: 0 auto;
+
+        span {
+          font-size: $font-size-title-sm;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .toolkit-header-wrapper {
+    .toolkit-header {
+      .toolkit-header-card {
+        width: 95%;
+        margin: 0 auto;
+      }
+    }
+  }
+}
