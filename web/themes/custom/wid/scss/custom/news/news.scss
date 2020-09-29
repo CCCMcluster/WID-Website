@@ -8,9 +8,23 @@
   background-size: cover;
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 100px 0;
+  padding-bottom: 75px;
+
+  .title {
+      display: inline-block;
+      font-family: $font-raleway;
+      font-size: $font-size-section-title;
+      font-weight: $font-weight-semibold;
+      background-color: $primary-color;
+      color: #ffffff;
+      padding: 10px 75px;
+      border-radius: 40px;
+      box-shadow: 0 3px 6px 0 rgba(59, 54, 54, 0.16);
+      margin: 75px;
+  }
 
   .event-container {
     display: flex;
@@ -19,7 +33,6 @@
     .event {
       flex: 2;
       box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.16);
-      border: solid 1px #95989a;
       background-color: #ffffff;
       padding: 20px;
       border-radius: 20px;
@@ -34,7 +47,7 @@
 
         h2 {
           font-family: $font-lato;
-          font-size: $font-size-title-sm;
+          font-size: $font-size-section-title;
           font-weight: bold;
           line-height: 0.94;
           color: $primary-color;
@@ -45,7 +58,7 @@
 
         p {
           font-family: $font-lato;
-          font-size: $font-size-text;
+          font-size: $font-size-base;
           font-weight: normal;
           line-height: 1.2;
           color: $primary-color;
@@ -66,27 +79,29 @@
       flex: 1;
       opacity: 0.9;
       box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.16);
-      background-color: #eabf4e;
+      background-color: $primary-color-light;
       border-radius: 20px;
       text-align: center;
-      padding: 50px 0;
+      padding: 20px 0;
 
       h2 {
         font-family: $font-raleway;
-        font-size: $font-size-title;
-        font-weight: 600;
+        font-size: $font-size-title-xs;
+        font-weight: $font-weight-semibold;
         line-height: 1.18;
-        color: #ffffff;
-        border-bottom: 2px solid #ffffff;
+        color: $primary-color;
+        border-bottom: 4px solid $primary-color;
         padding-bottom: 5px;
         display: inline-block;
       }
 
       .event-list {
         display: flex;
-        justify-content: center;
         flex-direction: column;
-        padding: 40px 20px;
+        margin: 20px;
+        max-height: 400px;
+        justify-content: flex-start;
+        overflow-y: scroll;
 
         .single-event-list {
           background: #ffffff;
@@ -95,8 +110,8 @@
           display: flex;
           align-items: center;
           justify-content: space-between;
-          margin: 8px 0;
-          padding: 10px 10px;
+          margin: 5px 0;
+          padding: 10px 14px;
 
           .date {
             font-family: $font-lato;
@@ -110,7 +125,6 @@
             a {
               font-family: $font-lato;
               font-size: $font-size-base;
-              font-weight: bold;
               line-height: 1.22;
               color: $primary-color;
               text-decoration: none;
@@ -346,6 +360,22 @@
     background-color: $primary-color-light;
     border-radius: 40px;
     position: relative;
+    text-align: center;
+    padding-bottom: 40px;
+
+    .social-media-container-title {
+      font-family: $font-raleway;
+      font-size: $font-size-section-title;
+      font-weight: $font-weight-semibold;
+      line-height: 1.18;
+      background-color: $primary-color;
+      display: inline-block;
+      padding: 7px 75px;
+      margin-bottom: 30px;
+      border-radius: 40px;
+      color: #ffffff;
+      margin-top: 90px;
+    }
 
     .social-media-info-container {
       display: flex;
@@ -354,26 +384,9 @@
       flex-direction: column;
       border-radius: 20px;
       box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.16);
-      background-color: $primary-color;
       padding: 35px 0 50px;
-      width: 85%;
       margin: 0 auto;
-      position: absolute;
-      transform: translate(-50%, -50%);
       left: 50%;
-
-      h2 {
-        font-family: $font-raleway;
-        font-size: $font-size-section-title;
-        font-weight: $font-weight-semibold;
-        line-height: 1.18;
-        color: $primary-color;
-        display: inline-block;
-        padding: 7px 75px;
-        margin-bottom: 30px;
-        border-radius: 40px;
-        background-color: #ffffff;
-      }
 
       p {
         font-size: $font-size-text;
@@ -393,13 +406,14 @@
       width: 85%;
       margin: 0 auto;
       gap: 30px;
-      padding: 200px 0 50px;
+      margin: 50px;
 
       .insta-wrapper {
         flex: 2;
         border-radius: 20px;
         box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.16);
         background-color: #e8edff;
+        margin: 32px 0;
 
         .insta-heading {
           background-color: $accent-color;
@@ -422,16 +436,6 @@
           justify-content: center;
           align-items: center;
           flex-direction: column;
-
-          h3 {
-            font-family: $font-raleway;
-            font-size: $font-size-title-sm;
-            font-weight: 600;
-            line-height: 1.18;
-            text-align: center;
-            color: $primary-color;
-            padding: 20px 0;
-          }
 
           .insta-image-container {
             display: flex;
@@ -476,6 +480,7 @@
         border-radius: 20px;
         box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.16);
         background-color: #e8edff;
+        margin: 32px 0;
 
         .twitter-heading {
           background-color: $primary-color;
@@ -498,17 +503,7 @@
           justify-content: center;
           align-items: center;
           flex-direction: column;
-          height: 1000px;
-
-          h3 {
-            font-family: $font-raleway;
-            font-size: $font-size-title-sm;
-            font-weight: 600;
-            line-height: 1.18;
-            text-align: center;
-            color: $primary-color;
-            padding: 20px 0;
-          }
+          height: 900px;
 
           a {
             margin: 15px 0 25px;
@@ -572,6 +567,10 @@
 
 // Responsive
 @media (min-width: 320px) and (max-width: 480px) {
+  .event-container {
+    flex-direction: column;
+  }
+
   .latest-update-wrapper {
     .latest-update-container {
       .latest-update-card-container {
