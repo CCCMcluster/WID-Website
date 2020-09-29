@@ -21,15 +21,18 @@
       <div class="col-xs-12 col-sm-12 col-md-12  col-lg-12 col-xl-8 featured-news">
         <div class="row">
           {% for single_feature_news in feature_news %}
+          {% set newsTitle = single_feature_news.title[0].value %}
+          {% set image_url = media_file_url(single_feature_news.field_featured_media[0].target_id) %}
           {% if loop.first %}
           <div class="col-md-3">
             <div class="banner-wrapper banner-1">
               <div class="banner-image">
-                {% set image_url = media_file_url(single_feature_news.field_featured_media[0].target_id) %}
                 <img src="{{ image_url }}" alt="feature-news"/>
               </div>
               <div class="banner-desc">
-                <p>{{ single_feature_news.title[0].value }}</p>
+                <p>
+                  {{ newsTitle|length > 30 ? newsTitle|slice(0, 30) ~ '...' : newsTitle }}
+                </p>
               </div>
             </div>
           </div>
@@ -40,11 +43,12 @@
                 <div class="col-md-8">
                   <div class="banner-wrapper banner-2">
                     <div class="banner-image">
-                      {% set image_url = media_file_url(single_feature_news.field_featured_media[0].target_id) %}
                       <img src="{{ image_url }}" alt="feature-news"/>
                     </div>
                     <div class="banner-desc">
-                      <p>{{ single_feature_news.title[0].value }}</p>
+                      <p>
+                        {{ newsTitle|length > 120 ? newsTitle|slice(0, 120) ~ '...' : newsTitle }}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -53,11 +57,12 @@
                 <div class="col-md-4">
                   <div class="banner-wrapper banner-3">
                     <div class="banner-image">
-                      {% set image_url = media_file_url(single_feature_news.field_featured_media[0].target_id) %}
                       <img src="{{ image_url }}" alt="feature-news"/>
                     </div>
                     <div class="banner-desc">
-                      <p>{{ single_feature_news.title[0].value }}</p>
+                      <p>
+                        {{ newsTitle|length > 40 ? newsTitle|slice(0, 40) ~ '...' : newsTitle }}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -66,11 +71,12 @@
                 <div class="col-md-4">
                   <div class="banner-wrapper banner-4">
                     <div class="banner-image">
-                      {% set image_url = media_file_url(single_feature_news.field_featured_media[0].target_id) %}
                       <img src="{{ image_url }}" alt="feature-news"/>
                     </div>
                     <div class="banner-desc">
-                      <p>{{ single_feature_news.title[0].value }}</p>
+                      <p>
+                        {{ newsTitle|length > 35 ? newsTitle|slice(0, 35) ~ '...' : newsTitle }}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -79,11 +85,12 @@
                 <div class="col-md-8">
                   <div class="banner-wrapper banner-5">
                     <div class="banner-image">
-                      {% set image_url = media_file_url(single_feature_news.field_featured_media[0].target_id) %}
                       <img src="{{ image_url }}" alt="feature-news"/>
                     </div>
                     <div class="banner-desc">
-                      <p>{{ single_feature_news.title[0].value }}</p>
+                      <p>
+                        {{ newsTitle|length > 120 ? newsTitle|slice(0, 120) ~ '...' : newsTitle }}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -98,7 +105,7 @@
         <div class="card-news">
           <div class="card-content">
             <h2 class="card-title">Latest News</h2>
-              <div class="news-container">
+            <div class="news-container">
               {% for single_news in news %}
                 <div class="news-wrapper">
                   <div class="news-image">
@@ -106,10 +113,15 @@
                     <img src="{{ image_url }}" alt="news">
                   </div>
                   <div class="news-content">
-                    <h3 class="news-title">{{ single_news.title[0].value }}</h3>
+                    <h3 class="news-title">
+                      {% set title = single_news.title[0].value %}
+                      {{ title|length > 70 ? title|slice(0, 70) ~ '...' : title }}
+                    </h3>
                     {% set text = single_news.body[0].value |render|striptags %}
                     <p class="news-desc">
-                      {% autoescape false %}{{ text|length > 40 ? text|slice(0, 40) : text }}{% endautoescape %}
+                      {% autoescape false %}
+                        {{ text|length > 40 ? text|slice(0, 40) : text }}
+                      {% endautoescape %}
                     </p>
                   </div>
                 </div>
