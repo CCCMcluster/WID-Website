@@ -95,6 +95,10 @@
                   line-height: 1.21;
                   color: #ffffff;
                   padding: 0;
+
+                  &:hover {
+                    text-decoration: underline;
+                  }
                 }
               }
             }
