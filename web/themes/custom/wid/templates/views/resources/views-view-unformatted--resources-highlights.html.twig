@@ -19,12 +19,12 @@
 {% if title %}
   <h3>{{ title }}</h3>
 {% endif %}
-<div class="highlight-wrapper" style="background: url('https://homepages.cae.wisc.edu/~ece533/images/watch.png'); background-size:cover" alt="highlight">
+<div class="highlight-wrapper" style="background: url('/{{ directory }}/images/resources-highlights-bg.jpg'); background-size:cover" alt="highlight">
     <div class="container">
         <div class="highlight-container">
             <h2 class="highlight-title">{{ drupal_field('name', 'taxonomy_term', 33) }}</h2>
             <div class="highlight-desc">
-                {{ drupal_field('description', 'taxonomy_term', 33) }} 
+                {{ drupal_field('description', 'taxonomy_term', 33) }}
             </div>
             <div class="highlight-image-wrapper">
                 {% for key,row in rows %}

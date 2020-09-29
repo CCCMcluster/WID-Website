@@ -15,49 +15,55 @@
  * @see template_preprocess_views_view_unformatted()
  */
 #}
-
-<div class="resources-media-wrapper" style="background: url('https://homepages.cae.wisc.edu/~ece533/images/watch.png'); background-size:cover" alt="resources-media-background">
+<div class="resources-media-wrapper"
+     style="background: url('/{{ directory }}/images/resources-media-bg.jpg'); background-size:cover"
+     alt="resources-media-background">
   <div class="container">
     <div class="resources-media-container">
       <div class="resources-media-info-container">
-          <h2>{{ view.title }}</h2>
-          <p>
-            {{ drupal_field('description', 'taxonomy_term', 28) }}
-          </p>
+        <h2>{{ view.title }}</h2>
+        <p>
+          {{ drupal_field('description', 'taxonomy_term', 28) }}
+        </p>
       </div>
       {% if title %}
         <h3>{{ title }}</h3>
       {% endif %}
       <div class="resources-video-wrapper">
+        {% for key,row in rows %}
+        {% if loop.first %}
         <div class="resources-main-video">
-          <iframe src="https://www.youtube.com/embed/kvQBGCRC2uY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          <h3>Excepteur sint occaecat cupidatat non proident sunt in culpa.</h3>
+          {{ view.style_plugin.getField(key, 'field_resources_media') }}
+          <h3>{{ view.style_plugin.getField(key, 'title') }}</h3>
           <p>
-              Sed vitae accusamus voluptatum. Ut occaecati itaque consectetur. Consectetur architecto dolores. Voluptas sapiente fugit dignissimos eos libero fugit qui.
-              Temporibus odio amet rem nulla earum molestiae et corrupti sapiente.
+            {% if loop.first %}
+              {{ view.style_plugin.getField(key, 'body') }}
+            {% else %}
+              {% set description = entity.body.value |render|striptags %}
+              {% autoescape false %}{{ description|length > 50 ? description|slice(0, 50) : description }}{% endautoescape %}
+            {% endif %}
           </p>
-          <span>09/13/2018</span>
+          <span>{{ view.style_plugin.getField(key, 'created') }}</span>
         </div>
         <div class="resources-video-list">
-          {% for key,row in rows %}
-          <div class="resources-video {{ 'resources-' ~ loop.index }}">
-            {{ view.style_plugin.getField(key, 'field_resources_media') }}
-            <h3>{{ view.style_plugin.getField(key, 'title') }}</h3>
-            <p>
+          {% else %}
+            <div class="resources-video {{ 'resources-' ~ loop.index }}">
+              {{ view.style_plugin.getField(key, 'field_resources_media') }}
+              <h3>{{ view.style_plugin.getField(key, 'title') }}</h3>
+              <p>
                 {% if loop.first %}
                   {{ view.style_plugin.getField(key, 'body') }}
                 {% else %}
                   {% set description = entity.body.value |render|striptags %}
                   {% autoescape false %}{{ description|length > 50 ? description|slice(0, 50) : description }}{% endautoescape %}
                 {% endif %}
-            </p>
-            <span>{{ view.style_plugin.getField(key, 'created') }}</span>
-          </div>
+              </p>
+              <span>{{ view.style_plugin.getField(key, 'created') }}</span>
+            </div>
+          {% endif %}
           {% endfor %}
         </div>
       </div>
     </div>
   </div>
 </div>
-
-
