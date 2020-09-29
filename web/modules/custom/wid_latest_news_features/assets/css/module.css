@@ -75,7 +75,7 @@
 }
 
 .latest-news-features-block .card-news .card-content {
-  overflow: auto;
+  overflow: scroll;
 }
 
 .latest-news-features-block .card-news a {
