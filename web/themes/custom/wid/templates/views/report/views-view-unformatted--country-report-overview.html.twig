@@ -29,8 +29,7 @@
     ) %}
   {% set country_report_iso = row.content['#row']._entity.field_report_overview_country.value %}
   {% set country_title = '' %}
-  <div class="our-single-report-header" {{ row.attributes.addClass(row_classes) }}
-       style="background-image: url('{{ bg_img }}')">
+  <div class="our-single-report-header" {{ row.attributes.addClass(row_classes) }} style="background-image: url('{{ bg_img }}')">
     {% if active_countries %}
       <div class="our-single-report-header-nav row">
         {% for country in active_countries %}
@@ -57,14 +56,14 @@
             <div class="country-report-description-title" data-id="{{ country_title }}">
               {{ country_title }}
             </div>
-            <div class="country-report-description-body"{{ view.style_plugin.getField(key, 'description__value') }}
+            <div class="country-report-description-body">
+              {{ view.style_plugin.getField(key, 'description__value') }}
+            </div>
+            <span class="country-report-description-button">Reports &nbsp <i class="fa fa-angle-down" aria-hidden="true"></i></span>
           </div>
-          <span class="country-report-description-button">Reports &nbsp <i class="fa fa-angle-down"
-                                                                           aria-hidden="true"></i></span>
         </div>
       </div>
     </div>
-  </div>
   </div>
 {% endfor %}
 <script>
