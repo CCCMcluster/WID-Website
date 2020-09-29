@@ -33,6 +33,10 @@
             align-items: center;
             justify-content: space-between;
 
+            a:hover {
+              text-decoration: none;
+            }
+
             .faq-category-content {
                 display: flex;
                 flex-direction: column;
@@ -53,12 +57,12 @@
                 }
 
             }
-            
+
             .faq-project-overview {
                 color: $primary-color;
                 border: 1px solid $primary-color;
             }
-            
+
             .faq-methodology {
                 color:  $primary-color;
                 border: 1px solid  $primary-color;
@@ -68,7 +72,7 @@
                 color: $accent-alt-color;
                 border: 1px solid $accent-alt-color;
             }
-            
+
             .faq-access-report {
                 color: $accent-color;
                 border: 1px solid $accent-color;
@@ -86,11 +90,11 @@
 
 @media (min-width: 320px) and (max-width: 480px) {
     .faq-background-image {
-        
+
         .faq-header-card {
 
             .faq-category-container {
-        
+
                 .faq-category-content {
                     padding: 5px 10px 5px 10px;
                     height: 120px;
@@ -110,11 +114,11 @@
 
 @media (min-width: 481px) and (max-width: 767px) {
     .faq-background-image {
-        
+
         .faq-header-card {
 
             .faq-category-container {
-        
+
                 .faq-category-content {
                     padding: 25px 10px 25px 10px;
                     height: 160px;
@@ -134,11 +138,11 @@
 
 @media (min-width: 768px) and (max-width: 1024px) {
     .faq-background-image {
-        
+
         .faq-header-card {
 
             .faq-category-container {
-        
+
                 .faq-category-content {
                     padding: 15px 2px;
                     height: 150px;
@@ -159,11 +163,11 @@
 
 @media (min-width: 1025px) and (max-width: 1200px) {
     .faq-background-image {
-        
+
         .faq-header-card {
 
             .faq-category-container {
-        
+
                 .faq-category-content {
                     padding: 12px 5px;
                     height: 150px;
@@ -243,7 +247,7 @@
                         transition: 0.7s;
                         padding: 5px 15px;
                         border-bottom: 2px solid #e8edff;
-                        
+
                         .faq-accordion-dot {
                             margin-left: -1em;
                             margin-bottom: 5px;
@@ -258,7 +262,7 @@
                             font-family: $font-raleway;
                             color: $primary-color;
                         }
-                        
+
                         .faq-accordion-arrow {
                             transition: transform 0.3s;
                             font-size: $font-size-text-sm;
@@ -361,7 +365,7 @@
             .faq-content-card {
                 padding: 5px 5px;
 
-                .faq-content-header {    
+                .faq-content-header {
                     .faq-content-header-title {
                         font-size: $font-size-base;
                         font-weight: 500;
@@ -369,29 +373,29 @@
                 }
 
                 .faq-list-item {
-    
-                    .faq-accrodion-body {    
+
+                    .faq-accrodion-body {
                         .faq-accordion {
                             font-size: $font-size-base;
                             border-bottom: 1px solid #e8edff;
-                            
+
                             .faq-accordion-dot {
                                 font-size: $font-size-text-sm;
                             }
-    
+
                             .faq-accordion-question {
                                 font-size: $font-size-xs;
                                 font-weight: 500;
                             }
-                            
+
                             .faq-accordion-arrow {
                                 font-size: $font-size-xs;
                             }
                         }
-    
+
                         .panel {
                             font-size: $font-size-xs;
-    
+
                             .panel-content {
                                 margin: 5px 0 0 5px;
                                 padding: 4px;
@@ -407,15 +411,15 @@
     .faq-form-background {
         background-color: #e8edff;
         padding: 10px 10px;
-    
+
         .faq-form-card {
             border-radius: 5px;
             padding: 20px 10px;
-    
+
             .faq-form-title {
                 font-size: $font-size-text;
             }
-    
+
             .faq-form-sub-title {
                 font-size: $font-size-text-sm;
             }
@@ -423,7 +427,7 @@
             .faq-form-body {
 
                 .form-group {
-    
+
                     .faq-form-label {
                         font-weight: 400;
                     }
@@ -440,7 +444,7 @@
             .faq-content-card {
                 padding: 10px 10px;
 
-                .faq-content-header {    
+                .faq-content-header {
                     .faq-content-header-title {
                         font-size: $font-size-base;
                         font-weight: 500;
@@ -448,29 +452,29 @@
                 }
 
                 .faq-list-item {
-    
-                    .faq-accrodion-body {    
+
+                    .faq-accrodion-body {
                         .faq-accordion {
                             font-size: $font-size-base;
                             border-bottom: 1px solid #e8edff;
-                            
+
                             .faq-accordion-dot {
                                 font-size: $font-size-text-sm;
                             }
-    
+
                             .faq-accordion-question {
                                 font-size: $font-size-xs;
                                 font-weight: 500;
                             }
-                            
+
                             .faq-accordion-arrow {
                                 font-size: $font-size-xs;
                             }
                         }
-    
+
                         .panel {
                             font-size: $font-size-xs;
-    
+
                             .panel-content {
                                 margin: 5px 0 0 10px;
                                 padding: 7px;
@@ -486,14 +490,14 @@
     .faq-form-background {
         background-color: #e8edff;
         padding: 30px 20px;
-    
+
         .faq-form-card {
             padding: 20px 30px;
-    
+
             .faq-form-title {
                 font-size: $font-size-text-alt;
             }
-    
+
             .faq-form-sub-title {
                 font-size: $font-size-base;
             }
@@ -501,7 +505,7 @@
             .faq-form-body {
 
                 .form-group {
-    
+
                     .faq-form-label {
                         font-weight: 400;
                     }
@@ -518,7 +522,7 @@
             .faq-content-card {
                 padding: 20px 50px;
 
-                .faq-content-header {    
+                .faq-content-header {
                     .faq-content-header-title {
                         font-size: $font-size-text;
                         font-weight: 600;
@@ -526,29 +530,29 @@
                 }
 
                 .faq-list-item {
-    
-                    .faq-accrodion-body {    
+
+                    .faq-accrodion-body {
                         .faq-accordion {
                             font-size: $font-size-text;
                             border-bottom: 1px solid #e8edff;
-                            
+
                             .faq-accordion-dot {
                                 font-size: $font-size-base;
                             }
-    
+
                             .faq-accordion-question {
                                 font-size: $font-size-text-sm;
                                 font-weight: 500;
                             }
-                            
+
                             .faq-accordion-arrow {
                                 font-size: $font-size-text-sm;
                             }
                         }
-    
+
                         .panel {
                             font-size: $font-size-text-sm;
-    
+
                             .panel-content {
                                 margin: 5px 0 0 15px;
                                 padding: 7px;
@@ -564,14 +568,14 @@
     .faq-form-background {
         background-color: #e8edff;
         padding: 40px 40px;
-    
+
         .faq-form-card {
             padding: 40px 80px;
-    
+
             .faq-form-title {
                 font-size: $font-size-title-xs;
             }
-    
+
             .faq-form-sub-title {
                 font-size: $font-size-base;
             }
@@ -588,15 +592,15 @@
                 padding: 35px 90px;
 
                 .faq-list-item {
-    
+
                     .faq-accrodion-body {
 
                         .faq-accordion {
                             border-bottom: 1px solid #e8edff;
                         }
-    
+
                         .panel {
-    
+
                             .panel-content {
                                 margin: 5px 0 0 15px;
                                 padding: 7px;
@@ -612,14 +616,14 @@
     .faq-form-background {
         background-color: #e8edff;
         padding: 40px 80px;
-    
+
         .faq-form-card {
             padding: 60px 120px;
-    
+
             .faq-form-title {
                 font-size: $font-size-title;
             }
-    
+
             .faq-form-sub-title {
                 font-size: $font-size-text;
             }
