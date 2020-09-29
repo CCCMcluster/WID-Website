@@ -47,7 +47,7 @@
                     </div>
                     <div class="banner-desc">
                       <p>
-                        {{ newsTitle|length > 120 ? newsTitle|slice(0, 120) ~ '...' : newsTitle }}
+                        {{ newsTitle|length > 95 ? newsTitle|slice(0, 95) ~ '...' : newsTitle }}
                       </p>
                     </div>
                   </div>
@@ -61,7 +61,7 @@
                     </div>
                     <div class="banner-desc">
                       <p>
-                        {{ newsTitle|length > 40 ? newsTitle|slice(0, 40) ~ '...' : newsTitle }}
+                        {{ newsTitle|length > 30 ? newsTitle|slice(0, 30) ~ '...' : newsTitle }}
                       </p>
                     </div>
                   </div>
@@ -115,7 +115,7 @@
                   <div class="news-content">
                     <h3 class="news-title">
                       {% set title = single_news.title[0].value %}
-                      {{ title|length > 70 ? title|slice(0, 70) ~ '...' : title }}
+                      {{ title|length > 40 ? title|slice(0, 40) ~ '...' : title }}
                     </h3>
                     {% set text = single_news.body[0].value |render|striptags %}
                     <p class="news-desc">
