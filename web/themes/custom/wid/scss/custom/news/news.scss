@@ -131,7 +131,7 @@
 
 .hr-news {
   box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.16);
-  background-color: #f7785d;
+  background-color: $primary-color;
   height: 5px;
   margin: 0;
 }
@@ -145,13 +145,13 @@
     .latest-update-main-title {
       display: inline-block;
       font-family: $font-raleway;
-      font-size: $font-size-title-sm;
-      font-weight: 600;
+      font-size: $font-size-section-title;
+      font-weight: $font-weight-semibold;
       line-height: 1.16;
       background-color: $primary-color;
       color: #ffffff;
       display: inline-block;
-      padding: 7px 75px;
+      padding: 10px 75px;
       border-radius: 40px;
       box-shadow: 0 3px 6px 0 rgba(59, 54, 54, 0.16);
     }
@@ -160,7 +160,7 @@
       text-align: left;
       border-radius: 40px;
       box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.16);
-      background-color: $accent-alt-light-color;
+      background-color: $primary-color-light-alt;
       padding: 100px 50px;
       margin: 50px 0;
       display: flex;
@@ -230,13 +230,13 @@
     .latest-update-main-title {
       display: inline-block;
       font-family: $font-raleway;
-      font-size: $font-size-title-sm;
-      font-weight: 600;
+      font-size: $font-size-section-title;
+      font-weight: $font-weight-semibold;
       line-height: 1.16;
-      background-color: #ffffff;
-      color: $primary-color;
+      background-color: $primary-color;
+      color: #ffffff;
       display: inline-block;
-      padding: 7px 75px;
+      padding: 10px 75px;
       border-radius: 40px;
       box-shadow: 0 3px 6px 0 rgba(59, 54, 54, 0.16);
     }
@@ -302,8 +302,8 @@
 
           h2 {
             font-family: $font-lato;
-            font-size: $font-size-text;
-            font-weight: 700;
+            font-size: $font-size-section-title;
+            font-weight: $font-weight-semibold;
             line-height: 1.5;
             color: #556cff;
             padding: 20px 25px;
@@ -343,7 +343,7 @@
 
   .social-media-container {
     box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.16);
-    background-color: #d888f9;
+    background-color: $primary-color-light;
     border-radius: 40px;
     position: relative;
 
@@ -364,8 +364,8 @@
 
       h2 {
         font-family: $font-raleway;
-        font-size: $font-size-title;
-        font-weight: 600;
+        font-size: $font-size-section-title;
+        font-weight: $font-weight-semibold;
         line-height: 1.18;
         color: $primary-color;
         display: inline-block;
@@ -402,19 +402,18 @@
         background-color: #e8edff;
 
         .insta-heading {
-          border: solid 1px #707070;
           background-color: $accent-color;
-          border-radius: 20px 20px 0 0;
+          border-radius: 10px 10px 0 0;
 
           h2 {
             font-family: $font-raleway;
-            font-size: $font-size-title;
+            font-size: $font-size-section-title;
             font-weight: 600;
             line-height: 1.18;
             text-align: center;
             color: #ffffff;
             margin: 0;
-            padding: 10px 0;
+            padding: 20px 0;
           }
         }
 
@@ -479,19 +478,18 @@
         background-color: #e8edff;
 
         .twitter-heading {
-          border: solid 1px #707070;
           background-color: $primary-color;
-          border-radius: 20px 20px 0 0;
+          border-radius: 10px 10px 0 0;
 
           h2 {
             font-family: $font-raleway;
-            font-size: $font-size-title;
-            font-weight: 600;
+            font-size: $font-size-section-title;
+            font-weight: $font-weight-semibold;
             line-height: 1.18;
             text-align: center;
             color: #ffffff;
             margin: 0;
-            padding: 10px 0;
+            padding: 20px 0;
           }
         }
 
@@ -500,6 +498,7 @@
           justify-content: center;
           align-items: center;
           flex-direction: column;
+          height: 1000px;
 
           h3 {
             font-family: $font-raleway;

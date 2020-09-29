@@ -36,8 +36,8 @@ html {
           li {
             a {
               font-family: $font-raleway;
-              font-size: $font-size-base;
-              font-weight: 600;
+              font-size: $font-size-text-alt;
+              font-weight: $font-weight-semibold;
               line-height: 1.18;
               color: #ffffff !important;
               transition: 0.4s;

@@ -10,8 +10,8 @@
 }
 .home-map-wrapper h2{
   font-family: "Raleway", sans-serif;;
-  font-size: 1.5em;
-  font-weight: 600;
+  font-size: 1.25em;
+  font-weight: 500;
   line-height: 1.16;
   background-color: #ffffff;
   color: #556cff;
@@ -59,7 +59,17 @@
 }
 
 .report-title {
+  font-size: 12px;
   font-weight: bold;
+  color: #556cff;
+}
+
+.report-country-body {
+  font-size: 12px;
+}
+
+.report-body {
+  font-size: 10px;
 }
 
 .marker {

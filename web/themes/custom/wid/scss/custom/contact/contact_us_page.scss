@@ -23,63 +23,67 @@
                 font-weight: 600;
                 font-family:  $font-raleway;
             }
-            
+
             .contact-info-content-description {
                 font-size: $font-size-text;
                 font-family:  $font-lato;
             }
         }
 
-        .contact-link-container {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-color: $white;
-            margin: 5px 0;
-            min-width: 100px;
-            min-height: 100px;
-            border-radius: 10px;
-            box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.16);
+        .contact-links {
+          height: 100%;
 
-            &:hover {
-                background-color: #f1f9ff;
-
-                .contact-link-arrow-button {
-                    display: block;
-                }
-            }
-
-            .contact-link-arrow-button {
-                display: none;
-                position: absolute;
-                z-index: 5;
-                top: 100;
-                right: -10px;
-                padding: 8px;
-                border-radius: 5px;
-                background-color: $primary-color;
-                color: $white;
-                font-size: 10px;
-            }
-
-            .contact-block-social-media-link {
+            .contact-link-container {
+                position: relative;
                 display: flex;
                 flex-direction: column;
-                justify-content: space-between;
+                justify-content: center;
                 align-items: center;
-                font-size: $font-size-base;
-                line-height: 1em;
-                text-align: center;
-                padding: 5px 10px;
-                text-decoration: none;
-                font-family:  $font-lato;
+                background-color: $white;
+                margin: 5px 0;
+                min-width: 100px;
+                min-height: 100px;
+                border-radius: 10px;
+                box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.16);
 
-                .contact-block-social-media-icon {
-                    height: 30px;
-                    width: 30px;
-                    margin-bottom: 5px;
+                &:hover {
+                    background-color: #f1f9ff;
+
+                    .contact-link-arrow-button {
+                        display: block;
+                    }
+                }
+
+                .contact-link-arrow-button {
+                    display: none;
+                    position: absolute;
+                    z-index: 5;
+                    top: 100;
+                    right: -10px;
+                    padding: 8px;
+                    border-radius: 5px;
+                    background-color: $primary-color;
+                    color: $white;
+                    font-size: 10px;
+                }
+
+                .contact-block-social-media-link {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: center;
+                    font-size: $font-size-base;
+                    line-height: 1em;
+                    text-align: center;
+                    padding: 5px 10px;
+                    text-decoration: none;
+                    font-family:  $font-lato;
+
+                    .contact-block-social-media-icon {
+                        height: 30px;
+                        width: 30px;
+                        margin-bottom: 5px;
+                    }
                 }
             }
         }
