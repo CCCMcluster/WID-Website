@@ -22,7 +22,7 @@
 
         h2 {
           font-family: $font-raleway;
-          font-size: $font-size-title-sm;
+          font-size: $font-size-xl-alt;
           font-weight: 600;
           line-height: 1.16;
           color: $accent-color;
@@ -33,7 +33,7 @@
 
         p {
           font-family: $font-lato;
-          font-size: $font-size-text;
+          font-size: $font-size-text-alt;
           font-weight: normal;
           line-height: 1.23;
           color: $primary-color;
@@ -67,9 +67,9 @@
         display: inline-block;
         border: solid 1px #ffffff;
         font-family: $font-raleway;
-        font-size: $font-size-text-sm;
-        font-weight: 400;
-        line-height: 1.17;
+        font-size: $font-size-title-xs;
+        font-weight: $font-weight-semibold;
+        line-height: 1.18;
         color: #ffffff;
         border-radius: 40px;
         padding: 10px 40px;
@@ -92,6 +92,7 @@
         list-style: none;
         margin: 0 auto;
         text-align: left;
+        padding-left: 0;
 
         li {
           width: 50%;
@@ -109,8 +110,8 @@
             justify-content: center;
             align-items: center;
             font-family: $font-raleway;
-            font-size: $font-size-base;
-            font-weight: 600;
+            font-size: $font-size-text-alt;
+            font-weight: $font-weight-semibold;
             line-height: 1.17;
             color: $accent-color;
           }

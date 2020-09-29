@@ -15,7 +15,7 @@
 
     h2 {
       font-family: $font-raleway;
-      font-size: $font-size-title-sm;
+      font-size: $font-size-xl-alt;
       font-weight: 600;
       line-height: 1.16;
       color: $accent-color;
@@ -26,7 +26,7 @@
 
     p {
       font-family: $font-lato;
-      font-size: $font-size-text;
+      font-size: $font-size-text-alt;
       font-weight: normal;
       line-height: 1.23;
       color: $primary-color;
@@ -37,7 +37,7 @@
     .global-report-button {
       background: $accent-color;
       text-align: center;
-      padding: 4px 0;
+      padding: 0 0 8px;
       box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.16);
       border: solid 1px rgba(102, 65, 65, 0.15);
       border-radius: 10px;
