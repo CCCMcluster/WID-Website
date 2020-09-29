@@ -32,18 +32,19 @@ class MapController extends ControllerBase {
     }
     $serializer = Drupal::service('serializer');
     $node_ids = Drupal::entityQuery('node')
-      ->condition('type', 'news')
+      ->condition('type', 'wid_reports')
       ->condition('status', 1)
-      ->condition('field_countries', '', '<>')
+      ->condition('field_report_country', '', '<>')
       ->execute();
     $nodes = Node::loadMultiple($node_ids);
     $mapData = [];
     $index = 0;
     foreach ($nodes as $key => $node) {
-      $mapData[$index]['iso_2'] = $node->get('field_countries')->getValue()[0]['value'];
+      $mapData[$index]['iso_2'] = $node->get('field_report_country')
+        ->getValue()[0]['value'];
       if ($geoData) {
         foreach ($geoData->features as $features) {
-          if ($node->get('field_countries')->getValue()[0]['value'] == $features->iso_2) {
+          if ($node->get('field_report_country')->getValue()[0]['value'] == $features->iso_2) {
             $mapData[$index]['centroid'] = $features->properties->centroid;
           }
         }
@@ -63,21 +64,41 @@ class MapController extends ControllerBase {
     $iso_2 = Drupal::request()->query->get('iso');
     if (isset($iso_2)) {
       $node_ids = Drupal::entityQuery('node')
-        ->condition('type', 'news')
+        ->condition('type', 'wid_reports')
         ->condition('status', 1)
-        ->condition('field_countries', '', '<>')
-        ->condition('field_countries', $iso_2)
+        ->condition('field_report_country', '', '<>')
+        ->condition('field_report_country', $iso_2)
         ->execute();
       $nodes = Node::loadMultiple($node_ids);
       $country_manager = Drupal::service('country_manager');
+      $terms = Drupal::entityTypeManager()
+        ->getStorage('taxonomy_term')
+        ->loadTree('country_report_overview');
+      foreach ($terms as $term) {
+        $country = Drupal::entityTypeManager()
+          ->getStorage('taxonomy_term')
+          ->load($term->tid);
+        $country_iso = $country->field_report_overview_country->value;
+        $country_name = $country->getName();
+        $term_data[$country_iso] = $country_name;
+      }
       $mapData = [];
       $index = 0;
       foreach ($nodes as $key => $node) {
         $mapData[$index]['id'] = $index + 1;
         $mapData[$index]['title'] = $node->get('title')->getValue()[0]['value'];
         $mapData[$index]['body'] = $node->get('body')->getValue()[0]['value'];
-        $mapData[$index]['country'] = $country_manager->getList()[$node->get('field_countries')->getValue()[0]['value']]->__toString();
-        $mapData[$index]['iso_2'] = $node->get('field_countries')->getValue()[0]['value'];
+        if ($term_data[$node->get('field_report_country')
+          ->getValue()[0]['value']]) {
+          $mapData[$index]['country'] = $term_data[$node->get('field_report_country')
+            ->getValue()[0]['value']];
+        }
+        else {
+          $mapData[$index]['country'] = $country_manager->getList()[$node->get('field_report_country')
+            ->getValue()[0]['value']]->__toString();
+        }
+        $mapData[$index]['iso_2'] = $node->get('field_report_country')
+          ->getValue()[0]['value'];
         $index++;
       }
       return new JsonResponse($mapData);

@@ -1,10 +1,4 @@
 .home-map-wrapper{
-  background-image: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0.2),
-    rgba(0, 0, 0, 0.4)
-  ),
-  url("../../../../../sites/default/files/images/wid-map-background.jpg");
   background-size: cover;
   text-align: center;
 }
