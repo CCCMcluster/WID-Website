@@ -15,16 +15,17 @@
       border-radius: 20px;
 
       .baseline-endline-content-title {
-        text-align: center;
-        background-color: $white;
-        color: $primary-color;
-        width: 250px;
-        padding: 5px 0;
-        border-radius: 20px;
-        font-size: $font-size-text;
         font-family: $font-raleway;
-        margin-bottom: 50px;
-        font-weight: 500;
+        font-size: $font-size-section-title;
+        font-weight: $font-weight-semibold;
+        line-height: 1.2;
+        color: $primary-color;
+        background-color: $white;
+        display: inline-block;
+        padding: 10px 75px;
+        border-radius: 20px;
+        box-shadow: 0 3px 6px 0 rgba(59, 54, 54, 0.16);
+        margin-bottom: 40px;
       }
 
       .global-report-row-wrapper {
@@ -53,7 +54,7 @@
             }
 
             .global-report-row-body {
-              font-size: $font-size-text-sm;
+              font-size: $font-size-base;
               font-family: $font-lato;
             }
 
@@ -68,7 +69,7 @@
                 font-family: $font-lato;
                 font-size: $font-size-text;
                 font-weight: 600;
-                margin-bottom: 25px;
+                margin-bottom: 24px;
               }
 
               div {
@@ -117,14 +118,17 @@
         margin: 100px 0 0;
 
         .our-key-title {
-          text-align: center;
-          background-color: $white;
-          color: $primary-color;
-          padding: 7px 50px;
-          border-radius: 20px;
-          font-size: $font-size-text;
           font-family: $font-raleway;
+          font-size: $font-size-section-title;
+          font-weight: $font-weight-semibold;
+          line-height: 1.2;
+          color: $primary-color;
+          background-color: $white;
           display: inline-block;
+          padding: 10px 75px;
+          border-radius: 20px;
+          box-shadow: 0 3px 6px 0 rgba(59, 54, 54, 0.16);
+          margin-bottom: 40px;
         }
 
         .our-key-content {

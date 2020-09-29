@@ -36,7 +36,7 @@
             </p>
             {% endif %}
             {% for row in rows %}
-            <div class="row m-2 file-info-container py-2 px-3">
+            <div class="row m-2 file-info-container py-3 px-3">
               {% set entity = row.content['#row']._entity %}
               {% set title = entity.title.value %}
               {% set created_date = entity.created.value | date('m/d/y') %}

@@ -15,14 +15,17 @@
         border-top-right-radius: 20px;
 
         .workshop-title {
-            text-align: center;
-            background-color: $white;
+            font-family: $font-raleway;
+            font-size: $font-size-section-title;
+            font-weight: $font-weight-semibold;
+            line-height: 1.2;
             color: $primary-color;
-            width: 250px;
-            padding: 5px 0;
+            background-color: $white;
+            display: inline-block;
+            padding: 10px 75px;
             border-radius: 20px;
-            font-size: $font-size-text;
-            font-family:  $font-raleway;
+            box-shadow: 0 3px 6px 0 rgba(59, 54, 54, 0.16);
+            margin-bottom: 40px;
         }
 
         .workshop-row-wrapper {
@@ -49,7 +52,7 @@
                     }
 
                     .workshop-row-body {
-                        font-size: $font-size-text-sm;
+                        font-size: $font-size-base;
                         font-family: $font-lato;
                     }
 
@@ -61,6 +64,7 @@
                             font-family: $font-lato;
                             font-size: $font-size-text;
                             font-weight: 600;
+                            margin-bottom: 24px;
                         }
 
                         div {
@@ -109,12 +113,17 @@
         border-bottom-right-radius: 20px;
 
         .testimonial-slide-content-title {
-            font-size: $font-lato;
+            font-family: $font-raleway;
+            font-size: $font-size-section-title;
+            font-weight: $font-weight-semibold;
+            line-height: 1.2;
             color: $white;
             background-color: $primary-color;
-            padding: 7px 100px;
-            border-radius: 15px;
-            font-size: $font-size-text-sm;
+            display: inline-block;
+            padding: 10px 75px;
+            border-radius: 20px;
+            box-shadow: 0 3px 6px 0 rgba(59, 54, 54, 0.16);
+            margin-bottom: 40px;
         }
 
         .carousel {
@@ -140,13 +149,15 @@
                         .testimonial-body {
                             font-size: $font-size-text;
                             font-family: $font-lato;
+                            line-height: 1.22;
                         }
 
                         .testimonial-source {
                             color: $accent-color;
-                            font-size: $font-size-base;
+                            font-size: $font-size-text-sm;
                             font-family: $font-raleway;
                             text-align: right;
+                            padding: 0 75px;
                         }
                     }
                 }

@@ -69,8 +69,8 @@
             .append('div')
             .attr('class', 'report')
             .classed('report__active', index===0);
-          index===0 && reportElement.append('p').attr('class', 'report-country').text(`Reports in ${report.country}`);
-          reportElement.append('p').attr('class', 'report-title').text(report.title);
+          index===0 && reportElement.append('p').attr('class', 'report-country').text(`${report.country}`);
+          index.title && reportElement.append('p').attr('class', 'report-title').text(report.title);
           reportElement.append('p')
             .attr('class', 'report-country-body')
             .text(`${report.body.split(" ").splice(0, index===0?40:5).join(" ")}...`);
