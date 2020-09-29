@@ -223,7 +223,7 @@
 
                 .faq-content-header-title {
                     text-align: center;
-                    font-size: $font-size-text-alt;
+                    font-size: $font-size-xl-alt;
                     font-family: $font-raleway;
                     font-weight: 600;
                 }
@@ -310,6 +310,50 @@
     }
 }
 
+.faq-form-background {
+    background-color: #e8edff;
+    padding: 50px 150px;
+
+    .faq-form-card {
+        background-color: $white;
+        border-radius: 10px;
+        box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.16);
+        color: $primary-color;
+        padding: 40px 150px;
+
+        .faq-form-title {
+            text-align: center;
+            font-size: $font-size-xl-alt;
+            font-family: $font-raleway;
+            font-weight: 600;
+        }
+
+        .faq-form-sub-title {
+            text-align: center;
+            font-size: $font-size-text-alt;
+            font-family: $font-raleway;
+            font-weight: 600;
+        }
+
+        .faq-form-body {
+
+            .form-group {
+
+                .faq-form-label {
+                    font-family: $font-lato;
+                    font-size: $font-size-base;
+                    font-weight: 600;
+                }
+
+                .faq-form-input {
+                    border: none;
+                    background-color: #fafafa;
+                }
+            }
+        }
+    }
+}
+
 
 @media (min-width: 320px) and (max-width: 480px) {
     .faq-content-container-background{
@@ -354,6 +398,34 @@
                                 border-radius: 3px;
                             }
                         }
+                    }
+                }
+            }
+        }
+    }
+
+    .faq-form-background {
+        background-color: #e8edff;
+        padding: 10px 10px;
+    
+        .faq-form-card {
+            border-radius: 5px;
+            padding: 20px 10px;
+    
+            .faq-form-title {
+                font-size: $font-size-text;
+            }
+    
+            .faq-form-sub-title {
+                font-size: $font-size-text-sm;
+            }
+
+            .faq-form-body {
+
+                .form-group {
+    
+                    .faq-form-label {
+                        font-weight: 400;
                     }
                 }
             }
@@ -410,6 +482,33 @@
             }
         }
     }
+
+    .faq-form-background {
+        background-color: #e8edff;
+        padding: 30px 20px;
+    
+        .faq-form-card {
+            padding: 20px 30px;
+    
+            .faq-form-title {
+                font-size: $font-size-text-alt;
+            }
+    
+            .faq-form-sub-title {
+                font-size: $font-size-base;
+            }
+
+            .faq-form-body {
+
+                .form-group {
+    
+                    .faq-form-label {
+                        font-weight: 400;
+                    }
+                }
+            }
+        }
+    }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
@@ -461,6 +560,23 @@
             }
         }
     }
+
+    .faq-form-background {
+        background-color: #e8edff;
+        padding: 40px 40px;
+    
+        .faq-form-card {
+            padding: 40px 80px;
+    
+            .faq-form-title {
+                font-size: $font-size-title-xs;
+            }
+    
+            .faq-form-sub-title {
+                font-size: $font-size-base;
+            }
+        }
+    }
 }
 
 @media (min-width: 1024px) and (max-width: 1200px) {
@@ -489,6 +605,23 @@
                         }
                     }
                 }
+            }
+        }
+    }
+
+    .faq-form-background {
+        background-color: #e8edff;
+        padding: 40px 80px;
+    
+        .faq-form-card {
+            padding: 60px 120px;
+    
+            .faq-form-title {
+                font-size: $font-size-title;
+            }
+    
+            .faq-form-sub-title {
+                font-size: $font-size-text;
             }
         }
     }

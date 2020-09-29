@@ -46,6 +46,8 @@
 
         .country-report-cover-image {
             overflow: hidden;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
 
             img {
                 width: 100%;
@@ -205,6 +207,112 @@
     width: 100%;
 }
 
+.single-country-gallery-background{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 0;
+    background-color: #121212;
+
+    .container{
+        background-color: #e8edff;
+        display: flex;
+        flex-direction: column;
+        padding: 50px 80px 100px 80px;
+        border-radius: 20px;
+        align-items: center;
+
+        h2 {
+            text-align: center;
+            width: 100%;
+            padding: 5px;
+            background-color: $accent-color;
+            color: $white;
+            font-family: $font-raleway;
+            font-size: $font-size-xl-alt;
+            border-radius: 40px;
+        }
+
+        .single-country-gallery-container {
+            padding: 10px;
+            background-color: $white;
+            border-radius: 10px;
+            box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+            
+            .mySlides {
+                display: none;
+
+                img {
+                    height: 500px;
+                    object-fit: cover;
+                }
+            }
+        
+            .single-country-gallery-row {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                padding: 10px 80px;
+
+                .single-country-gallery-column {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+
+                    .galleryImage {
+                        height: 80px;
+                        width: 80px;
+                        border-radius: 10px;
+                        margin: 5px;
+                        opacity: 0.9;
+
+                        &:hover {
+                            opacity: 1;
+                        }
+                    }
+
+                    .active {
+                        opacity: 1;
+                    }
+                    
+                    .prev,
+                    .next {
+                        text-decoration: none;
+                        cursor: pointer;
+                        width: auto;
+                        padding: 16px;
+                        color: $accent-color;
+                        font-weight: bold;
+                        font-size: $font-size-text-alt;
+                        user-select: none;
+                        -webkit-user-select: none;
+
+                        &:hover {
+                            background-color: rgba(0, 0, 0, 0.1);
+                        }
+                    }
+                    
+                    .prev {
+                        left: 20%;
+                        border-radius: 3px 0 0 3px;
+                    }
+                    
+                    .next {
+                        right: 20%;
+                        border-radius: 0 3px 3px 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
 @media (min-width: 320px) and (max-width: 480px) {
     .our-single-report-header {    
         .our-single-report-header-nav {
@@ -275,6 +383,38 @@
             }
         }
     }
+
+    .single-country-gallery-background{
+        padding: 10px 0;
+    
+        .container{
+            padding: 5px 10px 10px 50px;
+            border-radius: 10px;
+    
+            h2 {
+                font-size: $font-size-text;
+                border-radius: 10px;
+            }
+    
+            .single-country-gallery-container {
+                padding: 5px;
+                border-radius: 5px;
+            
+                .single-country-gallery-row {
+                    padding: 5px 10px;
+    
+                    .single-country-gallery-column {
+                        .galleryImage {
+                            height: 50px;
+                            width: 50px;
+                            border-radius: 5px;
+                            margin: 2px;
+                        }
+                    }
+                }
+            }
+        }
+    }    
 }
 
 @media (min-width: 481px) and (max-width: 767px) {
