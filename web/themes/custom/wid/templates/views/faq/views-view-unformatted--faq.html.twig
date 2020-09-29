@@ -25,7 +25,7 @@
       {% set faq_class = view.id ~ '-' ~ view.current_display %}
       <div class="faq-content-card col-lg-11 col-md-12 {{ faq_class }}">
         <div class="faq-content-header pb-5">
-          <div class="faq-content-header-title">{% autoescape false %} {{ view.title }} {% endautoescape %}</div>
+          <div class="faq-content-header-title" id="faq-{{ loop.index }}">{% autoescape false %} {{ view.title }} {% endautoescape %}</div>
         </div>
         <div class="row p-0 m-0">
           <ul class="faq-list-item">

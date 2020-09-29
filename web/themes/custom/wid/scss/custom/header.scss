@@ -19,12 +19,13 @@ html {
 
       .bg-primary {
         background: $primary-color !important;
+        padding: 1.5rem 1rem;
       }
 
       nav {
         a {
           img {
-            height: 75px;
+            height: 55px;
             width: auto;
             object-fit: contain;
           }
@@ -57,6 +58,7 @@ html {
           .form-row {
             .js-form-item {
               margin: 0;
+              position: relative;
 
               .form-text {
                 margin: 0;
