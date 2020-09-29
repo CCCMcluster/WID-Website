@@ -7,8 +7,8 @@
 
   let width = window.innerWidth <= mediumThresholdWidth
     ? window.innerWidth <= mobileThresholdWidth
-      ? 460
-      : 540
+      ? window.innerWidth - 20
+      : window.innerWidth - 40
     : 950;
   let height = window.innerWidth <= mediumThresholdWidth ? 300 : 600;
 
@@ -80,7 +80,7 @@
 
   window.addEventListener("resize", () => {
     if(window.innerWidth <= mobileThresholdWidth) {
-      return d3.select('#map').attr('width', mobileThresholdWidth - 20).attr('height', 300);
+      return d3.select('#map').attr('width', window.innerWidth - 20).attr('height', 300);
     }
     if(window.innerWidth <= mediumThresholdWidth) {
       return d3.select('#map').attr('width', window.innerWidth - 40).attr('height', 300);

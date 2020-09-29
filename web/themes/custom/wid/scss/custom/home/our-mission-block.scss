@@ -59,20 +59,24 @@
       object-fit: cover;
     }
 
-    .arrow-btn {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: $font-size-base;
-      padding: 4px 30px;
-      border-radius: 10px;
-      background-color:  #e8edff;
-      color: $primary-color;
-      margin-top: 16px;
+    .arrow-link {
+      text-decoration: none;
 
-      i {
-        margin-left: 15px;
-        font-size: 14px;
+      .arrow-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: $font-size-base;
+        padding: 4px 30px;
+        border-radius: 10px;
+        background-color:  #e8edff;
+        color: $primary-color;
+        margin-top: 16px;
+
+        i {
+          margin-left: 15px;
+          font-size: 14px;
+        }
       }
     }
   }
