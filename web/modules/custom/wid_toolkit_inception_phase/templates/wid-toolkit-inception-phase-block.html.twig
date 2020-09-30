@@ -79,9 +79,12 @@
               {% for tax_id, training_resources in inception_phase_training_resources %}
                 <div class="our-key-cards">
                   {% set taxonomy_term = load_tax_term(tax_id) %}
-                  <div class="single-card">
-                    <h2>{{ taxonomy_term.name.value }}</h2>
+                  <div class="main-card">
+                    <div class="single-card">
+                      <h2>{{ taxonomy_term.name.value }}</h2>
+                    </div>
                   </div>
+                  <div class="card-groups">
                   {% for training_resource in training_resources %}
                     {% set training_resource_description = training_resource.description %}
                     <div class="single-card">
@@ -101,6 +104,7 @@
                       </div>
                     </div>
                   {% endfor %}
+                  </div>
                   <div class="card-button">
                     <a href="#" tabindex="-1"><i class="fa fa-arrow-right"></i></a>
                   </div>
