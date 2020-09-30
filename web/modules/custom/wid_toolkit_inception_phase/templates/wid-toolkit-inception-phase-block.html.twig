@@ -20,46 +20,56 @@
   <div class="toolkit-body-wrapper py-5 my-5">
     <div class="container" {{ attributes.addClass(classes) }}>
       <div class="baseline-endline-content">
-          <div class="baseline-endline-content-title">Workshop</div>
+        <div class="baseline-endline-content-title">Workshop</div>
         {% for tax_id, workshops in inception_phase_workshop %}
-        {% set taxonomy_term = load_tax_term(tax_id) %}
-        {% set tax_term_cover_img = file_url(taxonomy_term.field_toolkit_img.entity.field_media_image.entity.fileuri) %}
-        {% set tax_term_cover_img_alt = taxonomy_term.field_toolkit_img.entity.field_media_image.alt %}
-        <div class="global-report-row-wrapper pt-5">
-          <div class="global-report-row row mb-5">
-            <img class="col-sm-12 col-md-12 col-lg-5 w-100 p-0 image-container" src="{{ tax_term_cover_img }}" alt="{{ tax_term_cover_img_alt }}"/>
-            <div class="col-sm-12 col-md-12 col-lg-7 global-report-row-content p-5">
-              <div class="global-report-row-title">{{ taxonomy_term.name.value }}</div>
-              <div class="global-report-row-body py-3">{% autoescape false %}
-              {{ taxonomy_term.description.value }}
-              {% endautoescape %}</div>
-              {% for workshop in workshops %}
-              <div class="row file-info-container py-2 px-3">
-                <div class="col-sm-10">
-                  <div class="file-info-title">{{ workshop.title }}</div>
-                  <div>
-                    <span class="pr-2"><i class="fa fa-calendar-o pr-2" aria-hidden="true"></i>{{ workshop.created_date }}</span>
-                    <span><i class="fa fa-file-text-o pr-2" aria-hidden="true"></i>{{ workshop.document.size }}KB</span>
+          {% set taxonomy_term = load_tax_term(tax_id) %}
+          {% set tax_term_cover_img = file_url(taxonomy_term.field_toolkit_img.entity.field_media_image.entity.fileuri) %}
+          {% set tax_term_cover_img_alt = taxonomy_term.field_toolkit_img.entity.field_media_image.alt %}
+          <div class="global-report-row-wrapper pt-5">
+            <div class="global-report-row row mb-5">
+              <img class="col-sm-12 col-md-12 col-lg-5 w-100 p-0 image-container" src="{{ tax_term_cover_img }}"
+                   alt="{{ tax_term_cover_img_alt }}"/>
+              <div class="col-sm-12 col-md-12 col-lg-7 global-report-row-content p-5">
+                <div class="global-report-row-title">{{ taxonomy_term.name.value }}</div>
+                <div class="global-report-row-body py-3">
+                  {% autoescape false %}
+                    {{ taxonomy_term.description.value }}
+                  {% endautoescape %}</div>
+                {% for workshop in workshops %}
+                  <div class="row file-info-container py-2 px-3">
+                    <div class="col-sm-10">
+                      <div class="file-info-title">{{ workshop.title }}</div>
+                      <div>
+                        <span class="pr-2">
+                          <i class="fa fa-calendar-o pr-2" aria-hidden="true"></i>
+                          {{ workshop.created_date }}
+                        </span>
+                        {% if workshop.document %}
+                          <span>
+                          <i class="fa fa-file-text-o pr-2" aria-hidden="true"></i>
+                          {{ workshop.document.size }}KB
+                        </span>
+                        {% endif %}
+                      </div>
+                    </div>
+                    <div class="col-sm-2 button-container">
+                      {% if workshop.document_link %}
+                        <a class="download-button" href="{{ training_resource.document_link }}">
+                          Download
+                        </a>
+                      {% else %}
+                        {% set fileExtension = workshop.document.type|split('/')[1] %}
+                        <img src="/{{ directory }}/images/icons/{{ fileExtension }}.svg" alt={{ fileExtension }}/>
+                        <a class="download-button" href="{{ workshop.document.url }}">
+                          Download
+                        </a>
+                      {% endif %}
+                    </div>
                   </div>
-                </div>
-                <div class="col-sm-2 button-container">
-                  {% set fileExtension = workshop.document.type|split('/')[1] %}
-                  <img src="/{{ directory }}/images/icons/{{ fileExtension }}.svg" alt={{ fileExtension }}/>
-                  {% if workshop.document_link %}
-                  <a class="download-button" href="{{ training_resource.document_link }}">
-                    Download
-                  </a>
-                  {% else %}
-                  <a class="download-button" href="{{ workshop.document.url }}">
-                    Download
-                  </a>
-                  {% endif %}
-                </div>
+                {% endfor %}
               </div>
-              {% endfor %}
             </div>
           </div>
-        </div>
         {% endfor %}
 
         <div class="our-key-container">

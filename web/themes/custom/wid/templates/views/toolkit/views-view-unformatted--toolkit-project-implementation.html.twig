@@ -44,7 +44,10 @@
                 <h2 class="file-info-title">{{ title }}</h2>
                 <div>
                   <span><i class="fa fa-calendar-o pr-2" aria-hidden="true"></i>{{ created_date }}</span>
-                  <span><i class="fa fa-file-text-o pr-2" aria-hidden="true"></i></span>
+                  {% if entity.field_toolkit_attachment_type.value == 'Document' %}
+                    {% set fileSize = entity.field_toolkit_document.entity.field_media_document.entity.filesize.value/1024 %}
+                    <span><i class="fa fa-file-text-o pr-2" aria-hidden="true"></i>{{ fileSize|round(1, 'ceil') }}KB</span>
+                  {% endif %}
                 </div>
               </div>
               <div class="col-sm-2 button-container">

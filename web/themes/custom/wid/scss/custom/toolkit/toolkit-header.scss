@@ -41,7 +41,6 @@
       box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.16);
       background-color: #ffffff;
       padding: 50px 0;
-      border: 50px solid $primary-color;
       border-top: none;
       border-bottom: none;
       position: relative;
@@ -93,6 +92,15 @@
         left: calc(100% + 50px);
       }
     }
+
+    .toolkit-header-card-left {
+      border-left: 50px solid $primary-color;
+    }
+
+    .toolkit-header-card-right {
+      border-right: 50px solid $primary-color;
+    }
+
   }
 }
 
