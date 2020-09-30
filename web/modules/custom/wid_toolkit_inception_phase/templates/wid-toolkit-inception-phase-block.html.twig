@@ -54,13 +54,13 @@
                     </div>
                     <div class="col-sm-2 button-container">
                       {% if workshop.document_link %}
-                        <a class="download-button" href="{{ training_resource.document_link }}">
+                        <a class="download-button" href="{{ workshop.document_link }}" target="_blank">
                           Download
                         </a>
-                      {% else %}
+                      {% elseif workshop.document  %}
                         {% set fileExtension = workshop.document.type|split('/')[1] %}
                         <img src="/{{ directory }}/images/icons/{{ fileExtension }}.svg" alt={{ fileExtension }}/>
-                        <a class="download-button" href="{{ workshop.document.url }}">
+                        <a class="download-button" href="{{ workshop.document.url }}" download>
                           Download
                         </a>
                       {% endif %}
