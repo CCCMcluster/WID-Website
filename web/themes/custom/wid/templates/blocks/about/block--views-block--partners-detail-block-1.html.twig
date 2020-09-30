@@ -4,7 +4,6 @@
   'block-' ~ configuration.provider|clean_class,
   'block-' ~ plugin_id|clean_class,
 ] %}
-
 <div{{ attributes.addClass(classes) }} data-title="{{ label }}">
   {% block content %}
     <div{{ content_attributes.addClass('content') }}>
@@ -15,7 +14,44 @@
         {% endif %}
         {{ title_suffix }}
         <div class="about-our-partners">
-          {{ content }}
+          {% set results = content['#view'].result %}
+          {% for result in results %}
+            {% set partner = result._entity %}
+            {% set partner_title = partner.title.value %}
+            {% set partner_description = partner.body.value %}
+            {% set partner_link = partner.field_url[0].uri %}
+            {% set partner_cover_image = file_url(partner.field_partner_cover_image.entity.uri.value | image_style('large')) %}
+            {% set partner_cover_image_alt = partner.field_partner_cover_image.alt %}
+            {% set partner_logo = media_file_url(partner.field_partner_image.value.0.target_id) %}
+            {% set partner_logo_alt = partner.field_partner_image.entity.field_media_image.value.0.alt %}
+            <div class="partner-wrapper">
+              <div>
+                <div class="partner-title">
+                  {{ partner_title }}
+                </div>
+                <div class="partner-description-wrapper">
+                  <div class="partner-description">
+                    {% autoescape false %}
+                      {{ partner_description }}
+                    {% endautoescape %}
+                  </div>
+                </div>
+                <div class="partner-website">
+                  <a href={{ partner_link }} target="_blank">
+                    <span class="arrow-btn">Visit our partner website <i class="fa fa-arrow-right"></i></span>
+                  </a>
+                </div>
+              </div>
+              <div>
+                <div class="partner-logo">
+                  <img src="{{ partner_logo }}" alt="{{ partner_logo_alt }}">
+                </div>
+                <div class="partner-cover-image">
+                  <img src="{{ partner_cover_image }}" alt="{{ partner_cover_image_alt }}">
+                </div>
+              </div>
+            </div>
+          {% endfor %}
         </div>
       </div>
     </div>
