@@ -235,111 +235,132 @@
     padding: 200px 0 100px;
 
     .our-key-group {
+      width: 95%;
+      margin: 0 auto;
+
       .our-key-cards {
         display: flex;
         gap: 20px;
-        flex-wrap: wrap;
         justify-content: center;
-        width: 95%;
-        margin: 0 auto;
         position: relative;
 
         &:first-child {
-          .single-card {
-            &:first-child {
+          .main-card {
+            .single-card {
               border-radius: 20px 20px 0px 0px;
             }
           }
         }
 
         &:last-child {
-          .single-card {
-            &:first-child {
+          .main-card {
+            .single-card {
               border-radius: 0px 0px 20px 20px;
             }
           }
         }
 
-        .single-card {
-          background: #ffffff;
-          box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-          border-radius: 20px;
-          display: flex;
-          flex-direction: column;
-          width: calc(25% - 20px);
-          margin: 10px 0;
+        .main-card {
+          flex: 1;
 
-          &:first-child {
+          .single-card {
             display: flex;
             justify-content: center;
             align-items: center;
-            margin: 0;
+            background: #ffffff;
             border-radius: 0px 0px 0px 0px;
             text-align: center;
             border-bottom: 1px solid #e8edff;
+            width: 100%;
+            height: 100%;
 
             h2 {
               font-size: $font-size-title-sm;
+              font-family: $font-lato;
+              font-weight: 700;
+              line-height: 1.43;
+              color: #556cff;
+              padding: 10px 0px;
+              margin: 0 auto;
+              width: 85%;
             }
+          }
         }
 
-          img {
-            height: 150px;
-            width: 100%;
-            object-fit: cover;
-            border-radius: 20px 20px 0 0;
-          }
+        .card-groups {
+          flex: 4;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 20px;
+          justify-content: center;
 
-          h2 {
-            font-family: $font-lato;
-            font-size: $font-size-text-sm;
-            font-weight: 700;
-            line-height: 1.43;
-            color: #556cff;
-            padding: 10px 25px 0;
-            margin-bottom: 5px;
-          }
-
-          p {
-            font-family: $font-lato;
-            font-size: $font-size-xs;
-            font-weight: normal;
-            line-height: 1.5;
-            color: #556cff;
-            padding: 0 25px;
-            margin-bottom: 5px;
-          }
-
-          .download-section {
+          .single-card {
+            background: #ffffff;
+            box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+            border-radius: 20px;
             display: flex;
-            align-items: center;
-            justify-content: space-between;
+            flex-direction: column;
+            width: calc(33.33% - 20px);
+            margin: 10px 0;
 
-            span {
+            img {
+              height: 150px;
+              width: 100%;
+              object-fit: cover;
+              border-radius: 20px 20px 0 0;
+            }
+
+            h2 {
               font-family: $font-lato;
-              font-size: 10px;
+              font-size: $font-size-text-sm;
+              font-weight: 700;
+              line-height: 1.43;
+              color: #556cff;
+              padding: 10px 25px 0;
+              margin-bottom: 5px;
+            }
+
+            p {
+              font-family: $font-lato;
+              font-size: $font-size-xs;
               font-weight: normal;
               line-height: 1.5;
-              padding: 15px 25px 20px;
+              color: #556cff;
+              padding: 0 25px;
+              margin-bottom: 5px;
             }
 
-            .user-content {
-              a {
-                text-decoration: none;
-                color: $primary-color;
+            .download-section {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
 
-                i {
+              span {
+                font-family: $font-lato;
+                font-size: 10px;
+                font-weight: normal;
+                line-height: 1.5;
+                padding: 15px 25px 20px;
+              }
+
+              .user-content {
+                a {
+                  text-decoration: none;
                   color: $primary-color;
-                  font-size: 10px;
-                  margin-right: 7px;
+
+                  i {
+                    color: $primary-color;
+                    font-size: 10px;
+                    margin-right: 7px;
+                  }
                 }
               }
-            }
 
-            .download {
-              a {
-                text-decoration: none;
-                color: $accent-color;
+              .download {
+                a {
+                  text-decoration: none;
+                  color: $accent-color;
+                }
               }
             }
           }
@@ -487,7 +508,6 @@
             height: 125px;
             width: 100%;
             border-radius: 20px 20px 0 0;
-
           }
 
           h3 {
@@ -545,7 +565,7 @@
   }
 
   .resource-mission-wrapper {
-    margin-top: 50px;
+    margin: 50px 0 150px;
 
     .resource-mission-container {
       h2 {
@@ -581,17 +601,15 @@
           flex-direction: column;
           margin-bottom: 50px;
 
-          .single-card {
-            width: 100%;
+          .main-card {
+            .single-card {
+              border-radius: 0 !important;
+            }
+          }
 
-            &:first-child {
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              margin: 0;
-              border-radius: 0px !important;
-              text-align: center;
-              border-bottom: 1px solid #e8edff;
+          .card-groups {
+            .single-card {
+              width: 100%;
             }
           }
         }
@@ -650,7 +668,7 @@
   }
 
   .resource-mission-wrapper {
-    margin-top: 50px;
+    margin: 50px 0 150px;
 
     .resource-mission-container {
       h2 {
@@ -686,17 +704,19 @@
           flex-direction: column;
           margin-bottom: 50px;
 
-          .single-card {
-            width: 100%;
+          .main-card {
+            .single-card {
+              border-radius: 0 !important;
+            }
+          }
 
-            &:first-child {
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              margin: 0;
-              border-radius: 0px !important;
-              text-align: center;
-              border-bottom: 1px solid #e8edff;
+          .card-groups {
+            .single-card {
+              width: 100%;
+
+              img {
+                height: 250px;
+              }
             }
           }
         }
@@ -763,7 +783,7 @@
   }
 
   .resource-mission-wrapper {
-    margin-top: 50px;
+    margin: 50px 0 150px;
 
     .resource-mission-container {
       h2 {
@@ -795,21 +815,19 @@
           flex-direction: column;
           margin-bottom: 50px;
 
-          .single-card {
-            width: 100%;
-
-            &:first-child {
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              margin: 0;
-              border-radius: 0px !important;
-              text-align: center;
-              border-bottom: 1px solid #e8edff;
+          .main-card {
+            .single-card {
+              border-radius: 0 !important;
             }
+          }
 
-            img {
-              height: 350px;
+          .card-groups {
+            .single-card {
+              width: 100%;
+
+              img {
+                height: 350px;
+              }
             }
           }
         }
