@@ -16,10 +16,22 @@
  */
 #}
 {% set toolkitPhaseUrl = [
-  {'url':'/toolkit/inception-phase'},
-  {'url':'/toolkit/project-design'},
-  {'url':'/toolkit/project-implementation'},
-  {'url':'/toolkit/evidence-learning'}
+  {
+    'url':'/toolkit/inception-phase',
+    'block' : 'toolkit_inception_phase'
+  },
+  {
+    'url':'/toolkit/project-design',
+    'block' : 'toolkit_project_design'
+  },
+  {
+    'url':'/toolkit/project-implementation',
+    'block' : 'toolkit_project_implementation_block'
+  },
+  {
+    'url':'/toolkit/evidence-learning',
+    'block' : 'toolkit_evidence_learning'
+  }
 ] %}
 {% if title %}
   <h3>{{ title }}</h3>
@@ -32,22 +44,40 @@
       <div class="container">
         <nav>
           {% set vocabulary_trees = load_vocabulary_term('toolkit', 1) %}
+          {% set nextToolkitPhaseUrl = '' %}
+          {% set previousToolkitPhaseUrl = '' %}
           {% for vocabulary_tree in vocabulary_trees %}
             {% set loop_index = loop.index - 1 %}
-            <a href="{{ attribute(toolkitPhaseUrl[loop_index], 'url') }}">{{ vocabulary_tree.name }}</a>
+            {% set active_nav_bar = '' %}
+            {% if attribute(toolkitPhaseUrl[loop_index], 'block') == view.current_display %}
+              {% set previousToolkitPhaseUrl = toolkitPhaseUrl[loop_index-1]["url"] %}
+              {% set nextToolkitPhaseUrl = toolkitPhaseUrl[loop_index+1]["url"] %}
+              {% set active_nav_bar = 'active' %}
+            {% endif %}
+            <a class="{{ active_nav_bar }}" href="{{ attribute(toolkitPhaseUrl[loop_index], 'url') }}">{{ vocabulary_tree.name }}</a>
           {% endfor %}
         </nav>
+        {% set active_class = 'toolkit-header-card-left toolkit-header-card-right' %}
+        {% if not previousToolkitPhaseUrl and nextToolkitPhaseUrl %}
+          {% set active_class = 'toolkit-header-card-right' %}
+        {% elseif previousToolkitPhaseUrl and not nextToolkitPhaseUrl %}
+          {% set active_class = 'toolkit-header-card-left' %}
+        {% endif %}
         {% set row_classes = [
-          default_row_class ? 'views-row', 'card', 'toolkit-header-card',
+          default_row_class ? 'views-row', 'card', 'toolkit-header-card', active_class,
         ] %}
         <div{{ row.attributes.addClass(row_classes) }}>
-          <div class="card-button card-button-left">
-              <a href="#"><i class="fa fa-arrow-left"></i></a>
-          </div>
+          {% if previousToolkitPhaseUrl %}
+            <div class="card-button card-button-left">
+              <a href="{{ previousToolkitPhaseUrl }}"><i class="fa fa-arrow-left"></i></a>
+            </div>
+          {% endif %}
           {{- row.content -}}
-          <div class="card-button card-button-right">
-              <a href="#"><i class="fa fa-arrow-right"></i></a>
-          </div>
+          {% if nextToolkitPhaseUrl %}
+            <div class="card-button card-button-right">
+              <a href="{{ nextToolkitPhaseUrl }}"><i class="fa fa-arrow-right"></i></a>
+            </div>
+          {% endif %}
         </div>
       </div>
     </div>
