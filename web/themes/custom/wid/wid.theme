@@ -73,4 +73,7 @@ function wid_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state
   if ($form_id == 'webform_submission_faq_form_page_variant_faq-panels_variant-0_add_form') {
     $form['actions']['submit']['button']['#markup'] = '<i class="ml-2 ion-android-arrow-forward" aria-hidden="true"></i>';
   }
+  if ($form_id == 'user_login_form') {
+    
+  }
 }
