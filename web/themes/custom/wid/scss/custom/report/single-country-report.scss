@@ -243,11 +243,11 @@
             border-radius: 10px;
             box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
             
-            .mySlides {
+            .countryGallerySlides {
                 display: none;
 
                 img {
-                    height: 500px;
+                    height: 600px;
                     object-fit: cover;
                 }
             }
@@ -399,6 +399,15 @@
             .single-country-gallery-container {
                 padding: 5px;
                 border-radius: 5px;
+
+                .countryGallerySlides {
+                    display: none;
+    
+                    img {
+                        height: 300px;
+                        object-fit: cover;
+                    }
+                }
             
                 .single-country-gallery-row {
                     padding: 5px 10px;
@@ -503,6 +512,15 @@
             .single-country-gallery-container {
                 padding: 5px;
                 border-radius: 5px;
+
+                .countryGallerySlides {
+                    display: none;
+    
+                    img {
+                        height: 400px;
+                        object-fit: cover;
+                    }
+                }
             
                 .single-country-gallery-row {
                     padding: 5px 10px;
