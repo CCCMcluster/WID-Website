@@ -53,7 +53,8 @@
 }
 
 .block-views-blockpartners-detail-block-1 {
-  padding: 50px 0;
+  padding: 100px;
+  background-color: #e8edff;
 
   .content {
     .container {
@@ -65,188 +66,213 @@
         text-align: center;
         background-color: $primary-color;
         color: $white;
-        width: 250px;
-        padding: 10px 0;
+        padding: 7px 100px;
         border-radius: 20px;
         font-size: $font-size-text-alt;
         font-family: $font-raleway;
       }
 
       .about-our-partners {
+        padding: 0 80px;
 
-        .views-row, .partner-wrapper {
+        .partner-wrapper {
+          display: flex;
           background-color: $white;
-          position: relative;
-          margin-bottom: 20px;
-          margin-top: 15px;
+          margin-bottom: 100px;
           color: $primary-color;
-          height: 500px;
-          overflow: hidden;
-          margin: auto;
-          border-radius: 10px;
+          border-radius: 20px;
           box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 
-          &:nth-last-child(even) {
-            margin-top: 40px;
+          .info-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
 
-            .views-field-title, .partner-title {
-              position: absolute;
-              top: 25px;
-              left: 425px;
-              font-size: $font-size-title;
-              max-width: 385px;
-              font-weight: 600;
-              font-family: $font-raleway;
-            }
+            .text-info-content {
 
-            .views-field-field-url, .partner-website {
-              background-color: $primary-color;
-              padding: 1px 20px 4px 20px;
-              border-radius: 5px;
-              position: absolute;
-              left: 425px;
-              bottom: 25px;
+              .partner-title {
+                font-size: $font-size-title;
+                font-weight: 600;
+                font-family: $font-raleway;
+              }
 
-              a {
-                color: $white;
-                text-decoration: none;
+              .partner-description {
                 font-size: $font-size-base;
                 font-family: $font-lato;
               }
             }
 
-            .views-field-field-partner-image, .partner-logo {
-              position: absolute;
-              top: 0px;
-              left: 0px;
-              height: 180px;
-              width: 180px;
-              z-index: 10;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              background-color: $white;
-              border-top-left-radius: 10px;
-              border-bottom-right-radius: 15px;
-
-              img {
-                height: 80px;
-                width: 80px;
-              }
-            }
-
-            .views-field-body, .partner-description {
-              width: 800px;
-              max-height: 400px;
-              overflow: hidden;
-
-              p {
-                margin-top: 120px;
-                margin-left: 425px;
-                margin-bottom: -72px;
-                margin-right: 25px;
-                text-align: left;
-                font-size: $font-size-xs;
-                font-family: $font-lato
-              }
-            }
-
-            .views-field-field-partner-cover-image, .partner-cover-image {
-              position: absolute;
-              top: 0;
-              left: 0;
-              object-fit: cover;
-
-              img {
-                width: 400px;
-                height: 500px;
-              }
-            }
-          }
-
-          &:nth-last-child(odd) {
-            margin-top: 40px;
-
-            .views-field-title, .partner-title {
-              position: absolute;
-              top: 30px;
-              left: 30px;
-              max-width: 385px;
-              font-size: $font-size-title;
-              font-weight: 600;
-              font-family: $font-raleway;
-            }
-
-            .views-field-field-url, .partner-website {
-              background-color: $primary-color;
-              padding: 1px 20px 4px 20px;
-              border-radius: 8px;
-              position: absolute;
-              left: 30px;
-              bottom: 25px;
+            .partner-website-content {
 
               a {
+                padding: 3px 20px;
+                border-radius: 10px;
+                background-color: $primary-color;
                 color: $white;
                 text-decoration: none;
-                font-size: $font-size-base;
-                font-family: $font-lato;
-              }
-            }
 
-            .views-field-field-partner-image, .partner-logo {
-              position: absolute;
-              top: 0px;
-              right: 0px;
-              height: 180px;
-              width: 180px;
-              z-index: 10;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              background-color: $white;
-              border-top-right-radius: 10px;
-              border-bottom-left-radius: 15px;
-
-              img {
-                height: 80px;
-                width: 80px;
-              }
-            }
-
-            .views-field-body, .partner-description {
-              width: 800px;
-              max-height: 400px;
-              overflow: hidden;
-
-              p {
-                margin-top: 120px;
-                margin-left: 30px;
-                margin-bottom: -72px;
-                margin-right: 425px;
-                text-align: left;
-                font-size: $font-size-xs;
-                font-family: $font-lato;
-              }
-            }
-
-            .views-field-field-partner-cover-image, .partner-cover-image {
-              position: absolute;
-              top: 0;
-              right: 0;
-              object-fit: cover;
-              background-color: $white;
-              width: 400px;
-              height: 500px;
-
-              .field-content {
-                img {
-                  width: 400px;
-                  height: 500px;
+                i {
+                  padding-left: 10px;
                 }
               }
             }
           }
 
+          .cover-image-container {
+            position: relative;
+
+            img {
+              height: 100%;
+              object-fit: cover;
+            }
+
+            .partner-logo {
+              position: absolute;
+              top: 0px;
+              height: 180px;
+              width: 180px;
+              z-index: 10;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+  
+              img {
+                height: 80px;
+                width: 80px;
+              }
+            }
+          }
+
+          &:nth-last-child(odd) {
+            flex-direction: row;
+
+            .cover-image-container {
+
+              img {
+                border-top-right-radius: 20px;
+                border-bottom-right-radius: 20px;
+              }
+
+              .partner-logo {
+                right: 0px;
+                border-top-right-radius: 20px;
+                border-bottom-left-radius: 10px;
+                background-color: $white;
+              }
+            }
+          }
+
+          &:nth-last-child(even) {
+            flex-direction: row-reverse;
+
+            .cover-image-container {
+
+              img {
+                border-top-left-radius: 20px;
+                border-bottom-left-radius: 20px;
+              }
+
+              .partner-logo {
+                left: 0px;
+                border-top-left-radius: 20px;
+                border-bottom-right-radius: 10px;
+                background-color: transparent;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+  .about-us-wrapper {
+    .about-header-block {
+      .about-us-background-image {
+        padding: 50px 0;
+  
+        .about-us-header-card {
+          margin: 0 10px;
+          padding: 20px 50px;
+          border-radius: 10px;
+        }
+      }
+    }
+  }
+
+  .block-views-blockpartners-detail-block-1 {
+    padding: 40px 0;
+  
+    .content {
+      .container {
+  
+        .about-our-partners {
+          padding: 0 5px;
+
+          .partner-wrapper {
+            border-radius: 20px;
+            
+            .info-container {
+  
+              .text-info-content {
+  
+                .partner-title {
+                  font-size: $font-size-title;
+                  font-weight: 600;
+                  font-family: $font-raleway;
+                }
+  
+                .partner-description {
+                  font-size: $font-size-base;
+                  font-family: $font-lato;
+                }
+              }
+  
+              .partner-website-content {
+  
+                a {
+                  padding: 3px 20px;
+                  border-radius: 10px;
+                  background-color: $primary-color;
+                  color: $white;
+                  text-decoration: none;
+  
+                  i {
+                    padding-left: 10px;
+                  }
+                }
+              }
+            }
+  
+            .cover-image-container {
+             
+              img {
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+                height: 350px;
+                object-fit: cover;
+              }
+
+              .partner-logo {
+                height: 120px;
+                width: 120px;
+
+                img {
+                  height: 60px;
+                  width: 60px;
+                }
+              }
+            }
+  
+            &:nth-last-child(odd) {
+              flex-direction: column-reverse;
+            }
+  
+            &:nth-last-child(even) {
+              flex-direction: column-reverse;
+            }
+          }
         }
       }
     }

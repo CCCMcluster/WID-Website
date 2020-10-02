@@ -10,7 +10,7 @@
       <div class="container">
         {{ title_prefix }}
         {% if label %}
-          <h2{{ title_attributes }}>{{ label }}</h2>
+          <h2 class="mb-5" {{ title_attributes }}>{{ label }}</h2>
         {% endif %}
         {{ title_suffix }}
         <div class="about-our-partners">
@@ -24,31 +24,31 @@
             {% set partner_cover_image_alt = partner.field_partner_cover_image.alt %}
             {% set partner_logo = media_file_url(partner.field_partner_image.value.0.target_id) %}
             {% set partner_logo_alt = partner.field_partner_image.entity.field_media_image.value.0.alt %}
-            <div class="partner-wrapper">
-              <div>
-                <div class="partner-title">
-                  {{ partner_title }}
-                </div>
-                <div class="partner-description-wrapper">
+            <div class="partner-wrapper row">
+              <div class="col-sm-12 col-md-12 col-lg-6 info-container p-4">
+                <div class="text-info-content">
+                  <div class="partner-title pb-4">
+                    {{ partner_title }}
+                  </div>
                   <div class="partner-description">
                     {% autoescape false %}
                       {{ partner_description }}
                     {% endautoescape %}
                   </div>
                 </div>
-                <div class="partner-website">
-                  <a href={{ partner_link }} target="_blank">
-                    <span class="arrow-btn">Visit our partner website <i class="fa fa-arrow-right"></i></span>
-                  </a>
+                <div class="partner-website-content">
+                  <span>
+                    <a href={{ partner_link }} target="_blank">
+                      Visit our partner website <i class="fa fa-arrow-right"></i>
+                    </a>
+                  </span>
                 </div>
               </div>
-              <div>
+              <div class="cover-image-container p-0 col-sm-12 col-md-12 col-lg-6">
                 <div class="partner-logo">
                   <img src="{{ partner_logo }}" alt="{{ partner_logo_alt }}">
                 </div>
-                <div class="partner-cover-image">
-                  <img src="{{ partner_cover_image }}" alt="{{ partner_cover_image_alt }}">
-                </div>
+                <img class="w-100" src="{{ partner_cover_image }}" alt="{{ partner_cover_image_alt }}" />
               </div>
             </div>
           {% endfor %}
