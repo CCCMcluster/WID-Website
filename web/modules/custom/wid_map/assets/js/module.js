@@ -45,12 +45,21 @@
 
   		  const marker = svg.append("svg:path")
   		  	.attr('class', `marker`)
-          .attr('d', "M0,0l-8.8-17.7C-12.1-24.3-7.4-32,0-32h0c7.4,0,12.1,7.7,8.8,14.3L0,0z")
+          .attr('d', "M0,0l-8.8-17.7C-12.1-24.3,-7.4,-32,0,-32h0c7.4,0,12.1,7.7,8.8,14.3L0,0zm-4-24a4,4,0,104-4a4,4,0,00-4,4z")
   		  	.attr('transform', `translate(${x}, ${y}) scale(0)`)
           .on("click", function() {
             setActiveCountry(country.iso_2);
+            let activeMarker = d3.select('path.marker__active').empty();
+            if(!activeMarker) {
+              let transform = d3.select('path.marker__active').attr('transform');
+              let g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+              g.setAttributeNS(null, "transform", transform);
+              let matrix = g.transform.baseVal.consolidate().matrix;
+              d3.select('path.marker__active').attr("transform", `translate(${matrix.e}, ${matrix.f}) scale(.6)`);
+            }
             d3.selectAll('.marker').classed('marker__active', false);
             this.classList.add('marker__active');
+            d3.select(this).attr("transform", `translate(${x}, ${y}) scale(1.2)`);
           })
           .transition()
   		  	.duration(300)

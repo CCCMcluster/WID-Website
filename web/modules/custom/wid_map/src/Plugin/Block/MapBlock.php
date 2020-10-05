@@ -29,7 +29,6 @@ class MapBlock extends BlockBase {
       '#attached' => [
         'drupalSettings' => [
           'mapData' => $data['mapData'],
-          'geoJson' => $data['geoJson'],
         ],
         'library' => ['wid_map/d3js', 'wid_map/widmap'],
       ],
