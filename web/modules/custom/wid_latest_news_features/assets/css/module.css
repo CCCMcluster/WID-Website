@@ -44,7 +44,7 @@
 .banner-1 .banner-desc {
   background-color: #e8edff;
   color: #556cff;
-  border-radius-top-left: 10px;
+  border-top-left-radius: 10px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 }
 .banner-1 .banner-desc p a {
@@ -104,7 +104,21 @@
 }
 
 .latest-news-features-block .card-news .card-content {
-  overflow: scroll;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.card-content::-webkit-scrollbar {
+  width: 10px;
+}
+.card-content::-webkit-scrollbar-track {
+  margin-top: 40px;
+
+}
+.card-content::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #fafafa;
+  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.16);
 }
 
 .latest-news-features-block .card-news a {
