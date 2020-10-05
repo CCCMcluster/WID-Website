@@ -19,6 +19,7 @@
         display: flex;
         justify-content: center;
         flex-direction: column;
+        padding: 25px 0;
 
         h2 {
           font-family: $font-raleway;
@@ -49,6 +50,7 @@
           width: 100%;
           height: 100%;
           border-radius: 0 20px 0 0;
+          object-fit: cover;
         }
       }
     }
@@ -81,7 +83,7 @@
 
         img {
           height: 350px;
-          width: auto;
+          width: 100%;
           object-fit: contain;
         }
       }
@@ -115,6 +117,109 @@
             line-height: 1.17;
             color: $accent-color;
           }
+        }
+      }
+    }
+  }
+}
+
+// Responsive
+@media (min-width: 320px) and (max-width: 480px) {
+  .our-countries-report-wrapper {
+    .country-map-container {
+      .country-report-container {
+        flex-direction: column;
+
+        .country-report-content {
+          h2 {
+            padding-bottom: 15px;
+          }
+        }
+
+        .country-report-image {
+          img {
+            height: 350px;
+            border-radius: 0;
+          }
+        }
+      }
+
+      .map-container {
+        h2 {
+          width: 95%;
+          margin: 0;
+        }
+
+        ul {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .our-countries-report-wrapper {
+    .country-map-container {
+      .country-report-container {
+        flex-direction: column;
+
+        .country-report-content {
+          h2 {
+            padding-bottom: 15px;
+          }
+        }
+
+        .country-report-image {
+          img {
+            height: 350px;
+            border-radius: 0;
+          }
+        }
+      }
+
+      .map-container {
+        h2 {
+          width: 95%;
+          margin: 0;
+        }
+
+        ul {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .our-countries-report-wrapper {
+    .country-map-container {
+      .country-report-container {
+        flex-direction: column;
+
+        .country-report-content {
+          h2 {
+            padding-bottom: 15px;
+          }
+        }
+
+        .country-report-image {
+          img {
+            height: 350px;
+            border-radius: 0;
+          }
+        }
+      }
+
+      .map-container {
+        h2 {
+          width: 95%;
+          margin: 0;
+        }
+
+        ul {
+          display: block;
         }
       }
     }
