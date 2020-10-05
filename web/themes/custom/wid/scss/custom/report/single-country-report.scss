@@ -71,16 +71,6 @@
                 font-size: $font-size-text-alt;
                 font-family: $font-lato;
             }
-
-            .country-report-description-button {
-                cursor: pointer;
-                background-color: $accent-color;
-                padding: 4px 20px 6px;
-                border-radius: 10px;
-                color: $white;
-                font-size: $font-size-text-alt;
-                font-family: $font-lato;
-            }
         }
     }
 }
@@ -154,13 +144,13 @@
 
                         .our-single-report-title {
                             font-family: $font-raleway;
-                            font-size: $font-size-title-sm;
+                            font-size: $font-size-text-alt;
                             color: $primary-color;
                             font-weight: 600;
                         }
                         .our-single-report-title-description {
                             font-family: $font-lato;
-                            font-size: $font-size-text-alt;
+                            font-size: $font-size-text;
                             color: $primary-color;
                         }
                         .our-single-country-date {
