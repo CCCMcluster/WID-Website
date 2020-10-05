@@ -412,7 +412,7 @@
       border-radius: 20px;
       box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.16);
       background-color: $primary-color;
-      padding: 35px 0 50px;
+      padding: 35px 0;
       width: 65%;
       margin: 0 auto;
       position: absolute;
@@ -427,7 +427,6 @@
         color: $primary-color;
         display: inline-block;
         padding: 10px 75px;
-        margin-bottom: 30px;
         border-radius: 40px;
         background-color: #ffffff;
       }
