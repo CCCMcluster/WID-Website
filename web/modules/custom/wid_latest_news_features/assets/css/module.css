@@ -47,12 +47,23 @@
   border-radius-top-left: 10px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 }
+.banner-1 .banner-desc p a {
+  color: #556cff;
+}
 .banner-2 .banner-desc {
   background-color: #556cff;
   color: #ffffff;
 }
+
+.banner-2 .banner-desc p a {
+  color: #ffffff;
+}
 .banner-3 .banner-desc {
   background-color: #e8edff;
+  color: #556cff;
+}
+
+.banner-3 .banner-desc p a {
   color: #556cff;
 }
 .banner-4 .banner-desc {
@@ -60,18 +71,36 @@
   color: #ffffff;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 }
+
+.banner-4 .banner-desc p a {
+  color: #ffffff;
+}
+
 .banner-5 .banner-desc {
   background-color: #e8edff;
   color: #556cff;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 }
+
+.banner-5 .banner-desc p a {
+  color: #556cff;
+}
 .banner-wrapper .banner-desc p {
   margin: 0;
   padding: 0;
+}
+
+.banner-wrapper .banner-desc p a {
   font-family: "Lato", sans-serif;
   font-size: 14px;
   font-weight: normal;
   line-height: 1.2;
+  text-decoration: none;
+  display: block;
+}
+
+.banner-wrapper .banner-desc p a:hover {
+  font-weight: 700;
 }
 
 .latest-news-features-block .card-news .card-content {
