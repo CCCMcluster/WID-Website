@@ -55,6 +55,17 @@
 
   styleSearch();
 
+  window.onscroll = function() {
+    scrollFunction()
+  };
+  function scrollFunction() {
+    if (document.body.scrollTop >= 20 || document.documentElement.scrollTop >= 20) {
+      document.getElementById("navbar-main").style.padding = "5px 20px";
+    } else {
+      document.getElementById("navbar-main").style.padding = "25px 20px";
+    }
+  }
+
 })(jQuery, Drupal);
 
 
@@ -81,4 +92,5 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "block";
   dots[slideIndex-1].className += " active";
 }
+
 

@@ -13,16 +13,22 @@ html {
 #page-wrapper {
   #page {
     header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+
       #navbar-top {
         display: none;
       }
 
       .bg-primary {
         background: $primary-color !important;
-        padding: 1.5rem 1rem;
       }
 
       nav {
+        padding: 25px 20px;
+        transition: 0.2s;
+
         a {
           img {
             height: 55px;
@@ -54,6 +60,7 @@ html {
 
             &.active {
               border-bottom: 3px solid white;
+
               a {
                 color: #ffffff;
               }
