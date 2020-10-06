@@ -1,0 +1,358 @@
+.toolkit-item-wrapper {
+  .toolkit-item-banner {
+    img {
+      height: 300px;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .toolkit-item-nav-container {
+    display: flex;
+    align-items: flex-end;
+    gap: 25px;
+    margin-top: -35px;
+
+    .nav-image-container {
+      border: solid 2px $accent-alt-color;
+      background-color: $white;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 2px;
+
+      p {
+        font-family: $font-raleway;
+        font-size: $font-size-text-sm;
+        font-weight: 600;
+        line-height: 1.14;
+        color: $accent-alt-color;
+        margin: 0;
+      }
+
+      img {
+        height: $font-size-xl-alt;
+      }
+    }
+
+    .toolkit-item-nav {
+      span {
+        font-family: $font-raleway;
+        font-size: $font-size-xs;
+        font-weight: 600;
+        line-height: 1.17;
+        color: $accent-alt-color;
+
+        a {
+          color: $accent-alt-color;
+        }
+      }
+
+      .end-nav-item {
+        font-family: $font-raleway;
+        font-size: $font-size-xs;
+        font-weight: 600;
+        line-height: 1.17;
+        color: $gray-800;
+      }
+
+      i {
+        font-size: $font-size-text-sm;
+        color: $accent-alt-color;
+        margin: 0 15px;
+      }
+    }
+  }
+
+  .toolkit-item-title {
+    h2 {
+      font-family: $font-raleway;
+      font-size: $font-size-xl-alt;
+      font-weight: 600;
+      line-height: 1.38;
+      color: $accent-alt-color;
+      margin: 50px 0 25px;
+    }
+  }
+
+  .toolkit-item-social-media-wrapper {
+    padding: 25px 0;
+
+    .date {
+      display: inline-block;
+      margin-right: 35px;
+
+      p {
+        font-family: $font-lato;
+        font-size: $font-size-text;
+        font-weight: normal;
+        line-height: 1.22;
+        color: rgba(0, 0, 0, 0.35);
+        margin: 0;
+      }
+    }
+
+    .social-contact {
+      display: inline-block;
+      margin-right: 35px;
+
+      a {
+        i {
+          color: rgba(0, 0, 0, 0.35);
+          font-size: $font-size-text;
+          padding: 0 5px;
+        }
+      }
+    }
+
+    .social-media {
+      display: inline-block;
+
+      a {
+        color: $accent-alt-color;
+
+        i {
+          color: $accent-alt-color;
+          font-size: $font-size-text;
+          padding: 0 5px;
+        }
+      }
+    }
+  }
+
+  .hr-toolkit-item {
+    color: #c6c6c6;
+    height: 1px;
+    width: 100%;
+    margin: 0;
+  }
+
+  .news-wrapper {
+    margin: 25px 0 50px;
+    display: flex;
+    flex-direction: row;
+
+    .news-button {
+      font-family: $font-lato;
+      font-weight: normal;
+      color: $white;
+      display: inline-block;
+      padding: 8px 20px 2px 20px;
+      border-radius: 5px;
+      background-color: $accent-alt-color;
+      h3 {
+        font-size: $font-size-xs;
+
+        i {
+          font-size: $font-size-base;
+        }
+      }
+    }
+  }
+
+  .toolkit-item-info{
+    background-color: $white;
+    padding: 40px 80px;
+    border-radius: 15px;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.16);
+
+    .file-info-container {
+      background-color: #e8edff;
+      border-radius: 5px;
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16);
+
+      .file-info-title {
+        color: $primary-color;
+        font-family: $font-lato;
+        font-size: $font-size-text;
+        font-weight: 600;
+        margin-bottom: 24px;
+      }
+
+      div {
+        span {
+          color: $accent-color;
+          font-size: $font-size-base;
+          font-family: $font-lato;
+        }
+      }
+
+      .button-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .extension-icon {
+          height: 40px;
+        }
+
+        span {
+          .download-button {
+            text-decoration: none;
+            font-size: $font-size-base;
+            padding: 3px 10px;
+            border-radius: 10px;
+            background-color: $accent-color;
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+
+  .faq-header-card {
+    background-color: $white;
+    padding: 40px 100px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.16);
+
+    .faq-header-card-title {
+        color: $primary-color;
+        font-size: $font-size-xl-alt;
+        padding-bottom: 20px;
+        font-family:  $font-raleway;
+    }
+
+    .faq-header-card-description {
+        color: $primary-color;
+        font-size: $font-size-text-alt;
+        font-family:  $font-lato;
+    }
+
+    .faq-category-container {
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        a:hover {
+          text-decoration: none;
+        }
+
+        .faq-category-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 15px 20px 10px 20px;
+            height: 160px;
+            width: 150px;
+            border-radius: 10px;
+            font-family: $font-raleway;
+            font-size: $font-size-base;
+            font-weight: 600;
+
+            .faq-category-content-img {
+                height: 40px;
+                width: auto;
+                margin-bottom: 5px;
+            }
+
+        }
+
+        .faq-project-overview {
+            color: $primary-color;
+            border: 1px solid $primary-color;
+        }
+
+        .faq-methodology {
+            color:  $primary-color;
+            border: 1px solid  $primary-color;
+        }
+
+        .faq-project-implementation {
+            color: $accent-alt-color;
+            border: 1px solid $accent-alt-color;
+        }
+
+        .faq-access-report {
+            color: $accent-color;
+            border: 1px solid $accent-color;
+        }
+    }
+  }
+}
+
+// Responsive
+@media (min-width: 320px) and (max-width: 480px) {
+  .toolkit-item-wrapper {
+    .toolkit-item-title {
+      h2 {
+        font-size: $font-size-title-sm;
+      }
+    }
+
+    .toolkit-item-social-media-wrapper {
+      .date {
+        margin-right: 25px;
+      }
+
+      .social-contact {
+        margin-right: 25px;
+      }
+    }
+
+    .more-toolkit-item-wrapper {
+      .card-groups {
+        flex-direction: column;
+
+        .single-card {
+          width: 100%;
+        }
+      }
+    }
+    .faq-header-card {
+      padding: 20px 20px;
+      .faq-category-container {
+          .faq-category-content {
+            padding: 5px 10px 5px 10px;
+            height: 120px;
+            width: 300px;
+            border-radius: 5px;
+            .faq-category-content-img {
+                height: 25px;
+                width: auto;
+                margin-bottom: 3px;
+            }
+          }
+      }
+    }
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .toolkit-item-wrapper {
+    .more-toolkit-item-wrapper {
+      .card-groups {
+        .single-card {
+          width: 100%;
+
+          img {
+            height: 250px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .toolkit-item-wrapper {
+    .more-toolkit-item-wrapper {
+      .card-groups {
+        .single-card {
+          width: 100%;
+
+          img {
+            height: 350px;
+          }
+        }
+      }
+    }
+  }
+}
