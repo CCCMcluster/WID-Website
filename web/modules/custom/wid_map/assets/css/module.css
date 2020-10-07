@@ -48,6 +48,7 @@
 
 .report-country {
   text-decoration: underline;
+  text-align: left;
   font-weight: bold;
   color: #f7785d;
 }
