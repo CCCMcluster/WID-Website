@@ -13,7 +13,7 @@
 .featured-news .col-md-9 {
   padding: 0 2px 2px;
 }
-.banner-wrapper {
+/* .banner-wrapper {
   cursor: pointer;
 }
 .banner-desc {
@@ -21,7 +21,7 @@
 }
 .banner-wrapper:hover .banner-desc {
   transform: translateY(-10px);
-}
+} */
 .banner-wrapper .banner-image img {
   height: 254px;
   width: 100%;
