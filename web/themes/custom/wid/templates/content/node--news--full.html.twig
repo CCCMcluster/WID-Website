@@ -60,7 +60,6 @@
  */
 #}
 {{ attach_library('bootstrap_barrio/node') }}
-
 {% set classes = [
   'node',
   'node--type-' ~ node.bundle|clean_class,
@@ -101,7 +100,6 @@
     <hr class="hr-article"/>
     <div class="article-social-media-wrapper">
       {% if display_submitted %}
-        <div class="node__meta">
           {% block submitted %}
             {% set createdDate = node.getCreatedTime|format_date('custom_content_date') %}
             <div class="date">
@@ -109,16 +107,9 @@
             </div>
           {% endblock %}
           {{ metadata }}
-        </div>
       {% endif %}
-      <div class="social-contact">
-        <a href="#"><i class="fa fa-fax"></i></a>
-        <a href="#"><i class="fa fa-envelope-square"></i></i></a>
-      </div>
       <div class="social-media">
-        <a href="#"><i class="fa fa-facebook-square"></i></a>
-        <a href="#"><i class="fa fa-twitter"></i></a>
-        <a href="#"><i class="fa fa-whatsapp"></i></a>
+        {{ content.addtoany }}
       </div>
     </div>
     <hr class="hr-article"/>
@@ -136,8 +127,10 @@
       </div>
       <div class="card-groups">
         {% set articles = drupal_view_result('content_recent', 'block_1', 'news') %}
+        {% set index = 0 %}
         {% for article in  articles %}
-          {% if article.nid != node.id %}
+          {% if article.nid != node.id and index <= 2 %}
+            {% set index = index + 1 %}
             {% set article_entity = article._entity %}
             <div class="single-card">
               {% if article_entity.field_featured_media.value %}
