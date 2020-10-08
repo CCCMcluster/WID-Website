@@ -27,9 +27,12 @@
             {% set news_created_date = single_news.created.value | date('m/d/y') %}
             {% set news_image_url = file_url(single_news.field_featured_media.entity.field_media_image.entity.fileuri | image_style('large')) %}
             {% set news_image_alt = single_news.field_featured_media.entity.field_media_image.alt %}
+            {% set news_link = path('entity.node.canonical', {'node': single_news.nid.value}) %}
             <div class="single-event">
               <img src="{{ news_image_url }}" alt="{{ news_image_alt }}">
-              <h2>{{ title }}</h2>
+              <a href="{{ news_link }}">
+                <h2>{{ title }}</h2>
+              </a>
               <p>
                 {% autoescape false %}
                   {{ news_description|length > 230 ? news_description|slice(0, 230) : news_description }}

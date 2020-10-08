@@ -7,6 +7,7 @@ use Drupal;
 use Drupal\views\Views;
 use Drupal\media\Entity\Media;
 use Drupal\file\Entity\File;
+use Drupal\Core\Url;
 
 /**
  * Class CountryNewsController.
@@ -26,6 +27,7 @@ class CountryNewsController extends ControllerBase {
     $view_result = $view->result;
     $news = [];
     $index = 0;
+    $options = ['absolute' => TRUE];
     foreach ($view_result as $data) {
       $entity = $data->_entity;
       $news_media_tid = $entity->field_featured_media->target_id;
@@ -41,11 +43,14 @@ class CountryNewsController extends ControllerBase {
       $body = $entity->get('body')->summary;
       $created_date = Drupal::service('date.formatter')
         ->format($entity->get('created')->value, 'custom', 'm/d/Y');
+      $url_obj = Url::fromRoute('entity.node.canonical', ['node' => $entity->id()], $options);
+      $url = $url_obj->toString();
       $news[$index] = [
         'title' => $title,
         'body' => $body,
         'url' => $news_media_url,
         'created_date' => $created_date,
+        'link' => $url,
       ];
       $index++;
     }

@@ -39,7 +39,9 @@
               {% if single_news.url %}
                 <img src="{{ single_news.url }}" alt="news">
               {% endif %}
-              <h2>{{ single_news.title }}</h2>
+              <a href="{{ single_news.link }}">
+                <h2>{{ single_news.title }}</h2>
+              </a>
               <p>
                 {% autoescape false %}{{ single_news.body|length > 80 ? single_news.body|slice(0, 80) : single_news.body }}{% endautoescape %}
               </p>
