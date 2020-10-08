@@ -116,7 +116,7 @@
     margin: 25px 0 50px;
 
     .news-button {
-      h3 {
+      li {
         font-family: $font-lato;
         font-size: $font-size-xs;
         font-weight: normal;
@@ -126,6 +126,7 @@
         padding: 12px 20px;
         border-radius: 10px;
         background-color: #e8edff;
+        margin-right: 5px;
       }
     }
 
