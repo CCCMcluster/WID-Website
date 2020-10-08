@@ -11,7 +11,7 @@ d3js:
     - core/drupal.ajax
 
 widmap:
-  version: 1.x
+  version: 1.0.1
   js:
     assets/js/module.js: {}
   css:
