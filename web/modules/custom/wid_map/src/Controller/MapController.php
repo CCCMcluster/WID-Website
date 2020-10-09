@@ -27,7 +27,7 @@ class MapController extends ControllerBase {
       $response = $request->getBody()->getContents();
       $geoData = json_decode($response);
     }
-    catch (RequestException $e) {
+    catch (\Exception $e) {
       $response = NULL;
       $geoData = NULL;
     }
