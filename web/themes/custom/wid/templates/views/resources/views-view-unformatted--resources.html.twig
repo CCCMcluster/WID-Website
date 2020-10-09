@@ -18,16 +18,16 @@
 {% set view_index = rows|keys.0 %}
 {% set view_max_index = max(view.result|keys) %}
 {% if view_index == 0 %}
-  <div class="container">
-    <div class="resource-mission-wrapper">
-      <div class="resource-mission-container">
-        <h2>Key initiatives</h2>
-      </div>
+<div class="container">
+  <div class="resource-mission-wrapper">
+    <div class="resource-mission-container">
+      <h2>Key initiatives</h2>
     </div>
   </div>
+</div>
 <div class="container">
   <div class="our-key-container">
-    <div class="our-key-content">
+    <div class="resource-initiative-container container">
       {% set key_initiative_links = drupal_view_result('resources', 'block_2') %}
       {% for key_initiative_link in key_initiative_links %}
         {% set key_initiative_link_entity = key_initiative_link._entity %}
@@ -35,7 +35,7 @@
         {% set ki_link = key_initiative_link_entity.field_resources_ki_link.uri %}
         {% set ki_logo_url = file_url(key_initiative_link_entity.field_wid_resources_ki_logo.entity.field_media_image.entity.fileuri|image_style('thumbnail')) %}
         {% set ki_logo_alt = key_initiative_link_entity.field_wid_resources_ki_logo.entity.field_media_image.alt %}
-        <div>
+        <div class="row resource-initiative-content mb-4">
           <img src="{{ ki_logo_url }}" alt="{{ ki_logo_alt }}">
           <p>{{ ki_title }}</p>
           <a href="{{ ki_link }}" target="_blank">
@@ -43,6 +43,8 @@
           </a>
         </div>
       {% endfor %}
+    </div>
+    <div class="our-key-content">
       <div class="our-key-group">
         {% endif %}
         <div class="our-key-cards">
