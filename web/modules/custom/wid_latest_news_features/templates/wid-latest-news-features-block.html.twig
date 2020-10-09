@@ -23,6 +23,7 @@
           {% for single_feature_news in feature_news %}
           {% set newsTitle = single_feature_news.title[0].value %}
           {% set image_url = media_file_url(single_feature_news.field_featured_media[0].target_id) %}
+          {% set newsLink = path('entity.node.canonical', {'node': single_feature_news.nid.value}) %}
           {% if loop.first %}
           <div class="col-md-3">
             <div class="banner-wrapper banner-1">
@@ -31,7 +32,7 @@
               </div>
               <div class="banner-desc">
                 <p>
-                  <a href="#">{{ newsTitle|length > 30 ? newsTitle|slice(0, 30) ~ '...' : newsTitle }}</a>
+                  <a href="{{ newsLink }}">{{ newsTitle|length > 30 ? newsTitle|slice(0, 30) ~ '...' : newsTitle }}</a>
                 </p>
               </div>
             </div>
@@ -47,7 +48,8 @@
                     </div>
                     <div class="banner-desc">
                       <p>
-                        <a href="#">{{ newsTitle|length > 95 ? newsTitle|slice(0, 95) ~ '...' : newsTitle }}</a>
+                        <a
+                          href="{{ newsLink }}">{{ newsTitle|length > 95 ? newsTitle|slice(0, 95) ~ '...' : newsTitle }}</a>
                       </p>
                     </div>
                   </div>
@@ -61,7 +63,8 @@
                     </div>
                     <div class="banner-desc">
                       <p>
-                        <a href="#">{{ newsTitle|length > 30 ? newsTitle|slice(0, 30) ~ '...' : newsTitle }}</a>
+                        <a
+                          href="{{ newsLink }}">{{ newsTitle|length > 30 ? newsTitle|slice(0, 30) ~ '...' : newsTitle }}</a>
                       </p>
                     </div>
                   </div>
@@ -75,7 +78,8 @@
                     </div>
                     <div class="banner-desc">
                       <p>
-                        <a href="#">{{ newsTitle|length > 35 ? newsTitle|slice(0, 35) ~ '...' : newsTitle }}</a>
+                        <a
+                          href="{{ newsLink }}">{{ newsTitle|length > 35 ? newsTitle|slice(0, 35) ~ '...' : newsTitle }}</a>
                       </p>
                     </div>
                   </div>
@@ -89,7 +93,8 @@
                     </div>
                     <div class="banner-desc">
                       <p>
-                        <a href="#">{{ newsTitle|length > 120 ? newsTitle|slice(0, 120) ~ '...' : newsTitle }}</a>
+                        <a
+                          href="{{ newsLink }}">{{ newsTitle|length > 120 ? newsTitle|slice(0, 120) ~ '...' : newsTitle }}</a>
                       </p>
                     </div>
                   </div>
@@ -107,16 +112,19 @@
             <h2 class="card-title">Latest News</h2>
             <div class="news-container">
               {% for single_news in news %}
+                {% set single_news_link = path('entity.node.canonical', {'node': single_news.nid.value}) %}
                 <div class="news-wrapper">
                   <div class="news-image">
                     {% set image_url = media_file_url(single_news.field_featured_media[0].target_id) %}
                     <img src="{{ image_url }}" alt="news">
                   </div>
                   <div class="news-content">
-                    <h3 class="news-title">
-                      {% set title = single_news.title[0].value %}
-                      {{ title|length > 40 ? title|slice(0, 40) ~ '...' : title }}
-                    </h3>
+                    <a href="{{ single_news_link }}">
+                      <h3 class="news-title">
+                        {% set title = single_news.title[0].value %}
+                        {{ title|length > 40 ? title|slice(0, 40) ~ '...' : title }}
+                      </h3>
+                    </a>
                     {% set text = single_news.body[0].value |render|striptags %}
                     <p class="news-desc">
                       {% autoescape false %}

@@ -1,0 +1,316 @@
+.article-wrapper {
+  .article-banner {
+    img {
+      height: 300px;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .article-nav-container {
+    display: flex;
+    align-items: flex-end;
+    gap: 25px;
+    margin-top: -35px;
+
+    .nav-image-container {
+      border: solid 2px #556cff;
+      background-color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 8px;
+      padding: 10px 10px;
+
+      p {
+        font-family: $font-raleway;
+        font-size: $font-size-text-sm;
+        font-weight: 600;
+        line-height: 1.14;
+        color: $primary-color;
+        margin: 0;
+      }
+
+      i {
+        font-size: $font-size-base;
+        color: $primary-color;
+      }
+    }
+
+    .article-nav {
+      span {
+        font-family: $font-raleway;
+        font-size: $font-size-xs;
+        font-weight: 600;
+        line-height: 1.17;
+        color: $primary-color;
+      }
+
+      i {
+        font-size: $font-size-text-sm;
+        color: $primary-color;
+        margin: 0 15px;
+      }
+    }
+  }
+
+  .article-title {
+    h2 {
+      font-family: $font-raleway;
+      font-size: $font-size-xl-alt;
+      font-weight: 600;
+      line-height: 1.38;
+      color: $primary-color;
+      margin: 50px 0 25px;
+    }
+  }
+
+  .article-social-media-wrapper {
+    padding: 25px 0;
+
+    .date {
+      display: inline-block;
+      margin-right: 35px;
+
+      p {
+        font-family: $font-lato;
+        font-size: $font-size-text;
+        font-weight: normal;
+        line-height: 1.22;
+        color: rgba(0, 0, 0, 0.35);
+        margin: 0;
+      }
+    }
+
+    .social-contact {
+      display: inline-block;
+      margin-right: 35px;
+
+      i {
+        color: rgba(0, 0, 0, 0.35);
+        font-size: $font-size-text;
+        padding: 0 5px;
+      }
+    }
+
+    .social-media {
+      display: inline-block;
+
+      i {
+        color: $primary-color;
+        font-size: $font-size-text;
+        padding: 0 5px;
+      }
+    }
+  }
+
+  .hr-article {
+    color: #c6c6c6;
+    height: 1px;
+    width: 100%;
+    margin: 0;
+  }
+
+  .news-wrapper {
+    margin: 25px 0 50px;
+
+    .news-button {
+      li {
+        font-family: $font-lato;
+        font-size: $font-size-xs;
+        font-weight: normal;
+        line-height: 0.67;
+        color: $primary-color;
+        display: inline-block;
+        padding: 12px 20px;
+        border-radius: 10px;
+        background-color: #e8edff;
+        margin-right: 5px;
+      }
+    }
+
+    .news-title {
+      h3 {
+        font-family: $font-lato;
+        font-size: $font-size-text-alt;
+        font-weight: bold;
+        line-height: 1.35;
+        color: #333333;
+        margin: 25px 0;
+      }
+    }
+
+    .news-desc {
+      overflow: auto;
+
+      p {
+        font-family: $font-lato;
+        font-size: $font-size-base;
+        font-weight: normal;
+        line-height: 1.69;
+        color: #333333;
+        margin-bottom: 20px;
+      }
+
+      img {
+        border-radius: 20px;
+        float: right;
+        margin: 20px 0 20px 50px;
+        height: 400px;
+        width: 300px;
+      }
+    }
+  }
+
+  .more-article-wrapper {
+    margin: 75px 0;
+
+    .more-article-button {
+      text-align: center;
+
+      h3 {
+        font-family: $font-raleway;
+        font-size: $font-size-xs;
+        font-weight: 600;
+        line-height: 1.2;
+        color: #ffffff;
+        display: inline-block;
+        padding: 12px 50px;
+        border-radius: 15px;
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+        background-color: $primary-color;
+      }
+    }
+
+    .card-groups {
+      flex: 4;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 50px;
+
+      .single-card {
+        background: #ffffff;
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        width: calc(33.33% - 20px);
+        margin: 10px 0;
+
+        img {
+          height: 200px;
+          width: 100%;
+          object-fit: cover;
+          border-radius: 20px 20px 0 0;
+        }
+
+        h2 {
+          font-family: $font-lato;
+          font-size: $font-size-text-sm;
+          font-weight: 700;
+          line-height: 1.43;
+          color: #556cff;
+          padding: 10px 25px 0;
+          margin-bottom: 5px;
+        }
+
+        p {
+          font-family: $font-lato;
+          font-size: $font-size-xs;
+          font-weight: normal;
+          line-height: 1.5;
+          color: #556cff;
+          padding: 0 25px;
+          margin-bottom: 5px;
+        }
+
+        .download-section {
+          padding: 15px 25px 20px;
+
+          span {
+            font-family: $font-lato;
+            font-size: 10px;
+            font-weight: normal;
+            line-height: 1.5;
+
+          }
+
+          .download {
+            a {
+              text-decoration: none;
+              color: $accent-color;
+              float: right;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+// Responsive
+@media (min-width: 320px) and (max-width: 480px) {
+  .article-wrapper {
+    .article-title {
+      h2 {
+        font-size: $font-size-title-sm;
+      }
+    }
+
+    .article-social-media-wrapper {
+      .date {
+        margin-right: 25px;
+      }
+
+      .social-contact {
+        margin-right: 25px;
+      }
+    }
+
+    .more-article-wrapper {
+      .card-groups {
+        flex-direction: column;
+
+        .single-card {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .article-wrapper {
+    .more-article-wrapper {
+      .card-groups {
+        .single-card {
+          width: 100%;
+
+          img {
+            height: 250px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .article-wrapper {
+    .more-article-wrapper {
+      .card-groups {
+        .single-card {
+          width: 100%;
+
+          img {
+            height: 350px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -34,7 +34,10 @@
               singleCard.append(cardImage);
             }
 
-            addElementToCard(singleCard, 'h2', result.title);
+            const titleLink = document.createElement('a');
+            titleLink.setAttribute('href', result.view_node)
+            addElementToCard(titleLink, 'h2', result.title);
+            singleCard.append(titleLink);
             addElementToCard(singleCard, 'p', result.body.length > 80 ? result.body.slice(0,80) : result.body);
             addElementToCard(singleCard, 'span', result.created);
           }
