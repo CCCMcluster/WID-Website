@@ -13,7 +13,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 75px 50px;
+    padding: 50px 50px 75px;
 
     .highlight-title {
       font-family: $font-raleway;
@@ -427,48 +427,25 @@
   padding: 250px 0 100px;
 
   .resources-media-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.16);
     background-color: #e8edff;
+    padding-top: 100px;
     border-radius: 20px;
     position: relative;
 
-    .resources-media-info-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      border-radius: 20px;
-      box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.16);
+    h2 {
+      font-family: $font-raleway;
+      font-size: $font-size-section-title;
+      font-weight: $font-weight-semibold;
+      line-height: 1.18;
+      color: $white;
+      display: inline-block;
+      padding: 10px 75px;
+      border-radius: 40px;
       background-color: $primary-color;
-      padding: 35px 0;
-      width: 65%;
-      margin: 0 auto;
-      position: absolute;
-      transform: translate(-50%, -50%);
-      left: 50%;
-
-      h2 {
-        font-family: $font-raleway;
-        font-size: $font-size-section-title;
-        font-weight: $font-weight-semibold;
-        line-height: 1.18;
-        color: $primary-color;
-        display: inline-block;
-        padding: 10px 75px;
-        border-radius: 40px;
-        background-color: #ffffff;
-      }
-
-      p {
-        font-size: $font-size-text;
-        font-family: $font-lato;
-        font-weight: normal;
-        line-height: 1.23;
-        text-align: center;
-        color: #ffffff;
-        width: 85%;
-        margin: 0 auto;
-      }
     }
 
     .resources-video-wrapper {
@@ -477,7 +454,7 @@
       gap: 40px;
       width: 80%;
       margin: 0 auto;
-      padding: 200px 0;
+      padding: 100px 0 200px;
 
       .resources-main-video {
         flex: 2;
