@@ -21,64 +21,62 @@
   <div class="container">
     <div class="resource-mission-wrapper">
       <div class="resource-mission-container">
-        <h2>Our mission &amp; Method</h2>
-        <div class="resource-mission-box">
-          <div class="mission-box">
-            <img src="/{{ directory }}/images/icons/key.svg" alt="key-references">
-            <h3>{{ drupal_field('name', 'taxonomy_term', 27) }}</h3>
-            <div class="mission-down-arrow"><a href="#"><i class="fa fa-arrow-down"></i></a></div>
-          </div>
-          <div class="mission-box">
-            <img src="/{{ directory }}/images/icons/video.svg" alt="key-references">
-            <h3>{{ drupal_field('name', 'taxonomy_term', 28) }}</h3>
-            <div class="mission-down-arrow"><a href="#"><i class="fa fa-arrow-down"></i></a></div>
-          </div>
-        </div>
+        <h2>Key initiatives</h2>
       </div>
     </div>
   </div>
 <div class="container">
   <div class="our-key-container">
-    <div class="our-key-info-container">
-      <h2>{{ view.title }}</h2>
-      <p>
-        {{ drupal_field('description', 'taxonomy_term', 27) }}
-      </p>
-    </div>
     <div class="our-key-content">
+      {% set key_initiative_links = drupal_view_result('resources', 'block_2') %}
+      {% for key_initiative_link in key_initiative_links %}
+        {% set key_initiative_link_entity = key_initiative_link._entity %}
+        {% set ki_title = key_initiative_link_entity.title.value %}
+        {% set ki_link = key_initiative_link_entity.field_resources_ki_link.uri %}
+        {% set ki_logo_url = file_url(key_initiative_link_entity.field_wid_resources_ki_logo.entity.field_media_image.entity.fileuri|image_style('thumbnail')) %}
+        {% set ki_logo_alt = key_initiative_link_entity.field_wid_resources_ki_logo.entity.field_media_image.alt %}
+        <div>
+          <img src="{{ ki_logo_url }}" alt="{{ ki_logo_alt }}">
+          <p>{{ ki_title }}</p>
+          <a href="{{ ki_link }}" target="_blank">
+            <i class="fa fa-arrow-right"></i>
+          </a>
+        </div>
+      {% endfor %}
       <div class="our-key-group">
         {% endif %}
         <div class="our-key-cards">
           {% if title %}
             <div class="main-card">
               <div class="single-card">
-              <h2>{{ title }}</h2>
+                <h2>{{ title }}</h2>
               </div>
             </div>
           {% endif %}
-            <div class="card-groups">
+          <div class="card-groups">
             {% for row in rows %}
-                <div class="single-card">
-                  {% set entity = row.content['#row']._entity %}
-                  {% set title = entity.title.value %}
-                  {% set summary = entity.body.value |render|striptags %}
-                  {% set media_url = file_url(entity.field_resources_media.entity.field_media_image.entity.fileuri | image_style('large')) %}
-                  {% set media_alt = entity.field_resources_media.entity.field_media_image.alt %}
-                  <img src="{{ media_url }}" alt="{{ media_alt }}">
-                  <h2>{{ title }}</h2>
-                  <p>{% autoescape false %}{{ summary|length > 80 ? summary|slice(0, 80) : summary }}{% endautoescape %}</p>
-                  <div class="download-section">
-                    {# <span class="user-content"><a href="#"><i class="fa fa-user"></i>User Content</a></span> #}
-                    {% if entity.field_resources_attachment_type.value == 'Document' %}
-                      {% set document_url = media_file_url(entity.field_resources_document.value.0.target_id, 'field_media_document') %}
-                      <span class="download"><a href="{{ document_url }}" target="_blank">Download</a></span>
-                    {% elseif entity.field_resources_attachment_type.value == 'Link' %}
-                      <span class="download"><a href="{{ entity.field_resources_link[0].uri }}" target="_blank">Download</a></span>
-                    {% endif %}
-                  </div>
+              <div class="single-card">
+                {% set entity = row.content['#row']._entity %}
+                {% set title = entity.title.value %}
+                {% set summary = entity.body.value |render|striptags %}
+                {% set media_url = file_url(entity.field_resources_media.entity.field_media_image.entity.fileuri | image_style('large')) %}
+                {% set media_alt = entity.field_resources_media.entity.field_media_image.alt %}
+                <img src="{{ media_url }}" alt="{{ media_alt }}">
+                <h2>{{ title }}</h2>
+                <p>{% autoescape false %}{{ summary|length > 80 ? summary|slice(0, 80) : summary }}{% endautoescape %}</p>
+                <div class="download-section">
+                  {# <span class="user-content"><a href="#"><i class="fa fa-user"></i>User Content</a></span> #}
+                  {% if entity.field_resources_attachment_type.value == 'Document' %}
+                    {% set document_url = media_file_url(entity.field_resources_document.value.0.target_id, 'field_media_document') %}
+                    <span class="download"><a href="{{ document_url }}" target="_blank">Download</a></span>
+                  {% elseif entity.field_resources_attachment_type.value == 'Link' %}
+                    <span class="download"><a href="{{ entity.field_resources_link[0].uri }}"
+                                              target="_blank">Download</a></span>
+                  {% endif %}
                 </div>
+              </div>
             {% endfor %}
-            </div>
+          </div>
           <div class="card-button">
             <a href="#"><i class="fa fa-arrow-right"></i></a>
           </div>
