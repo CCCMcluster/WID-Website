@@ -244,17 +244,29 @@
       align-items: center;
       border-radius: 10px;
       width: 90%;
+      color: $primary-color;
+
+      &:hover {
+        background-color: $primary-color;
+        color: $white;
+
+        a {
+          i {
+            color: $white;
+          }
+        }
+      }
 
       img {
-        height: 60px;
-        width: 100px;
-        object-fit: cover;
+        height: 50px;
+        width: 60px;
+        object-fit: contain;
       }
 
       p {
-        color: $primary-color;
         font-size: $font-size-text-alt;
         font-family: $font-lato;
+        padding-top: 10px;
       }
     }
   }
@@ -610,7 +622,7 @@
         img {
           height: 100px;
           width: 50%;
-          object-fit: cover;
+          object-fit: contain;
         }
 
         p {
@@ -868,7 +880,6 @@
   .our-key-container {
 
     .resource-initiative-container {
-      background-color: aqua;
       padding: 80px 0;
   
       .resource-initiative-content {
