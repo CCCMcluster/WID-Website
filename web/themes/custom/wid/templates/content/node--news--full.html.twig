@@ -80,11 +80,11 @@
   <div class="container">
     <div class="article-nav-container">
       <div class="nav-image-container">
-        <p>News</p>
+        <p>{% trans %}News{% endtrans %}</p>
         <i class="fa fa-fax"></i>
       </div>
       <div class="article-nav">
-        <span><a href="/news">News</a></span><i class="fa fa-angle-right"></i><span><a
+        <span><a href="/news">{% trans %}News{% endtrans %}</a></span><i class="fa fa-angle-right"></i><span><a
             href="{{ url }}">{{ label }}</a></span>
       </div>
     </div>
@@ -100,13 +100,13 @@
     <hr class="hr-article"/>
     <div class="article-social-media-wrapper">
       {% if display_submitted %}
-          {% block submitted %}
-            {% set createdDate = node.getCreatedTime|format_date('custom_content_date') %}
-            <div class="date">
-              <p>{{ createdDate }}</p>
-            </div>
-          {% endblock %}
-          {{ metadata }}
+        {% block submitted %}
+          {% set createdDate = node.getCreatedTime|format_date('custom_content_date') %}
+          <div class="date">
+            <p>{{ createdDate }}</p>
+          </div>
+        {% endblock %}
+        {{ metadata }}
       {% endif %}
       <div class="social-media">
         {{ content.addtoany }}
