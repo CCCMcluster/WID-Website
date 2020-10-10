@@ -124,6 +124,7 @@
         {% for globalReport in global_reports %}
           {% set globalReportEntity = globalReport._entity %}
           {% set globalReportTitle = globalReportEntity.title.value %}
+          {% set globalReportLink = path('entity.node.canonical', {'node': globalReportEntity.nid.value}) %}
           {% set globalReportDescription = globalReportEntity.body.value %}
           {% set globalCoverImage = file_url(globalReportEntity.field_report_image.entity.field_media_image.entity.fileuri) %}
           {% set globalCoverImageAlt = globalReportEntity.field_report_image.entity.field_media_image.alt %}
@@ -149,7 +150,9 @@
               {% endif %}
               <div class="col-sm-12 col-md-12 col-lg-7 global-report-row-content p-5">
                 <div class="global-report-row-title">
-                  {{ globalReportTitle }}
+                  <a href="{{ globalReportLink }}">
+                    {{ globalReportTitle }}
+                  </a>
                 </div>
                 <div class="global-report-row-body py-3">
                   {% autoescape false %}
@@ -158,7 +161,9 @@
                 </div>
                 <div class="row m-2 file-info-container py-2 px-3">
                   <div class="col-sm-10">
-                    <div class="file-info-title">{{ globalReportDocumentTitle }}</div>
+                    <div class="file-info-title">
+                      {{ globalReportDocumentTitle }}
+                    </div>
                     <div>
                       <span class="pr-2">
                         <i class="fa fa-calendar-o pr-2" aria-hidden="true"></i>
