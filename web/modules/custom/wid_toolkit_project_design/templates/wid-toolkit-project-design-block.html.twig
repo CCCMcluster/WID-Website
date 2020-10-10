@@ -40,9 +40,10 @@
           {% for workshop_tools_icon in workshop_tools_icons %}
             <li class="step-card-{{ loop.index }}">
               <a href="#card-{{ loop.index }}">
-                  <div class="step-card">
-                    <img src="/{{ directory }}/images/icons/{{ workshop_tools_icon.icon }}" alt="project-design-workshop-tools-icon">
-                  </div>
+                <div class="step-card">
+                  <img src="/{{ directory }}/images/icons/{{ workshop_tools_icon.icon }}"
+                       alt="project-design-workshop-tools-icon">
+                </div>
               </a>
             </li>
           {% endfor %}
@@ -57,9 +58,10 @@
           {% set loop_index = loop.index - 1 %}
           <div class="design-steps-card" id="card-{{ loop.index }}">
             <div class="design-steps-card-image">
-              <img src="/{{ directory }}/images/icons/{{ attribute(workshop_tools_icons[loop_index], 'icon') }}" alt="project-design-workshop-tools-icon">
+              <img src="/{{ directory }}/images/icons/{{ attribute(workshop_tools_icons[loop_index], 'icon') }}"
+                   alt="project-design-workshop-tools-icon">
             </div>
-            <div  class="design-steps-content">
+            <div class="design-steps-content">
               <h3>{{ workshop_tool_title }}</h3>
               <div>
                 {% autoescape false %}
@@ -75,51 +77,64 @@
       <div class="toolkit-body-wrapper py-5 my-5">
         <div class="container" {{ attributes.addClass(classes) }}>
           <div class="baseline-endline-content">
-              <div class="baseline-endline-content-title">Workshop</div>
+            <div class="baseline-endline-content-title">
+              {% trans %}
+                Workshop
+              {% endtrans %}
+            </div>
             {% for tax_id, project_design_workshops in project_design_workshops %}
-            {% set taxonomy_term = load_tax_term(tax_id) %}
-            {% set tax_term_cover_img = file_url(taxonomy_term.field_toolkit_img.entity.field_media_image.entity.fileuri) %}
-            {% set tax_term_cover_img_alt = taxonomy_term.field_toolkit_img.entity.field_media_image.alt %}
-            <div class="global-report-row-wrapper pt-5">
-              <div class="global-report-row row mb-5">
-                <img class="col-sm-12 col-md-12 col-lg-5 w-100 p-0 image-container" src="{{ tax_term_cover_img }}" alt="{{ tax_term_cover_img_alt }}"/>
-                <div class="col-sm-12 col-md-12 col-lg-7 global-report-row-content p-5">
-                  <div class="global-report-row-title">{{ taxonomy_term.name.value }}</div>
-                  <div class="global-report-row-body py-3">
-                    {% autoescape false %}
-                    {{ taxonomy_term.description.value }}
-                    {% endautoescape %}
-                  </div>
-                  {% for project_design_workshop in project_design_workshops %}
-                  {% set project_design_workshop_description = project_design_workshop.description %}
-                  <div class="row file-info-container py-2 px-3">
-                    <div class="col-sm-10">
-                      <div class="file-info-title">{{ project_design_workshop.title }}</div>
-                      <div>
-                        <span class="pr-2"><i class="fa fa-calendar-o pr-2" aria-hidden="true"></i>{{ project_design_workshop.created_date }}</span>
-                        {% if project_design_workshop.document %}
-                          <span><i class="fa fa-file-text-o pr-2" aria-hidden="true"></i>{{ project_design_workshop.document.size }}KB</span>
-                        {% endif %}
+              {% set taxonomy_term = load_tax_term(tax_id) %}
+              {% set tax_term_cover_img = file_url(taxonomy_term.field_toolkit_img.entity.field_media_image.entity.fileuri) %}
+              {% set tax_term_cover_img_alt = taxonomy_term.field_toolkit_img.entity.field_media_image.alt %}
+              <div class="global-report-row-wrapper pt-5">
+                <div class="global-report-row row mb-5">
+                  <img class="col-sm-12 col-md-12 col-lg-5 w-100 p-0 image-container" src="{{ tax_term_cover_img }}"
+                       alt="{{ tax_term_cover_img_alt }}"/>
+                  <div class="col-sm-12 col-md-12 col-lg-7 global-report-row-content p-5">
+                    <div class="global-report-row-title">{{ taxonomy_term.name.value }}</div>
+                    <div class="global-report-row-body py-3">
+                      {% autoescape false %}
+                        {{ taxonomy_term.description.value }}
+                      {% endautoescape %}
+                    </div>
+                    {% for project_design_workshop in project_design_workshops %}
+                      {% set project_design_workshop_description = project_design_workshop.description %}
+                      {% set project_design_workshop_link = path('entity.node.canonical', {'node': project_design_workshop.nid}) %}
+                      <div class="row file-info-container py-2 px-3">
+                        <div class="col-sm-10">
+                          <div class="file-info-title">
+                            <a href="{{ project_design_workshop_link }}">
+                              {{ project_design_workshop.title }}
+                            </a>
+                          </div>
+                          <div>
+                            <span class="pr-2"><i class="fa fa-calendar-o pr-2"
+                                                  aria-hidden="true"></i>{{ project_design_workshop.created_date }}</span>
+                            {% if project_design_workshop.document %}
+                              <span><i class="fa fa-file-text-o pr-2"
+                                       aria-hidden="true"></i>{{ project_design_workshop.document.size }}KB</span>
+                            {% endif %}
+                          </div>
+                        </div>
+                        <div class="col-sm-2 button-container">
+                          {% if project_design_workshop.document_link %}
+                            <a class="download-button" href="{{ project_design_workshop.document_link }}"
+                               target="_blank" download>
+                              Download
+                            </a>
+                          {% elseif project_design_workshop.document %}
+                            {% set fileExtension = project_design_workshop.document.type|split('/')[1] %}
+                            <img src="/{{ directory }}/images/icons/{{ fileExtension }}.svg" alt={{ fileExtension }}/>
+                            <a class="download-button" href="{{ project_design_workshop.document.url }}" download>
+                              Download
+                            </a>
+                          {% endif %}
+                        </div>
                       </div>
-                    </div>
-                    <div class="col-sm-2 button-container">
-                      {% if project_design_workshop.document_link %}
-                        <a class="download-button" href="{{ project_design_workshop.document_link }}" target="_blank" download>
-                          Download
-                        </a>
-                      {% elseif project_design_workshop.document %}
-                        {% set fileExtension = project_design_workshop.document.type|split('/')[1] %}
-                        <img src="/{{ directory }}/images/icons/{{ fileExtension }}.svg" alt={{ fileExtension }}/>
-                        <a class="download-button" href="{{ project_design_workshop.document.url }}" download>
-                        Download
-                      </a>
-                      {% endif %}
-                    </div>
+                    {% endfor %}
                   </div>
-                  {% endfor %}
                 </div>
               </div>
-            </div>
             {% endfor %}
           </div>
         </div>
