@@ -78,12 +78,12 @@
 } %}
 {% set tid = node.field_toolkit.entity.parent.entity.parent.entity.tid.value %}
 <article{{ attributes.addClass(classes) }}>
-  {% if node.field_toolkit_cover_img.value %}
-    <div class="toolkit-item-banner">
+  <div class="toolkit-item-banner">
+    {% if node.field_toolkit_cover_img.value %}
       <img src="{{ file_url(node.field_toolkit_cover_img.entity.field_media_image.entity.fileuri) }}"
            alt="{{ node.field_toolkit_cover_img.entity.field_media_image.alt }}">
-    </div>
-  {% endif %}
+    {% endif %}
+  </div>
   <div class="container">
     <div class="toolkit-item-nav-container">
       <div class="nav-image-container">
@@ -138,13 +138,13 @@
         </div>
       </div>
     {% endif %}
-    <div{{ content_attributes.addClass('node__content', 'clearfix') }}>
-      {{ content.body }}
-    </div>
   </div>
 
   <div class="container my-5">
     <div class="toolkit-item-info">
+      <div class="toolkit-item-info-body pb-3" {{ content_attributes.addClass('node__content', 'clearfix') }}>
+        {{ content.body }}
+      </div>
       {% if node.field_toolkit_attachment_type.value == 'Document' %}
         {% for document in node.field_toolkit_document %}
           {% set fileExtension = media_file_type(document.target_id, 'field_media_document') %}
@@ -153,9 +153,11 @@
           <div class="row m-2 file-info-container py-3 px-3">
             <div class="col-sm-10">
               <h2 class="file-info-title">{{ label }}</h2>
-              <div>
-                <span class="mr-3"><i class="fa fa-calendar-o pr-2"
-                                      aria-hidden="true"></i>{{ document.entity.created.value|format_date('custom_document_date') }}</span>
+              <div class="date-content-info">
+                <span class="mr-3">
+                  <i class="fa fa-calendar-o pr-2" aria-hidden="true"></i>
+                  {{ document.entity.created.value|format_date('custom_document_date') }}
+                </span>
                 <span><i class="fa fa-file-text-o pr-2" aria-hidden="true"></i>{{ fileSize|round(1, 'ceil') }}KB</span>
               </div>
             </div>
@@ -171,7 +173,7 @@
           <div class="row m-2 file-info-container py-3 px-3">
             <div class="col-sm-10">
               <h2 class="file-info-title">{{ label }}</h2>
-              <div>
+              <div class="date-content-info">
                 <span class="mr-3"><i class="fa fa-calendar-o pr-2" aria-hidden="true"></i>
                   {{ documentLink.entity.created.value|format_date('custom_document_date') }}
                 </span>
