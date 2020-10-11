@@ -73,16 +73,29 @@
     fetch(`${base_url}report/country?iso=${countryCode}`)
       .then(res => res.json())
       .then(data => {
+        d3.selectAll('.report').remove();
         data.slice(0, 3).forEach((report, index) => {
           const reportElement = d3.selectAll('.report-section')
             .append('div')
             .attr('class', 'report')
             .classed('report__active', index===0);
-          index===0 && reportElement.append('p').attr('class', 'report-country').text(`${report.country}`);
-          index.title && reportElement.append('p').attr('class', 'report-title').text(report.title);
+          reportElement.append('div')
+            .attr('class','report-button')
+            .classed('report-button__alt', index!==0)
+            .append('a').attr('href',"#")
+            .append('i').attr('class','fa fa-arrow-right');
           reportElement.append('p')
+            .attr('class', 'report-country')
+            .text(`${report.country}`)
+            .classed('report-title', index!==0);
+          report.title && reportElement.append('p')
+            .attr('class', 'report-title')
+            .text(report.title)
+            .classed('report-title__active', index===0)
+            .classed('report-title__alt', index!==0);
+          report.body && index===0 && reportElement.append('p')
             .attr('class', 'report-country-body')
-            .text(`${report.body.split(" ").splice(0, index===0?40:5).join(" ")}...`);
+            .text(`${report.body.split(" ").splice(0, index===0? 25 : 10).join(" ")}...`);
         });
       });
   }

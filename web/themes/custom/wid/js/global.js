@@ -66,6 +66,38 @@
     }
   }
 
+  $(".owl-carousel").owlCarousel({
+    margin: 20,
+    mouseDrag: false,
+    dots: false,
+    nav: true,
+    navText: [
+      `
+        <div class="carousel-card-button carousel-card-button-left">
+          <i class="fa fa-arrow-left"></i>
+        </div>
+      `,
+      `
+        <div class="carousel-card-button carousel-card-button-right">
+          <i class="fa fa-arrow-right"></i>
+        </div>
+      `
+    ],
+    responsive:{
+      0:{
+        items:1,
+      },
+      480:{
+        items:1,
+      },
+      768:{
+        items:2,
+      },
+      1024: {
+        items: 3,
+      }
+    }
+  });
 })(jQuery, Drupal);
 
 

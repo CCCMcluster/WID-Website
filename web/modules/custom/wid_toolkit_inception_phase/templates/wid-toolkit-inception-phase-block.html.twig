@@ -93,13 +93,12 @@
                       <h2>{{ taxonomy_term.name.value }}</h2>
                     </div>
                   </div>
-                  <div class="card-groups">
+                  <div class="card-groups owl-carousel owl-theme">
                     {% for training_resource in training_resources %}
                       {% set training_resource_link = path('entity.node.canonical', {'node': training_resource.nid}) %}
                       {% set training_resource_description = training_resource.description %}
                       <div class="single-card">
-                        <img src="{{ training_resource.cover_image.url }}"
-                             alt="{{ training_resource.cover_image.alt }}">
+                        <img src="{{ training_resource.cover_image.url }}" alt="{{ training_resource.cover_image.alt }}">
                         <a href="{{ training_resource_link }}">
                           <h2>{{ training_resource.title }}</h2>
                         </a>
@@ -107,19 +106,15 @@
                           <p>{{ training_resource_description|length > 80 ? training_resource_description|slice(0, 80) : training_resource_description }}</p>
                         {% endautoescape %}
                         <div class="download-section">
-                        <span class="download">
-                          {% if training_resource.document is not empty %}
-                            <a href="{{ training_resource.document.url }}" download>Download</a>
-                          {% elseif training_resource.document_link %}
-                            <a href="{{ training_resource.document_link }}" download>Download</a>
-                          {% endif %}
+                          <span class="download">
+                            {% if training_resource.document is not empty %}
+                              <a href="{{ training_resource.document.url }}" download>Download</a>
+                            {% elseif training_resource.document_link %}
+                              <a href="{{ training_resource.document_link }}" download>Download</a>
+                            {% endif %}
                           </span>
                         </div>
-                      </div>
                     {% endfor %}
-                  </div>
-                  <div class="card-button">
-                    <a href="#" tabindex="-1"><i class="fa fa-arrow-right"></i></a>
                   </div>
                 </div>
               {% endfor %}
