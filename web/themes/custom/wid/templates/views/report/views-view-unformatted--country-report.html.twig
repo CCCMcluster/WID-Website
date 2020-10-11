@@ -46,8 +46,11 @@
               <div class="col-sm-12 col-md-9 our-single-country-content-left-view">
                 {% set entity = row.content['#row']._entity %}
                 {% set title = entity.title.value %}
-                {% set report_created_date = entity.created.value | date('m/d/y') %}
-                <h2 class="our-single-report-title">{{ title }}</h2>
+                {% set reportLink = path('entity.node.canonical', {'node': entity.nid.value}) %}
+                {% set report_created_date = entity.created.value | format_date('custom_document_date') %}
+                <a href="{{ reportLink }}">
+                  <h2 class="our-single-report-title">{{ title }}</h2>
+                </a>
                 <div class="our-single-report-title-description">
                   {% set text = entity.body.summary |render|striptags %}
                   {% autoescape false %}{{ text|length > 80 ? text|slice(0, 80) : text }}{% endautoescape %}

@@ -36,9 +36,14 @@
                     {{ taxonomy_term.description.value }}
                   {% endautoescape %}</div>
                 {% for workshop in workshops %}
+                  {% set toolkitLink = path('entity.node.canonical', {'node': workshop.nid}) %}
                   <div class="row file-info-container py-2 px-3">
                     <div class="col-sm-10">
-                      <div class="file-info-title">{{ workshop.title }}</div>
+                      <div class="file-info-title">
+                        <a href="{{ toolkitLink }}">
+                          {{ workshop.title }}
+                        </a>
+                      </div>
                       <div>
                         <span class="pr-2">
                           <i class="fa fa-calendar-o pr-2" aria-hidden="true"></i>
@@ -57,7 +62,7 @@
                         <a class="download-button" href="{{ workshop.document_link }}" target="_blank">
                           Download
                         </a>
-                      {% elseif workshop.document  %}
+                      {% elseif workshop.document %}
                         {% set fileExtension = workshop.document.type|split('/')[1] %}
                         <img src="/{{ directory }}/images/icons/{{ fileExtension }}.svg" alt={{ fileExtension }}/>
                         <a class="download-button" href="{{ workshop.document.url }}" download>
@@ -73,7 +78,11 @@
         {% endfor %}
 
         <div class="our-key-container">
-          <h2 class="our-key-title">Training Resources</h2>
+          <h2 class="our-key-title">
+            {% trans %}
+              Training Resources
+            {% endtrans %}
+          </h2>
           <div class="our-key-content">
             <div class="our-key-group">
               {% for tax_id, training_resources in inception_phase_training_resources %}
@@ -85,15 +94,19 @@
                     </div>
                   </div>
                   <div class="card-groups">
-                  {% for training_resource in training_resources %}
-                    {% set training_resource_description = training_resource.description %}
-                    <div class="single-card">
-                      <img src="{{ training_resource.cover_image.url }}" alt="{{ training_resource.cover_image.alt }}">
-                      <h2>{{ training_resource.title }}</h2>
-                      {% autoescape false %}
-                        <p>{{ training_resource_description|length > 80 ? training_resource_description|slice(0, 80) : training_resource_description }}</p>
-                      {% endautoescape %}
-                      <div class="download-section">
+                    {% for training_resource in training_resources %}
+                      {% set training_resource_link = path('entity.node.canonical', {'node': training_resource.nid}) %}
+                      {% set training_resource_description = training_resource.description %}
+                      <div class="single-card">
+                        <img src="{{ training_resource.cover_image.url }}"
+                             alt="{{ training_resource.cover_image.alt }}">
+                        <a href="{{ training_resource_link }}">
+                          <h2>{{ training_resource.title }}</h2>
+                        </a>
+                        {% autoescape false %}
+                          <p>{{ training_resource_description|length > 80 ? training_resource_description|slice(0, 80) : training_resource_description }}</p>
+                        {% endautoescape %}
+                        <div class="download-section">
                         <span class="download">
                           {% if training_resource.document is not empty %}
                             <a href="{{ training_resource.document.url }}" download>Download</a>
@@ -101,9 +114,9 @@
                             <a href="{{ training_resource.document_link }}" download>Download</a>
                           {% endif %}
                           </span>
+                        </div>
                       </div>
-                    </div>
-                  {% endfor %}
+                    {% endfor %}
                   </div>
                   <div class="card-button">
                     <a href="#" tabindex="-1"><i class="fa fa-arrow-right"></i></a>

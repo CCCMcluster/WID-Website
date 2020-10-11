@@ -63,6 +63,7 @@ class ProjectDesignController extends ControllerBase {
         $documentLink = $entity->field_toolkit_document_link->uri;
       }
       $projectDesignWorkshop[$toolkit_tid][$index] = [
+        'nid' => $entity->id(),
         'title' => $entity->getTitle(),
         'description' => $entity->get('body')->value,
         'cover_image' => $cover_image,
