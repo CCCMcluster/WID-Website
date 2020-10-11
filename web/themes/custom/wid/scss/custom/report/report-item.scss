@@ -1,5 +1,7 @@
 .report-item-wrapper {
     .report-item-banner {
+        height: 300px;
+        background-color: whitesmoke;
         img {
             height: 300px;
             width: 100%;
@@ -202,6 +204,8 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                color: $primary-color;
+                font-size: $font-size-xl-alt;
     
                 .extension-icon {
                     height: 40px;
