@@ -35,21 +35,48 @@
 }
 
 .report {
+  position: relative;
   border-radius: 20px;
   box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.16);
   padding: 15px 60px 15px 30px;
   background-color: white;
   margin: 12px 0;
+  text-align: left;
 }
 .report__active {
   background-color: #556cff;
   color: white;
 }
 
+.report-button {
+  padding: 6px 12px;
+  box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: #f7785d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 99%;
+}
+.report-button a i {
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+.report-button__alt {
+  background-color: white;
+}
+.report-button__alt a i {
+  color: #556cff;
+}
+
 .report-country {
   text-decoration: underline;
-  text-align: left;
   font-weight: bold;
+  font-size: 14px;
   color: #f7785d;
 }
 
@@ -57,6 +84,14 @@
   font-size: 12px;
   font-weight: bold;
   color: #556cff;
+  text-decoration: none;
+}
+.report-title__active {
+  color: white;
+}
+.report-title__alt {
+  font-weight: normal;
+  font-size: 10px;
 }
 
 .report-country-body {

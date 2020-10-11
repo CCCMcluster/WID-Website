@@ -55,7 +55,7 @@
               </div>
             </div>
           {% endif %}
-          <div class="card-groups">
+          <div class="card-groups owl-carousel owl-theme">
             {% for row in rows %}
               <div class="single-card">
                 {% set entity = row.content['#row']._entity %}
@@ -72,15 +72,11 @@
                     {% set document_url = media_file_url(entity.field_resources_document.value.0.target_id, 'field_media_document') %}
                     <span class="download"><a href="{{ document_url }}" target="_blank">Download</a></span>
                   {% elseif entity.field_resources_attachment_type.value == 'Link' %}
-                    <span class="download"><a href="{{ entity.field_resources_link[0].uri }}"
-                                              target="_blank">Download</a></span>
+                    <span class="download"><a href="{{ entity.field_resources_link[0].uri }}" target="_blank">Download</a></span>
                   {% endif %}
                 </div>
               </div>
             {% endfor %}
-          </div>
-          <div class="card-button">
-            <a href="#"><i class="fa fa-arrow-right"></i></a>
           </div>
         </div>
         {% if view_max_index == view_index %}
