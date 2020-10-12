@@ -79,6 +79,8 @@
           {% for testimonial in testimonials %}
             {% set testimonial_entity = testimonial._entity %}
             <div class="carousel-item">
+              <img class="quote-image" src="/{{ directory }}/images/icons/testimonial-bg.svg"
+                     alt="quote" />
               <div class="card my-2">
                 <div class="testimonial-title">
                   {{ testimonial_entity.field_testimonial_region.entity.name.value }}
