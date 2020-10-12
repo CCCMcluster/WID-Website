@@ -128,7 +128,17 @@
 
         .carousel {
             .carousel-inner {
-                .carousel-item {                    
+                .carousel-item {
+                    position: relative;
+
+                    .quote-image {
+                        position: absolute;
+                        z-index: 1;
+                        top: 20%;
+                        right: 20%;
+                        height: 200px;
+                    } 
+
                     .card {
                         display: flex;
                         justify-content: space-between;
@@ -141,12 +151,14 @@
                         color: $primary-color;
 
                         .testimonial-title {
+                            z-index: 5;
                             font-size: $font-size-text-alt;
                             font-family: $font-raleway;
                             font-weight: 600;
                         }
 
                         .testimonial-body {
+                            z-index: 5;
                             font-size: $font-size-text;
                             font-family: $font-lato;
                             line-height: 1.22;

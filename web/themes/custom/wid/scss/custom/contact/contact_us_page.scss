@@ -55,6 +55,7 @@
                 }
 
                 .contact-link-arrow-button {
+                    cursor: pointer;
                     display: none;
                     position: absolute;
                     z-index: 5;
@@ -89,3 +90,36 @@
         }
     }
 }
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .contact-us-background-image {
+        .contact-container{
+    
+            .contact-info-content {
+                padding: 30px 20px;
+                border-radius: 10px;
+    
+                .contact-info-content-title {
+                    padding-bottom: 30px;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+    .contact-us-background-image {
+        .contact-container{
+    
+            .contact-info-content {
+                padding: 40px 40px;
+            }
+
+            .contact-info-content-title {
+                padding-bottom: 40px;
+            }
+        }
+    }
+}
+
+
