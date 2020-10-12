@@ -35,11 +35,13 @@
         {% set ki_link = key_initiative_link_entity.field_resources_ki_link.uri %}
         {% set ki_logo_url = file_url(key_initiative_link_entity.field_wid_resources_ki_logo.entity.field_media_image.entity.fileuri|image_style('thumbnail')) %}
         {% set ki_logo_alt = key_initiative_link_entity.field_wid_resources_ki_logo.entity.field_media_image.alt %}
-        <div class="row resource-initiative-content mb-4">
-          <img src="{{ ki_logo_url }}" alt="{{ ki_logo_alt }}">
-          <p>{{ ki_title }}</p>
+        <div class="resource-initiative-wrapper">
           <a href="{{ ki_link }}" target="_blank">
-            <i class="fa fa-arrow-right"></i>
+            <div class="resource-initiative-content mb-4">
+              <img src="{{ ki_logo_url }}" alt="{{ ki_logo_alt }}">
+              <p>{{ ki_title }}</p>
+                <i class="fa fa-arrow-right"></i>
+            </div>
           </a>
         </div>
       {% endfor %}
