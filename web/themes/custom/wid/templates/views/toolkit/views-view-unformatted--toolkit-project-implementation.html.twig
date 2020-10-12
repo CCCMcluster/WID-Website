@@ -18,7 +18,7 @@
 <div class="toolkit-body-wrapper py-5 my-5">
   <div class="container">
     <div class="workshop-content">
-      <div class="workshop-title">Workshop</div>
+      <div class="workshop-title">{% trans %}Workshop{% endtrans %}</div>
       <div class="workshop-row-wrapper pt-5 px-4">
         <div class="workshop-row row mb-5">
           {% if title %}
@@ -61,8 +61,7 @@
                     {% set document_url = media_file_url(entity.field_toolkit_document.value.0.target_id, 'field_media_document') %}
                     <span><a class="download-button" href="{{ document_url }}" download>Download</a></span>
                   {% elseif entity.field_toolkit_attachment_type.value == 'Link' %}
-                    <span><a class="download-button" href="{{ entity.field_toolkit_document[0].uri }}"
-                             download>Download</a></span>
+                    <span><a class="download-button" href="{{ entity.field_toolkit_document_link[0].uri }}" target="_blank">Download</a></span>
                   {% endif %}
                 </div>
               </div>

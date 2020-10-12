@@ -1,4 +1,4 @@
-.toolkit-body-wrapper {
+.toolkit-evidence-body-wrapper {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -10,9 +10,8 @@
     flex-direction: column;
     background-color: $accent-alt-light-color;
     align-items: center;
-    padding-top: 80px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    padding: 80px 0;
+    border-radius: 20px;
 
     .workshop-title {
       font-family: $font-raleway;
@@ -102,6 +101,20 @@
     }
   }
 
+  .leaders-content {
+    border-radius: 20px 20px 0 0;
+    background-color: $primary-color-light;
+
+    .workshop-title {
+      color: #ffffff;
+      background-color: $primary-color;
+    }
+  }
+
+  .non-leaders-content {
+    border-radius: 0;
+  }
+
   .testimonial-slide-content {
     flex: 1;
     display: flex;
@@ -129,16 +142,6 @@
     .carousel {
       .carousel-inner {
         .carousel-item {
-          position: relative;
-
-          .quote-image {
-            position: absolute;
-            z-index: 1;
-            top: 20%;
-            right: 20%;
-            height: 200px;
-          }
-
           .card {
             display: flex;
             justify-content: space-between;
@@ -151,14 +154,12 @@
             color: $primary-color;
 
             .testimonial-title {
-              z-index: 5;
               font-size: $font-size-text-alt;
               font-family: $font-raleway;
               font-weight: 600;
             }
 
             .testimonial-body {
-              z-index: 5;
               font-size: $font-size-text;
               font-family: $font-lato;
               line-height: 1.22;
@@ -216,7 +217,7 @@
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
-  .toolkit-body-wrapper {
+  .toolkit-evidence-body-wrapper {
     flex: 1;
     width: 100%;
 
@@ -274,6 +275,10 @@
       }
     }
 
+    .non-leaders-content {
+        border-radius: 0;
+    }
+
     .testimonial-slide-content {
       padding: 40px 5px;
       border-bottom-left-radius: 10px;
@@ -298,7 +303,7 @@
 }
 
 @media (min-width: 481px) and (max-width: 767px) {
-  .toolkit-body-wrapper {
+  .toolkit-evidence-body-wrapper {
     flex: 1;
     width: 100%;
 
@@ -356,6 +361,10 @@
       }
     }
 
+    .non-leaders-content{
+        border-radius: 0;
+    }
+
     .testimonial-slide-content {
       padding: 50px 5px;
       border-bottom-left-radius: 10px;
@@ -380,7 +389,7 @@
 }
 
 @media (min-width: 768px) and (max-width: 920px) {
-  .toolkit-body-wrapper {
+  .toolkit-evidence-body-wrapper {
     flex: 1;
     width: 100%;
 
@@ -436,6 +445,10 @@
           }
         }
       }
+    }
+
+    .non-leaders-content{
+        border-radius: 0;
     }
 
     .testimonial-slide-content {
