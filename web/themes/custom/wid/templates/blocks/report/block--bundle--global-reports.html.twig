@@ -18,9 +18,8 @@
           {{ title_suffix }}
           {% block content %}
           <div{{ content_attributes.addClass(contentClasses) }}>
-            <div>{{ content.body }} <p class="global-report-button"><a
-                  href="{{ path('page_manager.page_view_global_reports_global_reports-panels_variant-0') }}">Visit our
-                  global reports page <i class="fa fa-arrow-right"></i></a></p></div>
+            <div>{{ content.body }} <a href="{{ path('page_manager.page_view_global_reports_global_reports-panels_variant-0') }}"><p class="global-report-button">Visit our
+                  global reports page <i class="fa fa-arrow-right"></i></p></a></div>
           </div>
         </div>
         <div class="global-report-image">

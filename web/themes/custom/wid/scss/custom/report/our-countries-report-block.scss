@@ -116,6 +116,12 @@
             font-weight: $font-weight-semibold;
             line-height: 1.17;
             color: $accent-color;
+            transition: 0.4s;
+
+            &:hover {
+              transform: translateY(-3px) scale(1.05);
+              box-shadow: 0 10px 6px 0 rgba(0, 0, 0, 0.16);
+            }
           }
         }
       }

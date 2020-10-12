@@ -55,16 +55,16 @@
 
   styleSearch();
 
-  window.onscroll = function() {
-    scrollFunction()
-  };
-  function scrollFunction() {
-    if (document.body.scrollTop >= 20 || document.documentElement.scrollTop >= 20) {
-      document.getElementById("navbar-main").style.padding = "5px 20px";
-    } else {
-      document.getElementById("navbar-main").style.padding = "25px 20px";
-    }
-  }
+  // window.onscroll = function() {
+  //   scrollFunction()
+  // };
+  // function scrollFunction() {
+  //   if (document.body.scrollTop >= 20 || document.documentElement.scrollTop >= 20) {
+  //     document.getElementById("navbar-main").style.padding = "5px 20px";
+  //   } else {
+  //     document.getElementById("navbar-main").style.padding = "25px 20px";
+  //   }
+  // }
 
   $(".owl-carousel").owlCarousel({
     margin: 20,
