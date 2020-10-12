@@ -69,7 +69,7 @@
         font-size: $font-size-base;
         padding: 4px 30px;
         border-radius: 10px;
-        background-color:  #e8edff;
+        background-color: #e8edff;
         color: $primary-color;
         margin-top: 16px;
         transition: 0.2s;
@@ -124,6 +124,7 @@
   .our-mission-container {
     flex-direction: column-reverse;
     border-radius: 0;
+
     .our-mission {
       padding: 20px 5px;
     }
@@ -148,6 +149,7 @@
   .our-mission-container {
     flex-direction: column-reverse;
     border-radius: 0;
+
     .our-mission {
       padding: 20px 5px;
     }
@@ -164,6 +166,7 @@
   .our-mission-container {
     flex-direction: column-reverse;
     border-radius: 0;
+
     .our-mission {
       padding: 30px 50px;
     }
