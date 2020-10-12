@@ -142,6 +142,14 @@
     .carousel {
       .carousel-inner {
         .carousel-item {
+            position: relative;
+            .quote-image {
+              position: absolute;
+              z-index: 1;
+              top: 20%;
+              right: 20%;
+              height: 200px;
+          }
           .card {
             display: flex;
             justify-content: space-between;
@@ -154,18 +162,21 @@
             color: $primary-color;
 
             .testimonial-title {
+              z-index: 2;
               font-size: $font-size-text-alt;
               font-family: $font-raleway;
               font-weight: 600;
             }
 
             .testimonial-body {
+              z-index: 2;
               font-size: $font-size-text;
               font-family: $font-lato;
               line-height: 1.22;
             }
 
             .testimonial-source {
+              z-index: 2;
               color: $accent-color;
               font-size: $font-size-text-sm;
               font-family: $font-raleway;
@@ -202,6 +213,7 @@
     .carousel-indicators {
       position: absolute;
       bottom: -50px;
+      z-index: 1;
 
       .active {
         background-color: $accent-color;
