@@ -177,13 +177,13 @@
 
       h3 {
         font-family: $font-raleway;
-        font-size: $font-size-xs;
+        font-size: $font-size-section-title;
         font-weight: $font-weight-semibold;
         line-height: 1.2;
         color: #ffffff;
         display: inline-block;
         padding: 12px 50px;
-        border-radius: 15px;
+        border-radius: 20px;
         box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
         background-color: $primary-color;
       }
@@ -219,7 +219,7 @@
           font-weight: 700;
           line-height: 1.43;
           color: $primary-color;
-          padding: 10px 25px 0;
+          padding: 20px 25px 0;
           margin-bottom: 5px;
         }
 
@@ -229,7 +229,7 @@
           font-weight: normal;
           line-height: 1.5;
           color: $primary-color;
-          padding: 0 25px;
+          padding: 20px 25px;
           margin-bottom: 5px;
         }
 
