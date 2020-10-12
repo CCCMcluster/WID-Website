@@ -113,16 +113,16 @@ function showSlides(n) {
   var slideItem;
   var slides = document.getElementsByClassName("countryGallerySlides");
   var dots = document.getElementsByClassName("galleryImage");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (slideItem = 0; slideItem < slides.length; slideItem++) {
+  if(slides.length) {
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (slideItem = 0; slideItem < slides.length; slideItem++) {
       slides[slideItem].style.display = "none";
-  }
-  for (slideItem = 0; slideItem < dots.length; slideItem++) {
+    }
+    for (slideItem = 0; slideItem < dots.length; slideItem++) {
       dots[slideItem].className = dots[slideItem].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
   }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
 }
-
-

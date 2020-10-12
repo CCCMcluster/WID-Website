@@ -72,10 +72,17 @@
         background-color:  #e8edff;
         color: $primary-color;
         margin-top: 16px;
+        transition: 0.2s;
 
         i {
           margin-left: 15px;
           font-size: 14px;
+        }
+
+        &:hover {
+          color: #ffff;
+          background-color: $primary-color-dark;
+          padding: 4px 33px;
         }
       }
     }

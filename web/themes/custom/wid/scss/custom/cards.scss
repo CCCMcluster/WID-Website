@@ -106,6 +106,8 @@
   .card-content {
     .news-container {
       margin-top: 16px;
+      max-height: 470px;
+      overflow-y: scroll;
     }
 
     .card-title {
@@ -117,6 +119,11 @@
       margin: 0 auto;
       color: $primary-color;
     }
+
+    .news-anchor:hover {
+      text-decoration: none;
+    }
+
     .news-wrapper {
       display: flex;
       justify-content: center;
@@ -124,18 +131,29 @@
       box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.16);
       background-color: #ffffff;
       margin: 10px;
-      padding: 20px 40px;
+      padding: 20px;
+      transition: 0.2s;
+
+      &:hover {
+        box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.16);
+        transform: translateY(-2px);
+      }
+
       .news-image {
         flex: 1;
+
         img {
           width: 100%;
           height: 100%;
           object-fit: cover;
           border-radius: 10px;
         }
+
       }
+
       .news-content {
         flex: 2;
+
         .news-title {
           font-size: $font-size-xs;
           font-family: $font-lato;
@@ -145,7 +163,13 @@
           text-align: left;
           width: 85%;
           margin: 0 auto;
-          padding-bottom: 10px;
+          margin-bottom: 10px;
+
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
         .news-desc {
           font-size: $font-size-xs;
@@ -156,17 +180,29 @@
           text-align: left;
           width: 85%;
           margin: 0 auto;
+
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+      }
+      &:hover {
+        .news-content {
+          .news-desc {
+            -webkit-line-clamp: 3;
+          }
         }
       }
     }
-    a {
-        font-size: $font-size-base;
-      span {
-        padding: 7px 20px;
-        i {
-          padding: 8px;
-          margin-left: 10px;
-        }
+    .btn-white {
+      font-size: $font-size-base;
+      padding: 7px 20px;
+      i {
+        padding: 8px;
+        margin-left: 10px;
       }
     }
   }

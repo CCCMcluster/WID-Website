@@ -60,7 +60,13 @@
   transform: translate(-50%, -50%);
   top: 50%;
   left: 99%;
+  transition: 0.2s;
 }
+
+.report-button:hover {
+  padding: 7px 14px;
+}
+
 .report-button a i {
     font-size: 1rem;
     color: #ffffff;
@@ -92,6 +98,12 @@
 .report-title__alt {
   font-weight: normal;
   font-size: 10px;
+}
+.report-button__alt:hover {
+  background-color: #556cff;
+}
+.report-button__alt:hover a i {
+  color: #ffffff;
 }
 
 .report-country-body {
