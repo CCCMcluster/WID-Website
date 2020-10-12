@@ -189,7 +189,8 @@
   background-color: #e8edff;
   border-radius: 20px;
   position: relative;
-  margin-bottom: 100px 0;
+  margin-bottom: 100px;
+  width: 100%;
 
   .our-key-info-container {
     display: flex;
@@ -329,7 +330,7 @@
         
         .card-groups {
           flex: 4;
-          overflow: hidden;
+          width: 80% !important;
           
           .owl-stage-outer {
             height: 100%;
@@ -675,6 +676,8 @@
           }
 
           .card-groups {
+            width: 100% !important;
+
             .single-card {
               width: 100%;
             }
@@ -803,6 +806,8 @@
           }
 
           .card-groups {
+            width: 100% !important;
+
             .single-card {
               width: 100%;
 
@@ -924,6 +929,8 @@
           }
 
           .card-groups {
+            width: 100% !important;
+
             .single-card {
               width: 100%;
 
