@@ -53,6 +53,9 @@ function wid_preprocess_block(&$variables) {
     $variables['content']['#attributes']['block'] = $variables['attributes']['id'];
   }
   if ($variables['plugin_id'] == 'user_login_block') {
+    $form = Drupal::formBuilder()->getForm(Drupal\user\Form\UserLoginForm::class) ;
+    $render = Drupal::service('renderer');
+    $variables['content']['login_form'] = $render->renderPlain($form);
     $entity = \Drupal::entityTypeManager()->getStorage('user')->create([]);
     $formObject = \Drupal::entityTypeManager()
       ->getFormObject('user', 'register')
