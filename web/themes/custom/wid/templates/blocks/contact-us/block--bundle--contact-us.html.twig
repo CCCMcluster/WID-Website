@@ -39,7 +39,7 @@
     {% if content.field_contact_us_background %}
       {% set contact_us_background_image = file_url(content.field_contact_us_background.0['#item'].entity.uri.value) %}
       <div class="contact-us-background-image" style="background-image: url('{{ contact_us_background_image }}');">
-        <div class="col-lg-9 p-5">
+        <div class="col-lg-10 p-5">
           <div class="row contact-container">
             <div class="col-lg-10 col-md-12 contact-info-content">
               {{ title_prefix }}
@@ -53,7 +53,7 @@
               <div class="row contact-links">
                 {% if content.field_faq_link %}
                   <div class="col-lg-12 col-md-2 contact-link-container m-1">
-                    <i class="contact-link-arrow-button fa fa-arrow-right"></i>
+                    <i class="contact-link-arrow-button ion-android-arrow-forward"></i>
                     <a class="contact-block-social-media-link" href="{{ content.field_faq_link.0['#url'] }}" target="_blank">
                       <img class="contact-block-social-media-icon" src="{{ directory }}/images/icons/question.svg" alt={{ platform }}>
                       <span>
@@ -66,7 +66,7 @@
                 {% if social_media_links %}
                   {% for platform, platform_detail in social_media_links %}
                     <div class="col-lg-12 col-md-2 contact-link-container m-1">
-                      <i class="contact-link-arrow-button fa fa-arrow-right"></i>
+                      <i class="contact-link-arrow-button ion-android-arrow-forward"></i>
                       <a class="contact-block-social-media-link social-media-link-icon--{{ platform }}" href="{{ platform_detail.url }}"
                         target="{{ platform_detail.target }}">
                         <img class="contact-block-social-media-icon" src="{{ directory }}/images/icons/{{ platform }}.png" alt={{ platform }}>
