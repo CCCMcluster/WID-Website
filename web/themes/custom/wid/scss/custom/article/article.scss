@@ -73,6 +73,8 @@
   }
 
   .article-social-media-wrapper {
+    display: flex;
+    align-items: center;
     padding: 25px 0;
 
     .date {
@@ -83,7 +85,6 @@
         font-family: $font-lato;
         font-size: $font-size-text;
         font-weight: normal;
-        line-height: 1.22;
         color: rgba(0, 0, 0, 0.35);
         margin: 0;
       }
