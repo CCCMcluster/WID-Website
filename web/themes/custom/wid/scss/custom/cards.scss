@@ -108,6 +108,20 @@
       margin-top: 16px;
       max-height: 470px;
       overflow-y: scroll;
+
+      &::-webkit-scrollbar {
+        width: 10px;
+      }
+      &::-webkit-scrollbar-track {
+          margin-top: 10px;
+          margin-bottom: 10px;
+
+      }
+      &::-webkit-scrollbar-thumb {
+          border-radius: 1rem;
+          background-color: #fafafa;
+          box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.16);
+      }
     }
 
     .card-title {
