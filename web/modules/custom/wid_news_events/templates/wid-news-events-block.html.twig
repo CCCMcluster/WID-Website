@@ -15,7 +15,7 @@
  * @see template_preprocess_views_view_unformatted()
  */
 #}
-<div class="event-wrapper" style="background: url('/{{ directory }}/images/news-page-background.jpg')">
+<div class="event-wrapper" style="background-image: url('/{{ directory }}/images/news-page-background.jpg')">
   <h2 class="title">News</h2>
   <div class="container">
     <div class="event-container">
@@ -29,7 +29,7 @@
             {% set news_image_alt = single_news.field_featured_media.entity.field_media_image.alt %}
             {% set news_link = path('entity.node.canonical', {'node': single_news.nid.value}) %}
             <div class="single-event">
-              <img src="{{ news_image_url }}" alt="{{ news_image_alt }}">
+              <a href="{{ news_link }}"><img src="{{ news_image_url }}" alt="{{ news_image_alt }}"></a>
               <a href="{{ news_link }}">
                 <h2>{{ title }}</h2>
               </a>
@@ -50,6 +50,7 @@
             {% for event in events %}
               {% set eventTitle = event.title.value %}
               {% set eventDate = event.field_event_date[0].value | date('m/d/Y') %}
+              <a href="#">
               <div class="single-event-list">
                 <span class="date">{{ eventDate }}</span>
                 <span class="event-title">
@@ -70,6 +71,7 @@
                   {% endif %}
               </span>
               </div>
+              </a>
             {% endfor %}
           {% else %}
             <div class="single-event-list">

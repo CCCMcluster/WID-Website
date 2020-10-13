@@ -36,16 +36,16 @@
         <div id="news-cards" class="latest-update-cards">
           {% for single_news in news %}
             <div class="single-card">
+              <a href="{{ single_news.link }}">
               {% if single_news.url %}
                 <img src="{{ single_news.url }}" alt="news">
               {% endif %}
-              <a href="{{ single_news.link }}">
                 <h2>{{ single_news.title }}</h2>
-              </a>
               <p>
                 {% autoescape false %}{{ single_news.body|length > 80 ? single_news.body|slice(0, 80) : single_news.body }}{% endautoescape %}
               </p>
               <span>{{ single_news.created_date }}</span>
+              </a>
             </div>
           {% endfor %}
         </div>
