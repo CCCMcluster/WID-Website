@@ -56,8 +56,13 @@
               .email-input {
                 display: block;
                 padding: 10px 15px;
+                font-size: $font-size-text-sm;
+                color: $primary-color;
+                font-family: $font-lato;
+
 
                 &::placeholder {
+                  font-family: $font-lato;
                   font-size: 12px;
                   font-weight: normal;
                   line-height: 1.13;
@@ -147,13 +152,17 @@
                       display: none;
                       display: block;
                       padding: 10px 15px;
+                      font-size: $font-size-text-sm;
+                      color: $primary-color;
+                      font-family: $font-lato;
 
                       &::placeholder {
-                        font-size: 12px;
+                        font-size: $font-size-xs;
                         font-weight: normal;
                         line-height: 1.13;
                         color: $primary-color;
                         padding-left: 15px;
+                        font-family: $font-lato;
                       }
                     }
 
