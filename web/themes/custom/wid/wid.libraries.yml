@@ -3,13 +3,11 @@ global-styling:
   js:
     js/popper.min.js: {}
     js/bootstrap.min.js: {}
-    https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js: {type:external}
+    js/owl.carousel.min.js: {}
     js/global.js: {}
   css:
     component:
       css/style.min.css: {}
-      https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css: {type:external}
-      https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css: {type:external}
   dependencies:
     - core/jquery
     - core/drupal
