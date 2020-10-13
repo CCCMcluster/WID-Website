@@ -41,14 +41,15 @@
                 {% set news_image_url = file_url(entity.field_featured_media.entity.field_media_image.entity.fileuri | image_style('large')) %}
                 {% set news_image_alt = entity.field_featured_media.entity.field_media_image.alt %}
                 {% set news_link = path('entity.node.canonical', {'node': entity.nid.value}) %}
-                <img src="{{ news_image_url }}" alt="{{ news_image_alt }}"/>
                 <a href="{{ news_link }}">
+
+                <img src="{{ news_image_url }}" alt="{{ news_image_alt }}"/>
                   <h2>{{ title }}</h2>
-                </a>
                 <p>
                   {% autoescape false %}{{ text|length > 80 ? text|slice(0, 80) : text }}{% endautoescape %}
                 </p>
                 <span>{{ news_created_date }}</span>
+                </a>
               </div>
             {% endfor %}
           </div>
