@@ -52,6 +52,20 @@ function wid_preprocess_block(&$variables) {
   if (isset($variables['attributes']['id'])) {
     $variables['content']['#attributes']['block'] = $variables['attributes']['id'];
   }
+  if ($variables['plugin_id'] == 'user_login_block') {
+    $entity = \Drupal::entityTypeManager()->getStorage('user')->create([]);
+    $formObject = \Drupal::entityTypeManager()
+      ->getFormObject('user', 'register')
+      ->setEntity($entity);
+    $form = \Drupal::formBuilder()->getForm($formObject);
+    $variables['content']['register_form'] = \Drupal::service('renderer')
+      ->render($form);
+  }
+  if ($variables['plugin_id'] == 'social_auth_login') {
+    if (isset($variables['content']['#social_networks']['social_auth_hid']['img_path'])) {
+      $variables['content']['#social_networks']['social_auth_hid']['img_path'] = 'themes/custom/wid/images/hid-logo.svg';
+    }
+  }
 }
 
 /**
@@ -74,6 +88,17 @@ function wid_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state
     $form['actions']['submit']['button']['#markup'] = '<i class="ml-2 ion-android-arrow-forward" aria-hidden="true"></i>';
   }
   if ($form_id == 'user_login_form') {
-    
+    $form['actions']['submit']['#prefix'] = '<div class="login-button">';
+    $form['actions']['submit']['#suffix'] = '</div>';
+    $form['actions']['submit']['#attributes']['class'][] = 'login-button';
+    $form['actions']['submit']['#value'] = t('Enter');
+    $form['actions']['submit']['button']['#markup'] = '<i class="ion-android-arrow-forward" aria-hidden="true"></i>';
+  }
+  if ($form_id == 'user_register_form') {
+    $form['actions']['submit']['#prefix'] = '<div class="signup-button">';
+    $form['actions']['submit']['#suffix'] = '</div>';
+    $form['actions']['submit']['#attributes']['class'][] = 'signup-button';
+    $form['actions']['submit']['#value'] = t('Sign up');
+    $form['actions']['submit']['button']['#markup'] = '<i class="ion-android-arrow-forward" aria-hidden="true"></i>';
   }
 }
