@@ -64,7 +64,6 @@
     justify-content: center;
     align-items: center;
     background-color: $white;
-    border-bottom: 4px solid $accent-alt-color;
     padding: 100px 0;
 
     .baseline-endline-content {
@@ -163,11 +162,12 @@
                     }
 
                     .download-button {
+                        margin-top: 2px;
                         text-decoration: none;
                         font-family: $font-lato;
                         font-size: $font-size-xs;
-                        padding: 6px 10px;
-                        border-radius: 10px;
+                        padding: 4px 10px;
+                        border-radius: 15px;
                         background-color: $accent-color;
                         color: $white;
                     }
@@ -193,6 +193,9 @@
             }
 
             .global-report-row-content {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
                 
                 .global-report-row-title {
                     text-transform: uppercase;
@@ -248,9 +251,9 @@
     }
 }
 
-.baseline-hr {
+.baseline-saparater {
     box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.16);
-    background-color: $accent-alt-color;
+    background-color: $accent-color;
     height: 5px;
     margin: 0;
 }
