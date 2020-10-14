@@ -125,6 +125,10 @@
             box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.16);
 
             .our-single-country-image-view {
+                background-color: whitesmoke;
+                border-top-left-radius: 10px;
+                border-bottom-left-radius: 10px;
+
                 .our-single-country-image {
                     overflow: hidden;
                     height: 100%;
@@ -228,15 +232,15 @@
             background-color: $accent-color;
             color: $white;
             font-family: $font-raleway;
-            font-size: $font-size-xl-alt;
+            font-size: $font-size-title;
             border-radius: 40px;
             box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
         }
 
         .single-country-gallery-container {
-            padding: 10px;
+            padding: 20px 20px 10px 20px;
             background-color: $white;
-            border-radius: 10px;
+            border-radius: 15px;
             box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 
             .countryGallerySlides {
@@ -244,6 +248,8 @@
 
                 img {
                     height: 600px;
+                    border-top-left-radius: 15px;
+                    border-top-right-radius: 15px;
                     object-fit: cover;
                 }
             }
@@ -264,6 +270,7 @@
                     .galleryImage {
                         height: 80px;
                         width: 80px;
+                        object-fit: cover;
                         border-radius: 10px;
                         margin: 5px;
                         opacity: 0.9;
