@@ -142,13 +142,13 @@
     .carousel {
       .carousel-inner {
         .carousel-item {
-            position: relative;
-            .quote-image {
-              position: absolute;
-              z-index: 1;
-              top: 20%;
-              right: 20%;
-              height: 200px;
+          position: relative;
+          .quote-image {
+            position: absolute;
+            z-index: 1;
+            top: 25%;
+            right: 25%;
+            height: 160px;
           }
           .card {
             display: flex;
@@ -189,24 +189,24 @@
 
       .control-left {
         position: absolute;
-        top: 50%;
-        left: -13px;
-        padding: 8px 15px;
-        border-radius: 15px;
+        top: 45%;
+        left: -18px;
+        padding: 5px 14px;
+        border-radius: 20px;
         background-color: $accent-color;
         color: $white;
-        font-size: 10px;
+        font-size: $font-size-text;
       }
 
       .control-right {
-        top: 50%;
+        top: 45%;
         position: absolute;
-        right: -13px;
-        padding: 8px 15px;
-        border-radius: 15px;
+        right: -18px;
+        padding: 5px 14px;
+        border-radius: 20px;
         background-color: $accent-color;
         color: $white;
-        font-size: 10px;
+        font-size: $font-size-text;
       }
     }
 

@@ -47,6 +47,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        font-family: $font-lato;
         font-size: $font-size-base;
         padding: 4px 30px;
         border-radius: 10px;
@@ -57,7 +58,7 @@
 
         i {
           margin-left: 15px;
-          font-size: 14px;
+          font-size: $font-size-base;
         }
         &:hover {
           background-color: $primary-color-dark;

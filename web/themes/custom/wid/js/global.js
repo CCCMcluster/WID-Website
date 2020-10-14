@@ -74,12 +74,12 @@
     navText: [
       `
         <div class="carousel-card-button carousel-card-button-left">
-          <i class="fa fa-arrow-left"></i>
+          <i class="ion-android-arrow-forward"></i>
         </div>
       `,
       `
         <div class="carousel-card-button carousel-card-button-right">
-          <i class="fa fa-arrow-right"></i>
+          <i class="ion-android-arrow-forward"></i>
         </div>
       `
     ],

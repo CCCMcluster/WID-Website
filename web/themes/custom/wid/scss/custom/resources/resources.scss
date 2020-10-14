@@ -126,7 +126,7 @@
       background-color: $primary-color;
       display: inline-block;
       padding: 10px 75px;
-      margin: 50px 0 75px;
+      margin-top: 50px;
       border-radius: 20px;
       box-shadow: 0 3px 6px 0 rgba(59, 54, 54, 0.16);
     }
@@ -258,28 +258,30 @@
         align-items: center;
         border-radius: 10px;
         color: $primary-color;
+        transition: 0.3s;
 
         &:hover {
           background-color: $primary-color;
           color: $white;
-
-          a {
-            i {
-              color: $white;
-            }
-          }
+          transform: translateY(-3px);
         }
 
         img {
           height: 50px;
           width: 60px;
           object-fit: contain;
+          background-color: $white;
+          border-radius: 5px;
         }
 
         p {
           font-size: $font-size-text-alt;
           font-family: $font-lato;
           padding-top: 10px;
+        }
+
+        i {
+          font-size: $font-size-text-alt;
         }
       }
 
@@ -440,7 +442,7 @@
         }
 
         .carousel-card-button {
-          padding: 10px 12px;
+          padding: 6px 12px;
           box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.16);
           background-color: $accent-alt-color;
           display: flex;
@@ -474,7 +476,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 250px 0 100px;
+  padding: 120px 0;
 
   .resources-media-container {
     display: flex;
@@ -482,7 +484,7 @@
     align-items: center;
     box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.16);
     background-color: #e8edff;
-    padding-top: 100px;
+    padding-top: 80px;
     border-radius: 20px;
     position: relative;
 
@@ -504,7 +506,7 @@
       gap: 40px;
       width: 80%;
       margin: 0 auto;
-      padding: 100px 0 200px;
+      padding: 80px 0 100px;
 
       .resources-main-video {
         flex: 2;
