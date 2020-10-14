@@ -191,22 +191,22 @@
         position: absolute;
         top: 45%;
         left: -18px;
-        padding: 5px 14px;
-        border-radius: 20px;
+        padding: 5px 15px;
+        border-radius: 18px;
         background-color: $accent-color;
         color: $white;
-        font-size: $font-size-text;
+        font-size: $font-size-text-alt;
       }
 
       .control-right {
         top: 45%;
         position: absolute;
         right: -18px;
-        padding: 5px 14px;
-        border-radius: 20px;
+        padding: 5px 15px;
+        border-radius: 18px;
         background-color: $accent-color;
         color: $white;
-        font-size: $font-size-text;
+        font-size: $font-size-text-alt;
       }
     }
 
