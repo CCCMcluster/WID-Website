@@ -8,6 +8,7 @@ use Drupal;
 use Drupal\node\Entity\Node;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Drupal\Core\Url;
 
 /**
  * Class MapController.
@@ -94,6 +95,7 @@ class MapController extends ControllerBase {
         $mapData[0]['body'] = $country_overview[2];
         $mapData[0]['country'] = $country_overview[1];
         $mapData[0]['iso_2'] = $country_overview[3];
+        $mapData[0]['url'] = 'reports/country/' . strtolower($country_overview[3]);
       }
       $index = 1;
       foreach ($nodes as $key => $node) {
@@ -110,6 +112,7 @@ class MapController extends ControllerBase {
         }
         $mapData[$index]['iso_2'] = $node->get('field_report_country')
           ->getValue()[0]['value'];
+        $mapData[$index]['url'] = Url::fromRoute('entity.node.canonical', ['node' => $node->id()])->toString();
         $index++;
       }
       return new JsonResponse($mapData);
