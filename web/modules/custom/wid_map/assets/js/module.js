@@ -82,7 +82,7 @@
           reportElement.append('div')
             .attr('class','report-button')
             .classed('report-button__alt', index!==0)
-            .append('a').attr('href',"#")
+            .append('a').attr('href',report.url)
             .append('i').attr('class','fa fa-arrow-right');
           reportElement.append('p')
             .attr('class', 'report-country')
