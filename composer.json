@@ -38,6 +38,7 @@
         "drupal/panels": "^4.6",
         "drupal/pathauto": "^1.8",
         "drupal/search_api": "^1.17",
+        "drupal/social_auth_hid": "~2.0",
         "drupal/social_media_links": "^2.7",
         "drupal/token": "^1.7",
         "drupal/twig_tweak": "^2.6",

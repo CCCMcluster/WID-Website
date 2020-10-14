@@ -1,5 +1,7 @@
 /* IMPORTS */
-@import url("https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css");
+@import "../node_modules/ionicons/css/ionicons.min.css";
+@import "../node_modules/owl.carousel/dist/assets/owl.carousel.min.css";
+@import "../node_modules/owl.carousel/dist/assets/owl.theme.default.min.css";
 //@import url(font-awesome.min.css);
 // variables
 @import "variables";
@@ -42,3 +44,4 @@
 @import "custom/toolkit/toolkit-item";
 @import "custom/report/report-item";
 @import "custom/toolkit/toolkit-evidence.scss";
+@import "custom/login";
