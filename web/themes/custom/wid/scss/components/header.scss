@@ -49,14 +49,17 @@
     align-items: center;
 
     .user-icon {
-        height: 35px !important;
+        height: 40px !important;
     }
 
     .login-btn {
+        margin-left: 5px;
         font-family: $font-lato;
         color: $primary-color;
         background-color: $white;
         border-radius: 20px;
+        font-size: $font-size-text-sm;
+        font-weight: 600;
 
         &:hover {
             box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.16);
