@@ -41,3 +41,25 @@
         float: none;
     }
 }
+
+.user-auth-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+
+    .user-icon {
+        height: 35px !important;
+    }
+
+    .login-btn {
+        font-family: $font-lato;
+        color: $primary-color;
+        background-color: $white;
+        border-radius: 20px;
+
+        &:hover {
+            box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.16);
+        }
+    }
+}
