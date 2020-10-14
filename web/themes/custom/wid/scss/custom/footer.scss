@@ -47,7 +47,7 @@
 
               input {
                 border-radius: 10px;
-                box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.16);
+                box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.12);
                 background-color: #ffffff;
                 border: none;
                 display: none;
@@ -76,7 +76,7 @@
                 padding: 4px 12px;
                 margin-left: 15px;
                 border-radius: 10px;
-                box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.16);
+                box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.12);
                 background-color: #ffffff;
                 border: none;
                 transition: 0.4s;
@@ -85,7 +85,8 @@
                   font-size: $font-size-text-alt;
                   color: $primary-color;
                 }
-                &:hover{
+
+                &:hover {
                   transform: scale(1.05);
                 }
               }
@@ -175,7 +176,7 @@
                       background-color: #ffffff;
                       border: none;
 
-                      &:hover{
+                      &:hover {
                         transform: scale(1.05);
                       }
 

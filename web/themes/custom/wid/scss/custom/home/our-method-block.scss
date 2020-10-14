@@ -1,6 +1,6 @@
 .our-method-container {
   background-color: $primary-color;
-  margin: 50px 0 50px 0;
+  margin: 50px 0 100px;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
 
@@ -16,7 +16,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 18px;
     text-align: center;
     color: #fff;
 
@@ -85,6 +85,7 @@
 
 @media (min-width: 481px) and (max-width: 767px) {
   .our-method-container {
+    margin: 50px 0;
     border-radius: 0;
 
     .our-method {
