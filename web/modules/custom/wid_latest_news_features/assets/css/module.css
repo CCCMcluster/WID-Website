@@ -12,14 +12,15 @@
 .featured-news .col-md-8,
 .featured-news .col-md-9 {
   padding: 0 2px 2px;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 .featured-news .col-md-3{
+  padding: 0 0px 2px;
   margin-bottom: 12px;
 }
-/* .banner-wrapper {
-  cursor: pointer;
-}*/
+.banner-wrapper {
+  position: relative;
+}
 .banner-desc {
   transition: 0.4s;
 }

@@ -48,7 +48,7 @@ body {
             margin-right: 100px;
 
             .nav-item {
-              margin: 0 8px;
+              margin: 0 16px;
 
               a {
                 font-family: $font-raleway;
@@ -56,20 +56,16 @@ body {
                 font-weight: $font-weight-semibold;
                 line-height: 1.18;
                 transition: 0.4s;
-                color: #dadada;
-              }
-
-              &:hover {
-                a {
-                  color: #ffffff;
-                }
+                color: #ffffff;
+                padding-left: 0;
+                padding-right: 0;
               }
 
               &.active {
                 border-bottom: 3px solid white;
 
                 a {
-                  color: #ffffff;
+                  font-weight: $font-weight-semibold;
                 }
               }
             }
