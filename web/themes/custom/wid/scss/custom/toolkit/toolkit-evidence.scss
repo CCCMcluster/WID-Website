@@ -44,10 +44,15 @@
         }
 
         .workshop-row-content {
+          a {
+            text-decoration: none;
+          }
+
           .workshop-row-title {
             font-size: $font-size-text-alt;
             font-family: $font-raleway;
             font-weight: 600;
+            color: $primary-color;
           }
 
           .workshop-row-body {
@@ -136,13 +141,14 @@
       padding: 10px 75px;
       border-radius: 20px;
       box-shadow: 0 3px 6px 0 rgba(59, 54, 54, 0.16);
-      margin-bottom: 40px;
+      margin-bottom: 75px;
     }
 
     .carousel {
       .carousel-inner {
         .carousel-item {
           position: relative;
+
           .quote-image {
             position: absolute;
             z-index: 1;
@@ -150,6 +156,7 @@
             right: 25%;
             height: 160px;
           }
+
           .card {
             display: flex;
             justify-content: space-between;
@@ -288,7 +295,7 @@
     }
 
     .non-leaders-content {
-        border-radius: 0;
+      border-radius: 0;
     }
 
     .testimonial-slide-content {
@@ -373,8 +380,8 @@
       }
     }
 
-    .non-leaders-content{
-        border-radius: 0;
+    .non-leaders-content {
+      border-radius: 0;
     }
 
     .testimonial-slide-content {
@@ -459,8 +466,8 @@
       }
     }
 
-    .non-leaders-content{
-        border-radius: 0;
+    .non-leaders-content {
+      border-radius: 0;
     }
 
     .testimonial-slide-content {

@@ -45,7 +45,7 @@
   }
 
   .project-design-steps {
-    padding: 200px 0 50px;
+    padding: 100px 0 50px;
 
     .design-steps {
       background-size: contain;
@@ -75,8 +75,8 @@
               text-align: center;
               background-color: #ffffff;
               border-radius: 50%;
-              height: 125px;
-              width: 125px;
+              height: 100px;
+              width: 100px;
               gap: 20px;
               cursor: pointer;
               transition: 0.4s;
@@ -138,8 +138,8 @@
         text-align: center;
         background-color: #ffffff;
         border-radius: 50%;
-        height: 125px;
-        width: 125px;
+        height: 100px;
+        width: 100px;
         padding: 10px;
         font-family: $font-lato;
         font-size: $font-size-title-xs;
@@ -360,7 +360,7 @@
     }
 
     .project-design-steps {
-      padding: 200px 0 0;
+      padding: 100px 0 0;
 
       .design-steps-detail-wrapper {
         flex-direction: column;
@@ -422,7 +422,7 @@
     }
 
     .project-design-steps {
-      padding: 200px 0 0;
+      padding: 100px 0 0;
 
       .design-steps-detail-wrapper {
         flex-direction: column;
@@ -484,7 +484,7 @@
     }
 
     .project-design-steps {
-      padding: 200px 0 0;
+      padding: 100px 0 0;
 
       .design-steps-detail-wrapper {
         flex-direction: column;

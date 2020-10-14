@@ -94,9 +94,8 @@
       background: $accent-alt-light-color;
       box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.16);
       border-radius: 40px;
-      margin-top: 50px;
-      // width: 85%;
-      // margin: 0 auto;
+      width: 80%;
+      margin: 50px auto 0;
 
       .approach-steps {
         background-size: contain;
@@ -199,8 +198,8 @@
           text-align: center;
           background-color: $primary-color-lighter;
           border-radius: 50%;
-          height: 350px;
-          width: 350px;
+          height: 250px;
+          width: 250px;
           font-family: $font-lato;
           font-size: $font-size-title;
           font-weight: normal;
