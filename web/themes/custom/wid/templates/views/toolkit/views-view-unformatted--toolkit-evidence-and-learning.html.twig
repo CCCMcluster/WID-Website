@@ -141,7 +141,7 @@
     </div>
     {% if rows|keys|last == view_index_max %}
       <div class="testimonial-slide-content">
-        <h1 class="testimonial-slide-content-title mb-4">Testimonials from Beneficiaries:</h1>
+        <h1 class="testimonial-slide-content-title">Testimonials from Beneficiaries:</h1>
         <div id="toolkitTestimonialSlide" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner" role="listbox">
             {% set testimonials = drupal_view_result('testimonial','block_2') %}

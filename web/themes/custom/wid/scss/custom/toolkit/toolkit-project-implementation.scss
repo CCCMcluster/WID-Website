@@ -123,20 +123,22 @@
       padding: 10px 75px;
       border-radius: 20px;
       box-shadow: 0 3px 6px 0 rgba(59, 54, 54, 0.16);
-      margin-bottom: 40px;
+      margin-bottom: 75px;
     }
 
     .carousel {
       .carousel-inner {
         .carousel-item {
           position: relative;
+
           .quote-image {
-              position: absolute;
-              z-index: 1;
-              top: 25%;
-              right: 25%;
-              height: 160px;
+            position: absolute;
+            z-index: 1;
+            top: 25%;
+            right: 25%;
+            height: 160px;
           }
+
           .card {
             display: flex;
             justify-content: space-between;

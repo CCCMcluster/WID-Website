@@ -36,13 +36,12 @@
           border-radius: 20px;
           color: $primary-color;
           box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+          overflow: hidden;
 
           .image-container {
             height: 550px;
             width: 100%;
             background-color: #F5F5F5;
-            border-top-left-radius: 20px;
-            border-bottom-left-radius: 20px;
             object-fit: cover;
           }
 
