@@ -132,6 +132,14 @@
             transform: translateY(-3px);
           }
 
+          &.active {
+              .event-title {
+                a {
+                -webkit-line-clamp: 4;
+              }
+            }
+          }
+
           .date {
             font-family: $font-lato;
             font-size: $font-size-text-sm;
@@ -141,12 +149,23 @@
           }
 
           .event-title {
+            flex: 1;
+            padding: 0 18px;
+
             a {
               font-family: $font-lato;
               font-size: $font-size-base;
               line-height: 1.22;
               color: $primary-color;
               text-decoration: none;
+              transition: 0.4s;
+              text-align: left;
+
+              display: -webkit-box;
+              -webkit-line-clamp: 1;
+              -webkit-box-orient: vertical;
+              overflow: hidden;
+              text-overflow: ellipsis;
             }
           }
 

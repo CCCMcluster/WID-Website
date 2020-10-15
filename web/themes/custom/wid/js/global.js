@@ -47,8 +47,7 @@
       } else {
         panel.style.maxHeight = panel.scrollHeight + "px";
       }
-    });
-  }
+    }); }
 
   $('#toolkitTestimonialSlide').find('.carousel-item').first().addClass('active');
   $('#toolkitTestimonialSlideIndicator').find('.item-indicator').first().addClass('active');
@@ -97,6 +96,10 @@
         items: 3,
       }
     }
+  });
+
+  $('.single-event-list').on('click', function() {
+    $(this).toggleClass("active");
   });
 })(jQuery, Drupal);
 
