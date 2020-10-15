@@ -63,7 +63,7 @@
                           Download
                         </a>
                       {% elseif workshop.document %}
-                        {% set fileExtension = workshop.document.type|split('/')[1] %}
+                        {% set fileExtension = workshop.document.type %}
                         <img src="/{{ directory }}/images/icons/{{ fileExtension }}.svg" alt={{ fileExtension }}/>
                         <a class="download-button" href="{{ workshop.document.url }}" download>
                           Download

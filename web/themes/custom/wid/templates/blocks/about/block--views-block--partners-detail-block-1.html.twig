@@ -20,11 +20,12 @@
             {% set partner_title = partner.title.value %}
             {% set partner_description = partner.body.value %}
             {% set partner_link = partner.field_url[0].uri %}
-            {% set partner_cover_image = file_url(partner.field_partner_cover_image.entity.uri.value | image_style('large')) %}
+            {% set partner_cover_image = file_url(partner.field_partner_cover_image.entity.uri.value | image_style('hd')) %}
             {% set partner_cover_image_alt = partner.field_partner_cover_image.alt %}
             {% set partner_logo = media_file_url(partner.field_partner_image.value.0.target_id) %}
             {% set partner_logo_alt = partner.field_partner_image.entity.field_media_image.value.0.alt %}
-            <div class="partner-wrapper row">
+            {% set partner_id = 'partner-' ~ partner.nid.value %}
+            <div class="partner-wrapper row" id="{{ partner_id }}">
               <div class="col-sm-12 col-md-12 col-lg-6 info-container p-5">
                 <div class="text-info-content">
                   <div class="partner-title pb-4">
