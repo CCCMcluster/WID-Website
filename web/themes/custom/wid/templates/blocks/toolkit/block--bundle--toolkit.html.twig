@@ -78,7 +78,9 @@
                 {{ text|length > 390 ? text|slice(0, 390) ~ '...' : text }}
               {% endautoescape %}
               <div class="card-button">
-                <a href="{{ attribute(toolkitPhaseUrl[loop_index], 'url') }}"><i class="fa fa-arrow-right"></i></a>
+                <a href="{{ attribute(toolkitPhaseUrl[loop_index], 'url') }}">
+                  <i class="ion-android-arrow-forward"></i>
+                </a>
               </div>
             </div>
           {% endfor %}

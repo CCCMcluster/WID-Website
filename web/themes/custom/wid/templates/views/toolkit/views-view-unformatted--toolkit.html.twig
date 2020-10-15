@@ -69,13 +69,13 @@
         <div{{ row.attributes.addClass(row_classes) }}>
           {% if previousToolkitPhaseUrl %}
             <div class="card-button card-button-left">
-              <a href="{{ previousToolkitPhaseUrl }}"><i class="fa fa-arrow-left"></i></a>
+              <a href="{{ previousToolkitPhaseUrl }}"><i class="ion-android-arrow-back"></i></a>
             </div>
           {% endif %}
           {{- row.content -}}
           {% if nextToolkitPhaseUrl %}
             <div class="card-button card-button-right">
-              <a href="{{ nextToolkitPhaseUrl }}"><i class="fa fa-arrow-right"></i></a>
+              <a href="{{ nextToolkitPhaseUrl }}"><i class="ion-android-arrow-forward"></i></a>
             </div>
           {% endif %}
         </div>
