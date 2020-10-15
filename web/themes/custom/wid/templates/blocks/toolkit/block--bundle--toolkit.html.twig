@@ -71,6 +71,7 @@
           {% for vocabulary_tree in vocabulary_trees %}
             {% set loop_index = loop.index - 1 %}
             <div class="steps-card" id="card-{{ loop.index }}">
+              <a href="{{ attribute(toolkitPhaseUrl[loop_index], 'url') }}">
               <h3>{{ loop.index }} . {{ vocabulary_tree.name }}</h3>
               {% set taxonomy_term = load_tax_term(vocabulary_tree.id) %}
               {% autoescape false %}
@@ -78,10 +79,9 @@
                 {{ text|length > 390 ? text|slice(0, 390) ~ '...' : text }}
               {% endautoescape %}
               <div class="card-button">
-                <a href="{{ attribute(toolkitPhaseUrl[loop_index], 'url') }}">
                   <i class="ion-android-arrow-forward"></i>
-                </a>
               </div>
+              </a>
             </div>
           {% endfor %}
         </div>

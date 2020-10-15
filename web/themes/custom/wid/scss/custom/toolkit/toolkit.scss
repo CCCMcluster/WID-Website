@@ -219,6 +219,10 @@
     text-align: center;
     padding: 100px 0;
 
+    a {
+      text-decoration: none;
+    }
+
     h2 {
       font-family: $font-raleway;
       font-size: $font-size-section-title;
@@ -281,6 +285,7 @@
           color: $primary-color;
           width: 80%;
           text-align: center;
+          margin: 0 auto;
         }
 
         .card-button {
