@@ -50,14 +50,13 @@
             {% for event in events %}
               {% set eventTitle = event.title.value %}
               {% set eventDate = event.field_event_date[0].value | date('m/d/Y') %}
-              <a href="#">
               <div class="single-event-list">
                 <span class="date">{{ eventDate }}</span>
                 <span class="event-title">
                   {% if loop.first %}
                     <a href="#">{{ eventTitle }}</a>
                   {% else %}
-                    <a href="#">{{ eventTitle|length > 20 ? eventTitle|slice(0, 20) ~ '...' : eventTitle }}</a>
+                    <a href="#">{{ eventTitle }}</a>
                   {% endif %}
                 </span>
                 <span class="event-icons">
@@ -71,7 +70,6 @@
                   {% endif %}
               </span>
               </div>
-              </a>
             {% endfor %}
           {% else %}
             <div class="single-event-list">

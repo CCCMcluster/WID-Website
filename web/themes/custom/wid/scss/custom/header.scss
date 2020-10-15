@@ -1,5 +1,6 @@
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 #content {
@@ -8,6 +9,10 @@ html {
 
 .row {
   margin: 0;
+}
+
+.navbar-brand {
+  filter: brightness(10);
 }
 
 body {
@@ -55,10 +60,17 @@ body {
                 font-size: $font-size-text-alt;
                 font-weight: $font-weight-semibold;
                 line-height: 1.18;
-                transition: 0.4s;
+                transition: 0.2s;
                 color: #ffffff;
                 padding-left: 0;
                 padding-right: 0;
+              }
+
+              &:hover {
+
+                a {
+                 transform: translateY(-2px);
+                }
               }
 
               &.active {
