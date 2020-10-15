@@ -53,11 +53,7 @@
               <div class="single-event-list">
                 <span class="date">{{ eventDate }}</span>
                 <span class="event-title">
-                  {% if loop.first %}
-                    <a href="#">{{ eventTitle }}</a>
-                  {% else %}
-                    <a href="#">{{ eventTitle }}</a>
-                  {% endif %}
+                  <a>{{ eventTitle }}</a>
                 </span>
                 <span class="event-icons">
                   {% if event.field_event_attachment_type.value == 'Document' %}
