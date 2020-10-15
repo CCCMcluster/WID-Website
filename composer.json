@@ -33,6 +33,7 @@
         "drupal/devel": "^4.0",
         "drupal/ds": "^3.9",
         "drupal/honeypot": "^2.0",
+        "drupal/lazy": "^3.5",
         "drupal/mailchimp": "^1.11",
         "drupal/page_manager": "^4.0@beta",
         "drupal/panels": "^4.6",
