@@ -64,20 +64,51 @@ body {
                 color: #ffffff;
                 padding-left: 0;
                 padding-right: 0;
+                display: inline-block;
               }
 
               &:hover {
 
                 a {
-                 transform: translateY(-2px);
+                  transform: translateY(-2px);
                 }
               }
 
               &.active {
-                border-bottom: 3px solid white;
 
                 a {
                   font-weight: $font-weight-semibold;
+                }
+              }
+
+              .nav-link {
+                &.active {
+                  border-bottom: 3px solid white;
+                }
+              }
+            }
+          }
+
+          .user-auth-info {
+            float: left;
+
+            .navbar-nav {
+              margin: 0;
+
+              .dropdown-menu {
+                left: unset;
+                right: 0;
+                padding: 20px 0;
+                background-color: $primary-color-light;
+
+                a {
+                  color: $primary-color;
+                  padding: 4px 20px;
+                  margin: 4px 0;
+
+                  &:hover {
+                    color: $primary-color-dark !important;
+                  }
                 }
               }
             }
