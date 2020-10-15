@@ -24,7 +24,7 @@
       .about-us-header-card {
         background-color: $white;
         margin: 0 150px;
-        padding: 40px 100px;
+        padding: 50px 100px;
         border-radius: 15px;
         text-align: center;
 
@@ -89,6 +89,7 @@
             justify-content: space-between;
 
             .text-info-content {
+              margin-bottom: 30px;
 
               .partner-title {
                 font-size: $font-size-title;
@@ -105,14 +106,27 @@
             .partner-website-content {
 
               a {
-                padding: 5px 25px;
+                padding: 7px 25px;
                 border-radius: 10px;
                 background-color: $primary-color;
                 color: $white;
                 text-decoration: none;
+                box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.08);
+                transition: 0.4s;
 
                 i {
                   padding-left: 10px;
+                }
+
+                &:hover {
+                  color: $primary-color;
+                  background: #ffffff;
+                  transform: scale(1.02);
+                  border: transparent;
+                }
+
+                &:hover i {
+                  color: $primary-color;
                 }
               }
             }
@@ -135,7 +149,7 @@
               display: flex;
               justify-content: center;
               align-items: center;
-  
+
               img {
                 height: 80px;
                 width: 80px;
@@ -191,7 +205,7 @@
     .about-header-block {
       .about-us-background-image {
         padding: 50px 0;
-  
+
         .about-us-header-card {
           margin: 0 10px;
           padding: 20px 50px;
@@ -203,50 +217,50 @@
 
   .block-views-blockpartners-detail-block-1 {
     padding: 40px 0;
-  
+
     .content {
       .container {
-  
+
         .about-our-partners {
           padding: 0 5px;
 
           .partner-wrapper {
             border-radius: 20px;
-            
+
             .info-container {
-  
+
               .text-info-content {
-  
+
                 .partner-title {
                   font-size: $font-size-title;
                   font-weight: 600;
                   font-family: $font-raleway;
                 }
-  
+
                 .partner-description {
                   font-size: $font-size-base;
                   font-family: $font-lato;
                 }
               }
-  
+
               .partner-website-content {
-  
+
                 a {
                   padding: 3px 20px;
                   border-radius: 10px;
                   background-color: $primary-color;
                   color: $white;
                   text-decoration: none;
-  
+
                   i {
                     padding-left: 10px;
                   }
                 }
               }
             }
-  
+
             .cover-image-container {
-             
+
               img {
                 border-top-left-radius: 10px;
                 border-top-right-radius: 10px;
@@ -264,11 +278,11 @@
                 }
               }
             }
-  
+
             &:nth-last-child(odd) {
               flex-direction: column-reverse;
             }
-  
+
             &:nth-last-child(even) {
               flex-direction: column-reverse;
             }
