@@ -51,7 +51,7 @@ class InceptionPhaseController extends ControllerBase {
           ->getSourceFieldValue($document_tid);
         $document_file = File::load($document_fid);
         $document_file_size = $document_file->getSize();
-        $document_file_type = $document_file->getMimeType();
+        $document_file_type = pathinfo($document_file->getFilename(), PATHINFO_EXTENSION);
         $document_url = $document_file->createFileUrl();
         $document = [
           'url' => $document_url,
