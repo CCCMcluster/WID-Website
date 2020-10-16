@@ -31,17 +31,17 @@
     {% endif %}
     <div class="our-single-country-scroll-content">
       {% for row in rows %}
-        <div class="our-single-country-views-row row">
-          <div class="our-single-country-image-view col-sm-12 col-md-12 col-lg-3 p-0 m-0 overflow-auto">
-            {% set news_image = entity.field_report_image.entity.field_media_image.entity.fileuri %}
-            {% if news_image %}
-              {% set news_image_url = file_url(entity.field_report_image.entity.field_media_image.entity.fileuri | image_style('large')) %}
-              {% set news_image_alt = entity.field_report_image.entity.field_media_image.alt %}
+        <div class="our-single-country-views-row">
+          {% set news_image = entity.field_report_image.entity.field_media_image.entity.fileuri %}
+              {% if news_image %}
+                {% set news_image_url = file_url(entity.field_report_image.entity.field_media_image.entity.fileuri | image_style('large')) %}
+                {% set news_image_alt = entity.field_report_image.entity.field_media_image.alt %}
+          <div class="our-single-country-image-view p-0 m-0 overflow-auto">
               <img class="img-fluid w-100 our-single-country-image" src="{{ news_image_url }}"
                    alt="{{ news_image_alt }}"/>
-            {% endif %}
           </div>
-          <div class="our-single-country-content-view col-sm-12 col-md-12 col-lg-9 pt-3 pb-1 px-3 m-0">
+          {% endif %}
+          <div class="our-single-country-content-view pt-3 pb-1 px-3 m-0">
             <div class="row">
               <div class="col-sm-12 col-md-9 our-single-country-content-left-view">
                 {% set entity = row.content['#row']._entity %}
@@ -53,20 +53,20 @@
                 </a>
                 <div class="our-single-report-title-description">
                   {% set text = entity.body.summary |render|striptags %}
-                  {% autoescape false %}{{ text|length > 80 ? text|slice(0, 80) : text }}{% endautoescape %}
+                  {% autoescape false %}{{ text }}{% endautoescape %}
                 </div>
                 <span class="pt-3 our-single-country-date">{{ report_created_date }}</span>
               </div>
               <div class="col-md-3 col-sm-12 our-single-country-content-right-view">
-                {% if entity.field_attachment_type.value == 'Document' %}
+                  {% if entity.field_attachment_type.value == 'Document' %}
                   {% set fileExtension = media_file_type(entity.field_report_document.value.0.target_id, 'field_media_document') %}
                   <img src="/{{ directory }}/images/icons/{{ fileExtension }}.svg" alt={{ fileExtension }}>
                   {% set document_url = media_file_url(entity.field_report_document.value.0.target_id, 'field_media_document') %}
                   <a class="download-button" href="{{ document_url }}">Download</a>
                 {% elseif entity.field_attachment_type.value == 'Link' %}
+                  <i class="fa fa-external-link"></i>
                   <a class="download-button" href="{{ entity.field_report_link[0].uri }}" target="_blank">
-                    {{ entity.field_report_link[0].title }}
-                    <i class="fa fa-external-link"></i>
+                    Download
                   </a>
                 {% endif %}
               </div>
