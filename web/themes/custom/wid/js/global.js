@@ -101,6 +101,9 @@
   $('.single-event-list').on('click', function() {
     $(this).toggleClass("active");
   });
+
+  $('.view-taxonomy-term').addClass('container');
+  $('.view-search').addClass('container');
 })(jQuery, Drupal);
 
 

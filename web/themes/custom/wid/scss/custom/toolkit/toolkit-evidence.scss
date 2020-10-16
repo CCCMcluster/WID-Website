@@ -4,6 +4,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-bottom: 0 !important;
 
   .workshop-content {
     display: flex;
@@ -28,6 +29,7 @@
     }
 
     .workshop-row-wrapper {
+      width: 100%;
 
       .workshop-row {
         background-color: $white;
@@ -106,8 +108,7 @@
     }
   }
 
-  .leaders-content {
-    border-radius: 20px 20px 0 0;
+  .workshop-content:nth-child(odd) {
     background-color: $primary-color-light;
 
     .workshop-title {
@@ -116,8 +117,12 @@
     }
   }
 
-  .non-leaders-content {
+  .workshop-content {
     border-radius: 0;
+  }
+
+  .workshop-content:nth-child(1) {
+    border-radius: 20px 20px 0 0;
   }
 
   .testimonial-slide-content {
@@ -129,6 +134,7 @@
     background-color: #e8edff;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
+    margin-bottom: 100px;
 
     .testimonial-slide-content-title {
       font-family: $font-raleway;

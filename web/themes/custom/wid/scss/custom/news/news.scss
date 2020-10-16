@@ -85,7 +85,6 @@
 
     .event-list-container {
       flex: 1;
-      opacity: 0.9;
       box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.16);
       background-color: $primary-color-light;
       border-radius: 20px;
@@ -568,10 +567,10 @@
           justify-content: center;
           align-items: center;
           flex-direction: column;
-          height: 900px;
+          height: 950px;
 
           a {
-            margin: 15px 0 25px;
+            margin: 50px 0 25px;
 
             span {
               border-radius: 10px;
