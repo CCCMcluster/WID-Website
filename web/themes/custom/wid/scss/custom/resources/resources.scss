@@ -375,7 +375,8 @@
                   border-radius: 20px 20px 0 0;
                 }
 
-                h2 {
+                .anchor {
+                  text-decoration: none;
                   font-family: $font-lato;
                   font-size: $font-size-text-sm;
                   font-weight: 700;
