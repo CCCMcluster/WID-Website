@@ -22,13 +22,9 @@
         font-weight: normal;
         line-height: 1.2;
         color: $accent-alt-color;
-        text-decoration: none;
         margin: 5px 25px;
         display: inline-block;
 
-        &:hover {
-          color: #5d0790;
-        }
       }
     }
 
@@ -60,6 +56,11 @@
         width: 85%;
         margin: 0 auto;
         text-align: center;
+        display: -webkit-box;
+        -webkit-line-clamp: 10;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
     }
   }
@@ -286,6 +287,11 @@
           width: 80%;
           text-align: center;
           margin: 0 auto;
+          display: -webkit-box;
+          -webkit-line-clamp: 8;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
 
         .card-button {
