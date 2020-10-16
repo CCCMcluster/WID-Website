@@ -45,7 +45,7 @@
 
   		  const marker = svg.append("svg:path")
   		  	.attr('class', `marker`)
-          .attr('d', "M0,0l-8.8-17.7C-12.1-24.3,-7.4,-32,0,-32h0c7.4,0,12.1,7.7,8.8,14.3L0,0zm-4-24a4,4,0,104-4a4,4,0,00-4,4z")
+          .attr('d', "M0-12.485a5.3 5.3 90 005.306-5.306a5.46 5.46 90 00-5.306-5.5a5.3 5.3 90 00-5.306 5.306a5.593 5.593 90 005.306 5.5zm-8.907-14.403a12.6 12.6 90 0117.814 17.814l-8.907 8.907l-8.907-8.907a12.94 12.94 90 010-17.814z")
   		  	.attr('transform', `translate(${x}, ${y}) scale(0)`)
           .on("click", function() {
             setActiveCountry(country.iso_2);
@@ -79,10 +79,11 @@
             .append('div')
             .attr('class', 'report')
             .classed('report__active', index===0);
-          reportElement.append('div')
+          reportElement.append('a')
+            .attr('href', report.url)
+            .append('div')
             .attr('class','report-button')
             .classed('report-button__alt', index!==0)
-            .append('a').attr('href',report.url)
             .append('i').attr('class','ion-android-arrow-forward');
           reportElement.append('p')
             .attr('class', 'report-country')
