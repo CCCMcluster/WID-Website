@@ -178,12 +178,12 @@
 
           .step-card-3 {
             top: 75%;
-            left: 25%;
+            left: 75%;
           }
 
           .step-card-4 {
             top: 75%;
-            left: 75%;
+            left: 25%;
           }
         }
 
@@ -334,6 +334,60 @@
       }
     }
 
+    .approach-wrapper {
+      .approach-container {
+        width: 100%;
+
+        .approach-steps {
+          img {
+            width: 100%;
+          }
+
+          ul {
+            li {
+              a {
+                .step-card {
+                  height: 80px;
+                  width: 80px;
+                  gap: 2px;
+
+                  .step-number {
+                    font-size: 10px;
+                  }
+
+                  .step-name {
+                    font-size: 10px;
+                  }
+                }
+              }
+            }
+
+            .step-card-1 {
+              left: 30%;
+            }
+
+            .step-card-2 {
+              left: 70%;
+            }
+
+            .step-card-3 {
+              left: 70%;
+            }
+
+            .step-card-4 {
+              left: 30%;
+            }
+          }
+
+          .choose-step {
+            font-size: 10px;
+            height: 85px;
+            width: 85px;
+          }
+        }
+      }
+    }
+
     .toolkit-steps-wrapper {
       padding: 50px 0;
 
@@ -354,6 +408,45 @@
       padding: 50px 0;
     }
 
+    .approach-wrapper {
+      .approach-container {
+        width: 100%;
+
+        .approach-steps {
+          img {
+            width: 100%;
+          }
+
+          ul {
+            li {
+              a {
+                .step-card {
+                  height: 120px;
+                  width: 120px;
+                  gap: 5px;
+                  padding: 0 5px;
+
+                  .step-number {
+                    font-size: $font-size-text-sm;
+                  }
+
+                  .step-name {
+                    font-size: $font-size-text-sm;
+                  }
+                }
+              }
+            }
+          }
+
+          .choose-step {
+            font-size: $font-size-text-sm;
+            height: 135px;
+            width: 135px;
+          }
+        }
+      }
+    }
+
     .toolkit-steps-wrapper {
       padding: 50px 0;
 
@@ -362,6 +455,92 @@
 
         .steps-card {
           width: 95%;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .toolkit-wrapper {
+    .approach-wrapper {
+      .approach-container {
+        width: 100%;
+
+        .approach-steps {
+          img {
+            width: 85%;
+          }
+
+          ul {
+            li {
+              a {
+                .step-card {
+                  height: 150px;
+                  width: 150px;
+                  gap: 5px;
+                  padding: 0 5px;
+
+                  .step-number {
+                    font-size: $font-size-text;
+                  }
+
+                  .step-name {
+                    font-size: $font-size-text;
+                  }
+                }
+              }
+            }
+          }
+
+          .choose-step {
+            font-size: $font-size-text;
+            height: 200px;
+            width: 200px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1280px) {
+  .toolkit-wrapper {
+    .approach-wrapper {
+      .approach-container {
+        width: 100%;
+
+        .approach-steps {
+          img {
+            width: 85%;
+          }
+
+          ul {
+            li {
+              a {
+                .step-card {
+                  height: 200px;
+                  width: 200px;
+                  gap: 5px;
+                  padding: 0 5px;
+
+                  .step-number {
+                    font-size: $font-size-title-xs;
+                  }
+
+                  .step-name {
+                    font-size: $font-size-title-xs;
+                  }
+                }
+              }
+            }
+          }
+
+          .choose-step {
+            font-size: $font-size-title-xs;
+            height: 250px;
+            width: 250px;
+          }
         }
       }
     }

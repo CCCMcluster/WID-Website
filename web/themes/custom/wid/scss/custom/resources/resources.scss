@@ -384,6 +384,11 @@
                   color: #556cff;
                   padding: 10px 25px 0;
                   margin-bottom: 5px;
+                  display: -webkit-box;
+                  -webkit-line-clamp: 3;
+                  -webkit-box-orient: vertical;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
                 }
 
                 p {
@@ -394,6 +399,11 @@
                   color: #556cff;
                   padding: 0 25px;
                   margin-bottom: 5px;
+                  display: -webkit-box;
+                  -webkit-line-clamp: 4;
+                  -webkit-box-orient: vertical;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
                 }
 
                 .download-section {

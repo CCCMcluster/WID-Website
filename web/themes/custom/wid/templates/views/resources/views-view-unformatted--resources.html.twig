@@ -68,7 +68,7 @@
                 <div>
                     <img src="{{ media_url }}" alt="{{ media_alt }}">
                     <a class="anchor" href="#">{{ title }}</a>
-                    <p>{% autoescape false %}{{ summary|length > 80 ? summary|slice(0, 80) : summary }}{% endautoescape %}</p>
+                    <p>{% autoescape false %}{{ summary }}{% endautoescape %}</p>
                     <div class="download-section">
                         {# <span class="user-content"><a href="#"><i class="fa fa-user"></i>User Content</a></span> #}
                         {% if entity.field_resources_attachment_type.value == 'Document' %}
