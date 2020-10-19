@@ -76,7 +76,7 @@
               {% set taxonomy_term = load_tax_term(vocabulary_tree.id) %}
               {% autoescape false %}
                 {% set text = taxonomy_term.description.value %}
-                {{ text|length > 390 ? text|slice(0, 390) ~ '...' : text }}
+                {{ text }}
               {% endautoescape %}
               <div class="card-button">
                   <i class="ion-android-arrow-forward"></i>

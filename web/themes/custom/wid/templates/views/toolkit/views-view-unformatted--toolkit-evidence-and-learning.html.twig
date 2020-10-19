@@ -25,18 +25,20 @@
           </div>
           <div class="workshop-row-wrapper pt-5 px-4">
             {% for row in rows %}
-              <div class="workshop-row row mb-5">
+              <div class="workshop-row mb-5">
                 {% set entity = row.content['#row']._entity %}
                 {% set title = entity.title.value %}
                 {% set description = entity.body.summary %}
                 {% set created_date = entity.created.value | format_date('custom_document_date') %}
                 {% set toolkitLink = path('entity.node.canonical', {'node': entity.nid.value}) %}
                 {% if entity.field_toolkit_cover_img.value %}
-                  <img class="col-sm-12 col-md-12 col-lg-5 w-100 p-0 image-container"
-                       src="{{ file_url(entity.field_toolkit_cover_img.entity.field_media_image.entity.fileuri|image_style('hd')) }}"
-                       alt="{{ entity.field_toolkit_cover_img.entity.field_media_image.alt }}">
+                  <div class="image-container">
+                    <img class="w-100 p-0"
+                        src="{{ file_url(entity.field_toolkit_cover_img.entity.field_media_image.entity.fileuri|image_style('hd')) }}"
+                        alt="{{ entity.field_toolkit_cover_img.entity.field_media_image.alt }}">
+                  </div>
                 {% endif %}
-                <div class="col-sm-12 col-md-12 col-lg-7 workshop-row-content p-5">
+                <div class="workshop-row-content p-5">
                   <a href="{{ toolkitLink }}"><h3 class="workshop-row-title">{{ title }}</h3></a>
                   <p class="workshop-row-body py-3">
                     {{ description|length > 425 ? description|slice(0, 425) ~ '...' : description }}
@@ -94,10 +96,14 @@
     <div class="workshop-content {{ evidenceLearningTerm.name.value|lower|replace(' ', '-') ~ '-content' }}">
       <div class="workshop-title">{{ title }}</div>
       <div class="workshop-row-wrapper pt-5 px-4">
-        <div class="workshop-row row mb-5">
-          <img class="col-sm-12 col-md-12 col-lg-5 w-100 p-0 image-container" src="{{ evidenceLearningImg }}"
+        <div class="workshop-row mb-5">
+        {% if evidenceLearningImg %}
+          <div class="image-container">
+            <img class="w-100 p-0" src="{{ evidenceLearningImg }}"
                alt="{{ evidenceLearningCoverAlt }}">
-          <div class="col-sm-12 col-md-12 col-lg-7 workshop-row-content p-5">
+          </div>
+        {% endif %}
+          <div class="workshop-row-content p-5">
             <h3 class="workshop-row-title">{{ evidenceLearningTerm.name.value }}</h3>
             <p class="workshop-row-body py-3">
               {% autoescape false %}

@@ -38,24 +38,45 @@
           color: $primary-color;
           box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
           overflow: hidden;
+          display: flex;
 
           .image-container {
-            height: 550px;
-            width: 100%;
-            background-color: #F5F5F5;
-            object-fit: cover;
+            flex: 3;
+
+            img {
+              height: 550px;
+              width: 100%;
+              background-color: #F5F5F5;
+              object-fit: cover;
+            }
           }
 
           .global-report-row-content {
+            flex: 4;
+
             .global-report-row-title {
               font-size: $font-size-text-alt;
               font-family: $font-raleway;
               font-weight: 600;
+              display: -webkit-box;
+              -webkit-line-clamp: 1;
+              -webkit-box-orient: vertical;
+              overflow: hidden;
+              text-overflow: ellipsis;
             }
 
             .global-report-row-body {
-              font-size: $font-size-base;
-              font-family: $font-lato;
+
+
+              p {
+                font-size: $font-size-base;
+                font-family: $font-lato;
+                display: -webkit-box;
+                -webkit-line-clamp: 4;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+              }
             }
 
             .file-info-container {
@@ -66,10 +87,21 @@
               margin: 15px 0;
 
               .file-info-title {
-                font-family: $font-lato;
-                font-size: $font-size-text;
-                font-weight: 600;
+
                 margin-bottom: 24px;
+
+                a {
+                  text-decoration: none;
+                  color: $primary-color;
+                  font-family: $font-lato;
+                  font-size: $font-size-text;
+                  font-weight: 600;
+                  display: -webkit-box;
+                  -webkit-line-clamp: 1;
+                  -webkit-box-orient: vertical;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                }
               }
 
               div {
@@ -155,9 +187,13 @@
           padding: 0 20px;
 
           .global-report-row {
+            flex-direction: column;
+
             .image-container {
-              height: 250px;
-              border-radius: 20px 20px 0 0;
+              img {
+                height: 250px;
+                border-radius: 20px 20px 0 0;
+              }
             }
           }
 
@@ -198,9 +234,13 @@
           padding: 0 20px;
 
           .global-report-row {
+            flex-direction: column;
+
             .image-container {
-              height: 250px;
-              border-radius: 20px 20px 0 0;
+              img {
+                height: 250px;
+                border-radius: 20px 20px 0 0;
+              }
             }
           }
 
@@ -239,11 +279,16 @@
 
         .global-report-row-wrapper {
           padding: 0 20px;
+          width: 100%;
 
           .global-report-row {
+            flex-direction: column;
+
             .image-container {
-              height: 575px;
-              border-radius: 0;
+              img {
+                height: 350px;
+                border-radius: 0;
+              }
             }
           }
 
@@ -277,7 +322,9 @@
         .global-report-row-wrapper {
           .global-report-row {
             .image-container {
-              height: 575px;
+              img {
+                height: 575px;
+              }
             }
           }
         }

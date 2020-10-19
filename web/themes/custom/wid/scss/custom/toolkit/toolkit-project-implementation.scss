@@ -36,36 +36,65 @@
         border-radius: 20px;
         color: $primary-color;
         box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+        display: flex;
 
         .image-container {
-          height: 550px;
-          background-color: #f5f5f5;
-          border-top-left-radius: 20px;
-          border-bottom-left-radius: 20px;
-          object-fit: cover;
+          flex: 3;
+
+          img {
+            height: 550px;
+            background-color: #f5f5f5;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+            object-fit: cover;
+          }
         }
 
         .workshop-row-content {
+          flex: 4;
+
           .workshop-row-title {
             font-size: $font-size-text-alt;
             font-family: $font-raleway;
             font-weight: 600;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
           }
 
           .workshop-row-body {
-            font-size: $font-size-base;
-            font-family: $font-lato;
+            p {
+              font-size: $font-size-base;
+              font-family: $font-lato;
+              display: -webkit-box;
+              -webkit-line-clamp: 4;
+              -webkit-box-orient: vertical;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
           }
 
           .file-info-container {
             background-color: #e8edff;
             border-radius: 5px;
 
-            .file-info-title {
-              font-family: $font-lato;
-              font-size: $font-size-text;
-              font-weight: 600;
-              margin-bottom: 24px;
+            a {
+              text-decoration: none;
+
+              .file-info-title {
+                font-family: $font-lato;
+                font-size: $font-size-text;
+                font-weight: 600;
+                margin-bottom: 24px;
+                color: $primary-color;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+              }
             }
 
             div {
@@ -232,13 +261,16 @@
 
         .workshop-row {
           border-radius: 10px;
+          flex-direction: column;
 
           .image-container {
-            height: 300px;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-            border-bottom-left-radius: 0px;
-            object-fit: cover;
+            img {
+              height: 300px;
+              border-top-left-radius: 10px;
+              border-top-right-radius: 10px;
+              border-bottom-left-radius: 0px;
+              object-fit: cover;
+            }
           }
 
           .workshop-row-content {
@@ -314,13 +346,16 @@
 
         .workshop-row {
           border-radius: 10px;
+          flex-direction: column;
 
           .image-container {
-            height: 300px;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-            border-bottom-left-radius: 0px;
-            object-fit: cover;
+            img {
+              height: 300px;
+              border-top-left-radius: 10px;
+              border-top-right-radius: 10px;
+              border-bottom-left-radius: 0px;
+              object-fit: cover;
+            }
           }
 
           .workshop-row-content {
@@ -396,13 +431,16 @@
 
         .workshop-row {
           border-radius: 10px;
+          flex-direction: column;
 
           .image-container {
-            height: 350px;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-            border-bottom-left-radius: 0px;
-            object-fit: cover;
+            img {
+              height: 350px;
+              border-top-left-radius: 10px;
+              border-top-right-radius: 10px;
+              border-bottom-left-radius: 0px;
+              object-fit: cover;
+            }
           }
 
           .workshop-row-content {

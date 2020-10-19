@@ -20,15 +20,19 @@
     <div class="workshop-content">
       <div class="workshop-title">{% trans %}Workshop{% endtrans %}</div>
       <div class="workshop-row-wrapper pt-5 px-4">
-        <div class="workshop-row row mb-5">
+        <div class="workshop-row mb-5">
           {% if title %}
           {% set projectImplementationTid = rows.0.content['#row']._entity.field_toolkit.target_id %}
           {% set projectImplementationTerm = load_tax_term(projectImplementationTid) %}
           {% set projectImplementationCoverImg = file_url(projectImplementationTerm.field_toolkit_img.entity.field_media_image.entity.fileuri) %}
           {% set projectImplementationCoverAlt = projectImplementationTerm.field_toolkit_img.entity.field_media_image.alt %}
-          <img class="col-sm-12 col-md-12 col-lg-5 w-100 p-0 image-container" src="{{ projectImplementationCoverImg }}"
+          {% if projectImplementationCoverImg %}
+          <div class="image-container">
+            <img class="w-100 p-0" src="{{ projectImplementationCoverImg }}"
                alt="{{ projectImplementationCoverAlt }}">
-          <div class="col-sm-12 col-md-12 col-lg-7 workshop-row-content p-5">
+          </div>
+          {% endif %}
+          <div class="workshop-row-content p-5">
             <h3 class="workshop-row-title">{{ title }}</h3>
             <p class="workshop-row-body py-3">
               {% autoescape false %}

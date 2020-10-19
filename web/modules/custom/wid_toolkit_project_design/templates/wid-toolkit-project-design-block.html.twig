@@ -87,10 +87,14 @@
               {% set tax_term_cover_img = file_url(taxonomy_term.field_toolkit_img.entity.field_media_image.entity.fileuri) %}
               {% set tax_term_cover_img_alt = taxonomy_term.field_toolkit_img.entity.field_media_image.alt %}
               <div class="global-report-row-wrapper pt-5">
-                <div class="global-report-row row mb-5">
-                  <img class="col-sm-12 col-md-12 col-lg-5 w-100 p-0 image-container" src="{{ tax_term_cover_img }}"
+                <div class="global-report-row mb-5">
+                {% if tax_term_cover_img %}
+                  <div class="image-container">
+                    <img class="w-100 p-0" src="{{ tax_term_cover_img }}"
                        alt="{{ tax_term_cover_img_alt }}"/>
-                  <div class="col-sm-12 col-md-12 col-lg-7 global-report-row-content p-5">
+                  </div>
+                  {% endif %}
+                  <div class="global-report-row-content p-5">
                     <div class="global-report-row-title">{{ taxonomy_term.name.value }}</div>
                     <div class="global-report-row-body py-3">
                       {% autoescape false %}
