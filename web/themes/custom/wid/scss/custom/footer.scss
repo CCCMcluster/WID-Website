@@ -1,43 +1,40 @@
 #page-wrapper {
   #page {
     .site-footer {
-      background: $primary-color !important;
-      padding: 40px 0 10px !important;
+      background: $primary-color-dark !important;
+      padding: 56px 0 21px !important;
 
       .site-footer__top {
         display: flex;
         justify-content: space-between;
-        border-bottom: 1px solid #ffffff;
-        padding-bottom: 150px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.23);
+        padding-bottom: 48px;
 
         .region {
           .block {
             h2 {
-              font-size: $font-size-title-sm;
+              font-size: $font-size-text-alt;
               color: #ffffff;
-              font-family: $font-raleway;
+              font-family: $font-raleway-sans;
               padding-bottom: 20px;
-              font-weight: $font-weight-semibold;
+              font-weight: bold;
               line-height: 1.18;
+              margin-bottom: 0;
             }
 
             .content {
               p {
-                font-size: $font-size-text;
-                font-family: $font-lato;
-                font-weight: 300;
-                line-height: 1.21;
-                color: #ffffff;
+                font-size: $font-size-text-sm;
+                color: $white-80;
+                margin-bottom: 25px;
               }
             }
 
             .newsletter-block {
               .subscribe-text {
-                font-size: $font-size-text;
-                font-family: $font-lato;
-                font-weight: 300;
-                line-height: 1.21;
-                color: #ffffff;
+                font-size: $font-size-text-sm;
+                font-weight: 400;
+                color: $white-80;
               }
             }
 
@@ -55,36 +52,36 @@
 
               .email-input {
                 display: block;
-                padding: 10px 15px;
-                width: 200px;
+                padding: 13px 15px;
+                width: 257px;
                 font-size: $font-size-text-sm;
                 color: $primary-color;
-                font-family: $font-lato;
+                border-radius: 4px 0 0 4px;
+                outline: none;
 
+                &:focus {
+                  outline: none;
+                }
 
                 &::placeholder {
-                  font-family: $font-lato;
-                  font-size: 12px;
-                  font-weight: normal;
-                  line-height: 1.13;
-                  color: $primary-color;
-                  padding-left: 15px;
+                  color: $gray-300;
                 }
               }
 
               .btn-signup {
                 display: block;
-                padding: 4px 12px;
-                margin-left: 15px;
-                border-radius: 10px;
-                box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.12);
-                background-color: #ffffff;
+                padding: 9px 15px;
+                margin-left: 0;
+                border-radius: 0 4px 4px 0;
+                box-shadow: none;
+                background-color: #836AD0;
                 border: none;
-                transition: 0.4s;
+                color: #fff;
+                transition: .4s;
 
                 i {
                   font-size: $font-size-text-alt;
-                  color: $primary-color;
+                  color: $white;
                 }
 
                 &:hover {
@@ -97,18 +94,19 @@
           nav {
             ul {
               li {
-                margin: 0 0 10px;
+                margin-bottom: 19px;
+
+                &:last-child {
+                  margin-bottom: 0;
+                }
 
                 a {
-                  font-size: $font-size-text;
-                  font-family: $font-lato;
-                  font-weight: 300;
-                  line-height: 1.21;
-                  color: #ffffff;
+                  font-size: $font-size-text-sm;
+                  color: $white-80;
                   padding: 0;
 
-                  &:hover {
-                    font-weight: 500;
+                  &:hover, &:focus {
+                    color: $white;
                   }
                 }
               }
@@ -118,19 +116,18 @@
           .block-social-media-links-block {
             ul {
               li {
-                padding-right: 10px;
+                padding: 0 !important;
+                margin-right: 20px !important;
 
                 a {
                   span {
-                    color: #ffffff;
-                    border: 1px solid #ffffff;
-                    border-radius: 50%;
-                    font-size: $font-size-text;
-                    padding: 7px;
-                    transition: 0.2s;
+                    font-size: $font-size-title-sm;
+                    color: $white-80;
+                    transition: .2s;
+                    padding: 0;
 
                     &:hover {
-                      transform: scale(1.05);
+                      color: $white
                     }
                   }
                 }
@@ -147,47 +144,44 @@
 
                   .faq-form-row {
                     input {
-                      border-radius: 10px;
-                      box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.16);
-                      background-color: #ffffff;
-                      border: none;
-                      display: none;
                       display: block;
-                      padding: 10px 15px;
+                      width: 257px;
+                      padding: 13px 15px;
                       font-size: $font-size-text-sm;
                       color: $primary-color;
-                      font-family: $font-lato;
+                      border-radius: 4px 0 0 4px;
+                      outline: none;
+                      border: none;
+                      flex: 0 0 85%;
+                      max-width: 100%;
+
+                      &:focus {
+                        outline: none;
+                      }
 
                       &::placeholder {
-                        font-size: $font-size-xs;
-                        font-weight: normal;
-                        line-height: 1.13;
-                        color: $primary-color;
-                        padding-left: 15px;
-                        font-family: $font-lato;
+                        color: $gray-300;
                       }
                     }
 
                     a {
                       display: block;
-                      width: 38px;
-                      height: 38px;
-                      border-radius: 10px;
-                      box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.16);
-                      background-color: $white;
+                      margin: 0 !important;
+                      padding: 9px 15px;
+                      border-radius: 0 4px 4px 0;
+                      box-shadow: none;
+                      background-color: #836AD0;
                       border: none;
-                      display: flex;
-                      align-items: center;
-                      justify-content: center;
-                      font-size: $font-size-text-alt;
-                      transition: 0.4s;
+                      color: #fff;
+                      transition: .4s;
 
                       &:hover {
                         transform: scale(1.05);
                       }
 
                       i {
-                        color: $primary-color;
+                        font-size: $font-size-text-alt;
+                        color: $white;
                       }
                     }
                   }
@@ -199,18 +193,20 @@
       }
 
       .site-footer__bottom {
-        margin-top: 10px;
+        margin-top: 28px;
 
         .region {
           .block {
+            margin: 0;
             .content {
+              padding: 0;
               p {
-                font-size: $font-size-text-sm;
-                font-family: $font-helvetica;
+                font-size: 13px;
                 font-weight: 200;
-                line-height: 1.2;
+                line-height: 19px;
                 color: #ffffff;
-                text-align: center;
+                text-align: left;
+                margin-bottom: 0;
               }
             }
           }

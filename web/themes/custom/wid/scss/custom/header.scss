@@ -38,8 +38,12 @@ body {
         }
 
         nav {
-          padding: 20px 20px;
+          padding: 18px;
           transition: 0.3s;
+
+          *.menu--main {
+            padding: 0;
+          }
 
           a {
             img {
@@ -56,8 +60,8 @@ body {
               margin: 0 16px;
 
               a {
-                font-family: $font-raleway;
-                font-size: $font-size-text-alt;
+                font-family: $font-opensans;
+                font-size: $font-size-text-sm;
                 font-weight: $font-weight-semibold;
                 line-height: 1.18;
                 transition: 0.2s;
@@ -68,14 +72,12 @@ body {
               }
 
               &:hover {
-
                 a {
                   transform: translateY(-2px);
                 }
               }
 
               &.active {
-
                 a {
                   font-weight: $font-weight-semibold;
                 }
@@ -131,10 +133,23 @@ body {
 
                 #edit-search-api-fulltext {
                   width: 240px;
-                  padding-left: 40px;
-                  border-radius: 25px;
-                  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-                  background-color: #ffffff;
+                  padding-left: 26px;
+                  background: transparent;
+                  border: none;
+                  color: #fff;
+                  border-radius: 0;
+                  border-bottom: 1px solid #6447bf;
+                  outline: none;
+
+                  &:focus {
+                    outline: none;
+                  }
+                }
+
+                .form-control-feedback {
+                  top: 10px !important;
+                  left: 6px !important;
+                  color: #fff !important;
                 }
               }
 
