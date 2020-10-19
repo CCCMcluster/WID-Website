@@ -16,129 +16,120 @@
  */
 #}
 <div class="container">
-  <div class="latest-news-features-block">
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12  col-lg-12 col-xl-8 featured-news">
+    <div class="latest-news-features-block">
         <div class="row">
-          {% for single_feature_news in feature_news %}
-          {% set newsTitle = single_feature_news.title[0].value %}
-          {% set image_url = media_file_url(single_feature_news.field_featured_media[0].target_id) %}
-          {% set newsLink = path('entity.node.canonical', {'node': single_feature_news.nid.value}) %}
-          {% if loop.first %}
-          <div class="col-md-3">
-            <div class="banner-wrapper banner-1">
-              <div class="banner-image">
-                <img src="{{ image_url }}" alt="feature-news"/>
-              </div>
-              <div class="banner-desc truncate">
-                <p>
-                  <a href="{{ newsLink }}">{{ newsTitle }}</a>
-                </p>
-              </div>
+            <div class="col-xs-12 col-xl-8 featured-news">
+                <div class="featured-news-grid">
+                    {% for single_feature_news in feature_news %}
+                    {% set newsTitle = single_feature_news.title[0].value %}
+                    {% set image_url = media_file_url(single_feature_news.field_featured_media[0].target_id) %}
+                    {% set newsLink = path('entity.node.canonical', {'node': single_feature_news.nid.value}) %}
+                    {% if loop.first %}
+                    <div class="banner-wrapper">
+                        <div>
+                            <div class="banner-image">
+                                <img src="{{ image_url }}" alt="feature-news" />
+                            </div>
+                            <div class="banner-desc truncate">
+                                <p>
+                                    <a href="{{ newsLink }}">{{ newsTitle }}</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                        {% if loop.index == 2 %}
+                            <div class="banner-wrapper">
+                                <div>
+                                    <div class="banner-image">
+                                        <img src="{{ image_url }}" alt="feature-news" />
+                                    </div>
+                                    <div class="banner-desc">
+                                        <p>
+                                            <a href="{{ newsLink }}">{{ newsTitle }}</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                        {% if loop.index == 3 %}
+                            <div class="banner-wrapper">
+                                <div>
+                                    <div class="banner-image">
+                                        <img src="{{ image_url }}" alt="feature-news" />
+                                    </div>
+                                    <div class="banner-desc">
+                                        <p>
+                                            <a href="{{ newsLink }}">{{ newsTitle }}</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                        {% if loop.index == 4 %}
+                            <div class="banner-wrapper">
+                                <div>
+                                    <div class="banner-image">
+                                        <img src="{{ image_url }}" alt="feature-news" />
+                                    </div>
+                                    <div class="banner-desc">
+                                        <p>
+                                            <a href="{{ newsLink }}">{{ newsTitle }}</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                        {% if loop.last %}
+                            <div class="banner-wrapper">
+                                <div>
+                                    <div class="banner-image">
+                                        <img src="{{ image_url }}" alt="feature-news" />
+                                    </div>
+                                    <div class="banner-desc">
+                                        <p>
+                                            <a href="{{ newsLink }}">{{ newsTitle }}</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
             </div>
-          </div>
-          <div class="col-md-9">
-            <div class="row">
-              {% endif %}
-              {% if loop.index == 2 %}
-                <div class="col-md-8">
-                  <div class="banner-wrapper banner-2">
-                    <div class="banner-image">
-                      <img src="{{ image_url }}" alt="feature-news"/>
+            <div class="col-xs-12 col-xl-4 latest-news">
+                <div class="card-news">
+                    <div class="card-content">
+                        <h2 class="card-title">Latest News</h2>
+                        <div class="news-container">
+                            {% for single_news in news %}
+                                {% set single_news_link = path('entity.node.canonical', {'node': single_news.nid.value}) %}
+                                <a class="news-anchor" href="{{ single_news_link }}">
+                                    <div class="news-wrapper">
+                                        <div class="news-image">
+                                            {% set image_url = media_file_url(single_news.field_featured_media[0].target_id) %}
+                                            <img src="{{ image_url }}" alt="news">
+                                        </div>
+                                        <div class="news-content">
+                                            <h3 class="news-title">
+                                                {% set title = single_news.title[0].value %}
+                                                {{ title }}
+                                            </h3>
+                                            {% set text = single_news.body[0].value |render|striptags %}
+                                            <p class="news-desc">
+                                                {% autoescape false %}
+                                                    {{ text }}
+                                                {% endautoescape %}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                            {% endfor %}
+                        </div>
                     </div>
-                    <div class="banner-desc">
-                      <p>
-                        <a
-                          href="{{ newsLink }}">{{ newsTitle }}</a>
-                      </p>
-                    </div>
-                  </div>
+                    <a href="/news" class="view-all-btn">View All Stories</a>
                 </div>
-              {% endif %}
-              {% if loop.index == 3 %}
-                <div class="col-md-4">
-                  <div class="banner-wrapper banner-3">
-                    <div class="banner-image">
-                      <img src="{{ image_url }}" alt="feature-news"/>
-                    </div>
-                    <div class="banner-desc">
-                      <p>
-                        <a
-                          href="{{ newsLink }}">{{ newsTitle }}</a>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              {% endif %}
-              {% if loop.index == 4 %}
-                <div class="col-md-4">
-                  <div class="banner-wrapper banner-4">
-                    <div class="banner-image">
-                      <img src="{{ image_url }}" alt="feature-news"/>
-                    </div>
-                    <div class="banner-desc">
-                      <p>
-                        <a
-                          href="{{ newsLink }}">{{ newsTitle }}</a>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              {% endif %}
-              {% if loop.last %}
-                <div class="col-md-8">
-                  <div class="banner-wrapper banner-5">
-                    <div class="banner-image">
-                      <img src="{{ image_url }}" alt="feature-news"/>
-                    </div>
-                    <div class="banner-desc">
-                      <p>
-                        <a
-                          href="{{ newsLink }}">{{ newsTitle }}</a>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              {% endif %}
-              {% endfor %}
             </div>
-          </div>
         </div>
-      </div>
-
-      <div class="col-xs-12 col-sm-12 col-md-12  col-lg-12 col-xl-4 latest-news">
-        <div class="card-news">
-          <div class="card-content">
-            <h2 class="card-title">Latest News</h2>
-            <div class="news-container">
-              {% for single_news in news %}
-                {% set single_news_link = path('entity.node.canonical', {'node': single_news.nid.value}) %}
-                <a class="news-anchor" href="{{ single_news_link }}">
-                  <div class="news-wrapper">
-                    <div class="news-image">
-                      {% set image_url = media_file_url(single_news.field_featured_media[0].target_id) %}
-                      <img src="{{ image_url }}" alt="news">
-                    </div>
-                    <div class="news-content">
-                      <h3 class="news-title">
-                        {% set title = single_news.title[0].value %}
-                        {{ title }}
-                      </h3>
-                      {% set text = single_news.body[0].value |render|striptags %}
-                      <p class="news-desc">
-                      {% autoescape false %}
-                      {{ text }}
-                      {% endautoescape %}
-                      </p>
-                    </div>
-                  </div>
-                </a>
-              {% endfor %}
-            </div>
-          </div>
-          <a href="/news"><span class="btn-white">More<i class="ion-android-arrow-forward"></i></span></a>
-        </div>
-      </div>
     </div>
-  </div>
 </div>
