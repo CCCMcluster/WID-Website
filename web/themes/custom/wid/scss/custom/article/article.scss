@@ -1,62 +1,41 @@
 .article-wrapper {
-  a {
-    text-decoration: none;
-  }
-
-  .article-banner {
-    img {
-      height: 300px;
-      width: 100%;
-      object-fit: cover;
-    }
-  }
+  margin-top: 50px;
 
   .article-nav-container {
-    display: flex;
-    align-items: flex-start;
-    gap: 25px;
-    margin-top: -35px;
+    .article-nav {
+      span {
+        a {
+          font-family: $font-raleway;
+          font-size: $font-size-base;
+          font-weight: bold;
+          color: $primary-color;
+        }
 
-    .nav-image-container {
-      border: solid 2px $primary-color;
-      background-color: #ffffff;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: 8px;
-      padding: 10px 10px;
-
-      p {
-        font-family: $font-raleway;
-        font-size: $font-size-text-sm;
-        font-weight: $font-weight-semibold;
-        line-height: 1.14;
-        color: $primary-color;
-        margin: 0;
-      }
-
-      i {
-        font-size: $font-size-base;
-        color: $primary-color;
+        i {
+          font-size: $font-size-base;
+          color: $primary-color;
+          margin-right: 10px;
+        }
       }
     }
+  }
 
-    .article-nav {
-      padding-top: 45px;
+  .news-button {
+    margin-top: 35px;
 
-      span {
-        font-family: $font-raleway;
+    ul {
+      li {
+        font-family: $font-lato;
         font-size: $font-size-xs;
-        font-weight: $font-weight-semibold;
-        line-height: 1.17;
+        font-weight: bold;
+        line-height: 0.67;
         color: $primary-color;
-      }
-
-      i {
-        font-size: $font-size-text-sm;
-        color: $primary-color;
-        margin: 0 15px;
+        display: inline-block;
+        padding: 12px 20px;
+        border-radius: 4px;
+        background-color: #E8E7ED;
+        margin-right: 5px;
+        text-transform: uppercase;
       }
     }
   }
@@ -64,11 +43,11 @@
   .article-title {
     h2 {
       font-family: $font-raleway;
-      font-size: $font-size-xl-alt;
+      font-size: 35px;
       font-weight: $font-weight-semibold;
       line-height: 1.38;
-      color: $primary-color;
-      margin: 50px 0 25px;
+      color: #272727;
+      margin: 5px 0;
     }
   }
 
@@ -79,7 +58,8 @@
 
     .date {
       display: inline-block;
-      margin-right: 35px;
+      padding-right: 20px;
+      border-right: 1px solid #8E8E8E;
 
       p {
         font-family: $font-lato;
@@ -103,6 +83,7 @@
 
     .social-media {
       display: inline-block;
+      padding-left: 20px;
 
       i {
         color: $primary-color;
@@ -112,30 +93,11 @@
     }
   }
 
-  .hr-article {
-    color: #c6c6c6;
-    height: 1px;
-    width: 100%;
-    margin: 0;
-  }
 
   .news-wrapper {
     margin: 25px 0 50px;
 
-    .news-button {
-      li {
-        font-family: $font-lato;
-        font-size: $font-size-xs;
-        font-weight: normal;
-        line-height: 0.67;
-        color: $primary-color;
-        display: inline-block;
-        padding: 12px 20px;
-        border-radius: 10px;
-        background-color: #e8edff;
-        margin-right: 5px;
-      }
-    }
+
 
     .news-title {
       h3 {
@@ -171,22 +133,21 @@
   }
 
   .more-article-wrapper {
-    margin: 75px 0;
+    margin: 75px 0 0;
+    background-color: #EDF0F4;
+    padding: 75px 0;
 
     .more-article-button {
       text-align: center;
 
       h3 {
         font-family: $font-raleway;
-        font-size: $font-size-section-title;
+        font-size: 35px;
         font-weight: $font-weight-semibold;
         line-height: 1.2;
-        color: #ffffff;
-        display: inline-block;
+        color: #2A3749;
         padding: 12px 50px;
         border-radius: 20px;
-        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-        background-color: $primary-color;
       }
     }
 
@@ -201,37 +162,65 @@
       .single-card {
         background: #ffffff;
         box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-        border-radius: 20px;
+        border-radius: 8px;
         display: flex;
         flex-direction: column;
         width: calc(33.33% - 20px);
         margin: 10px 0;
+        overflow: hidden;
+
+        &:hover {
+          box-shadow: 5px 10px 20px #0000001F;
+        }
 
         img {
           height: 200px;
           width: 100%;
           object-fit: cover;
-          border-radius: 20px 20px 0 0;
+          padding: 5px;
+          border-radius: 8px;
         }
 
         h2 {
-          font-family: $font-lato;
+          font-family: $font-raleway;
           font-size: $font-size-text-sm;
           font-weight: 700;
           line-height: 1.43;
           color: $primary-color;
-          padding: 20px 25px 0;
+          padding: 10px 25px 0;
           margin-bottom: 5px;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+
+          &:hover {
+            text-decoration: underline;
+          }
         }
 
         p {
-          font-family: $font-lato;
+          font-family: $font-opensans;
           font-size: $font-size-xs;
           font-weight: normal;
           line-height: 1.5;
-          color: $primary-color;
-          padding: 20px 25px;
-          margin-bottom: 5px;
+          color: #272727;
+          margin: 10px 25px 0px;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        span {
+          font-family: $font-opensans;
+          font-size: $font-size-xs;
+          font-weight: 400;
+          color: #8E8E8E;
+          padding: 10px 25px 15px;
+          display: inline-block;
         }
 
         .download-section {
@@ -242,7 +231,6 @@
             font-size: 10px;
             font-weight: normal;
             line-height: 1.5;
-
           }
 
           .download {
@@ -268,17 +256,9 @@
       }
     }
 
-    .article-social-media-wrapper {
-      .date {
-        margin-right: 25px;
-      }
-
-      .social-contact {
-        margin-right: 25px;
-      }
-    }
-
     .more-article-wrapper {
+      padding: 50px 0;
+
       .card-groups {
         flex-direction: column;
 
@@ -292,6 +272,12 @@
 
 @media (min-width: 481px) and (max-width: 767px) {
   .article-wrapper {
+    .article-title {
+      h2 {
+        font-size: $font-size-title;
+      }
+    }
+
     .more-article-wrapper {
       .card-groups {
         .single-card {
