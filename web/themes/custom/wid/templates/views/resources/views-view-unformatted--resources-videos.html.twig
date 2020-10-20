@@ -15,46 +15,47 @@
  * @see template_preprocess_views_view_unformatted()
  */
 #}
-<div class="resources-media-wrapper"
-     style="background: url('/{{ directory }}/images/resources-media-bg.jpg'); background-size:cover"
-     alt="resources-media-background">
-  <hr class="hr-highlight">
+<section class="resources-media-wrapper">
   <div class="container">
     <div class="resources-media-container">
       <h2>{{ view.title }}</h2>
       {% if title %}
-        <h3>{{ title }}</h3>
+        <h2>{{ title }}</h2>
       {% endif %}
       <div class="resources-video-wrapper">
         {% for key,row in rows %}
         {% if loop.first %}
         <div class="resources-main-video">
-          {{ view.style_plugin.getField(key, 'field_resources_media') }}
-          <h3>{{ view.style_plugin.getField(key, 'title') }}</h3>
-          <p>
-            {% if loop.first %}
-              {{ view.style_plugin.getField(key, 'body') }}
-            {% else %}
-              {% set description = entity.body.value |render|striptags %}
-              {% autoescape false %}{{ description|length > 50 ? description|slice(0, 50) : description }}{% endautoescape %}
-            {% endif %}
-          </p>
-          <span>{{ view.style_plugin.getField(key, 'created') }}</span>
+          <div>
+            {{ view.style_plugin.getField(key, 'field_resources_media') }}
+            <h3>{{ view.style_plugin.getField(key, 'title') }}</h3>
+            <p>
+              {% if loop.first %}
+                {{ view.style_plugin.getField(key, 'body') }}
+              {% else %}
+                {% set description = entity.body.value |render|striptags %}
+                {% autoescape false %}{{ description|length > 50 ? description|slice(0, 50) : description }}{% endautoescape %}
+              {% endif %}
+            </p>
+            <span>{{ view.style_plugin.getField(key, 'created') }}</span>
+          </div>
         </div>
         <div class="resources-video-list">
           {% else %}
-            <div class="resources-video {{ 'resources-' ~ loop.index }}">
-              {{ view.style_plugin.getField(key, 'field_resources_media') }}
-              <h3>{{ view.style_plugin.getField(key, 'title') }}</h3>
-              <p>
-                {% if loop.first %}
-                  {{ view.style_plugin.getField(key, 'body') }}
-                {% else %}
-                  {% set description = entity.body.value |render|striptags %}
-                  {% autoescape false %}{{ description|length > 50 ? description|slice(0, 50) : description }}{% endautoescape %}
-                {% endif %}
-              </p>
-              <span>{{ view.style_plugin.getField(key, 'created') }}</span>
+            <div>
+              <div class="resources-video {{ 'resources-' ~ loop.index }}">
+                {{ view.style_plugin.getField(key, 'field_resources_media') }}
+                <h3>{{ view.style_plugin.getField(key, 'title') }}</h3>
+                <p>
+                  {% if loop.first %}
+                    {{ view.style_plugin.getField(key, 'body') }}
+                  {% else %}
+                    {% set description = entity.body.value |render|striptags %}
+                    {% autoescape false %}{{ description|length > 50 ? description|slice(0, 50) : description }}{% endautoescape %}
+                  {% endif %}
+                </p>
+                <span>{{ view.style_plugin.getField(key, 'created') }}</span>
+              </div>
             </div>
           {% endif %}
           {% endfor %}
@@ -62,4 +63,4 @@
       </div>
     </div>
   </div>
-</div>
+</section>

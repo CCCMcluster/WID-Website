@@ -19,19 +19,20 @@
 {% if title %}
   <h3>{{ title }}</h3>
 {% endif %}
-<div class="highlight-wrapper" style="background: url('/{{ directory }}/images/resources-highlights-bg.jpg'); background-size:cover" alt="highlight">
+<div class="highlight-wrapper">
     <div class="container">
         <div class="highlight-container">
             <h2 class="highlight-title">{{ drupal_field('name', 'taxonomy_term', 33) }}</h2>
             <div class="highlight-image-wrapper">
                 {% for key,row in rows %}
                 <div class="highlight-image-container {{ 'resources-highlights' ~ loop.index }}" >
-                    {{ view.style_plugin.getField(key, 'field_resources_media') }}
-                    <p>{{ view.style_plugin.getField(key, 'title') }}</p>
+                    <div>
+                        {{ view.style_plugin.getField(key, 'field_resources_media') }}
+                        <p>{{ view.style_plugin.getField(key, 'title') }}</p>
+                    </div>
                 </div>
                 {% endfor %}
             </div>
         </div>
     </div>
 </div>
-<hr class="hr-highlight">
