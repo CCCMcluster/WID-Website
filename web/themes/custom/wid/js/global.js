@@ -73,7 +73,7 @@
     navText: [
       `
         <div class="carousel-card-button carousel-card-button-left">
-          <i class="ion-android-arrow-forward"></i>
+          <i class="ion-android-arrow-back"></i>
         </div>
       `,
       `
