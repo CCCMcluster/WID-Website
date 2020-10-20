@@ -1,104 +1,102 @@
 .account-wrapper {
-  background: url('../images/login-background.jpg');
-  background-size: cover;
+  background-color: #EDF0F4;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   padding: 100px 0;
 
-  h2 {
-    font-family: $font-raleway;
-    font-size: $font-size-text-alt;
-    font-weight: 600;
-    line-height: 1.2;
-    color: #ffffff;
-    background-color: $primary-color;
-    display: inline-block;
-    padding: 10px 75px;
-    margin: 50px 0 75px;
-    border-radius: 20px;
-    box-shadow: 0 3px 6px 0 rgba(59, 54, 54, 0.16);
-  }
-
   .account-container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
     text-align: left;
-    gap: 50px;
+    background-color: #ffffff;
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 8px;
 
-    .login-container {
-      border-radius: 20px;
-      background-color: #ffffff;
-      padding: 50px 0;
-      flex: 1;
+    .login-title {
+      display: flex;
+      justify-content: center;
+      border-bottom: 1px solid #AAAAAA;
 
-      .login-title {
-        width: 70%;
-        margin: 0 auto;
+      h3 {
+        font-family: $font-raleway;
+        font-size: $font-size-text;
+        font-weight: 600;
+        line-height: 1.21;
+        color: #AAAAAA;
+        margin: 0;
+        padding: 20px 0;
+        flex: 1;
+        text-align: center;
+        text-transform: uppercase;
+        cursor: pointer;
 
-        h3 {
-          font-family: $font-raleway;
-          font-size: $font-size-title-sm;
-          font-weight: 600;
-          line-height: 1.21;
+        &:hover {
           color: $primary-color;
-          margin: 0;
-          padding-bottom: 20px;
         }
       }
 
+      .active {
+        color: $primary-color;
+        border-bottom: 2px solid $primary-color;
+      }
+    }
+
+    .login-container {
+      padding: 50px 0;
+      width: 70%;
+      margin: 0 auto;
+
+
       .login-info {
-        width: 70%;
-        margin: 0 auto;
 
         p {
-          font-family: $font-lato;
-          font-size: $font-size-text;
+          font-family: $font-opensans;
+          font-size: $font-size-text-sm;
           font-weight: normal;
           line-height: 1.22;
-          color: $primary-color;
+          color: #272727;
           margin: 0;
+          text-align: center;
         }
       }
 
       .login-form {
-        width: 70%;
-        margin: 0 auto;
 
         form {
           label {
-            font-family: $font-lato;
-            font-size: $font-size-text-alt;
-            font-weight: bold;
+            font-family: $font-opensans;
+            font-size: $font-size-text-sm;
+            font-weight: normal;
             line-height: 1.2;
-            color: $primary-color;
+            color: #272727;
             display: block;
             margin-top: 25px;
           }
 
           input {
-            border-radius: 20px;
-            background-color: #fafafa;
+            border-radius: 4px;
+            background-color: #EDF0F4;
             padding: 7px 25px;
             border: none;
             width: 100%;
           }
 
           .login-button {
-            margin-top: 15px;
+            margin-top: 20px;
+            box-shadow: 5px 10px 20px #0000000A;
 
             button {
-              font-family: $font-lato;
-              font-size: $font-size-base;
-              font-weight: normal;
+              font-family: $font-opensans;
+              font-size: $font-size-text-sm;
+              font-weight: 600;
               line-height: 0.69;
               color: #ffffff;
-              border-radius: 10px;
+              border-radius: 4px;
               background-color: $primary-color;
               border: none;
-              padding: 10px 15px;
+              padding: 16px 15px;
+              width: 100%;
 
               i {
                 font-size: $font-size-xs;
@@ -108,71 +106,96 @@
             }
           }
         }
+      }
 
-        .login-with-container {
-          text-align: center;
-          margin-top: 50px;
+      .login-with-container {
+        text-align: center;
+        width: 80%;
+        margin: 20px auto;
+        background-color: #EDF0F4;
 
-          p {
-            font-family: $font-lato;
-            font-size: $font-size-base;
-            font-weight: normal;
+        .login-with-image {
+          .login-with {
+            font-family: $font-opensans;
+            font-size: $font-size-text-sm;
+            font-weight: 600;
             line-height: 1.19;
-            color: $primary-color;
+            color: #272727;
+            margin: 0 15px 0 0;
           }
 
-          .login-with-image {
-            img {
-              height: 50px;
-              width: 100%;
-              object-fit: contain;
-            }
+          img {
+            height: 35px;
+            width: 150px;
+            object-fit: contain;
           }
 
-          .forget-password {
-            margin-top: 35px;
-
-            a {
-              color: $primary-color;
-              font-weight: bold;
-            }
+          .block-social-auth-login {
+            display: inline-block;
           }
+        }
+      }
+
+      .or {
+        font-family: $font-opensans;
+        font-size: $font-size-text-sm;
+        font-weight: normal;
+        line-height: 1.22;
+        color: #272727;
+        margin: 0;
+        text-align: center;
+      }
+
+      .forget-password {
+        margin-top: 10px;
+        text-align: right;
+
+        a {
+          font-family: $font-opensans;
+          font-size: $font-size-text-sm;
+          font-weight: normal;
+          line-height: 1.22;
+          color: #272727;
+          margin: 0;
+        }
+      }
+
+      .register-now {
+        margin-top: 45px;
+        text-align: center;
+        font-family: $font-opensans;
+        font-size: $font-size-text-sm;
+        font-weight: normal;
+        line-height: 1.22;
+        color: #272727;
+
+        a {
+          font-family: $font-opensans;
+          font-size: $font-size-text-sm;
+          font-weight: bold;
+          line-height: 1.22;
+          color: $primary-color;
+          margin: 0;
         }
       }
     }
 
     .signup-container {
-      border-radius: 20px;
-      background-color: #ffffff;
       padding: 50px 0 100px;
-      flex: 1;
-
-      .signup-title {
-        width: 70%;
-        margin: 0 auto;
-
-        h3 {
-          font-family: $font-raleway;
-          font-size: $font-size-title-sm;
-          font-weight: 600;
-          line-height: 1.21;
-          color: $primary-color;
-          margin: 0;
-          padding-bottom: 20px;
-        }
-      }
+      display: none;
 
       .signup-info {
         width: 70%;
         margin: 0 auto;
 
         p {
-          font-family: $font-lato;
-          font-size: $font-size-text;
+          font-family: $font-opensans;
+          font-size: $font-size-text-sm;
           font-weight: normal;
           line-height: 1.22;
-          color: $primary-color;
+          color: #272727;
           margin: 0;
+          text-align: center;
         }
       }
 
@@ -182,36 +205,38 @@
 
         form {
           label {
-            font-family: $font-lato;
-            font-size: $font-size-text-alt;
-            font-weight: bold;
+            font-family: $font-opensans;
+            font-size: $font-size-text-sm;
+            font-weight: normal;
             line-height: 1.2;
-            color: $primary-color;
+            color: #272727;
             display: block;
             margin-top: 25px;
           }
 
           input {
-            border-radius: 20px;
-            background-color: #fafafa;
+            border-radius: 4px;
+            background-color: #EDF0F4;
             padding: 7px 25px;
             border: none;
             width: 100%;
           }
 
           .signup-button {
-            margin-top: 15px;
+            margin-top: 20px;
+            box-shadow: 5px 10px 20px #0000000A;
 
             button {
-              font-family: $font-lato;
-              font-size: $font-size-base;
-              font-weight: normal;
+              font-family: $font-opensans;
+              font-size: $font-size-text-sm;
+              font-weight: 600;
               line-height: 0.69;
               color: #ffffff;
-              border-radius: 10px;
+              border-radius: 4px;
               background-color: $primary-color;
               border: none;
-              padding: 10px 15px;
+              padding: 16px 15px;
+              width: 100%;
 
               i {
                 font-size: $font-size-xs;
@@ -220,6 +245,25 @@
               }
             }
           }
+        }
+      }
+
+      .register {
+        margin-top: 45px;
+        text-align: center;
+        font-family: $font-opensans;
+        font-size: $font-size-text-sm;
+        font-weight: normal;
+        line-height: 1.22;
+        color: #272727;
+
+        a {
+          font-family: $font-opensans;
+          font-size: $font-size-text-sm;
+          font-weight: bold;
+          line-height: 1.22;
+          color: $primary-color;
+          margin: 0;
         }
       }
     }
@@ -237,6 +281,13 @@
 
     .account-container {
       flex-direction: column;
+      width: 100%;
+
+      .login-container {
+        .login-with-container {
+          width: 100%;
+        }
+      }
     }
   }
 }
@@ -245,6 +296,7 @@
   .account-wrapper {
     .account-container {
       flex-direction: column;
+      width: 100%;
     }
   }
 }
@@ -254,6 +306,7 @@
     .account-container {
       flex-direction: column;
       align-items: normal;
+      width: 85%;
     }
   }
 }

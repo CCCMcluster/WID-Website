@@ -107,14 +107,12 @@ function wid_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state
     $form['actions']['submit']['#prefix'] = '<div class="login-button">';
     $form['actions']['submit']['#suffix'] = '</div>';
     $form['actions']['submit']['#attributes']['class'][] = 'login-button';
-    $form['actions']['submit']['#value'] = t('Enter');
-    $form['actions']['submit']['button']['#markup'] = '<i class="ion-android-arrow-forward" aria-hidden="true"></i>';
+    $form['actions']['submit']['#value'] = t('Login');
   }
   if ($form_id == 'user_register_form') {
     $form['actions']['submit']['#prefix'] = '<div class="signup-button">';
     $form['actions']['submit']['#suffix'] = '</div>';
     $form['actions']['submit']['#attributes']['class'][] = 'signup-button';
-    $form['actions']['submit']['#value'] = t('Sign up');
-    $form['actions']['submit']['button']['#markup'] = '<i class="ion-android-arrow-forward" aria-hidden="true"></i>';
+    $form['actions']['submit']['#value'] = t('Register');
   }
 }

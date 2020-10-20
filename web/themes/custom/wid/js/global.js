@@ -104,4 +104,17 @@
 
   $('.view-taxonomy-term').addClass('container');
   $('.view-search').addClass('container');
+
+  $("#login, #login-link").click(function(){
+    $(".login-container").css("display", "block");
+    $(".signup-container").css("display", "none");
+    $("#login").addClass( "active" );
+    $("#register").removeClass( "active" );
+  });
+  $("#register, #register-link").click(function(){
+    $(".login-container").css("display", "none");
+    $(".signup-container").css("display", "block");
+    $("#register").addClass( "active" );
+    $("#login").removeClass( "active" );
+  });
 })(jQuery, Drupal);
