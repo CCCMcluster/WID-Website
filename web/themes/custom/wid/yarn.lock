@@ -1654,6 +1654,13 @@ form-data@~2.3.2:
     combined-stream "^1.0.6"
     mime-types "^2.1.12"
 
+fotorama@^4.6.4:
+  version "4.6.4"
+  resolved "https://registry.yarnpkg.com/fotorama/-/fotorama-4.6.4.tgz#7376961b6c7eeccb6c76411aceba7795ffe22eae"
+  integrity sha1-c3aWG2x+7MtsdkEazrp3lf/iLq4=
+  dependencies:
+    jquery ">=1.8"
+
 fragment-cache@^0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/fragment-cache/-/fragment-cache-0.2.1.tgz#4290fad27f13e89be7f33799c6bc5a0abfff0d19"
@@ -2539,7 +2546,7 @@ isstream@~0.1.2:
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
   integrity sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo=
 
-jquery@>=1.8.3, jquery@^3.3.1:
+jquery@>=1.8, jquery@>=1.8.3, jquery@^3.3.1:
   version "3.5.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.5.1.tgz#d7b4d08e1bfdb86ad2f1a3d039ea17304717abb5"
   integrity sha512-XwIBPqcMn57FxfT+Go5pzySnm4KWkT1Tv7gjrpT1srtf8Weynl6R273VJ5GjkRb51IzMp5nbaPjJXMWeju2MKg==

@@ -4,6 +4,7 @@ global-styling:
     js/popper.min.js: {}
     js/bootstrap.min.js: {}
     js/owl.carousel.min.js: {}
+    js/fotorama.js: {}
     js/global.js: {}
   css:
     component:

@@ -266,83 +266,6 @@
       border-radius: 40px;
       box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
     }
-
-    .single-country-gallery-container {
-      padding: 20px 20px 10px 20px;
-      background-color: $white;
-      border-radius: 15px;
-      box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-
-      .countryGallerySlides {
-        display: none;
-
-        img {
-          height: 600px;
-          border-top-left-radius: 15px;
-          border-top-right-radius: 15px;
-          object-fit: cover;
-        }
-      }
-
-      .single-country-gallery-row {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        padding: 10px 80px;
-
-        .single-country-gallery-column {
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-          align-items: center;
-
-          .galleryImage {
-            height: 80px;
-            width: 80px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin: 5px;
-            opacity: 0.9;
-
-            &:hover {
-              opacity: 1;
-            }
-          }
-
-          .active {
-            opacity: 1;
-          }
-
-          .prev,
-          .next {
-            text-decoration: none;
-            cursor: pointer;
-            width: auto;
-            padding: 16px;
-            color: $accent-color;
-            font-weight: bold;
-            font-size: $font-size-text-alt;
-            user-select: none;
-            -webkit-user-select: none;
-
-            &:hover {
-              background-color: rgba(0, 0, 0, 0.1);
-            }
-          }
-
-          .prev {
-            left: 20%;
-            border-radius: 3px 0 0 3px;
-          }
-
-          .next {
-            right: 20%;
-            border-radius: 0 3px 3px 0;
-          }
-        }
-      }
-    }
   }
 }
 
@@ -429,33 +352,6 @@
       h2 {
         font-size: $font-size-text;
         border-radius: 10px;
-      }
-
-      .single-country-gallery-container {
-        padding: 5px;
-        border-radius: 5px;
-
-        .countryGallerySlides {
-          display: none;
-
-          img {
-            height: 300px;
-            object-fit: cover;
-          }
-        }
-
-        .single-country-gallery-row {
-          padding: 5px 10px;
-
-          .single-country-gallery-column {
-            .galleryImage {
-              height: 50px;
-              width: 50px;
-              border-radius: 5px;
-              margin: 2px;
-            }
-          }
-        }
       }
     }
   }
@@ -544,33 +440,6 @@
       h2 {
         font-size: $font-size-text-alt;
         border-radius: 10px;
-      }
-
-      .single-country-gallery-container {
-        padding: 5px;
-        border-radius: 5px;
-
-        .countryGallerySlides {
-          display: none;
-
-          img {
-            height: 400px;
-            object-fit: cover;
-          }
-        }
-
-        .single-country-gallery-row {
-          padding: 5px 10px;
-
-          .single-country-gallery-column {
-            .galleryImage {
-              height: 50px;
-              width: 50px;
-              border-radius: 5px;
-              margin: 2px;
-            }
-          }
-        }
       }
     }
   }
