@@ -1,78 +1,60 @@
 .block-views-blockpartners-block-1 {
-  text-align: center;
-  background: #e8edff;
-  padding: 150px 0 200px;
+  background: #EDF0F4;
+  padding: 50px 0;
+  @media only screen and (min-width: 1170px) {
+    padding: 100px 0;
+  }
+
 
   h2 {
-    font-family: $font-raleway;
-    font-size: $font-size-section-title;
-    font-weight: $font-weight-semibold;
-    line-height: 1.16;
-    color: #ffffff;
-    background-color: $primary-color;
+    font-size: 24px;
+    line-height: 32px;
+    font-family: $font-raleway-sans;
+    color: $blue-dark;
+    font-weight: bold;
+    margin-bottom: 40px;
+    text-align: center;
+
+    @media only screen and (min-width: 1170px) {
+      font-size: 35px;
+      line-height: 48px;
+      margin-bottom: 86px;
+    }
+  }
+}
+
+.partner-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+  .partner-single {
+    margin-right: 50px;
+
+    @media only screen and (min-width: 1170px) {
+      margin-right: 130px;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  a {
     display: inline-block;
-    padding: 10px 75px;
-    border-radius: 20px;
-    box-shadow: 0 3px 6px 0 rgba(59, 54, 54, 0.16);
   }
+  img {
+    height: 60px;
+    display: inline-block;
 
-  .partner-wrapper {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 110px;
+    @media only screen and (min-width: 768px) {
+      height: 80px;
+    }
 
-    .partner-single {
-      a {
-        img {
-          height: 120px;
-          width: auto;
-          object-fit: contain;
-        }
-      }
+    @media only screen and (min-width: 1170px) {
+      height: 107px;
     }
   }
 }
 
-// Responsive
-@media (min-width: 320px) and (max-width: 480px) {
-  .block-views-blockpartners-block-1 {
-    padding: 75px 0 50px;
-    .partner-wrapper {
-      flex-direction: column;
-
-      .partner-single {
-        margin: 20px 0;
-
-        a {
-          img {
-            height: 100px;
-            width: auto;
-            object-fit: contain;
-          }
-        }
-      }
-    }
-  }
-}
-
-@media (min-width: 481px) and (max-width: 767px) {
-  .block-views-blockpartners-block-1 {
-    padding: 75px 0 50px;
-    .partner-wrapper {
-      flex-direction: column;
-
-      .partner-single {
-        margin: 20px 0;
-
-        a {
-          img {
-            height: 100px;
-            width: auto;
-            object-fit: contain;
-          }
-        }
-      }
-    }
-  }
-}
