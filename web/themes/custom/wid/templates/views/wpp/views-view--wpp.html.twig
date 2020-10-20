@@ -1,0 +1,72 @@
+{#
+/**
+ * @file
+ * Theme override for a main view template.
+ *
+ * Available variables:
+ * - attributes: Remaining HTML attributes for the element.
+ * - css_name: A css-safe version of the view name.
+ * - css_class: The user-specified classes names, if any.
+ * - header: The optional header.
+ * - footer: The optional footer.
+ * - rows: The results of the view query, if any.
+ * - empty: The content to display if there are no rows.
+ * - pager: The optional pager next/prev links to display.
+ * - exposed: Exposed widget form/info to display.
+ * - feed_icons: Optional feed icons to display.
+ * - more: An optional link to the next page of results.
+ * - title: Title of the view, only used when displaying in the admin preview.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the view title.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the view title.
+ * - attachment_before: An optional attachment view to be displayed before the
+ *   view content.
+ * - attachment_after: An optional attachment view to be displayed after the
+ *   view content.
+ * - dom_id: Unique id for every view being printed to give unique class for
+ *   Javascript.
+ *
+ * @see template_preprocess_views_view()
+ */
+#}
+{% set classes = [
+  'view',
+  'view-' ~ id|clean_class,
+  'view-id-' ~ id,
+  'view-display-id-' ~ display_id,
+  dom_id ? 'js-view-dom-id-' ~ dom_id,
+  'background'
+] %}
+<div{{ attributes.addClass(classes) }}>
+  <div class="container">
+    <div class="wrapper">
+      <h2 class="title">
+        {{ title_prefix }}
+        {% if title %}
+          {{ title }}
+        {% endif %}
+        {{ title_suffix }}
+      </h2>
+      <div class="row content-block">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-6">
+          <div class="text-content p-5">
+            {% if rows %}
+              {% set wpp = rows.0['#rows'] %}
+              {% for row in  wpp %}
+                <div class="view-content row">
+                  {{ row.body }}
+                  {{ row.field_our_mission_media }}
+                </div>
+              {% endfor %}
+            {% elseif empty %}
+              <div class="view-empty">
+                {{ empty }}
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
