@@ -71,22 +71,14 @@
   'article-wrapper',
 ] %}
 <article{{ attributes.addClass(classes) }}>
-  {% if node.field_featured_media.value %}
-    <div class="article-banner">
-      <img src="{{ file_url(node.field_featured_media.entity.field_media_image.entity.fileuri) }}"
-           alt="{{ node.field_featured_media.entity.field_media_image.alt }}">
-    </div>
-  {% endif %}
   <div class="container">
     <div class="article-nav-container">
-      <div class="nav-image-container">
-        <p>{% trans %}News{% endtrans %}</p>
-        <i class="fa fa-fax"></i>
-      </div>
       <div class="article-nav">
-        <span><a href="/news">{% trans %}News{% endtrans %}</a></span><i class="fa fa-angle-right"></i><span><a
-            href="{{ url }}">{{ label }}</a></span>
+        <span><a href="/news"><i class="ion-android-arrow-back"></i>{% trans %}Back to News{% endtrans %}</a></span>
       </div>
+    </div>
+    <div class="news-button">
+      {{ content.field_tags }}
     </div>
     <div class="article-title">
       {{ title_prefix }}
@@ -97,7 +89,6 @@
       {% endif %}
       {{ title_suffix }}
     </div>
-    <hr class="hr-article"/>
     <div class="article-social-media-wrapper">
       {% if display_submitted %}
         {% block submitted %}
@@ -112,19 +103,19 @@
         {{ content.addtoany }}
       </div>
     </div>
-    <hr class="hr-article"/>
     <div class="news-wrapper">
-      <div class="news-button">
-        {{ content.field_tags }}
-      </div>
+
       <div{{ content_attributes.addClass('node__content', 'clearfix', 'news-desc') }}>
         {{ content.body }}
       </div>
     </div>
-    <div class="more-article-wrapper">
-      <div class="more-article-button">
-        <h3>More articles</h3>
-      </div>
+  </div>
+
+  <div class="more-article-wrapper">
+    <div class="more-article-button">
+      <h3>More articles</h3>
+    </div>
+    <div class="container">
       <div class="card-groups">
         {% set articles = drupal_view_result('content_recent', 'block_1', 'news') %}
         {% set index = 0 %}
@@ -133,24 +124,25 @@
             {% set index = index + 1 %}
             {% set article_entity = article._entity %}
             <div class="single-card">
-              <div>
-                {% if article_entity.field_featured_media.value %}
-                  <img
-                          src="{{ file_url(article_entity.field_featured_media.entity.field_media_image.entity.fileuri|image_style('large')) }}"
-                          alt="{{ article_entity.field_featured_media.entity.field_media_image.alt }}">
-                {% endif %}
-                <a href="{{ path('entity.node.canonical', {'node': article.nid}) }}">
-                  <h2>
-                    {{ article_entity.title.value }}
-                  </h2>
-                </a>
-                <p>
-                  {% set summary = article_entity.body.summary %}
-                  {% autoescape false %}
-                    {{ summary|length > 146 ? summary|slice(0, 146) ~ '...' : summary }}
-                  {% endautoescape %}
-                </p>
-              </div>
+              <a href="{{ path('entity.node.canonical', {'node': article.nid}) }}">
+                <div>
+                  {% if article_entity.field_featured_media.value %}
+                    <img
+                      src="{{ file_url(article_entity.field_featured_media.entity.field_media_image.entity.fileuri|image_style('large')) }}"
+                      alt="{{ article_entity.field_featured_media.entity.field_media_image.alt }}">
+                  {% endif %}
+                    <h2>
+                      {{ article_entity.title.value }}
+                    </h2>
+                  <p>
+                    {% set summary = article_entity.body.summary %}
+                    {% autoescape false %}
+                      {{ summary|length > 146 ? summary|slice(0, 146) ~ '...' : summary }}
+                    {% endautoescape %}
+                  </p>
+                  <span>{{ article_entity.created.value|format_date('custom_content_date') }}</span>
+                </div>
+              </a>
             </div>
           {% endif %}
         {% endfor %}
