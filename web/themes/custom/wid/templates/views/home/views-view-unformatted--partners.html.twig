@@ -16,22 +16,22 @@
  */
 #}
 {% if title %}
-  <h3>{{ title }}</h3>
+    <h3>{{ title }}</h3>
 {% endif %}
-  <div class="container">
+<div class="container">
     <div class="partner-wrapper">
-      {% for row in rows %}
-        {% set entity = row.content['#row']._entity %}
-        {% set partner_id = 'partner-' ~ entity.nid.value %}
-        {% set row_classes = [
-          default_row_class ? 'views-row',
-        ] %}
-        <div class="partner-single">
-          {% set image_url = media_file_url(entity.field_partner_image[0].target_id) %}
-          <a href="/about#{{ partner_id }}">
-            <img src="{{ image_url }}" alt="partner-logo"/>
-          </a>
-        </div>
+        {% for row in rows %}
+            {% set entity = row.content['#row']._entity %}
+            {% set partner_id = 'partner-' ~ entity.nid.value %}
+            {% set row_classes = [
+                default_row_class ? 'views-row',
+            ] %}
+            <div class="partner-single">
+                {% set image_url = media_file_url(entity.field_partner_image[0].target_id) %}
+                <a href="/about#{{ partner_id }}" title="{{ partner_id }}">
+                    <img src="{{ image_url }}" alt="partner-logo" />
+                </a>
+            </div>
         {% endfor %}
-  </div>
+    </div>
 </div>

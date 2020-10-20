@@ -1,11 +1,20 @@
 .latest-news-features-block {
-  margin-top: 44px;
+  padding-top: 44px;
+}
+
+.block-wid-latest-news-features {
+  padding-bottom: 24px;
+  background: $gray-200;
+
+  @media only screen and (min-width: 1024px) {
+    padding-bottom: 88px;
+  }
 }
 
 .featured-news-grid {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 -7px -15px;
+  margin: 0 -7px;
 
   .banner-wrapper {
     width: 100%;

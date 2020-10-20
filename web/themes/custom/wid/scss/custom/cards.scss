@@ -180,8 +180,10 @@
 
   .card-content {
     .news-container {
-      overflow-y: scroll;
-      height: calc(100vh - 132px);
+      overflow-y: auto;
+      @media only screen and (min-width: 1024px) {
+        height: calc(100vh - 139px);
+      }
 
       &::-webkit-scrollbar {
         width: 10px;
