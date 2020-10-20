@@ -16,42 +16,42 @@
  */
 #}
 <div class="country-latest-update-wrapper">
-  <div class="container">
-    <div class="latest-update-container">
-      <h2 class="latest-update-main-title">Read all news</h2>
-      <div class="countries-list">
-        {% set active_countries = load_vocabulary_term('country_report_overview') %}
-        <ul id="countries">
-          {% for country in active_countries %}
-            {% set country_iso_code = load_tax_term(country.id).field_report_overview_country.value %}
-            {% set active_class = '' %}
-            {% if country_iso_code == 'AF' %}
-              {% set active_class = 'active' %}
-            {% endif %}
-            <li class="{{ country_iso_code|lower }} {{ active_class }}" value="{{ country_iso_code }}">{{ country.name }}</li>
-          {% endfor %}
-        </ul>
-      </div>
-      <div class="latest-update-card-container">
-        <div id="news-cards" class="latest-update-cards">
-          {% for single_news in news %}
-            <div class="single-card">
-              <a href="{{ single_news.link }}">
-              {% if single_news.url %}
-                <img src="{{ single_news.url }}" alt="news">
-              {% endif %}
-                <h2>{{ single_news.title }}</h2>
-              <p>
-                {% autoescape false %}{{ single_news.body|length > 80 ? single_news.body|slice(0, 80) : single_news.body }}{% endautoescape %}
-              </p>
-              <span>{{ single_news.created_date }}</span>
-              </a>
+    <div class="container">
+        <div class="latest-update-container">
+            <h2 class="latest-update-main-title">Read All News</h2>
+            <div class="countries-list">
+                {% set active_countries = load_vocabulary_term('country_report_overview') %}
+                <ul id="countries">
+                    {% for country in active_countries %}
+                        {% set country_iso_code = load_tax_term(country.id).field_report_overview_country.value %}
+                        {% set active_class = '' %}
+                        {% if country_iso_code == 'AF' %}
+                            {% set active_class = 'active' %}
+                        {% endif %}
+                        <li class="{{ country_iso_code|lower }} {{ active_class }}" value="{{ country_iso_code }}">{{ country.name }}</li>
+                    {% endfor %}
+                </ul>
             </div>
-          {% endfor %}
+            <div class="latest-update-card-container">
+                <div id="news-cards" class="latest-update-cards">
+                    {% for single_news in news %}
+                        <div class="single-card">
+                            <div>
+                                <a href="{{ single_news.link }}">
+                                    {% if single_news.url %}
+                                        <img src="{{ single_news.url }}" alt="news">
+                                    {% endif %}
+                                    <h2>{{ single_news.title }}</h2>
+                                    <p>
+                                        {% autoescape false %}{{ single_news.body|length > 80 ? single_news.body|slice(0, 80) : single_news.body }}{% endautoescape %}
+                                    </p>
+                                    <span class="date">{{ single_news.created_date }}</span>
+                                </a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
-
-<hr class="hr-news">

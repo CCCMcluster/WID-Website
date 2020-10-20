@@ -65,17 +65,19 @@
                 {% set summary = entity.body.value |render|striptags %}
                 {% set media_url = file_url(entity.field_resources_media.entity.field_media_image.entity.fileuri | image_style('large')) %}
                 {% set media_alt = entity.field_resources_media.entity.field_media_image.alt %}
-                <img src="{{ media_url }}" alt="{{ media_alt }}">
-                <a class="anchor" href="#">{{ title }}</a>
-                <p>{% autoescape false %}{{ summary|length > 80 ? summary|slice(0, 80) : summary }}{% endautoescape %}</p>
-                <div class="download-section">
-                  {# <span class="user-content"><a href="#"><i class="fa fa-user"></i>User Content</a></span> #}
-                  {% if entity.field_resources_attachment_type.value == 'Document' %}
-                    {% set document_url = media_file_url(entity.field_resources_document.value.0.target_id, 'field_media_document') %}
-                    <span class="download"><a href="{{ document_url }}" target="_blank">Download</a></span>
-                  {% elseif entity.field_resources_attachment_type.value == 'Link' %}
-                    <span class="download"><a href="{{ entity.field_resources_link[0].uri }}" target="_blank">Download</a></span>
-                  {% endif %}
+                <div>
+                    <img src="{{ media_url }}" alt="{{ media_alt }}">
+                    <a class="anchor" href="#">{{ title }}</a>
+                    <p>{% autoescape false %}{{ summary|length > 80 ? summary|slice(0, 80) : summary }}{% endautoescape %}</p>
+                    <div class="download-section">
+                        {# <span class="user-content"><a href="#"><i class="fa fa-user"></i>User Content</a></span> #}
+                        {% if entity.field_resources_attachment_type.value == 'Document' %}
+                            {% set document_url = media_file_url(entity.field_resources_document.value.0.target_id, 'field_media_document') %}
+                            <span class="download"><a href="{{ document_url }}" target="_blank">Download</a></span>
+                        {% elseif entity.field_resources_attachment_type.value == 'Link' %}
+                            <span class="download"><a href="{{ entity.field_resources_link[0].uri }}" target="_blank">Download</a></span>
+                        {% endif %}
+                    </div>
                 </div>
               </div>
             {% endfor %}

@@ -15,65 +15,78 @@
  * @see template_preprocess_views_view_unformatted()
  */
 #}
-<div class="event-wrapper" style="background-image: url('/{{ directory }}/images/news-page-background.jpg')">
-  <h2 class="title">News</h2>
-  <div class="container">
-    <div class="event-container">
-      <div class="event">
-        {% if news is not empty %}
-          {% for single_news in news %}
-            {% set title = single_news.title.value %}
-            {% set news_description = single_news.body.summary %}
-            {% set news_created_date = single_news.created.value | date('m/d/y') %}
-            {% set news_image_url = file_url(single_news.field_featured_media.entity.field_media_image.entity.fileuri | image_style('large')) %}
-            {% set news_image_alt = single_news.field_featured_media.entity.field_media_image.alt %}
-            {% set news_link = path('entity.node.canonical', {'node': single_news.nid.value}) %}
-            <div class="single-event">
-              <a href="{{ news_link }}"><img src="{{ news_image_url }}" alt="{{ news_image_alt }}"></a>
-              <a href="{{ news_link }}">
-                <h2>{{ title }}</h2>
-              </a>
-              <p>
-                {% autoescape false %}
-                  {{ news_description|length > 230 ? news_description|slice(0, 230) : news_description }}
-                {% endautoescape %}
-              </p>
-              <span class="pull-right">{{ news_created_date | date('m/d/y') }}</span>
+<div class="event-wrapper">
+    <h2 class="title">News</h2>
+    <div class="container">
+        <div class="event-container-grid">
+            <div class="row">
+                <div class="col-xs-12 col-xl-8">
+                    <div class="event-block">
+                        <div class="event">
+                            {% if news is not empty %}
+                                {% for single_news in news %}
+                                    {% set title = single_news.title.value %}
+                                    {% set news_description = single_news.body.summary %}
+                                    {% set news_created_date = single_news.created.value | date('m/d/y') %}
+                                    {% set news_image_url = file_url(single_news.field_featured_media.entity.field_media_image.entity.fileuri | image_style('large')) %}
+                                    {% set news_image_alt = single_news.field_featured_media.entity.field_media_image.alt %}
+                                    {% set news_link = path('entity.node.canonical', {'node': single_news.nid.value}) %}
+                                    <div class="single-event">
+                                        <a href="{{ news_link }}" title="{{ title }}">
+                                            <img src="{{ news_image_url }}" alt="{{ news_image_alt }}">
+                                        </a>
+                                        <a href="{{ news_link }}" title="{{ title }}">
+                                            <h2>{{ title }}</h2>
+                                        </a>
+                                        <p>
+                                            {% autoescape false %}
+                                                {{ news_description|length > 230 ? news_description|slice(0, 230) : news_description }}
+                                            {% endautoescape %}
+                                        </p>
+                                        <span class="date">{{ news_created_date | date('m/d/y') }}</span>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-xl-4">
+                    <div class="event-list-block">
+                        <h2>Events</h2>
+                        <div class="event-list">
+                            {% if events is not empty %}
+                                {% for event in events %}
+                                    {% set eventTitle = event.title.value %}
+                                    {% set eventDate = event.field_event_date[0].value | date('m/d/Y') %}
+                                    <div class="single-event-list">
+                                        <div class="ic-calendar">
+                                            <i class="fa fa-calendar-o"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="event-title">{{ eventTitle }}</h3>
+                                            <span class="date">{{ eventDate }}</span>
+                                            <span class="event-icons">
+                                          {% if event.field_event_attachment_type.value == 'Document' %}
+                                              {% set document_url = media_file_url(event.field_event_document.value.0.target_id, 'field_media_document') %}
+                                              <a class="download-button" href="{{ document_url }}" download>Download</a>
+                                          {% elseif event.field_event_attachment_type.value == 'Link' %}
+                                              <a class="download-button" href="{{ event.field_event_document_link[0].uri }}" target="_blank">
+                                              <i class="fa fa-external-link"></i>
+                                            </a>
+                                          {% endif %}
+                                        </span>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            {% else %}
+                                <div class="single-event-list">
+                                    <p>No upcoming events</p>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
             </div>
-          {% endfor %}
-        {% endif %}
-      </div>
-      <div class="event-list-container">
-        <h2>Events</h2>
-        <div class="event-list">
-          {% if events is not empty %}
-            {% for event in events %}
-              {% set eventTitle = event.title.value %}
-              {% set eventDate = event.field_event_date[0].value | date('m/d/Y') %}
-              <div class="single-event-list">
-                <span class="date">{{ eventDate }}</span>
-                <span class="event-title">
-                  <a>{{ eventTitle }}</a>
-                </span>
-                <span class="event-icons">
-                  {% if event.field_event_attachment_type.value == 'Document' %}
-                    {% set document_url = media_file_url(event.field_event_document.value.0.target_id, 'field_media_document') %}
-                    <a class="download-button" href="{{ document_url }}" download>Download</a>
-                  {% elseif event.field_event_attachment_type.value == 'Link' %}
-                    <a class="download-button" href="{{ event.field_event_document_link[0].uri }}" target="_blank">
-                      <i class="fa fa-external-link"></i>
-                    </a>
-                  {% endif %}
-              </span>
-              </div>
-            {% endfor %}
-          {% else %}
-            <div class="single-event-list">
-              <p>No upcoming events</p>
-            </div>
-          {% endif %}
         </div>
-      </div>
     </div>
-  </div>
 </div>

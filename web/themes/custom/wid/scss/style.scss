@@ -20,7 +20,13 @@ body {
 --------------------------------------------------*/
 
 a {
-  color: $accent-shade;
+  color: $primary-color;
+  text-decoration: none;
+
+  &:hover, &:focus {
+    color: $primary-color;
+    text-decoration: none;
+  }
 }
 
 .bg-inverse {
