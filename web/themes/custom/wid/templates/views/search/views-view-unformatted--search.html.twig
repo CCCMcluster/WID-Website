@@ -1,0 +1,53 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+{% set classes = [
+  'container',
+  'search-container',
+] %}
+
+
+{% if title %}
+  <h3>{{ title }}</h3>
+{% endif %}
+<div {{ attributes.addClass(classes) }}>
+  <div class="row d-flex justify-content-center">
+    <div class="search-title text-center">Search Results for <span id="search-term">""</span></div>
+  </div>
+  <hr class="col search-hr"/>
+  <div class="row  d-flex justify-content-center">
+    {% for row in rows %}
+      {% set row_classes = [
+        default_row_class ? 'views-row',
+        'col-10 card search-card'
+      ] %}
+      <div{{ row.attributes.addClass(row_classes) }}>
+        {{ row.content }}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+<script>
+    function loadTerm() {
+        var url_string = window.location.href;
+        var url = new URL(url_string);
+        var term = url.searchParams.get("search_api_fulltext");
+        document.getElementById('search-term').innerHTML = '“' + term + '”';
+    }
+
+    loadTerm();
+</script>
