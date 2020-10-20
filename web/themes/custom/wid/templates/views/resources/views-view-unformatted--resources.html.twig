@@ -18,74 +18,82 @@
 {% set view_index = rows|keys.0 %}
 {% set view_max_index = max(view.result|keys) %}
 {% if view_index == 0 %}
-<div class="container">
-  <div class="resource-mission-wrapper">
-    <div class="resource-mission-container">
-      <h2>Key initiatives</h2>
-    </div>
-  </div>
-</div>
-<div class="container">
-  <div class="our-key-container">
-    <div class="resource-initiative-container container">
-      {% set key_initiative_links = drupal_view_result('resources', 'block_2') %}
-      {% for key_initiative_link in key_initiative_links %}
-        {% set key_initiative_link_entity = key_initiative_link._entity %}
-        {% set ki_title = key_initiative_link_entity.title.value %}
-        {% set ki_link = key_initiative_link_entity.field_resources_ki_link.uri %}
-        {% set ki_logo_url = file_url(key_initiative_link_entity.field_wid_resources_ki_logo.entity.field_media_image.entity.fileuri|image_style('thumbnail')) %}
-        {% set ki_logo_alt = key_initiative_link_entity.field_wid_resources_ki_logo.entity.field_media_image.alt %}
-        <div class="resource-initiative-wrapper">
-          <a href="{{ ki_link }}" target="_blank">
-            <div class="resource-initiative-content mb-4">
-              <img src="{{ ki_logo_url }}" alt="{{ ki_logo_alt }}">
-              <p>{{ ki_title }}</p>
-                <i class="ion-android-arrow-forward"></i>
+<section class="resource-mission-wrapper">
+    <div class="container">
+        <div class="">
+            <div class="resource-mission-container">
+                <h2>Key Initiatives</h2>
             </div>
-          </a>
         </div>
-      {% endfor %}
-    </div>
-    <div class="our-key-content">
-      <div class="our-key-group">
-        {% endif %}
-        <div class="our-key-cards">
-          {% if title %}
-            <div class="main-card">
-              <div class="single-card">
-                <h2>{{ title }}</h2>
-              </div>
-            </div>
-          {% endif %}
-          <div class="card-groups owl-carousel owl-theme">
-            {% for row in rows %}
-              <div class="single-card">
-                {% set entity = row.content['#row']._entity %}
-                {% set title = entity.title.value %}
-                {% set summary = entity.body.value |render|striptags %}
-                {% set media_url = file_url(entity.field_resources_media.entity.field_media_image.entity.fileuri | image_style('large')) %}
-                {% set media_alt = entity.field_resources_media.entity.field_media_image.alt %}
-                <div>
-                    <img src="{{ media_url }}" alt="{{ media_alt }}">
-                    <a class="anchor" href="#">{{ title }}</a>
-                    <p>{% autoescape false %}{{ summary }}{% endautoescape %}</p>
-                    <div class="download-section">
-                        {# <span class="user-content"><a href="#"><i class="fa fa-user"></i>User Content</a></span> #}
-                        {% if entity.field_resources_attachment_type.value == 'Document' %}
-                            {% set document_url = media_file_url(entity.field_resources_document.value.0.target_id, 'field_media_document') %}
-                            <span class="download"><a href="{{ document_url }}" target="_blank">Download</a></span>
-                        {% elseif entity.field_resources_attachment_type.value == 'Link' %}
-                            <span class="download"><a href="{{ entity.field_resources_link[0].uri }}" target="_blank">Download</a></span>
-                        {% endif %}
+
+        <div class="our-key-container">
+            <div class="resource-initiative-container">
+                {% set key_initiative_links = drupal_view_result('resources', 'block_2') %}
+                {% for key_initiative_link in key_initiative_links %}
+                    {% set key_initiative_link_entity = key_initiative_link._entity %}
+                    {% set ki_title = key_initiative_link_entity.title.value %}
+                    {% set ki_link = key_initiative_link_entity.field_resources_ki_link.uri %}
+                    {% set ki_logo_url = file_url(key_initiative_link_entity.field_wid_resources_ki_logo.entity.field_media_image.entity.fileuri|image_style('thumbnail')) %}
+                    {% set ki_logo_alt = key_initiative_link_entity.field_wid_resources_ki_logo.entity.field_media_image.alt %}
+                    <div class="resource-initiative-wrapper">
+                        <a href="{{ ki_link }}" target="_blank">
+                            <div class="resource-initiative-content">
+                                <div class="resource-initiative-logo">
+                                    <div>
+                                        <img src="{{ ki_logo_url }}" alt="{{ ki_logo_alt }}">
+                                    </div>
+                                    <p>{{ ki_title }}</p>
+                                </div>
+                                <div class="resource-initiative-arrow">
+                                    <i class="ion-android-arrow-forward"></i>
+                                </div>
+                            </div>
+                        </a>
                     </div>
+                {% endfor %}
+            </div>
+
+            <div class="our-key-content">
+                <div class="our-key-group">
+                    {% endif %}
+                    <div class="our-key-cards">
+                        {% if title %}
+                            <h2 class="our-key-cards-title">{{ title }}</h2>
+                        {% endif %}
+                        <div class="card-groups owl-carousel owl-theme">
+                            {% for row in rows %}
+                                <div class="single-card">
+                                    {% set entity = row.content['#row']._entity %}
+                                    {% set title = entity.title.value %}
+                                    {% set summary = entity.body.value |render|striptags %}
+                                    {% set media_url = file_url(entity.field_resources_media.entity.field_media_image.entity.fileuri | image_style('large')) %}
+                                    {% set media_alt = entity.field_resources_media.entity.field_media_image.alt %}
+                                    <div>
+                                        <img src="{{ media_url }}" alt="{{ media_alt }}">
+                                        <h2>{{ title }}</h2>
+                                        <p>{% autoescape false %}{{ summary }}{% endautoescape %}</p>
+                                        <div class="download-section">
+                                            {# <span class="user-content"><a href="#"><i class="fa fa-user"></i>User Content</a></span> #}
+                                            {% if entity.field_resources_attachment_type.value == 'Document' %}
+                                                {% set document_url = media_file_url(entity.field_resources_document.value.0.target_id, 'field_media_document') %}
+                                                <span class="download">
+                                                    <a href="{{ document_url }}" target="_blank">
+                                                        <i class="fa fa-download"></i> Download</a>
+                                                </span>
+                                            {% elseif entity.field_resources_attachment_type.value == 'Link' %}
+                                                <span class="download"><a href="{{ entity.field_resources_link[0].uri }}"
+                                                                          target="_blank"><i class="fa fa-download"></i> Download</a></span>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% if view_max_index == view_index %}
                 </div>
-              </div>
-            {% endfor %}
-          </div>
+            </div>
         </div>
-        {% if view_max_index == view_index %}
-      </div>
     </div>
-  </div>
-</div>
+</section>
 {% endif %}

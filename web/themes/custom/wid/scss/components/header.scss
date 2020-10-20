@@ -54,14 +54,17 @@
 
     .login-btn {
         margin-left: 24px;
-        font-family: $font-lato;
-        color: $primary-color;
-        background-color: $white;
-        border-radius: 20px;
-        font-size: $font-size-text-sm;
+        color: $white;
+        border: 1px solid $white;
+        font-size: 15px;
         font-weight: 600;
+        border-radius: 4px;
+        padding: 8px 29px;
+        outline: none;
 
         &:hover {
+            background: $white;
+            color: $primary-color;
             box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.16);
         }
     }
