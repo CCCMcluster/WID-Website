@@ -1,13 +1,7 @@
-/* IMPORTS */
-@import "../node_modules/fotorama/fotorama.css";
-@import "../node_modules/ionicons/css/ionicons.min.css";
-@import "../node_modules/owl.carousel/dist/assets/owl.carousel.min.css";
-@import "../node_modules/owl.carousel/dist/assets/owl.theme.default.min.css";
-//@import url(font-awesome.min.css);
-// variables
-@import "variables";
 // typography
 @import "typography";
+// variables
+@import "variables";
 //bootstrap
 @import "../node_modules/bootstrap/scss/bootstrap";
 //material design bootstrap
@@ -17,6 +11,12 @@
 
 // mixins
 @import "mixins";
+
+/* IMPORTS */
+@import "../node_modules/fotorama/fotorama.css";
+@import "../node_modules/ionicons/css/ionicons.min.css";
+@import "../node_modules/owl.carousel/dist/assets/owl.carousel.min.css";
+@import "../node_modules/owl.carousel/dist/assets/owl.theme.default.min.css";
 
 // custom
 @import "custom/footer";
