@@ -1,110 +1,60 @@
-.our-partners-block {
-  padding: 70px 0;
+.block-views-blockpartners-block-1 {
+  background: #EDF0F4;
+  padding: 50px 0;
+  @media only screen and (min-width: 1170px) {
+    padding: 100px 0;
+  }
+
 
   h2 {
-    text-align: center;
-    font-size: 35px;
-    line-height: 44px;
-    margin-bottom: 70px;
-    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
     font-family: $font-raleway-sans;
+    color: $blue-dark;
+    font-weight: bold;
+    margin-bottom: 40px;
+    text-align: center;
+
+    @media only screen and (min-width: 1170px) {
+      font-size: 35px;
+      line-height: 48px;
+      margin-bottom: 86px;
+    }
   }
 }
 
 .partner-wrapper {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  margin-bottom: 24px;
+  justify-content: center;
 
-  @media only screen and (min-width: 992px) {
-    margin-bottom: 80px;
-  }
+  .partner-single {
+    margin-right: 50px;
 
-  &:last-child {
-    margin-bottom: 0;
-  }
+    @media only screen and (min-width: 1170px) {
+      margin-right: 130px;
+    }
 
-  &#partner-3 {
-    .info-container {
-      @media only screen and (min-width: 992px) {
-        order: 2;
-        margin-right: 0;
-        margin-left: -10%;
-      }
+    &:last-child {
+      margin-right: 0;
     }
   }
 
-  .info-container {
-    width: 100%;
-    position: relative;
-
-    @media only screen and (min-width: 992px) {
-      width: 60%;
-      margin-right: -10%;
-    }
-
-    > div {
-      box-shadow: 5px 10px 80px #00000014;
-      padding: 38px 27px;
-      border-radius: 8px;
-      background: #fff;
-    }
+  a {
+    display: inline-block;
   }
 
-  .partner-logo-title {
-    display: flex;
-    align-items: center;
-    margin-bottom: 25px;
-  }
+  img {
+    height: 60px;
+    display: inline-block;
 
-  .partner-logo {
-    width: 87px;
-    height: 87px;
-    border-radius: 6px;
-    background: #EFEFF5;
-    padding: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 20px;
-
-    img {
-      width: 100%;
-    }
-  }
-
-  .partner-title {
-    font-size: 24px;
-    line-height: 32px;
-    color: $primary-color;
-    font-weight: bold;
-    font-family: $font-raleway-sans;
-    margin: 0;
-  }
-
-  .partner-description {
-    font-size: 14px;
-    line-height: 24px;
-    color: $gray-900;
-    margin-bottom: 32px;
-
-    @media only screen and (min-width: 992px) {
-      margin-bottom: 70px;
-    }
-  }
-
-  .cover-image-container {
-    display: none;
-
-    @media only screen and (min-width: 992px) {
-      display: block;
-      width: 60%;
+    @media only screen and (min-width: 768px) {
+      height: 80px;
     }
 
-    img {
-      height: 780px;
-      object-fit: cover;
-      border-radius: 0 16px 16px 0;
+    @media only screen and (min-width: 1170px) {
+      height: 107px;
     }
   }
 }

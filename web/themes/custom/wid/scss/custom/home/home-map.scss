@@ -14,139 +14,129 @@
       margin-bottom: 46px;
     }
   }
-}
 
-.home-map-wrapper {
-  background-size: cover;
-  text-align: center;
-  background-attachment: fixed;
-}
+  .home-map-wrapper {
+    background-size: cover;
+    text-align: center;
+    background-attachment: fixed;
+  }
 
-#wid-map {
-  position: relative;
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
-  justify-content: center;
-  padding: 50px 0;
-}
+  #wid-map {
+    position: relative;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 0;
+  }
 
-#map {
-  margin-left: -8%;
-}
+  #map {
+    margin-left: -8%;
+  }
 
-.report-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 25%;
-}
+  .report-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 25%;
+  }
 
-.report {
-  position: relative;
-  border-radius: 8px;
-  box-shadow: 0 8px 6px 0 rgba(0,0,0,.16);
-  padding: 25px 22px;
-  background-color: #fff;
-  margin: 0 0 16px;
-  text-align: left;
+  .report {
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 8px 6px 0 rgba(0,0,0,.16);
+    padding: 25px 22px;
+    background-color: $primary-color;
+    margin: 0 0 16px;
+    text-align: left;
+    color: #fff;
 
-  &:last-child {
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &.report__active {
+      background: $white;
+      .report-button {
+        background: $accent-color;
+
+        i {
+          color: #ffffff;
+        }
+      }
+
+      .report-country {
+        color: $accent-color;
+      }
+
+      .report-country-body {
+        color: $gray-900;
+      }
+    }
+  }
+
+  .report-button {
+    padding: 5px 15px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 99%;
+    transition: 0.2s;
+    box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.16);
+  }
+
+  .report-button i {
+    font-size: 23px;
+    color: $primary-color;
+  }
+
+  .report-country {
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 14px;
+    color: #ffffff;
+    margin-bottom: 8px;
+  }
+
+  .report-title {
+    font-size: 14px;
+    text-decoration: none;
+    line-height: 22px;
+    color: #fff;
+  }
+
+  .report-title__active {
+    color: $accent-color;
+  }
+
+  .report-country-body {
+    font-size: $font-size-text-sm;
     margin-bottom: 0;
   }
-}
 
-.report__active {
-  background-color: $primary-color;
-  color: $white;
-}
+  .report-body {
+    font-size: 10px;
+  }
 
-.report-button {
-  padding: 5px 15px;
-  background-color: $accent-color;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 8px;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 99%;
-  transition: 0.2s;
-  box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.16);
-}
+  .marker {
+    fill: $primary-color;
+    transition: all 0.2s ease-in-out;
+  }
 
-.report-button a i {
-  font-size: 23px;
-  color: $white;
-}
+  .marker__active {
+    fill: $accent-color;
+  }
 
-.report-button__alt {
-  background-color: white;
-}
-
-.report-button__alt a i {
-  color: $primary-color;
-}
-
-.report-country {
-  text-decoration: underline;
-  font-weight: bold;
-  font-size: 14px;
-  color: $accent-color;
-  margin-bottom: 8px;
-}
-
-.report-title {
-  font-size: $font-size-text-alt;
-  font-weight: bold;
-  text-decoration: none;
-  line-height: 24px;
-  margin-bottom: 15px;
-}
-
-.report-title__active {
-  color: white;
-}
-
-.report-title__alt {
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 20px;
-  color: $gray-900;
-  margin: 0;
-}
-
-.report-button__alt:hover {
-  background-color: $primary-color;
-}
-
-.report-button__alt:hover a i {
-  color: $white;
-}
-
-.report-country-body {
-  font-size: $font-size-text-sm;
-  margin-bottom: 0;
-}
-
-.report-body {
-  font-size: 10px;
-}
-
-.marker {
-  fill: $primary-color;
-  transition: all 0.2s ease-in-out;
-}
-
-.marker__active {
-  fill: $accent-color;
-}
-
-.marker:hover {
-  fill: $accent-color;
-  fill-opacity: 1;
-  cursor: pointer;
+  .marker:hover {
+    fill: $accent-color;
+    fill-opacity: 1;
+    cursor: pointer;
+  }
 }
 
 
