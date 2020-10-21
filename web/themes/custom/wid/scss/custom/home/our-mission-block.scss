@@ -99,4 +99,14 @@
     transition: all 0.23s ease-in-out;
     text-decoration: none;
   }
+
+  > span {
+    display: flex;
+    align-items: center;
+
+    i {
+      font-size: 20px;
+      margin-left: 8px;
+    }
+  }
 }

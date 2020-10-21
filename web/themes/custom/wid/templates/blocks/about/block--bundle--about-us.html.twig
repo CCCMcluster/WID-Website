@@ -12,8 +12,8 @@
     {% block content %}
       {% if content.field_about_us_background_image %}
         {% set our_country_report_background_image = file_url(content.field_about_us_background_image.0['#item'].entity.uri.value) %}
-        <div class="about-us-background-image" style="background-image: url('{{ our_country_report_background_image }}');">
-          <h1 class="about-us-header-title-button">About</h1>
+        <div class="about-us-background-image">
+          <h1 class="about-us-header-title">About</h1>
           {{ title_prefix }}
           <div class="about-us-header-card">
             {% if label %}
@@ -27,5 +27,4 @@
       {% endif %}
     {% endblock %}
   </div>
-  <hr class="about-header-hr" />
 </div>
