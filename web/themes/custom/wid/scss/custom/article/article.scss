@@ -161,7 +161,6 @@
 
       .single-card {
         background: #ffffff;
-        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
         border-radius: 8px;
         display: flex;
         flex-direction: column;
@@ -194,10 +193,6 @@
           -webkit-box-orient: vertical;
           overflow: hidden;
           text-overflow: ellipsis;
-
-          &:hover {
-            text-decoration: underline;
-          }
         }
 
         p {
