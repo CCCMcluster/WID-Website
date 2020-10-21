@@ -71,6 +71,7 @@ $font-helvetica: 'Helvetica Neue';
 $font-opensans: 'Open Sans', sans-serif;
 
 $font-size-base: 1rem; // Assumes the browser default, typically `16px`
+$font-size-xxl-alt: $font-size-base * 2.1875; //35px
 $font-size-xxl: $font-size-base * 2.125; //34px
 $font-size-xl-alt: $font-size-base * 2; //32px
 $font-size-title: $font-size-base * 1.75; //28px

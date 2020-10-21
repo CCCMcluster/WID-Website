@@ -1,65 +1,55 @@
 .our-countries-report-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 100px 0;
-  background-size: cover;
-  background-position: center;
-  width: 100%;
-
   .country-map-container {
-    .country-report-container {
-      background: #ffffff;
-      border-radius: 20px 20px 0 0;
-      display: flex;
-      justify-content: center;
+    .country-container {
+      background-color: $gray-200;
+      padding: 100px 0;
 
-      .country-report-content {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        padding: 25px 0;
-
-        h2 {
-          font-family: $font-raleway;
-          font-size: $font-size-xl-alt;
-          font-weight: 600;
-          line-height: 1.16;
-          color: $accent-color;
-          padding-bottom: 50px;
-          width: 80%;
-          margin: 0 auto;
-        }
-
-        p {
-          font-family: $font-lato;
-          font-size: $font-size-text-alt;
-          font-weight: normal;
-          line-height: 1.23;
-          color: $primary-color;
-          width: 80%;
-          margin: 0 auto;
-        }
+      .country-report-title {
+        font-family: $font-raleway;
+        font-size: 50px;
+        font-weight: 700;
+        line-height: 1.16;
+        color: $blue-dark;
+        padding-bottom: 50px;
+        text-align: center;
       }
 
-      .country-report-image {
-        flex: 1;
+      .country-report-container {
+        display: flex;
+        justify-content: center;
+        width: 80%;
+        margin: 0 auto;
 
-        img {
-          width: 100%;
-          height: 100%;
-          border-radius: 0 20px 0 0;
-          object-fit: cover;
+        .country-report-content {
+          flex: 1;
+
+          p {
+            font-family: $font-opensans;
+            font-size: $font-size-base;
+            font-weight: normal;
+            line-height: 1.23;
+            color: $gray-900;
+            width: 80%;
+            margin: 0 auto 25px;
+          }
+        }
+
+        .country-report-image {
+          flex: 1;
+
+          img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 0px 16px 16px 0px;
+          }
         }
       }
     }
 
     .map-container {
-      background: $accent-color;
       padding: 75px 0;
       text-align: center;
-      border-radius: 0 0 20px 20px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -67,15 +57,14 @@
 
       h2 {
         display: inline-block;
-        border: solid 1px #ffffff;
         font-family: $font-raleway;
-        font-size: $font-size-title-xs;
-        font-weight: $font-weight-semibold;
+        font-size: $font-size-xxl-alt;
+        font-weight: 700;
         line-height: 1.18;
-        color: #ffffff;
-        border-radius: 40px;
+        color: $blue-dark;
         padding: 10px 40px;
-        margin-bottom: 75px;
+        width: 75%;
+        margin: 0 auto 75px;
       }
 
       .report-map {
@@ -91,36 +80,37 @@
       ul {
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
         list-style: none;
         margin: 0 auto;
         text-align: left;
         padding-left: 0;
+        width: 75%;
+        gap: 20px;
 
         li {
-          width: 50%;
           text-align: center;
-          margin: 20px 0;
 
           a {
             text-decoration: none;
-            border-radius: 40px;
-            box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.16);
+            border: 1px solid #BDB8CE;
+            border-radius: 6px;
             background-color: #ffffff;
             height: 50px;
             width: 250px;
             display: inline-flex;
             justify-content: center;
             align-items: center;
-            font-family: $font-raleway;
+            font-family: $font-opensans;
             font-size: $font-size-text-alt;
-            font-weight: $font-weight-semibold;
+            font-weight: 600;
             line-height: 1.17;
-            color: $accent-color;
+            color: $primary-color;
             transition: 0.4s;
 
             &:hover {
-              transform: translateY(-3px) scale(1.05);
-              box-shadow: 0 10px 6px 0 rgba(0, 0, 0, 0.16);
+              background-color: $primary-color;
+              color: #ffffff;
             }
           }
         }
@@ -133,31 +123,38 @@
 @media (min-width: 320px) and (max-width: 480px) {
   .our-countries-report-wrapper {
     .country-map-container {
-      .country-report-container {
-        flex-direction: column;
+      .country-container {
+        padding: 50px 0;
 
-        .country-report-content {
-          h2 {
-            padding-bottom: 15px;
-          }
+        .country-report-title {
+          padding-bottom: 15px;
+          font-size: $font-size-xxl;
         }
 
-        .country-report-image {
-          img {
-            height: 350px;
-            border-radius: 0;
+        .country-report-container {
+          flex-direction: column;
+          width: 100%;
+
+          .country-report-content {
+            p {
+              width: 100%;
+            }
+          }
+
+          .country-report-image {
+            img {
+              height: 250px;
+              border-radius: 0;
+            }
           }
         }
       }
 
       .map-container {
         h2 {
-          width: 95%;
-          margin: 0;
-        }
-
-        ul {
-          display: block;
+          width: 100%;
+          margin: 0 0 50px;
+          font-size: $font-size-title;
         }
       }
     }
@@ -167,31 +164,38 @@
 @media (min-width: 481px) and (max-width: 767px) {
   .our-countries-report-wrapper {
     .country-map-container {
-      .country-report-container {
-        flex-direction: column;
+      .country-container {
+        padding: 50px 0;
 
-        .country-report-content {
-          h2 {
-            padding-bottom: 15px;
-          }
+        .country-report-title {
+          padding-bottom: 15px;
+          font-size: $font-size-xxl;
         }
 
-        .country-report-image {
-          img {
-            height: 350px;
-            border-radius: 0;
+        .country-report-container {
+          flex-direction: column;
+          width: 100%;
+
+          .country-report-content {
+            p {
+              width: 100%;
+            }
+          }
+
+          .country-report-image {
+            img {
+              height: 300px;
+              border-radius: 0;
+            }
           }
         }
       }
 
       .map-container {
         h2 {
-          width: 95%;
-          margin: 0;
-        }
-
-        ul {
-          display: block;
+          width: 100%;
+          margin: 0 0 50px;
+          font-size: $font-size-title;
         }
       }
     }
@@ -201,31 +205,36 @@
 @media (min-width: 768px) and (max-width: 1024px) {
   .our-countries-report-wrapper {
     .country-map-container {
-      .country-report-container {
-        flex-direction: column;
+      .country-container {
+        padding: 50px 0;
 
-        .country-report-content {
-          h2 {
-            padding-bottom: 15px;
-          }
+        .country-report-title {
+          padding-bottom: 15px;
         }
 
-        .country-report-image {
-          img {
-            height: 350px;
-            border-radius: 0;
+        .country-report-container {
+          flex-direction: column;
+          width: 100%;
+
+          .country-report-content {
+            p {
+              width: 100%;
+            }
+          }
+
+          .country-report-image {
+            img {
+              height: 350px;
+              border-radius: 0;
+            }
           }
         }
       }
 
       .map-container {
         h2 {
-          width: 95%;
-          margin: 0;
-        }
-
-        ul {
-          display: block;
+          width: 100%;
+          margin: 0 0 50px;
         }
       }
     }

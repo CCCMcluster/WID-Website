@@ -7,18 +7,18 @@
   'content'
 ] %}
 {% set our_country_report_background_image = file_url(content.field_our_country_report_bg_img.0['#item'].entity.uri.value) %}
-<div class="our-countries-report-wrapper" style="background-image: url('{{ our_country_report_background_image }}');">
-  <div class="container">
-    <div {{ attributes.addClass(classes) }}>
-      <div class="row">
-        <div class="country-map-container">
+<div class="our-countries-report-wrapper">
+  <div {{ attributes.addClass(classes) }}>
+    <div class="country-map-container">
+      <div class="country-container">
+        <div class="container">
+          {{ title_prefix }}
+          {% if label %}
+            <h2 class="country-report-title"{{ title_attributes }}>{{ label }}</h2>
+          {% endif %}
+          {{ title_suffix }}
           <div class="country-report-container">
             <div class="country-report-content">
-              {{ title_prefix }}
-              {% if label %}
-                <h2{{ title_attributes }}>{{ label }}</h2>
-              {% endif %}
-              {{ title_suffix }}
               {% block content %}
               <div{{ content_attributes.addClass(contentClasses) }}>
                 <div>{{ content.body }}</div>
@@ -32,29 +32,28 @@
               {% endif %}
             </div>
           </div>
-          <div class="map-container">
-            <h2>Visit countries where Women in Displacement is active</h2>
-            <div class="report-map">
-              <img src="{{ directory }}/images/report-map.png" alt="report-map">
-            </div>
-            {% set active_countries = load_vocabulary_term('country_report_overview') %}
-            {% if active_countries %}
-              <ul>
-                {% for country in active_countries %}
-                  {% set country_iso_code = load_tax_term(country.id).field_report_overview_country.value %}
-                  <li>
-                    <a
-                      href="{{ path('view.country_report.page_1', {'country':  country_iso_code|lower }) }}">
-                      {{ country.name }}
-                    </a>
-                  </li>
-                {% endfor %}
-              </ul>
-            {% endif %}
-          </div>
-          {% endblock %}
         </div>
       </div>
+      <div class="map-container">
+        <div class="container">
+          <h2>Countries where the Women’s Participation Project is active or has been completed</h2>
+          {% set active_countries = load_vocabulary_term('country_report_overview') %}
+          {% if active_countries %}
+            <ul>
+              {% for country in active_countries %}
+                {% set country_iso_code = load_tax_term(country.id).field_report_overview_country.value %}
+                <li>
+                  <a
+                    href="{{ path('view.country_report.page_1', {'country':  country_iso_code|lower }) }}">
+                    {{ country.name }}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+      </div>
+      {% endblock %}
     </div>
   </div>
 </div>

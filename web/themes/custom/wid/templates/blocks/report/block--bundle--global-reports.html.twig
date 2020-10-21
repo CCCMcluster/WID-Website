@@ -6,10 +6,9 @@
 {% set contentClasses = [
   'content'
 ] %}
-<div class="container">
+<div class="global-report-wrapper">
   <div {{ attributes.addClass(classes) }}>
-    <div class="row">
-      <div class="global-report-wrapper">
+      <div class="container">
         <div class="global-report-container">
           {{ title_prefix }}
           {% if label %}
@@ -18,18 +17,10 @@
           {{ title_suffix }}
           {% block content %}
           <div{{ content_attributes.addClass(contentClasses) }}>
-            <div>{{ content.body }} <a href="{{ path('page_manager.page_view_global_reports_global_reports-panels_variant-0') }}"><p class="global-report-button">Visit our
-                  global reports page <i class="ion-android-arrow-forward"></i></p></a></div>
+            <div>{{ content.body }} <a href="{{ path('page_manager.page_view_global_reports_global_reports-panels_variant-0') }}"><p class="global-report-button">More on Global Reports Page</p></a></div>
           </div>
-        </div>
-        <div class="global-report-image">
-          {% if content.field_global_report_image %}
-            <img src="{{ file_url(content.field_global_report_image.0['#item'].entity.uri.value | image_style('hd')) }}"
-                 alt="{{ content.field_global_report_image.0['#item'].alt }}">
-          {% endif %}
         </div>
       </div>
       {% endblock %}
-    </div>
   </div>
 </div>

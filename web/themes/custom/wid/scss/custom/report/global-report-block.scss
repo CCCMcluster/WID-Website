@@ -1,85 +1,55 @@
 .global-report-wrapper {
-  display: flex;
-  justify-content: center;
-  margin: 100px 0;
-  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-  border: solid 1px rgba(198, 198, 198, 0.15);
-  border-radius: 20px;
+  background-color: $gray-200;
+  text-align: center;
 
   .global-report-container {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
     padding: 75px 0;
 
     h2 {
       font-family: $font-raleway;
-      font-size: $font-size-xl-alt;
-      font-weight: 600;
+      font-size: $font-size-xxl-alt;
+      font-weight: 700;
       line-height: 1.16;
-      color: $accent-color;
-      padding-bottom: 50px;
+      color: $blue-dark;
+      padding-bottom: 35px;
       width: 80%;
       margin: 0 auto;
     }
 
     p {
-      font-family: $font-lato;
-      font-size: $font-size-text-alt;
+      font-family: $font-opensans;
+      font-size: $font-size-base;
       font-weight: normal;
       line-height: 1.23;
-      color: $primary-color;
-      width: 80%;
+      color: $gray-900;
+      width: 70%;
       margin: 0 auto;
     }
 
     a {
       text-decoration: none;
+      display: flex;
 
       .global-report-button {
-        background: $accent-color;
-        text-align: center;
-        padding: 14px 0;
-        box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.08);
-        border-radius: 10px;
-        margin-top: 50px;
-        color: #ffffff;
-        font-family: $font-lato;
+        background: transparent;
+        padding: 14px 25px;
+        border-radius: 4px;
+        margin-top: 25px;
+        color: $primary-color;
+        border: 1px solid $primary-color;
+        font-family: $font-opensans;
         font-size: $font-size-text-sm;
-        font-weight: normal;
+        font-weight: 600;
         line-height: 0.65;
         transition: 0.4s;
-
-        i {
-          color: #ffffff;
-          margin-left: 15px;
-          font-size: $font-size-text-sm;
-          transition: 0.4s;
-        }
+        width: unset;
       }
 
       &:hover .global-report-button {
-        color: $accent-color;
-        background: #ffffff;
-        transform: scale(1.02);
-        border: transparent;
+        color: #ffffff;
+        background: $primary-color;
+        border: 1px solid #ffffff;
       }
-
-      &:hover i {
-        color: $accent-color;
-      }
-    }
-  }
-
-  .global-report-image {
-    flex: 1;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 0 20px 20px 0;
     }
   }
 }
@@ -88,12 +58,17 @@
 // Responsive
 @media (min-width: 320px) and (max-width: 480px) {
   .global-report-wrapper {
-    flex-direction: column;
 
-    .global-report-image {
-      img {
-        height: 350px;
-        border-radius: 0;
+    .global-report-container {
+      padding: 75px 0;
+
+      h2 {
+        font-size: $font-size-title-sm;
+        width: 100%;
+      }
+
+      p {
+        width: 100%;
       }
     }
   }
@@ -101,25 +76,17 @@
 
 @media (min-width: 481px) and (max-width: 767px) {
   .global-report-wrapper {
-    flex-direction: column;
 
-    .global-report-image {
-      img {
-        height: 350px;
-        border-radius: 0;
+    .global-report-container {
+      padding: 75px 0;
+
+      h2 {
+        font-size: $font-size-title;
+        width: 100%;
       }
-    }
-  }
-}
 
-@media (min-width: 768px) and (max-width: 1024px) {
-  .global-report-wrapper {
-    flex-direction: column;
-
-    .global-report-image {
-      img {
-        height: 350px;
-        border-radius: 0;
+      p {
+        width: 80%;
       }
     }
   }
