@@ -1,293 +1,48 @@
-.about-us-wrapper {
-  .about-header-block {
-    .about-us-background-image {
-      height: auto;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 100px 0;
+.about-header-block {
+  padding: 40px 16px;
+  background: $gray-200;
+  text-align: center;
 
-      .about-us-header-title-button {
-        background-color: $primary-color;
-        color: $white;
-        padding: 10px 120px;
-        margin-bottom: 80px;
-        border-radius: 20px;
-        font-size: $font-size-text-alt;
-        font-weight: $font-weight-semibold;
-        font-family: $font-raleway;
-      }
-
-      .about-us-header-card {
-        background-color: $white;
-        margin: 0 150px;
-        padding: 50px 100px;
-        border-radius: 15px;
-        text-align: center;
-
-        .about-us-header-card-title {
-          color: $primary-color;
-          font-size: $font-size-xl-alt;
-          padding-bottom: 20px;
-          font-family: $font-raleway;
-        }
-
-        .about-us-header-card-description {
-          color: $primary-color;
-          font-size: $font-size-text;
-          font-family: $font-lato;
-        }
-      }
-    }
+  @media only screen and (min-width: 1200px) {
+    padding: 80px 16px;
   }
+}
 
-  .about-header-hr {
-    box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.16);
-    background-color: $accent-alt-color;
-    height: 5px;
+.about-us-header-title {
+  font-size: 35px;
+  font-weight: bold;
+  margin-bottom: 24px;
+  line-height: 44px;
+  font-family: $font-raleway-sans;
+  color: $blue-dark;
+
+  @media only screen and (min-width: 1200px) {
+    font-size: 50px;
+    line-height: 48px;
+    margin-bottom: 51px;
+  }
+}
+
+.about-us-header-card-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 18px;
+  line-height: 32px;
+  font-family: $font-raleway-sans;
+  color: $blue-dark;
+
+  @media only screen and (min-width: 1200px) {
+    font-size: 35px;
+    line-height: 48px;
+    margin-bottom: 26px;
+  }
+}
+
+.about-us-header-card-description {
+  max-width: 860px;
+  margin: 0 auto;
+
+  p {
     margin: 0;
-  }
-}
-
-.block-views-blockpartners-detail-block-1 {
-  padding: 100px;
-  background-color: #e8edff;
-
-  .content {
-    .container {
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-
-      h2 {
-        text-align: center;
-        background-color: $primary-color;
-        color: $white;
-        padding: 7px 100px;
-        border-radius: 20px;
-        font-size: $font-size-text-alt;
-        font-family: $font-raleway;
-      }
-
-      .about-our-partners {
-        padding: 0 80px;
-
-        .partner-wrapper {
-          display: flex;
-          background-color: $white;
-          margin-bottom: 100px;
-          color: $primary-color;
-          border-radius: 20px;
-          box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-
-          .info-container {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-
-            .text-info-content {
-              margin-bottom: 30px;
-
-              .partner-title {
-                font-size: $font-size-title;
-                font-weight: 600;
-                font-family: $font-raleway;
-              }
-
-              .partner-description {
-                font-size: $font-size-base;
-                font-family: $font-lato;
-              }
-            }
-
-            .partner-website-content {
-
-              a {
-                padding: 7px 25px;
-                border-radius: 10px;
-                background-color: $primary-color;
-                color: $white;
-                text-decoration: none;
-                box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.08);
-                transition: 0.4s;
-                display: inline-block;
-
-                i {
-                  padding-left: 10px;
-                }
-
-                &:hover {
-                  color: $primary-color;
-                  background: #ffffff;
-                  transform: scale(1.02);
-                  border: transparent;
-                }
-
-                &:hover i {
-                  color: $primary-color;
-                }
-              }
-            }
-          }
-
-          .cover-image-container {
-            position: relative;
-
-            img {
-              height: 100%;
-              object-fit: cover;
-            }
-
-            .partner-logo {
-              position: absolute;
-              top: 0px;
-              height: 180px;
-              width: 180px;
-              z-index: 1;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-
-              img {
-                height: 80px;
-              }
-            }
-          }
-
-          &:nth-last-child(odd) {
-            flex-direction: row;
-
-            .cover-image-container {
-
-              img {
-                border-top-right-radius: 20px;
-              }
-
-              .partner-logo {
-                right: 0px;
-                border-top-right-radius: 20px;
-                border-bottom-left-radius: 10px;
-                background-color: $white;
-              }
-            }
-          }
-
-          &:nth-last-child(even) {
-            flex-direction: row-reverse;
-
-            .cover-image-container {
-
-              img {
-                border-top-left-radius: 20px;
-                border-bottom-left-radius: 20px;
-              }
-
-              .partner-logo {
-                left: 0px;
-                border-top-left-radius: 20px;
-                border-bottom-right-radius: 10px;
-                background-color: white;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-@media (min-width: 320px) and (max-width: 768px) {
-  .about-us-wrapper {
-    .about-header-block {
-      .about-us-background-image {
-        padding: 50px 0;
-
-        .about-us-header-card {
-          margin: 0 10px;
-          padding: 20px 50px;
-          border-radius: 10px;
-        }
-      }
-    }
-  }
-
-  .block-views-blockpartners-detail-block-1 {
-    padding: 40px 0;
-
-    .content {
-      .container {
-
-        .about-our-partners {
-          padding: 0 5px;
-
-          .partner-wrapper {
-            border-radius: 20px;
-
-            .info-container {
-
-              .text-info-content {
-
-                .partner-title {
-                  font-size: $font-size-title;
-                  font-weight: 600;
-                  font-family: $font-raleway;
-                }
-
-                .partner-description {
-                  font-size: $font-size-base;
-                  font-family: $font-lato;
-                }
-              }
-
-              .partner-website-content {
-
-                a {
-                  padding: 3px 20px;
-                  border-radius: 10px;
-                  background-color: $primary-color;
-                  color: $white;
-                  text-decoration: none;
-
-                  i {
-                    padding-left: 10px;
-                  }
-                }
-              }
-            }
-
-            .cover-image-container {
-
-              img {
-                border-top-left-radius: 10px;
-                border-top-right-radius: 10px;
-                height: 350px;
-                object-fit: cover;
-              }
-
-              .partner-logo {
-                height: 120px;
-                width: 120px;
-
-                img {
-                  height: 60px;
-                  width: 60px;
-                }
-              }
-            }
-
-            &:nth-last-child(odd) {
-              flex-direction: column-reverse;
-            }
-
-            &:nth-last-child(even) {
-              flex-direction: column-reverse;
-            }
-          }
-        }
-      }
-    }
   }
 }
