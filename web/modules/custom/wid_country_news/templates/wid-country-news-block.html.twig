@@ -43,7 +43,7 @@
                                     {% endif %}
                                     <h2>{{ single_news.title }}</h2>
                                     <p>
-                                        {% autoescape false %}{{ single_news.body|length > 80 ? single_news.body|slice(0, 80) : single_news.body }}{% endautoescape %}
+                                        {% autoescape false %}{{ single_news.body }}{% endautoescape %}
                                     </p>
                                     <span class="date">{{ single_news.created_date }}</span>
                                 </a>
