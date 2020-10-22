@@ -39,32 +39,30 @@
   'background'
 ] %}
 <div{{ attributes.addClass(classes) }}>
-  <div class="container">
-    <div class="wrapper">
-      <h2 class="title">
-        {{ title_prefix }}
-        {% if title %}
-          {{ title }}
-        {% endif %}
-        {{ title_suffix }}
-      </h2>
-      <div class="row content-block">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-6">
-          <div class="text-content p-5">
-            {% if rows %}
-              {% set wpp = rows.0['#rows'] %}
-              {% for row in  wpp %}
-                <div class="view-content row">
-                  {{ row.body }}
-                  {{ row.field_our_mission_media }}
-                </div>
-              {% endfor %}
-            {% elseif empty %}
-              <div class="view-empty">
-                {{ empty }}
+  <div class="wpp-wrapper">
+    <h2 class="title">
+      {{ title_prefix }}
+      {% if title %}
+        {{ title }}
+      {% endif %}
+      {{ title_suffix }}
+    </h2>
+    <div class="row content-block">
+      <div class="container">
+        <div class="text-content">
+          {% if rows %}
+            {% set wpp = rows.0['#rows'] %}
+            {% for row in  wpp %}
+              <div class="view-content row">
+                {{ row.field_our_mission_media }}
+                {{ row.body }}
               </div>
-            {% endif %}
-          </div>
+            {% endfor %}
+          {% elseif empty %}
+            <div class="view-empty">
+              {{ empty }}
+            </div>
+          {% endif %}
         </div>
       </div>
     </div>
