@@ -71,31 +71,15 @@
   'report-item-wrapper',
 ] %}
 <article{{ attributes.addClass(classes) }}>
-  <div class="report-item-banner">
-    {% if node.field_report_image.value %}
-    <img src="{{ file_url(node.field_report_image.entity.field_media_image.entity.fileuri) }}"
-          alt="{{ node.field_report_image.entity.field_media_image.alt }}">
-    {% endif %}
-  </div>
   {% set countryCode = node.field_report_country.value|lower %}
   <div class="container">
     <div class="report-item-nav-container">
-      <div class="nav-image-container">
-        <p>Reports</p>
-        <img src="/{{ directory }}/images/icons/faq-access-report.svg" alt="report-item" />
-      </div>
       <div class="report-item-nav">
-        <span><a href="/reports">{% trans %}Reports{% endtrans %}</a></span>
-        <i class="fa fa-angle-right"></i>
-        <span><a href="/reports/global">{% trans %}Countries{% endtrans %}</a></span>
-        <i class="fa fa-angle-right"></i>
-        {% if countryCode %}
-          <span><a
-              href="/reports/country/{{ countryCode }}">{{ country_name(countryCode) }}</a></span>
-          <i class="fa fa-angle-right"></i>
-        {% endif %}
-        <span class="end-nav-item"><a href="{{ url }}">{{ label }}</a></span>
+        <span><a href="/reports"><i class="ion-android-arrow-back"></i>Back to {% trans %}Reports{% endtrans %}</a></span>
       </div>
+    </div>
+    <div class="report-button">
+      {{ content.field_tags }}
     </div>
     <div class="report-item-title">
       {{ title_prefix }}
@@ -106,7 +90,6 @@
       {% endif %}
       {{ title_suffix }}
     </div>
-    <hr class="hr-report-item"/>
     <div class="report-item-social-media-wrapper">
       {% if display_submitted %}
         {% block submitted %}
@@ -121,9 +104,8 @@
         {{ content.addtoany }}
       </div>
     </div>
-    <hr class="hr-report-item"/>
   </div>
-  <div class="container my-5">
+  <div class="container">
     <div class="report-item-info">
       {{ title_prefix }}
       {% if label %}
@@ -135,38 +117,43 @@
       <div{{ content_attributes.addClass('node__content', 'clearfix') }}>
         {{ content.body }}
       </div>
-      <div class="row mt-5 file-info-container py-3 px-3">
+      <div class="row file-info-container">
         {% if node.field_attachment_type.value == 'Document' %}
           {% set fileExtension = media_file_type(node.field_report_document.0.target_id, 'field_media_document') %}
           {% set document_url = media_file_url(node.field_report_document.value.0.target_id, 'field_media_document') %}
           {% set fileSize = node.field_report_document.entity.field_media_document.entity.filesize.value/1024 %}
-          <div class="col-sm-10">
+          <div class="file-info">
             <h2 class="file-info-title">{{ node.field_report_doc_description.value }}</h2>
             <div>
               <span class="mr-3">
-                <i class="fa fa-calendar-o pr-2" aria-hidden="true"></i>
+                <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                  120kb
+              </span>
+              <span class="mr-3">
                 {{ node.field_report_document.entity.created.value|format_date('custom_document_date') }}
               </span>
               <span><i class="fa fa-file-text-o pr-2" aria-hidden="true"></i>{{ fileSize|round(1, 'ceil') }}KB</span>
             </div>
           </div>
-          <div class="col-sm-2 button-container">
-            <img class="extension-icon mb-2" src="/{{ directory }}/images/icons/{{ fileExtension }}.svg"
-                 alt="{{ fileExtension }}">
+          <div class="button-container">
+            <i class="fa fa-download"></i>
             <span><a class="download-button" href="{{ document_url }}" download>Download</a></span>
           </div>
         {% elseif node.field_attachment_type.value == 'Link' %}
-          <div class="col-sm-10">
+          <div class="file-info">
             <h2 class="file-info-title">{{ node.field_report_link[0].title }}</h2>
             <div>
               <span class="mr-3">
-                <i class="fa fa-calendar-o pr-2" aria-hidden="true"></i>
+              <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                120kb
+              </span>
+              <span class="mr-3">
                 {{ node.field_report_link.entity.created.value|format_date('custom_document_date') }}
               </span>
             </div>
           </div>
-          <div class="col-sm-2 button-container">
-            <i class="fa fa-external-link"></i>
+          <div class="button-container">
+            <i class="fa fa-download"></i>
             <span>
               <a class="download-button" href="{{ node.field_report_link[0].uri }}" target="_blank">
                 Download
@@ -177,15 +164,15 @@
       </div>
     </div>
   </div>
-  <div class="container d-flex justify-content-center my-5">
+  <div class="faq-background-image">
     {% set faqBlock = drupal_entity('block_content', 18) %}
     {% set faqDescription = faqBlock.body %}
     {% set faqCategories = faqBlock.field_faq_category %}
-    <div class="my-5 faq-header-card col-lg-11">
+    <div class="my-5 col-md-11 col-lg-9 faq-header-card">
       <h2 class="faq-header-card-title" {{ title_attributes }}>
         {% trans %}Frequently Asked Questions{% endtrans %}
       </h2>
-      <div class="faq-header-card-description pb-3">
+      <div class="faq-header-card-description">
         {{ faqDescription }}
       </div>
       <div class="row faq-category-container">
@@ -193,25 +180,33 @@
           <img class="faq-category-content-img" src="/{{ directory }}/images/icons/faq-project.svg"
                alt="faq-project-overview">
           <p>{{ faqCategories.0['#title'] }}</p>
-          <i class="fa fa-arrow-down"></i>
+          <div class="arrow-content">
+            <i class="ion-android-arrow-down"></i>
+          </div>
         </a>
         <a href="/faq#faq-2" class="m-2 faq-category-content faq-methodology">
-          <img class="faq-category-content-img" src="/{{ directory }}/images/icons/faq-project.svg"
+          <img class="faq-category-content-img" src="/{{ directory }}/images/icons/faq-methodology.svg"
                alt="faq-methodology">
           <p>{{ faqCategories.1['#title'] }}</p>
-          <i class="fa fa-arrow-down"></i>
+         <div class="arrow-content">
+            <i class="ion-android-arrow-down"></i>
+          </div>
         </a>
         <a href="/faq#faq-3" class="m-2 faq-category-content faq-project-implementation">
           <img class="faq-category-content-img" src="/{{ directory }}/images/icons/faq-toolkit.svg"
                alt="faq-project-implementation">
           <p>{{ faqCategories.2['#title'] }}</p>
-          <i class="fa fa-arrow-down"></i>
+          <div class="arrow-content">
+            <i class="ion-android-arrow-down"></i>
+          </div>
         </a>
         <a href="/faq#faq-4" class="m-2 faq-category-content faq-access-report">
           <img class="faq-category-content-img" src="/{{ directory }}/images/icons/faq-access-report.svg"
                alt="faq-access-report">
           <p>{{ faqCategories.3['#title'] }}</p>
-          <i class="fa fa-arrow-down"></i>
+          <div class="arrow-content">
+            <i class="ion-android-arrow-down"></i>
+          </div>
         </a>
       </div>
     </div>
