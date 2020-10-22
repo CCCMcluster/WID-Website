@@ -142,7 +142,7 @@
     right: 0;
     bottom: 0;
 
-    a {
+    li {
       width: 140px;
       height: 140px;
       display: flex;
@@ -152,6 +152,7 @@
       background: #fff;
       box-shadow: 5px 10px 30px #00000014;
       transition: all 0.23s;
+      cursor: pointer;
 
       @media only screen and (min-width: 768px) {
         width: 181px;
