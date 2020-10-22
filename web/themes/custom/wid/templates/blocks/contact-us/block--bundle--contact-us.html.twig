@@ -37,47 +37,42 @@
 <div {{ attributes.addClass(classes) }}>
   {% block content %}
     {% if content.field_contact_us_background %}
-      {% set contact_us_background_image = file_url(content.field_contact_us_background.0['#item'].entity.uri.value) %}
-      <div class="contact-us-background-image" style="background-image: url('{{ contact_us_background_image }}');">
-        <div class="col-lg-10 p-5">
-          <div class="row contact-container">
-            <div class="col-lg-10 col-md-12 contact-info-content">
-              {{ title_prefix }}
-              {% if label %}
-                <div class="contact-info-content-title" {{ title_attributes }}>{{ label }}</div>
-              {% endif %}
-              {{ title_suffix }}
-              <div class="contact-info-content-description">{{ content.body }}</div>
+      <div class="contact-us-background-image">
+        <div class="container">
+          {{ title_prefix }}
+            {% if label %}
+              <div class="contact-info-content-title" {{ title_attributes }}>{{ label }}</div>
+            {% endif %}
+          {{ title_suffix }}
+          <div class="contact-container">
+            <div class="contact-info-content">
+              <div class="contact-info-content-description">Contact the Women’s Participation Project support team by sending us an email. We will try to answer your question as quickly as possible.</div>
+              <a class="contact-link-container" href="{{ content.field_faq_link.0['#url'] }}" target="_blank">
+                <i class="ion-help-circled"></i>
+                <span>Ask us question</span>
+              </a>
+              <a class="contact-link-container" href="{{ content.field_faq_link.0['#url'] }}" target="_blank">
+                <i class="ion-ios-email"></i>
+                <span>Write us an Email</span>
+              </a>
             </div>
-            <div class="col-lg-2 col-md-12">
-              <div class="row contact-links">
-                {% if content.field_faq_link %}
-                  <div class="col-lg-12 col-md-2 contact-link-container m-1">
-                    <i class="contact-link-arrow-button ion-android-arrow-forward"></i>
-                    <a class="contact-block-social-media-link" href="{{ content.field_faq_link.0['#url'] }}" target="_blank">
-                      <img class="contact-block-social-media-icon" src="{{ directory }}/images/icons/question.svg" alt={{ platform }}>
-                      <span>
-                        Ask us question
-                      </span>
-                    </a>
-                  </div>
-                {% endif %}
-                {% set social_media_links = get_social_media_links('socialmedialinks') %}
-                {% if social_media_links %}
-                  {% for platform, platform_detail in social_media_links %}
-                    <div class="col-lg-12 col-md-2 contact-link-container m-1">
-                      <i class="contact-link-arrow-button ion-android-arrow-forward"></i>
-                      <a class="contact-block-social-media-link social-media-link-icon--{{ platform }}" href="{{ platform_detail.url }}"
-                        target="{{ platform_detail.target }}">
-                        <img class="contact-block-social-media-icon" src="{{ directory }}/images/icons/{{ platform }}.png" alt={{ platform }}>
-                        <span class="social-media-platform-{{ platform }}">
-                          {{ platform_detail.description }}
-                        </span>
-                      </a>
-                    </div>
-                  {% endfor %}
-                {% endif %}
-              </div>
+            <div class="contact-info-content">
+              <div class="contact-info-content-description">Do you have a more detailed question about participation and inclusion, and would you like to benefit from the experience of other practitioners? Please visit our Community of Practice by clicking the Whatsapp button. </div>
+              <a class="contact-link-container" href="{{ content.field_faq_link.0['#url'] }}" target="_blank">
+                <i class="ion-social-whatsapp"></i>
+                <span>Our Community of Practice</span>
+              </a>
+            </div>
+            <div class="contact-info-content">
+              <div class="contact-info-content-description">Our social media channels provide you with the latest updates and visuals of the implementation of the Women’s Participation project in our various field locations.</div>
+              <a class="contact-link-container" href="{{ content.field_faq_link.0['#url'] }}" target="_blank">
+                <i class="ion-social-instagram-outline"></i>
+                <span>Our Community of Practice</span>
+              </a>
+              <a class="contact-link-container" href="{{ content.field_faq_link.0['#url'] }}" target="_blank">
+                <i class="ion-social-twitter"></i>
+                <span>Our Community of Practice</span>
+              </a>
             </div>
           </div>
         </div>
