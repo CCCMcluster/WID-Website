@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="57.614" height="52.813" viewBox="0 0 57.614 52.813">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #553ba8;
+      }
+    </style>
+  </defs>
+  <g id="noun_process_194045_1_" data-name="noun_process_194045 (1)" transform="translate(18 -3)">
+    <g id="Group_146" data-name="Group 146" transform="translate(-18 3)">
+      <path id="Path_9759" data-name="Path 9759" class="cls-1" d="M33.608,22.4V8H19.2v4.8H7.2A7.211,7.211,0,0,0,0,20v9.6a7.211,7.211,0,0,0,7.2,7.2H28.807v4.8l14.4-7.2-14.4-7.2v4.8H7.2a2.4,2.4,0,0,1-2.4-2.4V20a2.4,2.4,0,0,1,2.4-2.4h12v4.8Zm-9.6-9.6h4.8v4.8h-4.8Z" transform="translate(0 11.205)"/>
+      <path id="Path_9760" data-name="Path 9760" class="cls-1" d="M32.4,30.4V16H18V30.4Zm-9.6-9.6h4.8v4.8H22.8Z" transform="translate(25.211 22.409)"/>
+      <path id="Path_9761" data-name="Path 9761" class="cls-1" d="M48.012,28.807h2.4a7.211,7.211,0,0,0,7.2-7.2V12a7.211,7.211,0,0,0-7.2-7.2H14.4V0H0V14.4H14.4V9.6H50.412a2.4,2.4,0,0,1,2.4,2.4v9.6a2.4,2.4,0,0,1-2.4,2.4h-2.4V19.2l-14.4,7.2,14.4,7.2ZM9.6,9.6H4.8V4.8H9.6Z"/>
+    </g>
+  </g>
+</svg>

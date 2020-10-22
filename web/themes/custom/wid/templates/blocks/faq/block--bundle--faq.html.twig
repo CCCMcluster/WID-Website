@@ -38,7 +38,7 @@
   {% block content %}
     {% if content.field_faq_bg_img %}
       {% set faq_bg_img = file_url(content.field_faq_bg_img.0['#item'].entity.uri.value) %}
-      <div class="py-5 faq-background-image" style="background-image: url('{{ faq_bg_img }}');">
+      <div class="py-5 faq-background-image">
         <div class="my-5 col-md-11 col-lg-9 faq-header-card">
           {{ title_prefix }}
           {% if label %}
@@ -51,28 +51,35 @@
             <a href="#faq-1" class="m-2 faq-category-content faq-project-overview">
               <img class="faq-category-content-img" src="{{ directory }}/images/icons/faq-project.svg" alt="faq-project-overview">
               <p>{{ content.field_faq_category.0['#title'] }}</p>
+              <div class="arrow-content">
               <i class="ion-android-arrow-down"></i>
+              </div>
             </a>
             <a href="#faq-2" class="m-2 faq-category-content faq-methodology">
-              <img class="faq-category-content-img" src="{{ directory }}/images/icons/faq-project.svg" alt="faq-methodology">
+              <img class="faq-category-content-img" src="{{ directory }}/images/icons/faq-methodology.svg" alt="faq-methodology">
               <p>{{ content.field_faq_category.1['#title'] }}</p>
-              <i class="ion-android-arrow-down"></i>
+              <div class="arrow-content">
+                <i class="ion-android-arrow-down"></i>
+              </div>
             </a>
             <a href="#faq-3" class="m-2 faq-category-content faq-project-implementation">
               <img class="faq-category-content-img" src="{{ directory }}/images/icons/faq-toolkit.svg" alt="faq-project-implementation">
               <p>{{ content.field_faq_category.2['#title'] }}</p>
-              <i class="ion-android-arrow-down"></i>
+              <div class="arrow-content">
+                <i class="ion-android-arrow-down"></i>
+              </div>
             </a>
             <a href="#faq-4" class="m-2 faq-category-content faq-access-report">
               <img class="faq-category-content-img" src="{{ directory }}/images/icons/faq-access-report.svg" alt="faq-access-report">
               <p>{{ content.field_faq_category.3['#title'] }}</p>
-              <i class="ion-android-arrow-down"></i>
+              <div class="arrow-content">
+                <i class="ion-android-arrow-down"></i>
+              </div>
             </a>
           </div>
           {% endif %}
         </div>
       </div>
-      <hr class="faq-hr" />
     {% endif %}
   {% endblock %}
 </div>
