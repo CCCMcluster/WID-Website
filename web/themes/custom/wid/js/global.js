@@ -98,6 +98,12 @@
     }
   });
 
+  $('.approach-container .approach-steps').on('click', 'li', function() {
+    const cardIndex = $(this).attr('class').split('-').pop();
+    $(`.approach-container .toolkit-steps-wrapper .steps-card:not(#card-${cardIndex})`).css("display", "none");
+    $(`.approach-container .toolkit-steps-wrapper #card-${cardIndex}`).css("display", "block");
+  });
+
   $('.single-event-list').on('click', function() {
     $(this).toggleClass("active");
   });

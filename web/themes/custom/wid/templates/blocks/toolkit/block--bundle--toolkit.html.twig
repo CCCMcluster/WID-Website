@@ -50,10 +50,12 @@
               </div>
               <ul>
                 {% for vocabulary_tree in vocabulary_trees %}
-                  <li class="step-card-{{ loop.index }}"><a href="#card-{{ loop.index }}">
-                      <div class="step-card"><span class="step-number">{{ loop.index }}</span> <span
-                                class="step-name">{{ vocabulary_tree.name }}</span></div>
-                    </a></li>
+                  <li class="step-card-{{ loop.index }}">
+                    <div class="step-card">
+                      <span class="step-number">{{ loop.index }}</span> <span
+                              class="step-name">{{ vocabulary_tree.name }}</span>
+                    </div>
+                  </li>
                 {% endfor %}
               </ul>
               <div class="choose-step">Choose a step</div>
