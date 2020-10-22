@@ -33,15 +33,19 @@
                     {% set key_initiative_link_entity = key_initiative_link._entity %}
                     {% set ki_title = key_initiative_link_entity.title.value %}
                     {% set ki_link = key_initiative_link_entity.field_resources_ki_link.uri %}
-                    {% set ki_logo_url = file_url(key_initiative_link_entity.field_wid_resources_ki_logo.entity.field_media_image.entity.fileuri|image_style('thumbnail')) %}
-                    {% set ki_logo_alt = key_initiative_link_entity.field_wid_resources_ki_logo.entity.field_media_image.alt %}
+                    {% if key_initiative_link_entity.field_wid_resources_ki_logo.value %}
+                      {% set ki_logo_url = file_url(key_initiative_link_entity.field_wid_resources_ki_logo.entity.field_media_image.entity.fileuri|image_style('thumbnail')) %}
+                      {% set ki_logo_alt = key_initiative_link_entity.field_wid_resources_ki_logo.entity.field_media_image.alt %}
+                    {% endif %}
                     <div class="resource-initiative-wrapper">
                         <a href="{{ ki_link }}" target="_blank">
                             <div class="resource-initiative-content">
                                 <div class="resource-initiative-logo">
+                                    {% if key_initiative_link_entity.field_wid_resources_ki_logo.value %}
                                     <div>
                                         <img src="{{ ki_logo_url }}" alt="{{ ki_logo_alt }}">
                                     </div>
+                                    {% endif %}
                                     <p>{{ ki_title }}</p>
                                 </div>
                                 <div class="resource-initiative-arrow">
@@ -66,12 +70,19 @@
                                     {% set entity = row.content['#row']._entity %}
                                     {% set title = entity.title.value %}
                                     {% set summary = entity.body.value |render|striptags %}
-                                    {% set media_url = file_url(entity.field_resources_media.entity.field_media_image.entity.fileuri | image_style('large')) %}
-                                    {% set media_alt = entity.field_resources_media.entity.field_media_image.alt %}
+                                    {% set resourceLink = path('entity.node.canonical', {'node': entity.nid.value}) %}
+                                    {% if entity.field_resources_media.value %}
+                                      {% set media_url = file_url(entity.field_resources_media.entity.field_media_image.entity.fileuri | image_style('large')) %}
+                                      {% set media_alt = entity.field_resources_media.entity.field_media_image.alt %}
+                                    {% endif %}
                                     <div>
-                                        <img src="{{ media_url }}" alt="{{ media_alt }}">
+                                        <a href="{{ resourceLink }}">
+                                        {% if entity.field_resources_media.value %}
+                                          <img src="{{ media_url }}" alt="{{ media_alt }}">
+                                        {% endif %}
                                         <h2>{{ title }}</h2>
                                         <p>{% autoescape false %}{{ summary }}{% endautoescape %}</p>
+                                        </a>
                                         <div class="download-section">
                                             {# <span class="user-content"><a href="#"><i class="fa fa-user"></i>User Content</a></span> #}
                                             {% if entity.field_resources_attachment_type.value == 'Document' %}
