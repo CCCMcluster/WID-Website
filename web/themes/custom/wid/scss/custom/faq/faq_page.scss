@@ -7,21 +7,21 @@
   margin-bottom: 50px;
 
   .faq-header-card {
-    padding: 40px 60px;
+    padding: 10px 0;
     border-radius: 15px;
     text-align: center;
 
     .faq-header-card-title {
       color: $gray-900;
-      font-size: $font-size-xl-alt;
+      font-size: 50px;
       padding-bottom: 20px;
-      font-family: $font-raleway;
+       font-family: $font-raleway;
       font-weight: bold;
     }
 
     .faq-header-card-description {
       color: $gray-900;
-      font-size: $font-size-text-alt;
+      font-size: $font-size-base;
       font-family: $font-opensans;
     }
 
@@ -41,9 +41,9 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: 15px 20px 10px 20px;
-        height: 175px;
-        width: 170px;
+        padding: 25px 35px;
+        height: 240px;
+        width: 200px;
         border-radius: 10px;
         font-family: $font-raleway;
         font-size: $font-size-base;
@@ -51,147 +51,36 @@
         background-color: $white;
         border: 2px solid $white;
         transition: .2s;
+        margin: 30px 17px;
 
         &:hover {
           border: 2px solid $primary-color;
         }
 
         .faq-category-content-img {
-          height: 40px;
+          height: 65px;
           width: auto;
         }
 
         p {
-          margin-top: 10px;
+          margin-top: 15px;
           color: $gray-900;
+          font-weight: bold;
+          font-family: $font-raleway;
         }
 
         .arrow-content {
           display: flex;
           justify-content: center;
           align-items: center;
-          height: 30px;
-          width: 30px;
+          height: 35px;
+          width: 35px;
           border-radius: 50%;
-          border: 1px solid $accent-color;
+          border: 1.5px solid $accent-color;
 
           i {
             color: $accent-color;
-            font-size: $font-size-base;
-            font-weight: 600;
-          }
-        }
-      }
-    }
-  }
-}
-
-.faq-hr {
-  box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.16);
-  background-color: $accent-alt-color;
-  height: 5px;
-  margin: 0;
-}
-
-@media (min-width: 320px) and (max-width: 480px) {
-  .faq-background-image {
-
-    .faq-header-card {
-
-      .faq-category-container {
-
-        .faq-category-content {
-          padding: 5px 10px 5px 10px;
-          height: 150px;
-          width: 300px;
-          border-radius: 5px;
-
-          .faq-category-content-img {
-            height: 40px;
-            width: auto;
-            margin-bottom: 3px;
-          }
-        }
-      }
-    }
-  }
-}
-
-@media (min-width: 481px) and (max-width: 767px) {
-  .faq-background-image {
-
-    .faq-header-card {
-
-      .faq-category-container {
-
-        .faq-category-content {
-          padding: 25px 10px 25px 10px;
-          height: 195px;
-          width: 160px;
-          border-radius: 5px;
-
-          .faq-category-content-img {
-            height: 30px;
-            width: auto;
-            margin-bottom: 5px;
-          }
-        }
-      }
-    }
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1024px) {
-  .faq-background-image {
-
-    .faq-header-card {
-
-      .faq-category-container {
-
-        .faq-category-content {
-          padding: 15px 2px;
-          height: 180px;
-          width: 115px;
-          border-radius: 7px;
-          font-size: $font-size-text-sm;
-
-          .faq-category-content-img {
-            height: 30px;
-            width: auto;
-            margin-bottom: 4px;
-          }
-          .arrow-content {
-            height: 20px;
-            width: 20px;
-  
-            i {
-              font-size: $font-size-xs;
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-@media (min-width: 1025px) and (max-width: 1200px) {
-  .faq-background-image {
-
-    .faq-header-card {
-
-      .faq-category-container {
-
-        .faq-category-content {
-          padding: 12px 5px;
-          height: 150px;
-          width: 125px;
-          border-radius: 10px;
-          font-size: $font-size-sm;
-
-          .faq-category-content-img {
-            height: 35px;
-            width: auto;
-            margin-bottom: 4px;
+            font-size: $font-size-text;
           }
         }
       }
@@ -290,7 +179,7 @@
           .panel {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.5s ease-out;
+            transition: max-height 0.3s ease-out;
             font-family: $font-raleway;
             font-size: $font-size-base;
 
@@ -360,7 +249,13 @@
           font-size: $font-size-text-sm;
           font-family: $font-opensans;
           border-radius: 5px;
-          padding: 4px 20px !important;
+          padding: 10px 30px !important;
+          border: none;
+
+          &:hover {
+            background-color: $white;
+            color: $primary-color;
+          }
         }
       }
     }
@@ -369,6 +264,28 @@
 
 
 @media (min-width: 320px) and (max-width: 480px) {
+  .faq-background-image {
+
+    .faq-header-card {
+
+      .faq-category-container {
+
+        .faq-category-content {
+          padding: 5px 10px 5px 10px;
+          height: 150px;
+          width: 300px;
+          border-radius: 5px;
+
+          .faq-category-content-img {
+            height: 40px;
+            width: auto;
+            margin-bottom: 3px;
+          }
+        }
+      }
+    }
+  }
+
   .faq-content-container-background {
     .faq-content-container {
       .faq-content-card {
@@ -376,8 +293,8 @@
 
         .faq-content-header {
           .faq-content-header-title {
-            font-size: $font-size-base;
-            font-weight: 500;
+            font-size: $font-size-text-alt;
+            font-weight: bold;
           }
         }
 
@@ -390,6 +307,7 @@
 
               .faq-accordion-question {
                 font-size: $font-size-xs;
+                font-weight: bold;
               }
 
               .faq-accordion-arrow {
@@ -442,6 +360,28 @@
 }
 
 @media (min-width: 481px) and (max-width: 767px) {
+  .faq-background-image {
+
+    .faq-header-card {
+
+      .faq-category-container {
+
+        .faq-category-content {
+          padding: 25px 10px 25px 10px;
+          height: 195px;
+          width: 160px;
+          border-radius: 5px;
+
+          .faq-category-content-img {
+            height: 30px;
+            width: auto;
+            margin-bottom: 5px;
+          }
+        }
+      }
+    }
+  }
+
   .faq-content-container-background {
 
     .faq-content-container {
@@ -450,8 +390,7 @@
 
         .faq-content-header {
           .faq-content-header-title {
-            font-size: $font-size-base;
-            font-weight: 500;
+            font-size: $font-size-title-xs;
           }
         }
 
@@ -464,7 +403,6 @@
 
               .faq-accordion-question {
                 font-size: $font-size-xs;
-                font-weight: 500;
               }
 
               .faq-accordion-arrow {
@@ -516,6 +454,37 @@
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
+  .faq-background-image {
+
+    .faq-header-card {
+
+      .faq-category-container {
+
+        .faq-category-content {
+          padding: 15px 2px;
+          height: 180px;
+          width: 115px;
+          border-radius: 7px;
+          font-size: $font-size-text-sm;
+
+          .faq-category-content-img {
+            height: 30px;
+            width: auto;
+            margin-bottom: 4px;
+          }
+          .arrow-content {
+            height: 20px;
+            width: 20px;
+  
+            i {
+              font-size: $font-size-xs;
+            }
+          }
+        }
+      }
+    }
+  }
+
   .faq-content-container-background {
 
     .faq-content-container {
@@ -562,7 +531,26 @@
   }
 }
 
-@media (min-width: 1024px) and (max-width: 1200px) {
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .faq-background-image {
+
+    .faq-header-card {
+
+      .faq-category-container {
+
+        .faq-category-content {
+          width: 180px;
+          height: 225px;
+          margin: 30px 10px;
+
+          .faq-category-content-img {
+            height: 50px;
+          }
+        }
+      }
+    }
+  }
+
   .faq-content-container-background {
 
     .faq-content-container {

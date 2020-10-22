@@ -1,93 +1,72 @@
 .contact-us-background-image {
-    height: auto;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: $gray-200;
+    padding: 80px 0;
+
+    .contact-info-content-title {
+        text-align: center;
+        color: $gray-900;
+        font-size: 50px;
+        padding-bottom: 30px;
+        font-weight: bold;
+        font-family:  $font-raleway;
+    }
 
     .contact-container{
-        padding: 80px;
-        color: $primary-color;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
 
         .contact-info-content {
-            padding: 70px 100px;
+            flex: 1;
+            padding: 25px 40px;
+            border-radius: 10px;
+            margin: 10px;
             background-color: $white;
-            border-radius: 20px;
-            margin: 5px 0;
-            box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.16);
-
-            .contact-info-content-title {
-                font-size: $font-size-xl-alt;
-                padding-bottom: 60px;
-                font-weight: 600;
-                font-family:  $font-raleway;
-            }
 
             .contact-info-content-description {
-                font-size: $font-size-text;
-                font-family:  $font-lato;
+                font-size: $font-size-base;
+                font-family: $font-opensans;
+                font-weight: bold;
+                padding-bottom: 40px;
             }
-        }
-
-        .contact-links {
-          height: 100%;
 
             .contact-link-container {
-                position: relative;
                 display: flex;
-                flex-direction: column;
-                justify-content: center;
+                flex-direction: row;
                 align-items: center;
+                margin-bottom: 15px;
                 background-color: $white;
-                margin: 5px 0;
-                min-width: 100px;
-                min-height: 100px;
-                border-radius: 10px;
-                box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.16);
-                transition: 0.5s;
+                border: 1px solid $gray-500;
+                padding: 10px 20px;
+                border-radius: 5px;
 
                 &:hover {
-                    background-color: #f1f9ff;
-
-                    .contact-link-arrow-button {
-                        display: block;
-                    }
-                }
-
-                .contact-link-arrow-button {
-                    transition: 0.5s;
-                    cursor: pointer;
-                    display: none;
-                    position: absolute;
-                    z-index: 5;
-                    top: 100;
-                    right: -15px;
-                    padding: 5px 10px;
-                    border-radius: 5px;
                     background-color: $primary-color;
-                    color: $white;
-                    font-size: 14px;
+                    border: 1px solid $primary-color;
+
+                    i {
+                        color: $white;
+                    }
+
+                    span {
+                        color: $white;
+                    }
                 }
 
-                .contact-block-social-media-link {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-between;
-                    align-items: center;
-                    font-size: $font-size-base;
-                    line-height: 1em;
-                    text-align: center;
-                    padding: 5px 10px;
-                    text-decoration: none;
-                    font-family:  $font-lato;
+                i {
+                    color: $primary-color;
+                    font-size: 50px;
+                }
 
-                    .contact-block-social-media-icon {
-                        height: 30px;
-                        width: 30px;
-                        margin-bottom: 5px;
-                    }
+                span {
+                    font-weight: 600;
+                    padding-left: 15px;
+                    color: $gray-900;
+                    font-family: $font-opensans;
+                    font-size: $font-size-base;
                 }
             }
         }
@@ -96,32 +75,37 @@
 
 @media (min-width: 320px) and (max-width: 480px) {
     .contact-us-background-image {
-        .contact-container{
-            padding: 0;
-    
-            .contact-info-content {
-                padding: 30px 20px;
-                border-radius: 10px;
-    
-                .contact-info-content-title {
-                    padding-bottom: 20px;
-                }
-            }
+        padding: 40px 0;
+
+        .contact-info-content-title {
+            font-size: $font-size-xxl-alt;
         }
-    }
-}
-
-@media (min-width: 481px) and (max-width: 767px) {
-    .contact-us-background-image {
-        .contact-container{
-            padding: 0;
+    
+        .contact-container {
+            flex-direction: column;
     
             .contact-info-content {
-                padding: 40px 40px;
-            }
-
-            .contact-info-content-title {
-                padding-bottom:25px !important;;
+                flex: 1;
+                padding: 25px 25px;
+                border-radius: 5px;
+                margin: 10px;
+    
+                .contact-info-content-description {
+                    padding-bottom: 30px;
+                }
+    
+                .contact-link-container {
+                    padding: 10px 10px;
+                    border-radius: 5px;
+    
+                    i {
+                        font-size: 40px;
+                    }
+    
+                    span {
+                        padding-left: 10px;
+                    }
+                }
             }
         }
     }
@@ -129,18 +113,33 @@
 
 @media (min-width: 768px) and (max-width: 1024px) {
     .contact-us-background-image {
-        .contact-container{
-            padding: 20px;
+    
+        .contact-container {
     
             .contact-info-content {
-                padding: 40px 40px;
-            }
-
-            .contact-info-content-title {
-                padding-bottom: 40px !important;
+                flex: 1;
+                padding: 20px 15px;
+                border-radius: 5px;
+                margin: 5px;
+    
+                .contact-info-content-description {
+                    padding-bottom: 30px;
+                }
+    
+                .contact-link-container {
+                    padding: 10px 10px;
+                    border-radius: 5px;
+    
+                    i {
+                        font-size: 40px;
+                    }
+    
+                    span {
+                        padding-left: 10px;
+                    }
+                }
             }
         }
     }
 }
-
 
