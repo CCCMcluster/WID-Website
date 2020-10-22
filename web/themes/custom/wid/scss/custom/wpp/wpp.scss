@@ -1,0 +1,17 @@
+.wpp-wrapper {
+  padding: 50px 0;
+
+  img {
+    height: 300px;
+    width: 300px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+
+  p {
+    font-family: $font-opensans;
+    font-size: $font-size-base;
+    color: $gray-900;
+    font-weight: 400;
+  }
+}
