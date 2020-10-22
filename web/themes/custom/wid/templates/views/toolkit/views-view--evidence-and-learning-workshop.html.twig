@@ -1,0 +1,137 @@
+{#
+/**
+ * @file
+ * Theme override for a main view template.
+ *
+ * Available variables:
+ * - attributes: Remaining HTML attributes for the element.
+ * - css_name: A css-safe version of the view name.
+ * - css_class: The user-specified classes names, if any.
+ * - header: The optional header.
+ * - footer: The optional footer.
+ * - rows: The results of the view query, if any.
+ * - empty: The content to display if there are no rows.
+ * - pager: The optional pager next/prev links to display.
+ * - exposed: Exposed widget form/info to display.
+ * - feed_icons: Optional feed icons to display.
+ * - more: An optional link to the next page of results.
+ * - title: Title of the view, only used when displaying in the admin preview.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the view title.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the view title.
+ * - attachment_before: An optional attachment view to be displayed before the
+ *   view content.
+ * - attachment_after: An optional attachment view to be displayed after the
+ *   view content.
+ * - dom_id: Unique id for every view being printed to give unique class for
+ *   Javascript.
+ *
+ * @see template_preprocess_views_view()
+ */
+#}
+{% set classes = [
+  'view',
+  'view-' ~ id|clean_class,
+  'view-id-' ~ id,
+  'view-display-id-' ~ display_id,
+  dom_id ? 'js-view-dom-id-' ~ dom_id,
+] %}
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {% if title %}
+    {{ title }}
+  {% endif %}
+  {{ title_suffix }}
+  {% if header %}
+    <div class="view-header">
+      {{ header }}
+    </div>
+  {% endif %}
+  {% if exposed %}
+    <div class="view-filters">
+      {{ exposed }}
+    </div>
+  {% endif %}
+  {% if attachment_before %}
+    <div class="attachment attachment-before">
+      {{ attachment_before }}
+    </div>
+  {% endif %}
+
+  {% if rows %}
+    <div class="view-content row">
+      <div class="toolkit-evidence-body-wrapper py-5 my-5">
+        <div class="container">
+          {{ rows }}
+          <div class="testimonial-slide-content">
+            <h1 class="testimonial-slide-content-title">Testimonials from Beneficiaries:</h1>
+            <div id="toolkitTestimonialSlide" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner" role="listbox">
+                {% set testimonials = drupal_view_result('testimonial','block_2') %}
+                {% for testimonial in testimonials %}
+                  {% set testimonial_entity = testimonial._entity %}
+                  <div class="carousel-item">
+                    <img class="quote-image" src="/{{ directory }}/images/icons/testimonial-bg.svg"
+                         alt="quote"/>
+                    <div class="card my-2">
+                      <div class="testimonial-title">
+                        {{ testimonial_entity.field_testimonial_name.value|capitalize ~ ', ' ~ testimonial_entity.field_testimonial_region.entity.name.value }}
+                      </div>
+                      <div class="testimonial-body">
+                        {% autoescape false %}
+                          {{ testimonial_entity.body.value }}
+                        {% endautoescape %}
+                      </div>
+                      <div class="testimonial-source">
+                        {{ testimonial_entity.field_testimonial_position.value }}
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+              <a class="control-left" href="#toolkitTestimonialSlide" role="button" data-slide="prev">
+                <i class="ion-android-arrow-back"></i>
+              </a>
+              <a class="control-right" href="#toolkitTestimonialSlide" role="button" data-slide="next">
+                <i class="ion-android-arrow-forward"></i>
+              </a>
+              <ul id="toolkitTestimonialSlideIndicator" class="carousel-indicators">
+                {% for testimonial in testimonials %}
+                  <li class="item-indicator" data-target="#toolkitTestimonialSlide"
+                      data-slide-to="{{ loop.index-1 }}"></li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% elseif empty %}
+    <div class="view-empty">
+      {{ empty }}
+    </div>
+  {% endif %}
+
+  {% if pager %}
+    {{ pager }}
+  {% endif %}
+  {% if attachment_after %}
+    <div class="attachment attachment-after">
+      {{ attachment_after }}
+    </div>
+  {% endif %}
+  {% if more %}
+    {{ more }}
+  {% endif %}
+  {% if footer %}
+    <div class="view-footer">
+      {{ footer }}
+    </div>
+  {% endif %}
+  {% if feed_icons %}
+    <div class="feed-icons">
+      {{ feed_icons }}
+    </div>
+  {% endif %}
+</div>
