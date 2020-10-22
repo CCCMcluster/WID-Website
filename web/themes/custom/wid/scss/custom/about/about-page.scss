@@ -64,6 +64,7 @@
   display: flex;
   align-items: center;
   margin-bottom: 24px;
+  flex-wrap: nowrap;
 
   @media only screen and (min-width: 992px) {
     margin-bottom: 80px;
@@ -80,6 +81,10 @@
         margin-right: 0;
         margin-left: -10%;
       }
+    }
+
+    .cover-image-container img {
+      border-radius: 16px 0 0 16px;
     }
   }
 
@@ -119,6 +124,7 @@
 
     img {
       width: 100%;
+      height: auto;
     }
   }
 
