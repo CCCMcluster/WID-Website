@@ -87,16 +87,17 @@
             .append('i').attr('class','ion-android-arrow-forward');
           reportElement.append('p')
             .attr('class', 'report-country')
-            .text(`${report.country}`)
+            .text(`${report.title}`)
             .classed('report-title', index!==0);
-          report.title && reportElement.append('p')
-            .attr('class', 'report-title')
-            .text(report.title)
-            .classed('report-title__active', index===0)
-            .classed('report-title__alt', index!==0);
-          report.body && index===0 && reportElement.append('p')
+          reportElement.append('div')
+            .attr('class', 'report-body')
+            .html(report.camp_location + '<p>' + report.current_crisis + '</p>')
+          index===0 && reportElement.append('p')
             .attr('class', 'report-country-body')
-            .text(`${report.body.split(" ").splice(0, index===0? 25 : 10).join(" ")}...`);
+            .html(report.key_activities)
+          index===0 && reportElement.append('p')
+            .attr('class', 'report-body')
+            .text(report.wpp_agencies)
         });
       });
   }

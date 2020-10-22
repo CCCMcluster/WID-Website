@@ -4,6 +4,7 @@ namespace Drupal\wid_map\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Mail\MailFormatHelper;
+use Drupal\taxonomy\Entity\Term;
 use Drupal;
 use Drupal\node\Entity\Node;
 use Symfony\Component\HttpFoundation\Request;
@@ -61,58 +62,51 @@ class MapController extends ControllerBase {
   public static function getReportByCountry(Request $request) {
     $iso_2 = Drupal::request()->query->get('iso');
     if (isset($iso_2)) {
-      $node_ids = Drupal::entityQuery('node')
-        ->condition('type', 'wid_reports')
-        ->condition('status', 1)
-        ->condition('field_report_country', '', '<>')
-        ->condition('field_report_country', $iso_2)
+      $tid = Drupal::entityQuery('taxonomy_term')
+        ->condition('field_report_overview_country', $iso_2)
         ->execute();
+      $node_ids = Drupal::entityQuery('node')
+        ->condition('type', 'wid_map')
+        ->condition('status', 1)
+        ->condition('field_map_country', $tid)
+        ->execute();
+      if ($node_ids) {
+        $node_ids_other = Drupal::entityQuery('node')
+          ->condition('type', 'wid_map')
+          ->condition('status', 1)
+          ->condition('field_map_country', $tid, '>')
+          ->range(0, 2)
+          ->execute();
+        if (isset($node_ids_other)) {
+          $node_ids = array_merge($node_ids, $node_ids_other);
+        }
+      }
       $nodes = Node::loadMultiple($node_ids);
-      $country_manager = Drupal::service('country_manager');
-      $terms = Drupal::entityTypeManager()
-        ->getStorage('taxonomy_term')
-        ->loadTree('country_report_overview');
-      $term_data = [];
-      foreach ($terms as $term) {
-        $country = Drupal::entityTypeManager()
-          ->getStorage('taxonomy_term')
-          ->load($term->tid);
-        $country_iso = $country->field_report_overview_country->value;
-        $country_name = $country->getName();
-        $description = MailFormatHelper::htmlToText($term->description__value);
-        $term_data[$country_iso] = [
-          $term->tid,
-          $country_name,
-          $description,
-          $country_iso,
-        ];
-      }
       $mapData = [];
-      $country_overview = $term_data[$iso_2];
-      if (isset($country_overview)) {
-        $mapData[0]['id'] = 1;
-        $mapData[0]['title'] = $country_overview[1];
-        $mapData[0]['body'] = $country_overview[2];
-        $mapData[0]['country'] = $country_overview[1];
-        $mapData[0]['iso_2'] = $country_overview[3];
-        $mapData[0]['url'] = 'reports/country/' . strtolower($country_overview[3]);
-      }
-      $index = 1;
+      $index = 0;
       foreach ($nodes as $key => $node) {
+        $tid = $node->get('field_map_country')->getValue()[0]['target_id'];
+        $term_country = Term::load($tid);
         $mapData[$index]['id'] = $index + 1;
-        $mapData[$index]['title'] = $node->get('title')->getValue()[0]['value'];
-        $mapData[$index]['body'] = $node->get('body')->getValue()[0]['value'];
-        if ($term_data[$node->get('field_report_country')
-          ->getValue()[0]['value']]) {
-          $mapData[$index]['country'] = $country_overview[1];
-        }
-        else {
-          $mapData[$index]['country'] = $country_manager->getList()[$node->get('field_report_country')
-            ->getValue()[0]['value']]->__toString();
-        }
-        $mapData[$index]['iso_2'] = $node->get('field_report_country')
+        $mapData[$index]['title'] = $term_country->get('name')->value;
+        $mapData[$index]['current_crisis'] = $node->get('field_current_crisis')
           ->getValue()[0]['value'];
-        $mapData[$index]['url'] = Url::fromRoute('entity.node.canonical', ['node' => $node->id()])->toString();
+        $mapData[$index]['camp_location'] = $node->get('field_camp_location')
+          ->getValue()[0]['value'];
+        $current_crisis_key = $node->get('field_current_crisis')
+          ->getValue()[0]['value'];
+        $current_crisis = $node->field_current_crisis->getSetting('allowed_values')[$current_crisis_key];
+        $implementation_year = $node->get('field_implementation_year')
+          ->getValue()[0]['value'];;
+        $mapData[$index]['current_crisis'] = $current_crisis . t(' in ') . $implementation_year;
+        $mapData[$index]['key_activities'] = $node->get('field_map_key_activities')
+          ->getValue()[0]['value'];
+        $mapData[$index]['wpp_agencies'] = t("Agencies of WPP: ") . implode(", ",
+            array_column($node->get('field_wpp_agencies')
+              ->getValue(), 'value'));
+        $mapData[$index]['iso_2'] = $term_country->get('field_report_overview_country')->value;
+        $mapData[$index]['url'] = Url::fromRoute('entity.node.canonical', ['node' => $node->id()])
+          ->toString();
         $index++;
       }
       return new JsonResponse($mapData);
