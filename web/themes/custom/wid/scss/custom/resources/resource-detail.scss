@@ -1,0 +1,43 @@
+.resource-highlight-detail-page {
+  padding: 50px 0;
+
+  img {
+    height: 300px;
+    width: 300px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin: 20px 0;
+  }
+
+  p {
+    font-family: $font-opensans;
+    font-size: $font-size-base;
+    color: $gray-900;
+    font-weight: 400;
+  }
+
+  a {
+    font-family: $font-opensans;
+    font-size: $font-size-base;
+    color: $primary-color;
+    font-weight: 400;
+    display: inline-block;
+    width: 100%;
+
+    &:hover {
+      color: $gray-900;
+    }
+  }
+
+  em {
+    font-family: $font-raleway;
+    font-size: $font-size-base;
+    color: $gray-900;
+    font-weight: 600;
+
+    a {
+      color: $gray-900;
+      font-weight: 600;
+    }
+  }
+}
