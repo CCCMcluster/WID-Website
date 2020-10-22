@@ -1,29 +1,28 @@
 .faq-background-image {
   height: auto;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: $gray-200;
+  margin-bottom: 50px;
 
   .faq-header-card {
-    background-color: $white;
-    padding: 40px 100px;
+    padding: 40px 60px;
     border-radius: 15px;
     text-align: center;
 
     .faq-header-card-title {
-      color: $primary-color;
+      color: $gray-900;
       font-size: $font-size-xl-alt;
       padding-bottom: 20px;
       font-family: $font-raleway;
+      font-weight: bold;
     }
 
     .faq-header-card-description {
-      color: $primary-color;
+      color: $gray-900;
       font-size: $font-size-text-alt;
-      font-family: $font-lato;
+      font-family: $font-opensans;
     }
 
     .faq-category-container {
@@ -43,45 +42,45 @@
         justify-content: center;
         align-items: center;
         padding: 15px 20px 10px 20px;
-        height: 160px;
-        width: 150px;
+        height: 175px;
+        width: 170px;
         border-radius: 10px;
         font-family: $font-raleway;
         font-size: $font-size-base;
-        font-weight: 600;
+        font-weight: bold;
+        background-color: $white;
+        border: 2px solid $white;
+        transition: .2s;
+
+        &:hover {
+          border: 2px solid $primary-color;
+        }
 
         .faq-category-content-img {
           height: 40px;
           width: auto;
-          margin-bottom: 5px;
         }
 
-        i {
-          font-size: 20px;
-          font-weight: 600;
+        p {
+          margin-top: 10px;
+          color: $gray-900;
         }
 
-      }
+        .arrow-content {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 30px;
+          width: 30px;
+          border-radius: 50%;
+          border: 1px solid $accent-color;
 
-      .faq-project-overview {
-        color: $primary-color;
-        border: 1px solid $primary-color;
-      }
-
-      .faq-methodology {
-        color: $primary-color;
-        border: 1px solid $primary-color;
-        opacity: 0.9;
-      }
-
-      .faq-project-implementation {
-        color: $accent-alt-color;
-        border: 1px solid $accent-alt-color;
-      }
-
-      .faq-access-report {
-        color: $accent-color;
-        border: 1px solid $accent-color;
+          i {
+            color: $accent-color;
+            font-size: $font-size-base;
+            font-weight: 600;
+          }
+        }
       }
     }
   }
@@ -103,12 +102,12 @@
 
         .faq-category-content {
           padding: 5px 10px 5px 10px;
-          height: 120px;
+          height: 150px;
           width: 300px;
           border-radius: 5px;
 
           .faq-category-content-img {
-            height: 25px;
+            height: 40px;
             width: auto;
             margin-bottom: 3px;
           }
@@ -127,8 +126,8 @@
 
         .faq-category-content {
           padding: 25px 10px 25px 10px;
-          height: 160px;
-          width: 220px;
+          height: 195px;
+          width: 160px;
           border-radius: 5px;
 
           .faq-category-content-img {
@@ -151,7 +150,7 @@
 
         .faq-category-content {
           padding: 15px 2px;
-          height: 150px;
+          height: 180px;
           width: 115px;
           border-radius: 7px;
           font-size: $font-size-text-sm;
@@ -160,6 +159,14 @@
             height: 30px;
             width: auto;
             margin-bottom: 4px;
+          }
+          .arrow-content {
+            height: 20px;
+            width: 20px;
+  
+            i {
+              font-size: $font-size-xs;
+            }
           }
         }
       }
@@ -197,25 +204,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #e8edff;
+  background-color: $white;
 
   .faq-content-container {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-
-    .faq-content-container-title {
-      margin: 80px 0 ;
-      text-align: center;
-      background-color: $primary-color;
-      color: $white;
-      width: 250px;
-      padding: 7px 0;
-      border-radius: 20px;
-      font-size: $font-size-text-alt;
-      font-family: $font-raleway;
-    }
 
     .faq-content-card {
       display: flex;
@@ -224,8 +219,6 @@
       border: none;
       border-radius: 15px;
       padding: 40px 90px;
-      background-color: $white;
-      box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.16);
 
       .faq-content-header {
         display: flex;
@@ -236,7 +229,7 @@
           text-align: center;
           font-size: $font-size-xl-alt;
           font-family: $font-raleway;
-          font-weight: 600;
+          font-weight: bold;
         }
       }
 
@@ -253,32 +246,41 @@
             align-items: center;
             font-size: $font-size-text-alt;
             transition: 0.7s;
-            padding: 10px 15px;
-            border-bottom: 2px solid #e8edff;
+            padding: 15px 15px;
+            border-bottom: 2px solid $gray-200;
 
             .faq-accordion-dot {
               margin-left: -1em;
               margin-bottom: 5px;
-              font-size: $font-size-text;
+              font-size: 8px;
             }
 
             .faq-accordion-question {
               flex: 1;
               text-align: left;
               font-size: $font-size-base;
-              font-weight: 600;
-              font-family: $font-raleway;
-              color: $primary-color;
+              font-weight: bold;
+              font-family: $font-opensans;
+              color: $gray-900;
             }
 
             .faq-accordion-arrow {
+              font-weight: lighter;
               transition: transform 0.3s;
-              font-size: $font-size-text-sm;
-              color: $primary-color;
+              font-size: $font-size-xs;
+              color: $gray-600;
             }
           }
 
           .active {
+
+            .faq-accordion-dot {
+              color: $primary-color;
+            }
+
+            .faq-accordion-question {
+              color: $primary-color;
+            }
 
             .faq-accordion-arrow {
               transform: rotate(90deg);
@@ -295,7 +297,7 @@
             .panel-content {
               margin: 5px 0 0 20px;
               padding: 30px;
-              background-color: #f1f9ff;
+              color: $gray-900;
               border-radius: 10px;
             }
           }
@@ -303,51 +305,33 @@
       }
     }
 
-    .faq-block_1 {
-      color: $primary-color;
-    }
-
-    .faq-block_2 {
-      color: $primary-color;
-    }
-
-    .faq-block_3 {
-      color: $accent-alt-color;
-    }
-
-    .faq-block_4 {
-      color: $accent-color;
-    }
-
   }
 }
 
 .faq-form-background {
-  background-color: #e8edff;
+  background-color: $gray-200;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 80px 0 120px;
+  margin-top: 100px;
+  padding: 80px 0;
 
   .faq-form-card {
-    background-color: $white;
     border-radius: 10px;
-    box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.16);
-    color: $primary-color;
-    padding: 40px 90px;
+    color: $gray-900;
+    padding: 0 90px;
 
     .faq-form-title {
       text-align: center;
-      font-size: $font-size-xl-alt;
+      font-size: $font-size-xxl-alt;
       font-family: $font-raleway;
-      font-weight: 600;
+      font-weight: bold;
     }
 
     .faq-form-sub-title {
       text-align: center;
-      font-size: $font-size-text-alt;
-      font-family: $font-raleway;
-      font-weight: 600;
+      font-size: $font-size-base;
+      font-family: $font-opensans;
     }
 
     .faq-form-body {
@@ -355,30 +339,28 @@
       .form-group {
 
         .faq-form-label {
-          font-family: $font-lato;
-          font-size: $font-size-base;
-          font-weight: 600;
+          font-family: $font-opensans;
+          font-size: $font-size-text-sm;
         }
 
         .faq-form-input {
+          font-size: $font-size-text-sm;
+          font-family: $font-opensans;
           border: none;
-          background-color: #fafafa;
+          background-color: $white;
         }
       }
 
       .form-actions {
-        display: flex;
-        align-items: center;
-        justify-content: center;
         padding: 30px 0;
 
         .faq-submit {
           background-color: $primary-color;
           color: $white;
-          font-size: $font-size-base;
-          font-family: $font-lato;
-          border-radius: 10px;
-          padding: 2px 30px !important;
+          font-size: $font-size-text-sm;
+          font-family: $font-opensans;
+          border-radius: 5px;
+          padding: 4px 20px !important;
         }
       }
     }
@@ -406,13 +388,8 @@
               font-size: $font-size-base;
               border-bottom: 1px solid #e8edff;
 
-              .faq-accordion-dot {
-                font-size: $font-size-text-sm;
-              }
-
               .faq-accordion-question {
                 font-size: $font-size-xs;
-                font-weight: 500;
               }
 
               .faq-accordion-arrow {
@@ -485,10 +462,6 @@
               font-size: $font-size-base;
               border-bottom: 1px solid #e8edff;
 
-              .faq-accordion-dot {
-                font-size: $font-size-text-sm;
-              }
-
               .faq-accordion-question {
                 font-size: $font-size-xs;
                 font-weight: 500;
@@ -547,34 +520,13 @@
 
     .faq-content-container {
       .faq-content-card {
-        padding: 20px 50px;
-
-        .faq-content-header {
-          .faq-content-header-title {
-            font-size: $font-size-text;
-            font-weight: 600;
-          }
-        }
+        padding: 20px 30px 20px 10px;
 
         .faq-list-item {
 
           .faq-accrodion-body {
             .faq-accordion {
-              font-size: $font-size-text;
               border-bottom: 1px solid #e8edff;
-
-              .faq-accordion-dot {
-                font-size: $font-size-base;
-              }
-
-              .faq-accordion-question {
-                font-size: $font-size-text-sm;
-                font-weight: 500;
-              }
-
-              .faq-accordion-arrow {
-                font-size: $font-size-text-sm;
-              }
             }
 
             .panel {

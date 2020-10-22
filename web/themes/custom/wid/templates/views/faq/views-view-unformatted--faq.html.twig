@@ -16,13 +16,9 @@
  */
 #}
 {% set block_id = view.current_display|split('_')[1] %}
-<div class="faq-content-container-background py-5" id="faq-{{ block_id }}">
+<div class="faq-content-container-background" id="faq-{{ block_id }}">
   <div class="container">
     <div class="faq-content-container">
-      {% if view.current_display == 'block_1' %}
-        <h1 class="faq-content-container-title">FAQ</h1>
-      {% endif %}
-
       {% set faq_class = view.id ~ '-' ~ view.current_display %}
       <div class="faq-content-card col-lg-11 col-md-12 {{ faq_class }}">
         <div class="faq-content-header pb-3 pt-2">
