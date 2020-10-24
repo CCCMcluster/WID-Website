@@ -1,17 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="49.706" height="48.312" viewBox="0 0 49.706 48.312">
-  <defs>
-    <style>
-      .cls-1 {
-        fill: none;
-        stroke: #556cff;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-        stroke-width: 7px;
-      }
-    </style>
-  </defs>
-  <g id="Icon_feather-check-circle" transform="translate(3.504 3.526)">
-    <path id="Path_9626" class="cls-1" d="M44.253,21.732v1.9A20.626,20.626,0,1,1,32.021,4.777" transform="translate(-3 -2.991)"/>
-    <path id="Path_9627" class="cls-1" d="M40.314,6,19.688,26.647,13.5,20.459" transform="translate(0.939 -1.862)"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" width="78" height="78" viewBox="0 0 78 78">
+    <defs>
+        <style>
+            .cls-2{fill:none;stroke:#553ba8;stroke-linecap:round;stroke-linejoin:round;stroke-width:6px}
+        </style>
+    </defs>
+    <g id="Group_257" transform="translate(-156 -874)">
+        <circle id="Ellipse_244" cx="39" cy="39" r="39" fill="#fff" transform="translate(156 874)"/>
+        <g id="Icon_feather-check-circle" transform="translate(176.571 895)">
+            <path id="Path_9626" d="M39.628 19.631v1.685a18.314 18.314 0 1 1-10.86-16.739" class="cls-2" transform="translate(-3 -2.991)"/>
+            <path id="Path_9627" d="M37.308 6L18.994 24.332 13.5 18.838" class="cls-2" transform="translate(-.68 -2.326)"/>
+        </g>
+    </g>
 </svg>

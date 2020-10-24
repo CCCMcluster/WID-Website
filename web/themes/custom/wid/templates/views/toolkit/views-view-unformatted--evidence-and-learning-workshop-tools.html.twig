@@ -15,63 +15,70 @@
  * @see template_preprocess_views_view_unformatted()
  */
 #}
-<div class="toolkit-evidence-body-wrapper py-5 my-5">
-  <div class="toolkit-evidence-body-wrapper py-5 my-5">
+<div class="toolkit-body-wrapper">
     <div class="container">
-      <div class="workshop-content">
-        <div class="workshop-title">
-          {{ title }}
-        </div>
-        <div class="workshop-row-wrapper pt-5 px-4">
-          {% for row in rows %}
-            <div class="workshop-row mb-5">
-              {% set entity = row.content['#row']._entity %}
-              {% set title = entity.title.value %}
-              {% set description = entity.body.summary %}
-              {% set created_date = entity.created.value | format_date('custom_document_date') %}
-              {% set toolkitLink = path('entity.node.canonical', {'node': entity.nid.value}) %}
-              {% if entity.field_toolkit_cover_img.value %}
-                <div class="image-container">
-                  <img class="w-100 p-0"
-                       src="{{ file_url(entity.field_toolkit_cover_img.entity.field_media_image.entity.fileuri|image_style('hd')) }}"
-                       alt="{{ entity.field_toolkit_cover_img.entity.field_media_image.alt }}">
-                </div>
-              {% endif %}
-              <div class="workshop-row-content p-5">
-                <a href="{{ toolkitLink }}"><h3 class="workshop-row-title">{{ title }}</h3></a>
-                <p class="workshop-row-body py-3">
-                  {{ description|length > 425 ? description|slice(0, 425) ~ '...' : description }}
-                </p>
-                <div class="row m-2 file-info-container py-3 px-3">
-                  <div class="col-sm-10">
-                    <h2 class="file-info-title">{{ title }}</h2>
-                    <div>
-                      <span><i class="fa fa-calendar-o pr-2" aria-hidden="true"></i>{{ created_date }}</span>
-                      {% if entity.field_toolkit_attachment_type.value == 'Document' %}
-                        {% set fileSize = entity.field_toolkit_document.entity.field_media_document.entity.filesize.value/1024 %}
-                        <span><i class="fa fa-file-text-o pr-2"
-                                 aria-hidden="true"></i>{{ fileSize|round(1, 'ceil') }}KB</span>
-                      {% endif %}
+        <div class="baseline-endline-content">
+            <div class="baseline-endline-content-title">{{ title }}</div>
+            <div class="global-report-row-wrapper">
+                {% for row in rows %}
+                    <div class="global-report-row">
+                        {% set entity = row.content['#row']._entity %}
+                        {% set title = entity.title.value %}
+                        {% set description = entity.body.summary %}
+                        {% set created_date = entity.created.value | format_date('custom_document_date') %}
+                        {% set toolkitLink = path('entity.node.canonical', {'node': entity.nid.value}) %}
+                        {% if entity.field_toolkit_cover_img.value %}
+                            <div class="image-container">
+                                <div>
+                                    <img src="{{ file_url(entity.field_toolkit_cover_img.entity.field_media_image.entity.fileuri|image_style('hd')) }}"
+                                         alt="{{ entity.field_toolkit_cover_img.entity.field_media_image.alt }}" />
+                                </div>
+                            </div>
+                        {% endif %}
+                        <div class="global-report-row-content">
+                            <div>
+                                <div class="global-report-row-title">
+                                    <a href="{{ toolkitLink }}" title="{{ title }}">{{ title }}</a></div>
+                            </div>
+                            <div class="global-report-row-body">
+                                <p class="workshop-row-body">
+                                    {{ description|length > 425 ? description|slice(0, 425) ~ '...' : description }}
+                                </p>
+                            </div>
+                            <div class="file-info-container">
+                                <div class="file-info-wrap">
+                                    <div class="file-info-title">
+                                        <h2>{{ title }}</h2>
+                                    </div>
+                                    <div class="file-info-doc">
+                                        <span>
+                                            <i class="fa fa-calendar-o pr-1" aria-hidden="true"></i>{{ created_date }}</span>
+                                        {% if entity.field_toolkit_attachment_type.value == 'Document' %}
+                                            {% set fileSize = entity.field_toolkit_document.entity.field_media_document.entity.filesize.value/1024 %}
+                                            <span>
+                                                <i class="fa fa-file-text-o pr-1" aria-hidden="true"></i>{{ fileSize|round(1, 'ceil') }}KB</span>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="button-container">
+                                    {% if entity.field_toolkit_attachment_type.value == 'Document' %}
+                                        {% set fileExtension = media_file_type(entity.field_toolkit_document.value.0.target_id, 'field_media_document') %}
+                                        <div>
+                                            <img class="extension-icon" src="/{{ directory }}/images/icons/{{ fileExtension }}.svg"
+                                                 alt={{ fileExtension }}>
+                                        </div>
+                                        {% set document_url = media_file_url(entity.field_toolkit_document.value.0.target_id, 'field_media_document') %}
+                                        <span><a class="download-button" href="{{ document_url }}" download>Download</a></span>
+                                    {% elseif entity.field_toolkit_attachment_type.value == 'Link' %}
+                                        <span><a class="download-button" href="{{ entity.field_toolkit_document[0].uri }}"
+                                                 download>Download</a></span>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
-                  <div class="col-sm-2 button-container">
-                    {% if entity.field_toolkit_attachment_type.value == 'Document' %}
-                      {% set fileExtension = media_file_type(entity.field_toolkit_document.value.0.target_id, 'field_media_document') %}
-                      <img class="extension-icon mb-2" src="/{{ directory }}/images/icons/{{ fileExtension }}.svg"
-                           alt={{ fileExtension }}>
-                      {% set document_url = media_file_url(entity.field_toolkit_document.value.0.target_id, 'field_media_document') %}
-                      <span><a class="download-button" href="{{ document_url }}" download>Download</a></span>
-                    {% elseif entity.field_toolkit_attachment_type.value == 'Link' %}
-                      <span><a class="download-button" href="{{ entity.field_toolkit_document[0].uri }}"
-                               download>Download</a></span>
-                    {% endif %}
-                  </div>
-                </div>
-              </div>
+                {% endfor %}
             </div>
-          {% endfor %}
         </div>
-      </div>
     </div>
-  </div>
 </div>

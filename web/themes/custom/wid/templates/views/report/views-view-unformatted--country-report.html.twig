@@ -16,65 +16,74 @@
  */
 #}
 {{ drupal_view('country_report_overview','block_1', view.title) }}
-<div class="container my-5">
-  <div class="our-single-country-report-block my-5">
-    {% set active_countries = load_vocabulary_term('country_report_overview') %}
-    {% if active_countries %}
-      <div class="our-single-report-header-nav row">
-        {% for country in active_countries %}
-          {% set country_iso_code = load_tax_term(country.id).field_report_overview_country.value %}
-          {% if country_iso_code == view.title|upper %}
-            <h1>{{ country.name }}</h1>
-          {% endif %}
-        {% endfor %}
-      </div>
-    {% endif %}
-    <div class="our-single-country-scroll-content">
-      {% for row in rows %}
-        <div class="our-single-country-views-row">
-          {% set news_image = entity.field_report_image.entity.field_media_image.entity.fileuri %}
-              {% if news_image %}
-                {% set news_image_url = file_url(entity.field_report_image.entity.field_media_image.entity.fileuri | image_style('large')) %}
-                {% set news_image_alt = entity.field_report_image.entity.field_media_image.alt %}
-          <div class="our-single-country-image-view p-0 m-0 overflow-auto">
-              <img class="img-fluid w-100 our-single-country-image" src="{{ news_image_url }}"
-                   alt="{{ news_image_alt }}"/>
-          </div>
-          {% endif %}
-          <div class="our-single-country-content-view pt-3 pb-1 px-3 m-0">
-            <div class="row">
-              <div class="col-sm-12 col-md-9 our-single-country-content-left-view">
-                {% set entity = row.content['#row']._entity %}
-                {% set title = entity.title.value %}
-                {% set reportLink = path('entity.node.canonical', {'node': entity.nid.value}) %}
-                {% set report_created_date = entity.created.value | format_date('custom_document_date') %}
-                <a href="{{ reportLink }}">
-                  <h2 class="our-single-report-title">{{ title }}</h2>
-                </a>
-                <div class="our-single-report-title-description">
-                  {% set text = entity.body.summary |render|striptags %}
-                  {% autoescape false %}{{ text }}{% endautoescape %}
-                </div>
-                <span class="pt-3 our-single-country-date">{{ report_created_date }}</span>
-              </div>
-              <div class="col-md-3 col-sm-12 our-single-country-content-right-view">
-                  {% if entity.field_attachment_type.value == 'Document' %}
-                  {% set fileExtension = media_file_type(entity.field_report_document.value.0.target_id, 'field_media_document') %}
-                  <img src="/{{ directory }}/images/icons/{{ fileExtension }}.svg" alt={{ fileExtension }}>
-                  {% set document_url = media_file_url(entity.field_report_document.value.0.target_id, 'field_media_document') %}
-                  <a class="download-button" href="{{ document_url }}">Download</a>
-                {% elseif entity.field_attachment_type.value == 'Link' %}
-                  <i class="fa fa-external-link"></i>
-                  <a class="download-button" href="{{ entity.field_report_link[0].uri }}" target="_blank">
-                    Download
-                  </a>
-                {% endif %}
-              </div>
+<div class="our-single-country-report-block">
+    <div class="container">
+        {% set active_countries = load_vocabulary_term('country_report_overview') %}
+        {% if active_countries %}
+            <div class="our-single-report-header-nav">
+                {% for country in active_countries %}
+                    {% set country_iso_code = load_tax_term(country.id).field_report_overview_country.value %}
+                    {% if country_iso_code == view.title|upper %}
+                        <h1>{{ country.name }}</h1>
+                    {% endif %}
+                {% endfor %}
             </div>
-          </div>
+        {% endif %}
+        <div class="our-single-country-scroll-content">
+            {% for row in rows %}
+                <div class="our-single-country-views-row">
+                    <div>
+                        {% set news_image = entity.field_report_image.entity.field_media_image.entity.fileuri %}
+                        {% if news_image %}
+                            {% set news_image_url = file_url(entity.field_report_image.entity.field_media_image.entity.fileuri | image_style('large')) %}
+                            {% set news_image_alt = entity.field_report_image.entity.field_media_image.alt %}
+                            <div class="our-single-country-image-view p-0 m-0 overflow-auto">
+                                <div>
+                                    <img class="our-single-country-image" src="{{ news_image_url }}"
+                                         alt="{{ news_image_alt }}" />
+                                </div>
+                            </div>
+                        {% endif %}
+                        <div class="our-single-country-content-view">
+                            <div>
+                                <div class="our-single-country-content-left-view">
+                                    {% set entity = row.content['#row']._entity %}
+                                    {% set title = entity.title.value %}
+                                    {% set reportLink = path('entity.node.canonical', {'node': entity.nid.value}) %}
+                                    {% set report_created_date = entity.created.value | format_date('custom_document_date') %}
+                                    <a href="{{ reportLink }}">
+                                        <h2 class="our-single-report-title">{{ title }}</h2>
+                                    </a>
+                                    <div class="our-single-report-title-description">
+                                        {% set text = entity.body.summary |render|striptags %}
+                                        {% autoescape false %}{{ text }}{% endautoescape %}
+                                    </div>
+                                    <span class="our-single-country-date">{{ report_created_date }}</span>
+                                </div>
+                                <div class="our-single-country-content-right-view">
+                                    {% if entity.field_attachment_type.value == 'Document' %}
+                                        {% set fileExtension = media_file_type(entity.field_report_document.value.0.target_id, 'field_media_document') %}
+                                        <div>
+                                            <img src="/{{ directory }}/images/icons/{{ fileExtension }}.svg" alt={{ fileExtension }}>
+                                            {% set document_url = media_file_url(entity.field_report_document.value.0.target_id, 'field_media_document') %}
+                                        </div>
+                                        <a class="download-button" href="{{ document_url }}">
+                                            <span><i class="fa fa-download"></i></span>
+                                            Download
+                                        </a>
+                                    {% elseif entity.field_attachment_type.value == 'Link' %}
+                                        <a class="download-button" href="{{ entity.field_report_link[0].uri }}" target="_blank">
+                                            <span><i class="fa fa-download"></i></span>
+                                            Download
+                                        </a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
-      {% endfor %}
     </div>
-  </div>
 </div>
 {{ drupal_view('photo_gallery_country','block_1', view.title) }}
