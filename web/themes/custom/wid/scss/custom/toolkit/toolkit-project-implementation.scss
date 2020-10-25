@@ -1,503 +1,311 @@
 .toolkit-body-wrapper {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  padding: 35px 0 0;
+  width: 100%;
 
-  .workshop-content {
+  .global-report-row-wrapper {
+    padding-bottom: 50px;
+  }
+
+  @media only screen and (min-width: 992px) {
+    padding: 70px 0 0;
+  }
+
+  .baseline-endline-content-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 18px;
+    line-height: 32px;
+    font-family: $font-raleway-sans;
+    color: $blue-dark;
+    text-align: center;
+
+    @media only screen and (min-width: 1200px) {
+      font-size: 35px;
+      line-height: 48px;
+      margin-bottom: 65px;
+    }
+  }
+
+  .global-report-row {
     display: flex;
-    flex-direction: column;
-    background-color: $accent-alt-light-color;
-    align-items: center;
-    padding-top: 80px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    flex-wrap: wrap;
+    padding: 18px;
+    border: 1px solid #E3E2E6;
+    border-radius: 16px;
+    margin-bottom: 30px;
+    background: $white;
 
-    .workshop-title {
-      font-family: $font-raleway;
-      font-size: $font-size-section-title;
-      font-weight: $font-weight-semibold;
-      line-height: 1.2;
-      color: $primary-color;
-      background-color: $white;
-      display: inline-block;
-      padding: 10px 75px;
-      border-radius: 20px;
-      box-shadow: 0 3px 6px 0 rgba(59, 54, 54, 0.16);
-      margin-bottom: 40px;
+    @media only screen and (min-width: 1200px) {
+      padding: 18px 18px 18px 33px;
+      margin-bottom: 60px;
+    }
+  }
+
+  .image-container {
+    width: 40%;
+    display: none;
+    order: 1;
+
+    @media only screen and (min-width: 768px) {
+      display: block;
     }
 
-    .workshop-row-wrapper {
+    img {
       width: 100%;
+      height: 350px;
+      object-fit: cover;
+      border-radius: 0 8px 8px 0;
 
-      .workshop-row {
-        background-color: $white;
-        border-radius: 20px;
-        color: $primary-color;
-        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-        display: flex;
-
-        .image-container {
-          flex: 3;
-
-          img {
-            height: 550px;
-            background-color: #f5f5f5;
-            border-top-left-radius: 20px;
-            border-bottom-left-radius: 20px;
-            object-fit: cover;
-          }
-        }
-
-        .workshop-row-content {
-          flex: 4;
-
-          .workshop-row-title {
-            font-size: $font-size-text-alt;
-            font-family: $font-raleway;
-            font-weight: 600;
-            display: -webkit-box;
-            -webkit-line-clamp: 1;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            text-overflow: ellipsis;
-          }
-
-          .workshop-row-body {
-            p {
-              font-size: $font-size-base;
-              font-family: $font-lato;
-              display: -webkit-box;
-              -webkit-line-clamp: 4;
-              -webkit-box-orient: vertical;
-              overflow: hidden;
-              text-overflow: ellipsis;
-            }
-          }
-
-          .file-info-container {
-            background-color: #e8edff;
-            border-radius: 5px;
-
-            a {
-              text-decoration: none;
-
-              .file-info-title {
-                font-family: $font-lato;
-                font-size: $font-size-text;
-                font-weight: 600;
-                margin-bottom: 24px;
-                color: $primary-color;
-                display: -webkit-box;
-                -webkit-line-clamp: 1;
-                -webkit-box-orient: vertical;
-                overflow: hidden;
-                text-overflow: ellipsis;
-              }
-            }
-
-            div {
-              span {
-                color: $accent-color;
-                font-size: 10px;
-                font-family: $font-lato;
-              }
-            }
-
-            .button-container {
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-
-              .extension-icon {
-                height: 40px;
-              }
-
-              span {
-
-                .download-button {
-                  text-decoration: none;
-                  font-size: $font-size-xs;
-                  padding: 3px 10px;
-                  border-radius: 10px;
-                  background-color: $accent-color;
-                  color: $white;
-                }
-              }
-            }
-          }
-        }
+      @media only screen and (min-width: 1200px) {
+        height: 590px;
       }
     }
   }
 
-  .testimonial-slide-content {
+  .global-report-row-content {
     flex: 1;
+    width: 100%;
+
+    @media only screen and (min-width: 768px) {
+      padding-right: 24px;
+    }
+
+    @media only screen and (min-width: 1200px) {
+      padding-right: 106px;
+    }
+  }
+
+  .global-report-row-title {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 32px;
+    color: $primary-color;
+    font-family: $font-raleway-sans;
+    margin-bottom: 20px;
+    padding-top: 12px;
+  }
+
+  .global-report-row-body {
+    font-size: 14px;
+    line-height: 24px;
+    color: $gray-900;
+
+    p {
+      margin: 0 0 33px;
+    }
+  }
+
+  .file-info-container {
+    background: #F2F2F4;
+    padding: 16px 14px;
+    border-radius: 8px;
     display: flex;
-    flex-direction: column;
-    padding: 80px;
     align-items: center;
-    background-color: #e8edff;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+    justify-content: space-between;
+    margin-bottom: 20px;
 
-    .testimonial-slide-content-title {
-      font-family: $font-raleway;
-      font-size: $font-size-section-title;
-      font-weight: $font-weight-semibold;
-      line-height: 1.2;
-      color: $white;
-      background-color: $primary-color;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  .file-info-title {
+    a, h2 {
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 600;
+      color: $gray-900;
+      margin-bottom: 12px;
       display: inline-block;
-      padding: 10px 75px;
-      border-radius: 20px;
-      box-shadow: 0 3px 6px 0 rgba(59, 54, 54, 0.16);
-      margin-bottom: 75px;
     }
+  }
 
-    .carousel {
-      .carousel-inner {
-        .carousel-item {
-          position: relative;
+  .button-container {
+    > div {
+      width: 33px;
+      height: 33px;
+      border: 1px solid $primary-color;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
 
-          .quote-image {
-            position: absolute;
-            z-index: 1;
-            top: 25%;
-            right: 25%;
-            height: 160px;
-          }
-
-          .card {
-            display: flex;
-            justify-content: space-between;
-            min-height: 420px;
-            border: none;
-            padding: 80px 100px;
-            background-color: $white;
-            border-radius: 200px;
-            box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.16);
-            color: $primary-color;
-
-            .testimonial-title {
-              z-index: 2;
-              font-size: $font-size-text-alt;
-              font-family: $font-raleway;
-              font-weight: 600;
-            }
-
-            .testimonial-body {
-              z-index: 2;
-              font-size: $font-size-text;
-              font-family: $font-lato;
-              line-height: 1.22;
-            }
-
-            .testimonial-source {
-              z-index: 2;
-              color: $accent-color;
-              font-size: $font-size-text-sm;
-              font-family: $font-raleway;
-              text-align: right;
-              padding: 0 75px;
-            }
-          }
-        }
-      }
-
-      .control-left {
-        position: absolute;
-        top: 45%;
-        left: -18px;
-        padding: 5px 15px;
-        border-radius: 18px;
-        background-color: $accent-color;
-        color: $white;
-        font-size: $font-size-text-alt;
-      }
-
-      .control-right {
-        top: 45%;
-        position: absolute;
-        right: -18px;
-        padding: 5px 15px;
-        border-radius: 18px;
-        background-color: $accent-color;
-        color: $white;
-        font-size: $font-size-text-alt;
+      img {
+        height: 18px;
       }
     }
 
-    .carousel-indicators {
-      position: absolute;
-      bottom: -50px;
-      z-index: 1;
+    .download-button {
+      font-size: 12px;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-top: 6px;
+      display: inline-block;
+    }
+  }
 
-      .active {
-        background-color: $accent-color;
-      }
+  .file-info-doc {
+    color: #8E8E8E;
+    font-weight: 600;
+    font-size: 12px;
 
-      li {
-        width: 10px;
-        height: 10px;
-        border-radius: 100%;
-      }
+    > span:first-child {
+      margin-right: 24px;
+    }
+  }
+
+  .our-key-container {
+    padding: 70px 0 63px;
+    background: $gray-200;
+  }
+
+  .our-key-content {
+    padding: 0 !important;
+  }
+
+  .our-key-title {
+    font-size: 35px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    line-height: 32px;
+    font-family: $font-raleway-sans;
+    color: $blue-dark;
+
+    @media only screen and (min-width: 1200px) {
+      margin-bottom: 65px;
+      text-align: center;
     }
   }
 }
 
-@media (min-width: 320px) and (max-width: 480px) {
-  .toolkit-body-wrapper {
-    flex: 1;
-    width: 100%;
+.testimonial-slide-content {
+  background: $gray-200;
+  padding: 70px 0;
 
-    .workshop-content {
-      padding-top: 25px;
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
+  @media only screen and (min-width: 1200px) {
+    padding: 70px 0 120px;
+  }
 
-      .workshop-row-wrapper {
+  .testimonial-slide-content-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 18px;
+    line-height: 32px;
+    font-family: $font-raleway-sans;
+    color: $blue-dark;
+    text-align: center;
 
-        .workshop-row {
-          border-radius: 10px;
-          flex-direction: column;
-
-          .image-container {
-            img {
-              height: 300px;
-              border-top-left-radius: 10px;
-              border-top-right-radius: 10px;
-              border-bottom-left-radius: 0px;
-              object-fit: cover;
-            }
-          }
-
-          .workshop-row-content {
-            .workshop-row-title {
-              font-size: $font-size-base;
-            }
-
-            .workshop-row-body {
-              font-size: $font-size-xs;
-            }
-
-            .file-info-container {
-
-              .file-info-title {
-                font-size: $font-size-base;
-
-              }
-
-              .button-container {
-
-                .extension-icon {
-                  height: 20px;
-                }
-
-                .span {
-
-                  .download-button {
-                    font-size: $font-size-xs;
-                    padding: 2px 5px;
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
+    @media only screen and (min-width: 1200px) {
+      font-size: 35px;
+      line-height: 48px;
+      margin-bottom: 60px;
     }
+  }
 
-    .testimonial-slide-content {
-      padding: 40px 5px;
-      border-bottom-left-radius: 10px;
-      border-bottom-right-radius: 10px;
+  .carousel-indicators {
+    li {
+      width: 8px;
+      height: 8px;
+      background: #553ba8;
+      opacity: 0.4;
+      margin-right: 5px;
+      border: none;
+      border-radius: 50%;
 
-      .testimonial-slide-content-title {
-        padding: 7px 50px;
+
+      &.active {
+        opacity: 1;
       }
 
-      .carousel {
-        .carousel-inner {
-          .carousel-item {
-            .card {
-              padding: 30px 25px;
-              border-radius: 20px;
-            }
-          }
-        }
+      &:last-child {
+        margin-right: 0;
       }
     }
   }
-}
 
-@media (min-width: 481px) and (max-width: 767px) {
-  .toolkit-body-wrapper {
-    flex: 1;
-    width: 100%;
+  .carousel {
+    max-width: 850px;
+    margin: 0 auto;
+  }
 
-    .workshop-content {
-      padding-top: 40px;
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
+  .carousel-inner {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px 24px 40px ;
 
-      .workshop-row-wrapper {
-
-        .workshop-row {
-          border-radius: 10px;
-          flex-direction: column;
-
-          .image-container {
-            img {
-              height: 300px;
-              border-top-left-radius: 10px;
-              border-top-right-radius: 10px;
-              border-bottom-left-radius: 0px;
-              object-fit: cover;
-            }
-          }
-
-          .workshop-row-content {
-            .workshop-row-title {
-              font-size: $font-size-base;
-            }
-
-            .workshop-row-body {
-              font-size: $font-size-xs;
-            }
-
-            .file-info-container {
-
-              .file-info-title {
-                font-size: $font-size-base;
-
-              }
-
-              .button-container {
-
-                .extension-icon {
-                  height: 20px;
-                }
-
-                .span {
-
-                  .download-button {
-                    font-size: $font-size-xs;
-                    padding: 2px 5px;
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
+    @media only screen and (min-width: 992px) {
+      padding: 30px 107px 60px;
     }
 
-    .testimonial-slide-content {
-      padding: 50px 5px;
-      border-bottom-left-radius: 10px;
-      border-bottom-right-radius: 10px;
-
-      .testimonial-slide-content-title {
-        padding: 7px 50px;
-      }
-
-      .carousel {
-        .carousel-inner {
-          .carousel-item {
-            .card {
-              padding: 40px 35px;
-              border-radius: 25px;
-            }
-          }
-        }
-      }
+    img.quote-image {
+      width: 36px;
+      height: 64px;
     }
   }
-}
 
-@media (min-width: 768px) and (max-width: 920px) {
-  .toolkit-body-wrapper {
-    flex: 1;
-    width: 100%;
+  .control-left, .control-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $white;
+    border-radius: 4px;
+    box-shadow: 2px 5px 15px 0 rgba(0, 0, 0, 0.12);
+    transition: all 0.23s;
 
-    .workshop-content {
-      padding-top: 60px;
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
-
-      .workshop-row-wrapper {
-
-        .workshop-row {
-          border-radius: 10px;
-          flex-direction: column;
-
-          .image-container {
-            img {
-              height: 350px;
-              border-top-left-radius: 10px;
-              border-top-right-radius: 10px;
-              border-bottom-left-radius: 0px;
-              object-fit: cover;
-            }
-          }
-
-          .workshop-row-content {
-            .workshop-row-title {
-              font-size: $font-size-base;
-            }
-
-            .workshop-row-body {
-              font-size: $font-size-xs;
-            }
-
-            .file-info-container {
-
-              .file-info-title {
-                font-size: $font-size-base;
-
-              }
-
-              .button-container {
-
-                .extension-icon {
-                  height: 20px;
-                }
-
-                .span {
-
-                  .download-button {
-                    font-size: $font-size-xs;
-                    padding: 2px 5px;
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
+    &:hover, &:focus {
+      background: $primary-color;
+      color: $white;
+      transition: all 0.23s;
     }
+  }
 
-    .testimonial-slide-content {
-      padding: 50px 15px;
-      border-bottom-left-radius: 10px;
-      border-bottom-right-radius: 10px;
+  .control-left {
+    left: -10px;
 
-      .testimonial-slide-content-title {
-        padding: 7px 100px;
-      }
-
-      .carousel {
-        .carousel-inner {
-          .carousel-item {
-            .card {
-              padding: 60px 50px;
-              border-radius: 50px;
-            }
-          }
-        }
-      }
+    @media only screen and (min-width: 992px) {
+      left: 30px;
     }
+  }
+
+  .control-right {
+    right: -10px;
+
+    @media only screen and (min-width: 992px) {
+      right: 30px;
+    }
+  }
+
+  .testimonial-title {
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: bold;
+    font-family: $font-raleway-sans;
+    color: #553ba8;
+    margin-bottom: 8px;
+  }
+
+  .testimonial-body {
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 600;
+    font-family: $gray-900;
+    margin-bottom: 30px;
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  .testimonial-source {
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: 600;
+    color: #939393;
   }
 }

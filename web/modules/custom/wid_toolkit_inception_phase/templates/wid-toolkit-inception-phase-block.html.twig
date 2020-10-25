@@ -17,116 +17,121 @@
 #}
 {% set inception_phase_workshop = inception_phase_workshop %}
 <div class="toolkit-inception">
-  <div class="toolkit-body-wrapper py-5 my-5">
-    <div class="container" {{ attributes.addClass(classes) }}>
-      <div class="baseline-endline-content">
-        <div class="baseline-endline-content-title">Workshop</div>
-        {% for tax_id, workshops in inception_phase_workshop %}
-          {% set taxonomy_term = load_tax_term(tax_id) %}
-          {% set tax_term_cover_img = file_url(taxonomy_term.field_toolkit_img.entity.field_media_image.entity.fileuri) %}
-          {% set tax_term_cover_img_alt = taxonomy_term.field_toolkit_img.entity.field_media_image.alt %}
-          <div class="global-report-row-wrapper pt-5">
-            <div class="global-report-row mb-5">
-              {% if tax_term_cover_img %}
-              <div class="image-container">
-                <img class="w-100 p-0" src="{{ tax_term_cover_img }}"
-                   alt="{{ tax_term_cover_img_alt }}"/>
-              </div>
-              {% endif %}
-              <div class="global-report-row-content p-5">
-                <div class="global-report-row-title">{{ taxonomy_term.name.value }}</div>
-                <div class="global-report-row-body py-3">
-                  {% autoescape false %}
-                    {{ taxonomy_term.description.value }}
-                  {% endautoescape %}</div>
-                {% for workshop in workshops %}
-                  {% set toolkitLink = path('entity.node.canonical', {'node': workshop.nid}) %}
-                  <div class="row file-info-container py-2 px-3">
-                    <div class="col-sm-10">
-                      <div class="file-info-title">
-                        <a href="{{ toolkitLink }}">
-                          {{ workshop.title }}
-                        </a>
-                      </div>
-                      <div>
-                        <span class="pr-2">
-                          <i class="fa fa-calendar-o pr-2" aria-hidden="true"></i>
-                          {{ workshop.created_date }}
-                        </span>
-                        {% if workshop.document %}
-                          <span>
-                          <i class="fa fa-file-text-o pr-2" aria-hidden="true"></i>
-                          {{ workshop.document.size }}KB
-                        </span>
-                        {% endif %}
-                      </div>
-                    </div>
-                    <div class="col-sm-2 button-container">
-                      {% if workshop.document_link %}
-                        <a class="download-button" href="{{ workshop.document_link }}" target="_blank">
-                          Download
-                        </a>
-                      {% elseif workshop.document %}
-                        {% set fileExtension = workshop.document.type %}
-                        <img src="/{{ directory }}/images/icons/{{ fileExtension }}.svg" alt={{ fileExtension }}/>
-                        <a class="download-button" href="{{ workshop.document.url }}" download>
-                          Download
-                        </a>
-                      {% endif %}
-                    </div>
-                  </div>
-                {% endfor %}
-              </div>
-            </div>
-          </div>
-        {% endfor %}
-
-        <div class="our-key-container">
-          <h2 class="our-key-title">
-            {% trans %}
-              Training Resources
-            {% endtrans %}
-          </h2>
-          <div class="our-key-content pt-5">
-            <div class="our-key-group">
-              {% for tax_id, training_resources in inception_phase_training_resources %}
-                <div class="our-key-cards">
-                  {% set taxonomy_term = load_tax_term(tax_id) %}
-                  <div class="main-card">
-                    <div class="single-card">
-                      <h2>{{ taxonomy_term.name.value }}</h2>
-                    </div>
-                  </div>
-                  <div class="card-groups owl-carousel owl-theme">
-                    {% for training_resource in training_resources %}
-                      {% set training_resource_link = path('entity.node.canonical', {'node': training_resource.nid}) %}
-                      {% set training_resource_description = training_resource.description %}
-                      <div class="single-card">
-                        <img src="{{ training_resource.cover_image.url }}" alt="{{ training_resource.cover_image.alt }}">
-                        <a href="{{ training_resource_link }}" class="anchor">
-                          {{ training_resource.title }}
-                        </a>
-                        {% autoescape false %}
-                          <p>{{ training_resource_description|length > 80 ? training_resource_description|slice(0, 80) : training_resource_description }}</p>
-                        {% endautoescape %}
-                        <div class="download-section">
-                          <span class="download">
-                            {% if training_resource.document is not empty %}
-                              <a href="{{ training_resource.document.url }}" download>Download</a>
-                            {% elseif training_resource.document_link %}
-                              <a href="{{ training_resource.document_link }}" download>Download</a>
+    <div class="toolkit-body-wrapper">
+        <div class="container" {{ attributes.addClass(classes) }}>
+            <div class="baseline-endline-content">
+                <div class="baseline-endline-content-title">Workshop</div>
+                {% for tax_id, workshops in inception_phase_workshop %}
+                    {% set taxonomy_term = load_tax_term(tax_id) %}
+                    {% set tax_term_cover_img = file_url(taxonomy_term.field_toolkit_img.entity.field_media_image.entity.fileuri) %}
+                    {% set tax_term_cover_img_alt = taxonomy_term.field_toolkit_img.entity.field_media_image.alt %}
+                    <div class="global-report-row-wrapper">
+                        <div class="global-report-row">
+                            {% if tax_term_cover_img %}
+                                <div class="image-container">
+                                    <div>
+                                        <img src="{{ tax_term_cover_img }}"
+                                             alt="{{ tax_term_cover_img_alt }}" />
+                                    </div>
+                                </div>
                             {% endif %}
-                          </span>
+                            <div class="global-report-row-content">
+                                <div>
+                                    <div class="global-report-row-title">{{ taxonomy_term.name.value }}</div>
+                                    <div class="global-report-row-body">
+                                        {% autoescape false %}
+                                            {{ taxonomy_term.description.value }}
+                                        {% endautoescape %}</div>
+                                    {% for workshop in workshops %}
+                                        {% set toolkitLink = path('entity.node.canonical', {'node': workshop.nid}) %}
+                                        <div class="file-info-container">
+                                            <div class="file-info-wrap">
+                                                <div class="file-info-title">
+                                                    <a href="{{ toolkitLink }}">{{ workshop.title }}</a>
+                                                </div>
+                                                <div class="file-info-doc">
+                                                  <span>
+                                                    <i class="fa fa-calendar-o pr-1" aria-hidden="true"></i>
+                                                    {{ workshop.created_date }}
+                                                  </span>
+                                                    {% if workshop.document %}
+                                                        <span>
+                                                    <i class="fa fa-file-text-o pr-1" aria-hidden="true"></i>
+                                                    {{ workshop.document.size }}KB
+                                                  </span>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                            <div class="button-container">
+                                                {% if workshop.document_link %}
+                                                    <a class="download-button" href="{{ workshop.document_link }}" target="_blank">
+                                                        Download
+                                                    </a>
+                                                {% elseif workshop.document %}
+                                                    {% set fileExtension = workshop.document.type %}
+                                                    <div>
+                                                        <img src="/{{ directory }}/images/icons/{{ fileExtension }}.svg" alt={{ fileExtension }}/>
+                                                    </div>
+                                                    <a class="download-button" href="{{ workshop.document.url }}" download>
+                                                        Download
+                                                    </a>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
                         </div>
-                      </div>
-                    {% endfor %}
-                  </div>
-                </div>
-              {% endfor %}
+                    </div>
+                {% endfor %}
             </div>
-          </div>
         </div>
-      </div>
+        <div class="our-key-container">
+            <div class="container" {{ attributes.addClass(classes) }}>
+                <h2 class="our-key-title">
+                    {% trans %}
+                        Training Resources
+                    {% endtrans %}
+                </h2>
+                <div class="our-key-content">
+                    <div class="our-key-group">
+                        {% for tax_id, training_resources in inception_phase_training_resources %}
+                            <div class="our-key-cards">
+                                {% set taxonomy_term = load_tax_term(tax_id) %}
+                                <h2 class="our-key-cards-title">{{ taxonomy_term.name.value }}</h2>
+                                <div class="card-groups owl-carousel owl-theme">
+                                    {% for training_resource in training_resources %}
+                                        {% set training_resource_link = path('entity.node.canonical', {'node': training_resource.nid}) %}
+                                        {% set training_resource_description = training_resource.description %}
+                                        <div class="single-card">
+                                            <div>
+                                                <img src="{{ training_resource.cover_image.url }}" alt="{{ training_resource.cover_image.alt }}">
+                                                <a href="{{ training_resource_link }}" class="anchor">
+                                                    <h2>{{ training_resource.title }}</h2>
+                                                </a>
+                                                {% autoescape false %}
+                                                    <p>{{ training_resource_description|length > 80 ? training_resource_description|slice(0, 80) : training_resource_description }}</p>
+                                                {% endautoescape %}
+                                                <div class="download-section">
+                                                    <span class="download">
+                                                        {% if training_resource.document is not empty %}
+                                                            <a href="{{ training_resource.document.url }}" download>
+                                                                <i class="fa fa-download"></i> Download</a>
+                                                        {% elseif training_resource.document_link %}
+                                                            <a href="{{ training_resource.document_link }}" download>
+                                                                <i class="fa fa-download"></i> Download</a>
+                                                        {% endif %}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </div>

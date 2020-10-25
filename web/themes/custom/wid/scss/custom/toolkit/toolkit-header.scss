@@ -1,143 +1,102 @@
 .toolkit-header-wrapper {
+  padding: 35px 0;
+  background: $gray-200;
   width: 100%;
 
-  .toolkit-header {
-    padding: 150px 0;
+  @media only screen and (min-width: 992px) {
+    padding: 35px 0 70px;
+  }
 
-    nav {
-      border-radius: 40px;
-      box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.16);
-      background-color: #ffffff;
-      margin: 35px auto 50px;
-      padding: 12px 50px;
-      width: 85%;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
+  .toolkit-nav {
+    padding-bottom: 13px;
+    border-bottom: 2px solid #fff;
+    margin-bottom: 40px;
 
-      a {
-        font-family: $font-lato;
-        font-size: $font-size-text-alt;
-        font-weight: normal;
-        line-height: 1.2;
-        color: $accent-alt-color;
-        text-decoration: none;
-        margin: 5px 25px;
-        display: inline-block;
-
-        &:hover {
-          text-decoration: underline;
-        }
-      }
-
-      .active {
-        text-decoration: underline;
-      }
+    @media only screen and (min-width: 992px) {
+      margin-bottom: 67px;
     }
 
-    .toolkit-header-card {
-      display: flex;
-      justify-self: center;
-      align-items: center;
-      flex-direction: column;
-      border-radius: 20px;
-      box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.16);
-      background-color: #ffffff;
-      padding: 50px 0;
-      border-top: none;
-      border-bottom: none;
-      position: relative;
+    a {
+      font-family: $font-raleway-sans;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-right: 16px;
+      color: $gray-900;
+      display: block;
+      margin-bottom: 8px;
 
-      span {
-        font-family: $font-raleway;
-        font-size: $font-size-xl-alt;
-        font-weight: 600;
-        line-height: 1.16;
-        color: $accent-alt-color;
-        margin-bottom: 30px;
-        display: inline-block;
-      }
-
-      p {
-        font-family: $font-lato;
-        font-size: $font-size-base;
-        font-weight: normal;
-        line-height: 1.5;
+      &:hover, &:focus {
         color: $primary-color;
-        width: 85%;
-        margin: 0 auto;
-        text-align: center;
       }
 
-      .card-button {
-        padding: 6px 12px;
-        background-color: $primary-color;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 10px;
-        position: absolute;
-        transform: translate(-50%, -50%);
+      &.active {
+        color: $primary-color;
+        position: relative;
 
-        i {
-          font-size: $font-size-text-alt;
-          color: #ffffff;
+        &:before {
+          content: '';
+          position: absolute;
+          height: 3px;
+          width: 100%;
+          background: $primary-color;
+          bottom: -15px;
         }
       }
 
-      .card-button-left {
-        top: 50%;
-        left: calc(0% - 50px);
+      &:last-child {
+        margin-bottom: 0;
       }
 
-      .card-button-right {
-        top: 50%;
-        left: calc(100% + 50px);
-      }
-    }
-
-    .toolkit-header-card-left {
-      border-left: 50px solid $primary-color;
-    }
-
-    .toolkit-header-card-right {
-      border-right: 50px solid $primary-color;
-    }
-
-  }
-}
-
-// Responsive
-@media (min-width: 320px) and (max-width: 480px) {
-  .toolkit-header-wrapper {
-    .toolkit-header {
-      nav {
-        justify-content: center;
+      @media only screen and (min-width: 768px) {
+        display: inline-block;
+        margin-bottom: 0;
       }
 
-      .toolkit-header-card {
-        width: 95%;
-        margin: 0 auto;
+      @media only screen and (min-width: 992px) {
+        margin-right: 32px;
+      }
 
-        span {
-          font-size: $font-size-title-sm;
-        }
+      @media only screen and (min-width: 1200px) {
+        margin-right: 50px;
+      }
+
+      &:last-child {
+        margin-right: 0;
       }
     }
   }
 }
 
-@media (min-width: 481px) and (max-width: 767px) {
-  .toolkit-header-wrapper {
-    .toolkit-header {
-      nav {
-        justify-content: center;
-      }
+.toolkit-header-card {
+  text-align: center;
 
-      .toolkit-header-card {
-        width: 95%;
-        margin: 0 auto;
-      }
+  .views-field-name {
+    font-size: 35px;
+    font-weight: bold;
+    margin-bottom: 24px;
+    line-height: 44px;
+    font-family: $font-raleway-sans;
+    color: $blue-dark;
+
+    @media only screen and (min-width: 1200px) {
+      font-size: 50px;
+      line-height: 48px;
+      margin-bottom: 25px;
     }
+  }
+
+  .views-field-description__value {
+    max-width: 850px;
+    margin: 0 auto;
+
+    p {
+      margin: 0;
+      line-height: 26px;
+      color: $gray-900;
+    }
+  }
+
+  .card-button {
+    display: none;
   }
 }

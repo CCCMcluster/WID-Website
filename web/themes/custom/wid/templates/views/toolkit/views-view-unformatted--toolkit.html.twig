@@ -40,9 +40,9 @@
   {% set entity = row.content['#row']._entity %}
   {% set media_url = file_url(entity.field_toolkit_img.entity.field_media_image.entity.fileuri) %}
   <div class="toolkit-header-wrapper">
-    <div {{ attributes.addClass(classes) }} class="toolkit-header" style='background-image: url("{{ media_url }}")'>
+    <div {{ attributes.addClass(classes) }} class="toolkit-header">
       <div class="container">
-        <nav>
+        <nav class="toolkit-nav">
           {% set vocabulary_trees = load_vocabulary_term('toolkit', 1) %}
           {% set nextToolkitPhaseUrl = '' %}
           {% set previousToolkitPhaseUrl = '' %}
@@ -64,7 +64,7 @@
           {% set active_class = 'toolkit-header-card-left' %}
         {% endif %}
         {% set row_classes = [
-          default_row_class ? 'views-row', 'card', 'toolkit-header-card', active_class,
+          default_row_class ? 'views-row', '', 'toolkit-header-card', active_class,
         ] %}
         <div{{ row.attributes.addClass(row_classes) }}>
           {% if previousToolkitPhaseUrl %}

@@ -23,14 +23,13 @@
     )
     ) %}
   {% set gallery_images = row.content['#row']._entity.field_country_gallery_image %}
-  <div class="single-country-gallery-background w-100"
-       style="background-image: url('{{ bg_img }}')">
+  <div class="single-country-gallery-background">
     <div class="container">
-      <h2 class="my-5 py-2">{{ view.title }}</h2>
+      <h2>{{ view.title }}</h2>
       <div class="fotorama"  data-nav="thumbs" data-fit="cover"  data-height="500">
         {% for image_entity in gallery_images %}
           <img src="{{ file_url(image_entity.entity.uri.value) }}" alt="{{ image_entity.value.alt }}">
-        {% endfor %}      
+        {% endfor %}
       </div>
     </div>
   </div>
