@@ -116,7 +116,8 @@
 
         .faq-content-header-title {
           text-align: center;
-          font-size: $font-size-xl-alt;
+          font-size: $font-size-xxl-alt;
+          color: $blue-dark;
           font-family: $font-raleway;
           font-weight: bold;
         }
@@ -180,12 +181,12 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease-out;
-            font-family: $font-raleway;
-            font-size: $font-size-base;
 
             .panel-content {
+              font-family: $font-opensans;
               margin: 5px 0 0 20px;
               padding: 30px;
+              font-size: $font-size-text-sm;
               color: $gray-900;
               border-radius: 10px;
             }
