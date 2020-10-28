@@ -71,11 +71,10 @@
   'report-item-wrapper',
 ] %}
 <article{{ attributes.addClass(classes) }}>
-  {% set countryCode = node.field_report_country.value|lower %}
   <div class="container">
     <div class="report-item-nav-container">
       <div class="report-item-nav">
-        <span><a href="/reports"><i class="ion-android-arrow-back"></i>Back to {% trans %}Reports{% endtrans %}</a></span>
+        <span><a href="{{ path('page_manager.page_view_report_report-panels_variant-0') }}"><i class="ion-android-arrow-back"></i>Back to {% trans %}Reports{% endtrans %}</a></span>
       </div>
     </div>
     <div class="report-button">
@@ -119,47 +118,55 @@
       </div>
       <div class="row file-info-container">
         {% if node.field_attachment_type.value == 'Document' %}
-          {% set fileExtension = media_file_type(node.field_report_document.0.target_id, 'field_media_document') %}
-          {% set document_url = media_file_url(node.field_report_document.value.0.target_id, 'field_media_document') %}
-          {% set fileSize = node.field_report_document.entity.field_media_document.entity.filesize.value/1024 %}
-          <div class="file-info">
-            <h2 class="file-info-title">{{ node.field_report_doc_description.value }}</h2>
-            <div>
-              <span class="mr-3">
-                <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                  120kb
-              </span>
-              <span class="mr-3">
-                {{ node.field_report_document.entity.created.value|format_date('custom_document_date') }}
-              </span>
-              <span><i class="fa fa-file-text-o pr-2" aria-hidden="true"></i>{{ fileSize|round(1, 'ceil') }}KB</span>
+          {% for document in node.field_report_document %}
+            {% set fileExtension = media_file_type(document.target_id, 'field_media_document') %}
+            {% set fileExtension = fileExtension['iconExist'] ? fileExtension['ext'] : 'file' %}
+            {% set document_url = media_file_url(document.value.target_id, 'field_media_document') %}
+            {% set fileSize = document.entity.field_media_document.entity.filesize.value/1024 %}
+            <div class="file-info">
+              <h2 class="file-info-title">{{ node.field_report_doc_description.value }}</h2>
+              <div class="file-info-doc">
+                <span>
+                  <img class="extension-icon mb-1" src="/{{ directory }}/images/icons/{{ fileExtension }}.svg"
+                       alt="{{ fileExtension }}">
+                  {{ fileSize|round(1, 'ceil') }}KB
+                </span>
+                <span>
+                  <i class="fa fa-calendar-o pr-1"></i>
+                  {{ document.entity.created.value|format_date('custom_document_date') }}
+                </span>
+              </div>
             </div>
-          </div>
-          <div class="button-container">
-            <i class="fa fa-download"></i>
-            <span><a class="download-button" href="{{ document_url }}" download>Download</a></span>
-          </div>
+            <a class="download-button" href="{{ document_url }}" download>
+              <div class="button-container">
+                <i class="fa fa-download"></i>
+                <span>Download</span>
+              </div>
+            </a>
+          {% endfor %}
         {% elseif node.field_attachment_type.value == 'Link' %}
-          <div class="file-info">
-            <h2 class="file-info-title">{{ node.field_report_link[0].title }}</h2>
-            <div>
-              <span class="mr-3">
-              <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                120kb
-              </span>
-              <span class="mr-3">
-                {{ node.field_report_link.entity.created.value|format_date('custom_document_date') }}
-              </span>
+          {% for documentLink in node.field_report_link %}
+            <div class="file-info">
+              <h2 class="file-info-title">{{ documentLink.title }}</h2>
+              <div>
+                <span class="mr-3">
+                  <i class="fa fa-external-link" aria-hidden="true"></i>
+                </span>
+                <span class="mr-3">
+                  <i class="fa fa-calendar-o pr-1"></i>
+                  {{ documentLink.entity.created.value|format_date('custom_document_date') }}
+                </span>
+              </div>
             </div>
-          </div>
-          <div class="button-container">
-            <i class="fa fa-download"></i>
-            <span>
-              <a class="download-button" href="{{ node.field_report_link[0].uri }}" target="_blank">
-                Download
-              </a>
-            </span>
-          </div>
+            <a class="download-button" href="{{ documentLink.uri }}" target="_blank">
+              <div class="button-container">
+                <i class="fa fa-download"></i>
+                <span>
+                  Download
+                </span>
+              </div>
+            </a>
+          {% endfor %}
         {% endif %}
       </div>
     </div>

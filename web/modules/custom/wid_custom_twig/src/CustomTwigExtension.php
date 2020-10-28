@@ -148,6 +148,8 @@ class CustomTwigExtension extends Twig_Extension {
     if ($file) {
       $type = $file->getFilename();
       $ext = pathinfo($type, PATHINFO_EXTENSION);
+      $ext_icon = file_exists(DRUPAL_ROOT . "/themes/custom/wid/images/icons/$ext.svg");
+      $ext = ["ext" => $ext, "iconExist" => $ext_icon];
       return $ext;
     }
     return NULL;

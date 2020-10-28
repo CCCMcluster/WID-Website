@@ -15,6 +15,7 @@
  * @see template_preprocess_views_view_unformatted()
  */
 #}
+{% if logged_in %}
 {% set tidIndex = rows|keys|first %}
 {% set evidenceLearningTid = attribute(rows, tidIndex).content['#row']._entity.field_toolkit.target_id %}
 {% if evidenceLearningTid %}
@@ -59,6 +60,7 @@
                                         {% if entity.field_toolkit_attachment_type.value == 'Document' %}
                                             {% set fileSize = entity.field_toolkit_document.entity.field_media_document.entity.filesize.value/1024 %}
                                             {% set fileExtension = media_file_type(entity.field_toolkit_document.value.0.target_id, 'field_media_document') %}
+                                            {% set fileExtension = fileExtension['iconExist'] ? fileExtension['ext'] : 'file' %}
                                             <span><img class="extension-icon" src="/{{ directory }}/images/icons/{{ fileExtension }}.svg"
                                                        alt={{ fileExtension }}> {{ fileSize|round(1, 'ceil') }}KB</span>
                                         {% endif %}
@@ -89,3 +91,4 @@
         </div>
     </div>
 </div>
+{% endif %}

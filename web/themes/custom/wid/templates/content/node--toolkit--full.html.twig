@@ -71,13 +71,14 @@
     'toolkit-item-wrapper',
 ] %}
 {% set toolkitLink = {
-    '7' : '/toolkit/evidence-learning',
-    '9': '/toolkit/inception-phase',
-    '11': '/toolkit/project-design',
-    '12': '/toolkit/project-implementation'
+    '7' : path('page_manager.page_view_evidence_learning_evidence_learning-panels_variant-0'),
+    '9': path('page_manager.page_view_toolkit_inception_phase_toolkit_inception_phase-panels_variant-0'),
+    '11': path('page_manager.page_view_toolkit_project_design_toolkit_project_design-panels_variant-0'),
+    '12': path('page_manager.page_view_toolkit_project_implementation__toolkit_project_implementation_-panels_variant-0')
 } %}
 {% set tid = node.field_toolkit.entity.parent.entity.parent.entity.tid.value %}
 <article{{ attributes.addClass(classes) }}>
+  {% if logged_in %}
     {#<div class="toolkit-item-banner">#}
     {#{% if node.field_toolkit_cover_img.value %}#}
     {#<img src="{{ file_url(node.field_toolkit_cover_img.entity.field_media_image.entity.fileuri) }}"#}
@@ -146,6 +147,7 @@
             {% if node.field_toolkit_attachment_type.value == 'Document' %}
                 {% for document in node.field_toolkit_document %}
                     {% set fileExtension = media_file_type(document.target_id, 'field_media_document') %}
+                    {% set fileExtension = fileExtension['iconExist'] ? fileExtension['ext'] : 'file' %}
                     {% set document_url = media_file_url(document.target_id, 'field_media_document') %}
                     {% set fileSize = document.entity.field_media_document.entity.filesize.value/1024 %}
                     <div class="file-info-container">
@@ -199,7 +201,8 @@
             {% endif %}
         </div>
     </div>
-    <div class="toolkit-item-faq">
+  {% endif %}
+  <div class="toolkit-item-faq">
         <div class="container d-flex justify-content-center">
             {% set faqBlock = drupal_entity('block_content', 18) %}
             {% set faqDescription = faqBlock.body %}

@@ -40,15 +40,35 @@ class NewsEventsController extends ControllerBase {
    * {@inheritdoc}
    */
   public static function getNews() {
+    $db = \Drupal::database();
+    $report_query = $db->select('flagging', 'f')
+      ->fields('f', ['entity_id'])
+      ->condition('f.flag_id', 'promote_to_event_news')
+      ->condition('f.entity_type', 'node')
+      ->orderBy('f.created', 'DESC')
+      ->range(0, 1)
+      ->execute()
+      ->fetchAll();
+    if ($report_query) {
+      $nid = $report_query[0]->entity_id;
+      $reports = Drupal::entityTypeManager()
+        ->getStorage('node')
+        ->load($nid);
+      return $reports;
+    }
     $report_query = Drupal::entityQuery('node');
     $report_query->condition('type', 'news')->sort('created', 'DESC')
       ->condition('status', 1)
       ->range(0, 1);
-    $nids = $report_query->execute();
-    $reports = Drupal::entityTypeManager()
-      ->getStorage('node')
-      ->loadMultiple($nids);
-    return $reports;
+    $nid = $report_query->execute();
+    if ($nid) {
+      $nid = array_values($nid);
+      $reports = Drupal::entityTypeManager()
+        ->getStorage('node')
+        ->load($nid[0]);
+      return $reports;
+    }
+    return NULL;
   }
 
 }

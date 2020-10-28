@@ -15,6 +15,7 @@
  * @see template_preprocess_views_view_unformatted()
  */
 #}
+{% if logged_in %}
 <div class="toolkit-body-wrapper">
     <div class="container">
         <div class="baseline-endline-content">
@@ -60,6 +61,7 @@
                                                 {% set fileSize = entity.field_toolkit_document.entity.field_media_document.entity.filesize.value/1024 %}
                                                 {% set fileExtension = media_file_type(entity.field_toolkit_document.value.0.target_id, 'field_media_document') %}
                                                 <span>
+                                                  {% set fileExtension = fileExtension['iconExist'] ? fileExtension['ext'] : 'file' %}
                                                     <img class="extension-icon" src="/{{ directory }}/images/icons/{{ fileExtension }}.svg"
                                                          alt={{ fileExtension }}>
                                                     {{ fileSize|round(1, 'ceil') }}KB</span>
@@ -131,3 +133,4 @@
         </div>
     </div>
 </div>
+{% endif %}

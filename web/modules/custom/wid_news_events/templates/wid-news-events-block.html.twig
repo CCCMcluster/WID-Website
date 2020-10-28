@@ -24,28 +24,28 @@
                     <div class="event-block">
                         <div class="event">
                             {% if news is not empty %}
-                                {% for single_news in news %}
-                                    {% set title = single_news.title.value %}
-                                    {% set news_description = single_news.body.summary %}
-                                    {% set news_created_date = single_news.created.value | date('m/d/y') %}
-                                    {% set news_image_url = file_url(single_news.field_featured_media.entity.field_media_image.entity.fileuri | image_style('large')) %}
-                                    {% set news_image_alt = single_news.field_featured_media.entity.field_media_image.alt %}
-                                    {% set news_link = path('entity.node.canonical', {'node': single_news.nid.value}) %}
-                                    <div class="single-event">
-                                        <a href="{{ news_link }}" title="{{ title }}">
-                                            <img src="{{ news_image_url }}" alt="{{ news_image_alt }}">
-                                        </a>
-                                        <a href="{{ news_link }}" title="{{ title }}">
-                                            <h2>{{ title }}</h2>
-                                        </a>
-                                        <p>
-                                            {% autoescape false %}
-                                                {{ news_description|length > 230 ? news_description|slice(0, 230) : news_description }}
-                                            {% endautoescape %}
-                                        </p>
-                                        <span class="date">{{ news_created_date | date('m/d/y') }}</span>
-                                    </div>
-                                {% endfor %}
+                                {% set title = news.title.value %}
+                                {% set news_description = news.body.summary %}
+                                {% set news_created_date = news.created.value | date('m/d/y') %}
+                                {% if news.field_featured_media %}
+                                  {% set news_image_url = file_url(news.field_featured_media.entity.field_media_image.entity.fileuri | image_style('large')) %}
+                                  {% set news_image_alt = news.field_featured_media.entity.field_media_image.alt %}
+                                {% endif %}
+                                {% set news_link = path('entity.node.canonical', {'node': news.nid.value}) %}
+                                <div class="single-event">
+                                    <a href="{{ news_link }}" title="{{ title }}">
+                                      {% if news.field_featured_media %}
+                                        <img src="{{ news_image_url }}" alt="{{ news_image_alt }}">
+                                      {% endif %}
+                                      <h2>{{ title }}</h2>
+                                    </a>
+                                    <p>
+                                        {% autoescape false %}
+                                            {{ news_description|length > 230 ? news_description|slice(0, 230) : news_description }}
+                                        {% endautoescape %}
+                                    </p>
+                                    <span class="date">{{ news_created_date | date('m/d/y') }}</span>
+                                </div>
                             {% endif %}
                         </div>
                     </div>
