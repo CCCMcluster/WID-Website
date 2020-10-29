@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  padding: 80px 0;
+  padding: 50px 0;
   background-color: $gray-200;
 
   .global-report-country-nav {
@@ -80,7 +80,7 @@
   }
 
   .global-report-header-card {
-    padding: 40px 100px;
+    padding: 40px 100px 0;
     text-align: center;
 
     .global-report-header-card-title {
@@ -89,6 +89,8 @@
       font-weight: 700;
       padding-bottom: 20px;
       font-family: $font-raleway;
+      line-height: 48px;
+      letter-spacing: 1px;
     }
 
     .global-report-header-card-description {
@@ -96,6 +98,9 @@
       font-size: $font-size-base;
       font-family: $font-opensans;
       font-weight: 400;
+      line-height: 26px;
+      letter-spacing: 0;
+      margin-bottom: 5px;
     }
   }
 }
@@ -116,7 +121,8 @@
       font-family: $font-raleway;
       font-size: $font-size-xxl-alt;
       font-weight: 700;
-      line-height: 1.2;
+      line-height: 45px;
+      letter-spacing: 0.7px;
       color: $blue-dark;
     }
 
@@ -141,6 +147,10 @@
         font-size: $font-size-text;
         font-weight: 700;
         font-family: $font-raleway;
+        line-height: 28px;
+        letter-spacing: 0;
+        width: 92%;
+        margin: 0 auto;
       }
 
       .resource-description {
@@ -148,6 +158,10 @@
         font-weight: 400;
         color: $gray-900;
         font-family: $font-opensans;
+        line-height: 21px;
+        letter-spacing: 0;
+        width: 92%;
+        margin: 10px auto;
       }
 
       .resource-file-content {
@@ -156,8 +170,11 @@
         justify-content: space-between;
         background-color: $white;
         border-radius: 8px;
+        width: 92%;
+        margin: 10px auto 20px;
+        padding: 15px 0;
 
-        .col-sm-7 {
+        .col-sm-9 {
           display: flex;
           flex-direction: column;
           justify-content: space-around;
@@ -167,6 +184,8 @@
             font-size: $font-size-text-sm;
             font-family: $font-opensans;
             font-weight: 600;
+            line-height: 20px;
+            letter-spacing: 0;
           }
 
           .resource-file-date-content {
@@ -181,7 +200,7 @@
           }
         }
 
-        .col-sm-5 {
+        .col-sm-3 {
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -208,6 +227,12 @@
             font-weight: 600;
             color: $primary-color;
             text-transform: uppercase;
+            line-height: 25px;
+            letter-spacing: 0;
+
+            &:hover {
+              color: $blue-dark;
+            }
           }
         }
       }
@@ -223,6 +248,7 @@
       border: 1px solid #E3E2E6;
       padding: 15px;
       flex-direction: row-reverse;
+      margin: 35px 0px;
 
       .image-container {
         min-height: 500px;
@@ -235,8 +261,10 @@
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
+        padding: 20px 60px 0px 12px;
 
         .global-report-row-title {
+          margin-bottom: 10px;
 
           a {
             text-decoration: none;
@@ -245,6 +273,8 @@
             font-size: $font-size-text;
             font-weight: 700;
             font-family: $font-raleway;
+            line-height: 28px;
+            letter-spacing: 0;
           }
         }
 
@@ -253,18 +283,25 @@
           font-weight: 400;
           color: $gray-900;
           font-family: $font-opensans;
+          line-height: 24px;
+          letter-spacing: 0;
+          margin-bottom: 10px;
         }
 
         .file-info-container {
           background-color: #F2F2F4;
           border-radius: 8px;
+          padding: 20px 10px;
+          margin-top: 15px;
 
           .file-info-title {
             color: $gray-900;
             font-size: $font-size-text-sm;
             font-family: $font-opensans;
             font-weight: 600;
-            margin-bottom: 5px;
+            margin-bottom: 12px;
+            line-height: 20px;
+            letter-spacing: 0;
           }
 
           div {
@@ -301,6 +338,12 @@
               font-weight: 600;
               color: $primary-color;
               text-transform: uppercase;
+              line-height: 25px;
+              letter-spacing: 0;
+
+              &:hover {
+                color: $blue-dark;
+              }
             }
           }
         }
@@ -335,14 +378,25 @@
 
   .baseline-endline-wrapper {
 
+    .baseline-endline-content {
+      .row-eq-height {
+        gap: 40px;
+      }
+    }
+
     .global-report-row-wrapper {
       .global-report-row {
         border-radius: 10px;
+        margin: 20px 0;
 
         .image-container {
-          min-height: 300px;
-          max-height: 300px;
+          min-height: 250px;
+          max-height: 250px;
           border-radius: 0;
+        }
+
+        .global-report-row-content {
+          padding: 20px 0;
         }
       }
     }
@@ -369,14 +423,25 @@
 
   .baseline-endline-wrapper {
 
+    .baseline-endline-content {
+      .row-eq-height {
+        gap: 40px;
+      }
+    }
+
     .global-report-row-wrapper {
       .global-report-row {
         border-radius: 10px;
+        margin: 20px 0;
 
         .image-container {
           min-height: 300px;
           max-height: 300px;
           border-radius: 0px;
+        }
+
+        .global-report-row-content {
+          padding: 20px 0;
         }
       }
     }
@@ -387,12 +452,25 @@
 
   .baseline-endline-wrapper {
 
+    .baseline-endline-content {
+      .row-eq-height {
+        gap: 40px;
+      }
+    }
+
     .global-report-row-wrapper {
       .global-report-row {
         border-radius: 10px;
+        margin: 20px 0;
 
         .image-container {
-          border-radius: 0;
+          min-height: 350px;
+          max-height: 350px;
+          border-radius: 0px;
+        }
+
+        .global-report-row-content {
+          padding: 20px 0;
         }
       }
     }
