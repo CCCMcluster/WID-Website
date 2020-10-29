@@ -4,7 +4,7 @@
   flex-direction: column;
   align-items: center;
   background-color: $gray-200;
-  margin-bottom: 50px;
+  padding-bottom: 50px;
 
   .faq-header-card {
     padding: 10px 0;
@@ -17,12 +17,16 @@
       padding-bottom: 20px;
        font-family: $font-raleway;
       font-weight: bold;
+      line-height: 48px;
+      letter-spacing: 0.7px;
     }
 
     .faq-header-card-description {
       color: $gray-900;
       font-size: $font-size-base;
       font-family: $font-opensans;
+      line-height: 26px;
+      letter-spacing: 0;
     }
 
     .faq-category-container {
@@ -31,6 +35,7 @@
       flex-direction: row;
       align-items: center;
       justify-content: center;
+      margin-top: 35px;
 
       a:hover {
         text-decoration: none;
@@ -67,6 +72,8 @@
           color: $gray-900;
           font-weight: bold;
           font-family: $font-raleway;
+          line-height: 26px;
+          letter-spacing: 0;
         }
 
         .arrow-content {
