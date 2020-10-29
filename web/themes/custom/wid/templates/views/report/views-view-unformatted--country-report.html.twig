@@ -57,15 +57,24 @@
                                         {% set text = entity.body.summary |render|striptags %}
                                         {% autoescape false %}{{ text }}{% endautoescape %}
                                     </div>
-                                    <span class="our-single-country-date">{{ report_created_date }}</span>
+
+                                    <div class="our-single-file-doc-wrap">
+                                        {% if entity.field_attachment_type.value == 'Document' %}
+                                            {% set fileExtension = media_file_type(entity.field_report_document.value.0.target_id, 'field_media_document') %}
+                                        <span class="our-single-country-file"><img src="/{{ directory }}/images/icons/{{ fileExtension }}.svg" alt={{
+                                            fileExtension }}/></span>
+
+                                        {% elseif entity.field_attachment_type.value == 'Link' %}
+                                            {% set fileExtension = media_file_type(entity.field_report_document.value.0.target_id, 'field_media_document') %}
+                                            <span class="our-single-country-file"><img src="/{{ directory }}/images/icons/{{ fileExtension }}.svg" alt={{ fileExtension
+                                                }}/></span>
+                                        {% endif %}
+                                        <span class="our-single-country-date">
+                                            <i class="fa fa-calendar-o pr-1" aria-hidden="true"></i> {{ report_created_date }}</span>
+                                    </div>
                                 </div>
                                 <div class="our-single-country-content-right-view">
                                     {% if entity.field_attachment_type.value == 'Document' %}
-                                        {% set fileExtension = media_file_type(entity.field_report_document.value.0.target_id, 'field_media_document') %}
-                                        <div>
-                                            <img src="/{{ directory }}/images/icons/{{ fileExtension }}.svg" alt={{ fileExtension }}>
-                                            {% set document_url = media_file_url(entity.field_report_document.value.0.target_id, 'field_media_document') %}
-                                        </div>
                                         <a class="download-button" href="{{ document_url }}">
                                             <span><i class="fa fa-download"></i></span>
                                             Download

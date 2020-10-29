@@ -56,26 +56,29 @@
                                             <a href="{{ toolkitLink }}">{{ title }}</a>
                                         </div>
                                         <div class="file-info-doc">
-                                            <span><i class="fa fa-calendar-o pr-1" aria-hidden="true"></i>
-                                                {{ created_date }}</span>
                                             {% if entity.field_toolkit_attachment_type.value == 'Document' %}
                                                 {% set fileSize = entity.field_toolkit_document.entity.field_media_document.entity.filesize.value/1024 %}
+                                                {% set fileExtension = media_file_type(entity.field_toolkit_document.value.0.target_id, 'field_media_document') %}
                                                 <span>
-                                                    <i class="fa fa-file-text-o pr-1" aria-hidden="true"></i>
+                                                    <img class="extension-icon" src="/{{ directory }}/images/icons/{{ fileExtension }}.svg"
+                                                         alt={{ fileExtension }}>
                                                     {{ fileSize|round(1, 'ceil') }}KB</span>
                                             {% endif %}
+                                            <span><i class="fa fa-calendar-o pr-1" aria-hidden="true"></i>
+                                                {{ created_date }}</span>
                                         </div>
                                     </div>
                                     <div class="button-container">
                                         {% if entity.field_toolkit_attachment_type.value == 'Document' %}
-                                            {% set fileExtension = media_file_type(entity.field_toolkit_document.value.0.target_id, 'field_media_document') %}
                                             <div>
-                                                <img class="extension-icon mb-2" src="/{{ directory }}/images/icons/{{ fileExtension }}.svg"
-                                                     alt={{ fileExtension }}>
+                                                <i class="fa fa-download"></i>
                                             </div>
                                             {% set document_url = media_file_url(entity.field_toolkit_document.value.0.target_id, 'field_media_document') %}
                                             <span><a class="download-button" href="{{ document_url }}" download>Download</a></span>
                                         {% elseif entity.field_toolkit_attachment_type.value == 'Link' %}
+                                            <div>
+                                                <i class="fa fa-download"></i>
+                                            </div>
                                             <span><a class="download-button" href="{{ entity.field_toolkit_document_link[0].uri }}" target="_blank">Download</a></span>
                                         {% endif %}
                                     </div>

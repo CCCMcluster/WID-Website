@@ -29,23 +29,32 @@
         ) %}
     {% set country_report_iso = row.content['#row']._entity.field_report_overview_country.value %}
     {% set country_title = '' %}
-    <div class="our-single-report-header" {{ row.attributes.addClass(row_classes) }}>
-        {% if active_countries %}
-            <div class="our-single-report-header-nav">
-                {% for country in active_countries %}
-                    {% set country_iso_code = load_tax_term(country.id).field_report_overview_country.value %}
-                    {% if country_iso_code ==  country_report_iso %}
-                        {% set country_title = country.name %}
+    <div class="global-report-header-background our-single-report-header" {{ row.attributes.addClass(row_classes) }}>
+        <div class="global-report-country-nav">
+            <a href="/reports/global" class="global-button">Global Report</a>
+            <div class="dropdown">
+                <button class="dropbtn">
+                    <a href"#">select country <i class="fa fa-angle-down"></i></a></button>
+                <div class="dropdown-content">
+                    {% if active_countries %}
+                        <div class="our-single-report-header-nav">
+                            {% for country in active_countries %}
+                                {% set country_iso_code = load_tax_term(country.id).field_report_overview_country.value %}
+                                {% if country_iso_code ==  country_report_iso %}
+                                    {% set country_title = country.name %}
+                                {% endif %}
+                                <div class="our-single-report-header-nav-item">
+                                    <a
+                                            href="{{ path('view.country_report.page_1', {'country':  country_iso_code|lower }) }}">
+                                        {{ country.name }}
+                                    </a>
+                                </div>
+                            {% endfor %}
+                        </div>
                     {% endif %}
-                    <div class="our-single-report-header-nav-item">
-                        <a
-                                href="{{ path('view.country_report.page_1', {'country':  country_iso_code|lower }) }}">
-                            {{ country.name }}
-                        </a>
-                    </div>
-                {% endfor %}
+                </div>
             </div>
-        {% endif %}
+        </div>
         <div class="our-single-report-header-card">
             <div class="container">
                 <div class="country-report-wrap">

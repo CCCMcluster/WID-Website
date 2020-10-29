@@ -50,27 +50,26 @@
                                                     <a href="{{ toolkitLink }}">{{ workshop.title }}</a>
                                                 </div>
                                                 <div class="file-info-doc">
-                                                  <span>
-                                                    <i class="fa fa-calendar-o pr-1" aria-hidden="true"></i>
-                                                    {{ workshop.created_date }}
-                                                  </span>
                                                     {% if workshop.document %}
+                                                        {% set fileExtension = workshop.document.type %}
                                                         <span>
-                                                    <i class="fa fa-file-text-o pr-1" aria-hidden="true"></i>
-                                                    {{ workshop.document.size }}KB
-                                                  </span>
+                                                            <img src="/{{ directory }}/images/icons/{{ fileExtension }}.svg" alt={{ fileExtension }}/>
+                                                    {{ workshop.document.size }}KB</span>
                                                     {% endif %}
+                                                    <span><i class="fa fa-calendar-o pr-1" aria-hidden="true"></i>{{ workshop.created_date }}</span>
                                                 </div>
                                             </div>
                                             <div class="button-container">
                                                 {% if workshop.document_link %}
+                                                    <div>
+                                                        <i class="fa fa-download"></i>
+                                                    </div>
                                                     <a class="download-button" href="{{ workshop.document_link }}" target="_blank">
                                                         Download
                                                     </a>
                                                 {% elseif workshop.document %}
-                                                    {% set fileExtension = workshop.document.type %}
                                                     <div>
-                                                        <img src="/{{ directory }}/images/icons/{{ fileExtension }}.svg" alt={{ fileExtension }}/>
+                                                        <i class="fa fa-download"></i>
                                                     </div>
                                                     <a class="download-button" href="{{ workshop.document.url }}" download>
                                                         Download

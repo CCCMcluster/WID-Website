@@ -13,19 +13,28 @@
 
     @media only screen and (min-width: 992px) {
       margin-bottom: 67px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
     a {
       font-family: $font-raleway-sans;
-      font-weight: 600;
+      font-weight: bold;
       text-transform: uppercase;
       margin-right: 16px;
-      color: $gray-900;
+      color: #272727;
       display: block;
       margin-bottom: 8px;
+      transition: all 0.23s;
 
       &:last-child {
         margin-bottom: 0;
+      }
+
+      &:hover, &:focus {
+        color: $primary-color;
+        transition: all 0.23s;
       }
 
       @media only screen and (min-width: 768px) {
