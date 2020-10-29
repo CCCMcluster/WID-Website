@@ -119,27 +119,31 @@
                                                     </a>
                                                 </div>
                                                 <div class="file-info-doc">
+                                                    {% if project_design_workshop.document %}
+                                                        {% set fileExtension = project_design_workshop.document.type %}
+                                                        <span>
+                                                            <img src="/{{ directory }}/images/icons/{{ fileExtension }}.svg" alt={{ fileExtension }}/>
+                                                            {{ project_design_workshop.document.size }}KB</span>
+                                                    {% endif %}
                                                     <span>
                                                         <i class="fa fa-calendar-o pr-1" aria-hidden="true"></i>
                                                         {{ project_design_workshop.created_date }}
                                                     </span>
-                                                    {% if project_design_workshop.document %}
-                                                        <span>
-                                                            <i class="fa fa-file-text-o pr-1" aria-hidden="true"></i>
-                                                            {{ project_design_workshop.document.size }}KB</span>
-                                                    {% endif %}
                                                 </div>
                                             </div>
                                             <div class="button-container">
                                                 {% if project_design_workshop.document_link %}
+                                                    <div>
+                                                        <i class="fa fa-download"></i>
+                                                    </div>
                                                     <a class="download-button" href="{{ project_design_workshop.document_link }}"
                                                        target="_blank" download>
                                                         Download
                                                     </a>
                                                 {% elseif project_design_workshop.document %}
-                                                    {% set fileExtension = project_design_workshop.document.type %}
+
                                                     <div>
-                                                        <img src="/{{ directory }}/images/icons/{{ fileExtension }}.svg" alt={{ fileExtension }}/>
+                                                        <i class="fa fa-download"></i>
                                                     </div>
                                                     <a class="download-button" href="{{ project_design_workshop.document.url }}" download>
                                                         Download

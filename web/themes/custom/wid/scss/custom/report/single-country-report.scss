@@ -9,22 +9,20 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  margin: 0 -4px -8px;
+  margin: 0;
   width: 100%;
 }
 
 .our-single-report-header-nav-item {
-  padding: 0 4px;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
+  width: 100%;
 
   a {
-    background: #fff;
     display: inline-block;
     font-weight: bold;
     color: $gray-900;
     line-height: 19px;
-    padding: 17px 39px;
-    border-radius: 4px;
+    padding: 8px 32px !important;
   }
 }
 
@@ -55,12 +53,26 @@
   margin-bottom: 24px;
 }
 
+.our-single-file-doc-wrap {
+  img {
+    height: 16px;
+  }
+}
+
+.our-single-country-file {
+  margin-right: 20px;
+}
 .country-report-description-title {
   font-size: 35px;
   margin-bottom: 18px;
   font-weight: bold;
   color: $blue-dark;
   font-family: $font-raleway-sans;
+
+  @media only screen and (min-width: 1200px) {
+    font-size: 50px;
+    line-height: 48px;
+  }
 }
 
 .country-report-description-body {

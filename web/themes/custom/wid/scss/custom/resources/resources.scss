@@ -54,6 +54,12 @@
     background: $white;
     height: 100%;
     box-shadow: 5px 10px 20px #00000005;
+    transition: all 0.23s;
+
+    &:hover, &:focus {
+      box-shadow: 5px 10px 20px 0 rgba(0, 0, 0, 0.12);
+      transition: all 0.23s;
+    }
 
     img {
       display: inline-block;
@@ -240,6 +246,7 @@
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
+      min-height: 40px;
     }
 
     p {
@@ -252,6 +259,7 @@
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
+      min-height: 32px;
     }
 
     .date, span {
@@ -274,6 +282,13 @@
       border-radius: 30px;
       font-size: 11px;
       text-transform: uppercase;
+      transition: all 0.23s;
+
+      &:hover, &:focus {
+        background: $primary-color;
+        color: #fff;
+        transition: all 0.23s;
+      }
 
       .fa {
         margin-right: 6px;
