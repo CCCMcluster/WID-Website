@@ -1,0 +1,53 @@
+.taxonomy-container {
+
+    .views-row {  
+      article {
+        header {
+          position: static !important;
+          z-index: 0;
+          font-family: $font-raleway;
+  
+          h2 {
+            a {
+              color: $primary-color;
+            }
+          }
+  
+          .node__meta {
+            font-family: $font-opensans;
+          }
+        }
+        .node__content{
+   
+          .node-readmore {
+            margin: 10px 0;
+  
+            a {
+              background-color: $primary-color;
+              border-radius: 5px;
+              padding: 5px 10px;
+              color: $white;
+              font-family: $font-raleway;
+              font-weight: bold;
+  
+              &:hover {
+                background-color: $gray-200;
+                color: $primary-color;
+              }
+            }
+          }
+  
+          .field--type-text-with-summary {
+  
+            p {
+              font-family: $font-opensans;
+            }
+          }
+        }
+      }
+    }
+}
+  
+.feed-icons {
+    display: none;
+}

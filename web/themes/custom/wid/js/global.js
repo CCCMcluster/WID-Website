@@ -108,7 +108,6 @@
     $(this).toggleClass("active");
   });
 
-  $('.view-taxonomy-term').addClass('container');
   $('.view-search').addClass('container');
 
   $("#login, #login-link").click(function(){
