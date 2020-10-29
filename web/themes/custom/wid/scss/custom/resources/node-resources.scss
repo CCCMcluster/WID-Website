@@ -1,0 +1,36 @@
+.node-article-container {
+    .resource-highlight-detail-page {
+        header {
+            position: static !important;
+            z-index: 0;
+            .node__meta {
+
+                em {
+                    color: $primary-color;
+                    font-family: $font-raleway;
+                }
+            }
+        }
+
+        .node-article-content {
+
+            .field--name-body {
+                p {
+                    padding-top: 20px;
+                    font-family: $font-opensans;
+                }
+            }
+
+            .field--name-field-resources-link {
+
+                a {
+                    width: 90%;
+                    overflow: hidden;
+                    font-family: $font-raleway;
+                    color: $primary-color;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
