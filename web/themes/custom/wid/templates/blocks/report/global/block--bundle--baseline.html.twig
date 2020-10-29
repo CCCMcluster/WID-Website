@@ -49,7 +49,7 @@
     <div class="baseline-endline-content">
       <div class="baseline-endline-content-title">Global Reports</div>
       <div class="row my-5 row-eq-height">
-        <div class="col-sm-12 col-md-12 col-lg-6 mb-1">
+        <div class="col-sm-12 col-md-12 col-lg-6">
           <div class="resource-card p-2">
             {% block content %}
               <div{{ content_attributes.addClass(contentClasses) }}>
@@ -62,14 +62,14 @@
                 {{ title_prefix }}
                 {% if label %}
                   <h4
-                    class="resource-title py-2 px-4" {{ title_attributes }}>{{ content['#block_content'].info.value }}</h4>
+                    class="resource-title" {{ title_attributes }}>{{ content['#block_content'].info.value }}</h4>
                 {% endif %}
                 {{ title_suffix }}
-                <div class="resource-description px-3"> {{ content.body }} </div>
+                <div class="resource-description"> {{ content.body }} </div>
               </div>
             {% endblock %}
-            <div class="resource-file-content mx-4 my-3 px-1 py-2">
-              <div class="col-sm-7">
+            <div class="resource-file-content">
+              <div class="col-sm-9">
                 {% set filename = content.field_baseline_document[0]['#media'].field_media_document.entity.filename.value %}
                 {% set fileCreationDate = content.field_baseline_document[0]['#media'].field_media_document.entity.created.value | date('m/d/y') %}
                 <h6 class="resource-file-name">{{ filename }}</h6>
@@ -78,7 +78,7 @@
                   <div class="pl-1">{{ fileCreationDate }}</div>
                 </div>
               </div>
-              <div class="col-sm-5">
+              <div class="col-sm-3">
                 {% set fileExtension = media_file_type(content.field_baseline_document['#items'][0].target_id, 'field_media_document') %}
                 <i class="fa fa-download"></i>
                 {% set document_url = file_url(content.field_baseline_document[0]['#media'].field_media_document.entity.uri.value) %}
@@ -89,7 +89,7 @@
             </div>
           </div>
         </div>
-        <div class="col-sm-12 col-md-12 col-lg-6 mb-1">
+        <div class="col-sm-12 col-md-12 col-lg-6">
           <div class="resource-card p-2">
             {% set endline_block_id = 14 %}
             {% set description = drupal_field('body', 'block_content', endline_block_id)['#items'].0.value|render|striptags %}
@@ -100,12 +100,12 @@
               <img class="card-img-top resource-image" src="{{ endline_cover_image_url }}"
                    alt="{{ endline_cover_image_alt }}">
             {% endif %}
-            <h4 class="resource-title py-2 px-4" {{ title_attributes }}>
+            <h4 class="resource-title" {{ title_attributes }}>
               {{ drupal_entity('block_content', endline_block_id)['#block_content'].info.value }}
             </h4>
-            <div class="resource-description px-3"> {{ description }} </div>
-            <div class="resource-file-content mx-4 my-3 px-1 py-2">
-              <div class="col-sm-7">
+            <div class="resource-description"> {{ description }} </div>
+            <div class="resource-file-content">
+              <div class="col-sm-9">
                 {% set field_endline_document = drupal_field('field_endline_document', 'block_content', endline_block_id) %}
                 {% set endline_document_created_date = field_endline_document['#items'].entity.created.value | date('m/d/y') %}
                 {% set endline_document_filename = field_endline_document['#items'].entity.field_media_document.entity.filename.value %}
@@ -115,7 +115,7 @@
                   <div class="pl-1">{{ endline_document_created_date }}</div>
                 </div>
               </div>
-              <div class="col-sm-5">
+              <div class="col-sm-3">
                 {% set endline_document_ext = media_file_type(field_endline_document['#items'][0].target_id, 'field_media_document') %}
                 <i class="fa fa-download"></i>
                 {% set endline_document_url = file_url(field_endline_document[0]['#media'].field_media_document.entity.uri.value) %}
@@ -148,27 +148,27 @@
             {% set globalReportDocumentTitle = globalReportEntity.field_report_link[0].title %}
             {% set document_url = globalReportEntity.field_report_link[0].uri %}
           {% endif %}
-          <div class="global-report-row-wrapper pt-5">
-            <div class="global-report-row row mb-5">
+          <div class="global-report-row-wrapper">
+            <div class="global-report-row row">
               {% if globalCoverImage %}
                 <img class="col-sm-12 col-md-12 col-lg-5 w-100 p-0 image-container"
                      src="{{ globalCoverImage }}" alt="globalCoverImageAlt"/>
               {% endif %}
-              <div class="col-sm-12 col-md-12 col-lg-7 global-report-row-content p-5">
+              <div class="col-sm-12 col-md-12 col-lg-7 global-report-row-content">
                 <div>
                   <div class="global-report-row-title">
                     <a href="{{ globalReportLink }}">
                       {{ globalReportTitle }}
                     </a>
                   </div>
-                  <div class="global-report-row-body py-3">
+                  <div class="global-report-row-body">
                     {% autoescape false %}
                       {{ globalReportDescription }}
                     {% endautoescape %}
                   </div>
                 </div>
-                <div class="row my-2 file-info-container py-3 px-3">
-                  <div class="col-sm-10">
+                <div class="row file-info-container">
+                  <div class="col-9">
                     <div class="file-info-title">
                       {{ globalReportDocumentTitle }}
                     </div>
@@ -184,7 +184,7 @@
                       </span>
                     </div>
                   </div>
-                  <div class="col-sm-2 button-container">
+                  <div class="col-3 button-container">
                     {% if documentFileExtension %}
                       <i class="fa fa-download"></i>
                     {% else %}

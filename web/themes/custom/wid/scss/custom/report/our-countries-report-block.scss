@@ -8,7 +8,8 @@
         font-family: $font-raleway;
         font-size: 50px;
         font-weight: 700;
-        line-height: 1.16;
+        line-height: 48px;
+        letter-spacing: 1px;
         color: $blue-dark;
         padding-bottom: 50px;
         text-align: center;
@@ -19,23 +20,24 @@
         justify-content: center;
         width: 80%;
         margin: 0 auto;
+        gap: 50px;
 
         .country-report-content {
-          flex: 1;
+          flex: 2;
 
           p {
             font-family: $font-opensans;
             font-size: $font-size-base;
             font-weight: normal;
-            line-height: 1.23;
+            line-height: 26px;
+            letter-spacing: 0;
             color: $gray-900;
-            width: 80%;
             margin: 0 auto 25px;
           }
         }
 
         .country-report-image {
-          flex: 1;
+          flex: 3;
 
           img {
             width: 100%;
@@ -60,9 +62,9 @@
         font-family: $font-raleway;
         font-size: $font-size-xxl-alt;
         font-weight: 700;
-        line-height: 1.18;
+        line-height: 45px;
+        letter-spacing: 0.7px;
         color: $blue-dark;
-        padding: 10px 40px;
         width: 75%;
         margin: 0 auto 75px;
       }
@@ -85,7 +87,7 @@
         margin: 0 auto;
         text-align: left;
         padding-left: 0;
-        width: 75%;
+        width: 70%;
         gap: 20px;
 
         li {
@@ -97,14 +99,15 @@
             border-radius: 6px;
             background-color: #ffffff;
             height: 50px;
-            width: 250px;
+            width: 215px;
             display: inline-flex;
             justify-content: center;
             align-items: center;
             font-family: $font-opensans;
             font-size: $font-size-text-alt;
             font-weight: 600;
-            line-height: 1.17;
+            line-height: 24px;
+            letter-spacing: 0;
             color: $primary-color;
             transition: 0.4s;
 
@@ -134,6 +137,7 @@
         .country-report-container {
           flex-direction: column;
           width: 100%;
+          gap: 10px;
 
           .country-report-content {
             p {
@@ -175,6 +179,7 @@
         .country-report-container {
           flex-direction: column;
           width: 100%;
+          gap: 10px;
 
           .country-report-content {
             p {
@@ -215,6 +220,7 @@
         .country-report-container {
           flex-direction: column;
           width: 100%;
+          gap: 10px;
 
           .country-report-content {
             p {

@@ -9,9 +9,10 @@
       font-family: $font-raleway;
       font-size: $font-size-xxl-alt;
       font-weight: 700;
-      line-height: 1.16;
+      line-height: 48px;
+      letter-spacing: 0.7px;
       color: $blue-dark;
-      padding-bottom: 35px;
+      padding-bottom: 25px;
       width: 80%;
       margin: 0 auto;
     }
@@ -20,7 +21,8 @@
       font-family: $font-opensans;
       font-size: $font-size-base;
       font-weight: normal;
-      line-height: 1.23;
+      line-height: 26px;
+      letter-spacing: 0;
       color: $gray-900;
       width: 70%;
       margin: 0 auto;
@@ -28,11 +30,11 @@
 
     a {
       text-decoration: none;
-      display: flex;
+      display: inline-flex;
 
       .global-report-button {
         background: transparent;
-        padding: 14px 25px;
+        padding: 8px 25px;
         border-radius: 4px;
         margin-top: 25px;
         color: $primary-color;
@@ -40,7 +42,8 @@
         font-family: $font-opensans;
         font-size: $font-size-text-sm;
         font-weight: 600;
-        line-height: 0.65;
+        line-height: 28px;
+        letter-spacing: 0;
         transition: 0.4s;
         width: unset;
       }
@@ -86,7 +89,19 @@
       }
 
       p {
-        width: 80%;
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .global-report-wrapper {
+
+    .global-report-container {
+
+      p {
+        width: 100%;
       }
     }
   }
