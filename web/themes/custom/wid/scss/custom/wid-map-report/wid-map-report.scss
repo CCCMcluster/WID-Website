@@ -1,0 +1,21 @@
+.wid-map-report {
+  padding: 50px 0;
+
+  .field__label {
+    color: $primary-color;
+    font-family: $font-opensans;
+    font-size: $font-size-text-sm;
+    font-weight: normal;
+    line-height: 1.86;
+    text-transform: uppercase;
+    margin-top: 15px;
+  }
+
+  .field__item {
+    color: $gray-900;
+    font-family: $font-opensans;
+    font-size: $font-size-base;
+    font-weight: normal;
+    line-height: 1.63;
+  }
+}
