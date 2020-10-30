@@ -57,20 +57,20 @@
         </div>
         <div class="our-single-report-header-card">
             <div class="container">
+                <div class="country-report-title" data-id="{{ country_title }}">
+                    {{ country_title }}
+                </div>
                 <div class="country-report-wrap">
-                    <div class="country-report-cover-image">
-                        <div>
-                            {{ view.style_plugin.getField(key, 'field_report_overview_cover') }}
-                        </div>
-                    </div>
                     <div class="country-report-description">
                         <div>
-                            <div class="country-report-description-title" data-id="{{ country_title }}">
-                                {{ country_title }}
-                            </div>
                             <div class="country-report-description-body">
                                 {{ view.style_plugin.getField(key, 'description__value') }}
                             </div>
+                        </div>
+                    </div>
+                    <div class="country-report-cover-image">
+                        <div>
+                            {{ view.style_plugin.getField(key, 'field_report_overview_cover') }}
                         </div>
                     </div>
                 </div>

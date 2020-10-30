@@ -26,7 +26,7 @@
                     {% set projectImplementationTerm = load_tax_term(projectImplementationTid) %}
                     {% set projectImplementationCoverImg = file_url(projectImplementationTerm.field_toolkit_img.entity.field_media_image.entity.fileuri) %}
                     {% set projectImplementationCoverAlt = projectImplementationTerm.field_toolkit_img.entity.field_media_image.alt %}
-                    {% if projectImplementationCoverImg %}
+                    {% if projectImplementationCoverImg != '/' %}
                         <div class="image-container">
                             <div>
                                 <img src="{{ projectImplementationCoverImg }}"

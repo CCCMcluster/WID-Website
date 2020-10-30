@@ -53,7 +53,7 @@
           <div class="resource-card p-2">
             {% block content %}
               <div{{ content_attributes.addClass(contentClasses) }}>
-                {% if content.field_baseline_cover_image %}
+                {% if content.field_baseline_cover_image != '/' %}
                   <img
                     class="card-img-top resource-image"
                     src="{{ file_url(content.field_baseline_cover_image.0['#item'].entity.uri.value | image_style('large')) }}"
@@ -150,11 +150,13 @@
           {% endif %}
           <div class="global-report-row-wrapper">
             <div class="global-report-row row">
-              {% if globalCoverImage %}
+              {% if globalCoverImage != '/' %}
                 <img class="col-sm-12 col-md-12 col-lg-5 w-100 p-0 image-container"
                      src="{{ globalCoverImage }}" alt="globalCoverImageAlt"/>
+                <div class="col-sm-12 col-md-12 col-lg-7 global-report-row-content p-3">
+              {% else %}
+                <div class="col-sm-12 col-md-12 col-lg-12 global-report-row-content p-3">
               {% endif %}
-              <div class="col-sm-12 col-md-12 col-lg-7 global-report-row-content">
                 <div>
                   <div class="global-report-row-title">
                     <a href="{{ globalReportLink }}">

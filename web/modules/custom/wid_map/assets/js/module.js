@@ -81,6 +81,7 @@
             .classed('report__active', index===0);
           reportElement.append('a')
             .attr('href', report.url)
+            .attr('aria-label', report.title)
             .append('div')
             .attr('class','report-button')
             .classed('report-button__alt', index!==0)

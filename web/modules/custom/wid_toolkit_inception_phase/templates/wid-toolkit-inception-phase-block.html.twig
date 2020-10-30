@@ -27,7 +27,7 @@
                     {% set tax_term_cover_img_alt = taxonomy_term.field_toolkit_img.entity.field_media_image.alt %}
                     <div class="global-report-row-wrapper">
                         <div class="global-report-row">
-                            {% if tax_term_cover_img %}
+                            {% if tax_term_cover_img != '/' %}
                                 <div class="image-container">
                                     <div>
                                         <img src="{{ tax_term_cover_img }}"
@@ -104,12 +104,14 @@
                                         {% set training_resource_description = training_resource.description %}
                                         <div class="single-card">
                                             <div>
-                                                <img src="{{ training_resource.cover_image.url }}" alt="{{ training_resource.cover_image.alt }}">
+                                                {% if training_resource.cover_image %}
+                                                  <img src="{{ training_resource.cover_image.url }}" alt="{{ training_resource.cover_image.alt }}">
+                                                {% endif %}
                                                 <a href="{{ training_resource_link }}" class="anchor">
                                                     <h2>{{ training_resource.title }}</h2>
                                                 </a>
                                                 {% autoescape false %}
-                                                    <p>{{ training_resource_description|length > 80 ? training_resource_description|slice(0, 80) : training_resource_description }}</p>
+                                                    <p>{{ training_resource_description }}</p>
                                                 {% endautoescape %}
                                                 <div class="download-section">
                                                     <span class="download">
