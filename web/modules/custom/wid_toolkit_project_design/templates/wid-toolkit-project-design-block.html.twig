@@ -135,7 +135,7 @@
                                             <div class="button-container">
                                                 {% if project_design_workshop.document_link %}
                                                     <div>
-                                                        <i class="fa fa-download"></i>
+                                                        <a href="{{ project_design_workshop.document_link }}" target="_blank" download><i class="fa fa-download"></i></a>
                                                     </div>
                                                     <a class="download-button" href="{{ project_design_workshop.document_link }}"
                                                        target="_blank" download>
@@ -144,7 +144,7 @@
                                                 {% elseif project_design_workshop.document %}
 
                                                     <div>
-                                                        <i class="fa fa-download"></i>
+                                                        <a href="{{ project_design_workshop.document.url }}" download><i class="fa fa-download"></i></a>
                                                     </div>
                                                     <a class="download-button" href="{{ project_design_workshop.document.url }}" download>
                                                         Download

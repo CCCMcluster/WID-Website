@@ -53,9 +53,13 @@
           {% if rows %}
             {% set wpp = rows.0['#rows'] %}
             {% for row in  wpp %}
-              <div class="view-content row">
-                {{ row.field_our_mission_media }}
-                {{ row.body }}
+              <div class="view-content row wpp-container">
+                <div class="wpp-image-container">
+                  {{ row.field_our_mission_media }}
+                </div>
+                <div class="wpp-content">
+                  {{ row.body }}
+                </div>
               </div>
             {% endfor %}
           {% elseif empty %}
