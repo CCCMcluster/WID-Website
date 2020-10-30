@@ -80,7 +80,7 @@
               </div>
               <div class="col-sm-3">
                 {% set fileExtension = media_file_type(content.field_baseline_document['#items'][0].target_id, 'field_media_document') %}
-                <i class="fa fa-download"></i>
+                <a href="{{ document_url }}" download><i class="fa fa-download"></i></a>
                 {% set document_url = file_url(content.field_baseline_document[0]['#media'].field_media_document.entity.uri.value) %}
                 <a class="download-button" href="{{ document_url }}" download>
                   Download
@@ -117,7 +117,7 @@
               </div>
               <div class="col-sm-3">
                 {% set endline_document_ext = media_file_type(field_endline_document['#items'][0].target_id, 'field_media_document') %}
-                <i class="fa fa-download"></i>
+                <a href="{{ endline_document_url }}" download><i class="fa fa-download"></i></a>
                 {% set endline_document_url = file_url(field_endline_document[0]['#media'].field_media_document.entity.uri.value) %}
                 <a class="download-button" href="{{ endline_document_url }}" download>Download</a>
               </div>
@@ -188,10 +188,10 @@
                   </div>
                   <div class="col-3 button-container">
                     {% if documentFileExtension %}
-                      <i class="fa fa-download"></i>
+                      <a href="{{ document_url }}" target="_blank" download><i class="fa fa-download"></i></a>
                     {% else %}
                       <span>
-                        <i class="fa fa-external-link fa-2x"></i>
+                        <a href="{{ document_url }}" target="_blank" download><i class="fa fa-external-link fa-2x"></i></a>
                       </span>
                     {% endif %}
                     <a class="download-button" href="{{ document_url }}" target="_blank" download>

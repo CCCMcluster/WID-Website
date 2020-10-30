@@ -67,12 +67,12 @@
                                     {% if entity.field_toolkit_attachment_type.value == 'Document' %}
                                         {% set document_url = media_file_url(entity.field_toolkit_document.value.0.target_id, 'field_media_document') %}
                                         <div>
-                                            <i class="fa fa-download"></i>
+                                            <a href="{{ document_url }}" download><i class="fa fa-download"></i></a>
                                         </div>
                                         <span><a class="download-button" href="{{ document_url }}" download>Download</a></span>
                                     {% elseif entity.field_toolkit_attachment_type.value == 'Link' %}
                                         <div>
-                                            <i class="fa fa-download"></i>
+                                            <a href="{{ entity.field_toolkit_document[0].uri }}" download><i class="fa fa-download"></i></a>
                                         </div>
                                         <span><a class="download-button" href="{{ entity.field_toolkit_document[0].uri }}"
                                                  download>Download</a></span>

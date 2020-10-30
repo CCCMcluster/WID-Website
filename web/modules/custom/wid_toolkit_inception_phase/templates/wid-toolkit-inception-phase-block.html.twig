@@ -63,14 +63,14 @@
                                             <div class="button-container">
                                                 {% if workshop.document_link %}
                                                     <div>
-                                                        <i class="fa fa-download"></i>
+                                                        <a href="{{ workshop.document_link }}" target="_blank"><i class="fa fa-download"></i></a>
                                                     </div>
                                                     <a class="download-button" href="{{ workshop.document_link }}" target="_blank">
                                                         Download
                                                     </a>
                                                 {% elseif workshop.document %}
                                                     <div>
-                                                        <i class="fa fa-download"></i>
+                                                        <a href="{{ workshop.document.url }}" download><i class="fa fa-download"></i></a>
                                                     </div>
                                                     <a class="download-button" href="{{ workshop.document.url }}" download>
                                                         Download

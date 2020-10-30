@@ -1,17 +1,79 @@
 .wpp-wrapper {
   padding: 50px 0;
 
-  img {
-    height: 300px;
-    width: 300px;
-    object-fit: cover;
-    border-radius: 5px;
-  }
+  .wpp-container {
+    display: flex;
+    gap: 50px;
 
-  p {
-    font-family: $font-opensans;
-    font-size: $font-size-base;
-    color: $gray-900;
-    font-weight: 400;
+    .wpp-image-container {
+      flex: 1;
+
+      img {
+        height: 300px;
+        width: 300px;
+        object-fit: cover;
+        border-radius: 5px;
+        margin: 0;
+      }
+    }
+
+    .wpp-content {
+      flex: 4;
+
+      p {
+        font-family: $font-opensans;
+        font-size: $font-size-base;
+        color: $gray-900;
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .wpp-wrapper {
+    .wpp-container {
+      flex-direction: column;
+      gap: 10px;
+
+      .wpp-image-container {
+        img {
+          width: 100%;
+          height: 250px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .wpp-wrapper {
+    .wpp-container {
+      flex-direction: column;
+      gap: 10px;
+
+      .wpp-image-container {
+        img {
+          width: 100%;
+          height: 300px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .wpp-wrapper {
+    .wpp-container {
+      flex-direction: column;
+      gap: 10px;
+
+      .wpp-image-container {
+        img {
+          width: 100%;
+          height: 350px;
+        }
+      }
+    }
   }
 }
