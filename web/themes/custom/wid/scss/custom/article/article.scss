@@ -113,21 +113,9 @@
     .news-desc {
       overflow: auto;
 
-      // p {
-      //   font-family: $font-opensans;
-      //   font-size: $font-size-base;
-      //   font-weight: normal;
-      //   line-height: 1.69;
-      //   color: #333333;
-      //   margin-bottom: 20px;
-      // }
-
-      img {
-        border-radius: 20px;
-        // float: right;
-        // margin: 20px 0 20px 50px;
-        height: 400px;
-        width: 300px;
+      figcaption {
+        font-size: 12px;
+        font-weight: 600;
       }
     }
   }
