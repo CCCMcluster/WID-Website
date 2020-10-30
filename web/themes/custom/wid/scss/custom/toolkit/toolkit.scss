@@ -28,6 +28,20 @@
       margin-bottom: 8px;
       transition: all 0.23s;
 
+      &.active {
+        color: $primary-color;
+        position: relative;
+
+        &:before {
+          content: '';
+          position: absolute;
+          height: 3px;
+          width: 100%;
+          background: $primary-color;
+          bottom: -15px;
+        }
+      }
+
       &:last-child {
         margin-bottom: 0;
       }
