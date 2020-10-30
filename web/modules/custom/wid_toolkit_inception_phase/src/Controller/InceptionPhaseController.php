@@ -52,6 +52,10 @@ class InceptionPhaseController extends ControllerBase {
         $document_file = File::load($document_fid);
         $document_file_size = $document_file->getSize();
         $document_file_type = pathinfo($document_file->getFilename(), PATHINFO_EXTENSION);
+        $document_file_type_icon = file_exists(DRUPAL_ROOT . "/themes/custom/wid/images/icons/$document_file_type.svg");
+        if ($document_file_type_icon == FALSE) {
+          $document_file_type = "file";
+        }
         $document_url = $document_file->createFileUrl();
         $document = [
           'url' => $document_url,

@@ -61,13 +61,12 @@
                                     <div class="our-single-file-doc-wrap">
                                         {% if entity.field_attachment_type.value == 'Document' %}
                                             {% set fileExtension = media_file_type(entity.field_report_document.value.0.target_id, 'field_media_document') %}
+                                            {% set fileExtension = fileExtension['iconExist'] ? fileExtension['ext'] : 'file' %}
                                         <span class="our-single-country-file"><img src="/{{ directory }}/images/icons/{{ fileExtension }}.svg" alt={{
                                             fileExtension }}/></span>
 
                                         {% elseif entity.field_attachment_type.value == 'Link' %}
-                                            {% set fileExtension = media_file_type(entity.field_report_document.value.0.target_id, 'field_media_document') %}
-                                            <span class="our-single-country-file"><img src="/{{ directory }}/images/icons/{{ fileExtension }}.svg" alt={{ fileExtension
-                                                }}/></span>
+                                            <span class="our-single-country-file"><i class="fa fa-external-link"></i></span>
                                         {% endif %}
                                         <span class="our-single-country-date">
                                             <i class="fa fa-calendar-o pr-1" aria-hidden="true"></i> {{ report_created_date }}</span>
