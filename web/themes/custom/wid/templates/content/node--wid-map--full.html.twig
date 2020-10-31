@@ -71,11 +71,15 @@
   'clearfix',
 ] %}
 <article{{ attributes.addClass(classes) }}>
-  <div class="container">
+  <div class="country-rollout-container container">
+    <h2 class="country-rollout-title">Countries Roll-Out</h2>
+    <div class="country-rollout-name">{{ content.field_map_country.0 }}</div>
     <div class="wid-map-report">
       <div{{ content_attributes.addClass('node__content', 'clearfix') }}>
         {{ content }}
       </div>
     </div>
+    {% set country_code = content.field_map_country["#items"].0.entity.field_report_overview_country.0.value|lower %}
+    <a  class="country-report-button" href="/reports/country/{{ country_code }}">More on Country Report Page</a>
   </div>
 </article>
