@@ -1,21 +1,67 @@
-.wid-map-report {
-  padding: 50px 0;
+.country-rollout-container {
+  display: flex;
+  flex-direction: column;
 
-  .field__label {
-    color: $primary-color;
-    font-family: $font-opensans;
-    font-size: $font-size-text-sm;
-    font-weight: normal;
-    line-height: 1.86;
-    text-transform: uppercase;
-    margin-top: 15px;
+  .country-rollout-title {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 48px;
+    letter-spacing: 1px;
+    color: $blue-dark;
+    margin: 60px;
+    text-align: center;
+    font-family: $font-raleway-sans;
   }
 
-  .field__item {
-    color: $gray-900;
+  .country-rollout-name {
+    font-size: 35px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-family: $font-raleway-sans;
+  }
+
+  .country-report-button {
+    background: transparent;
+    padding: 8px 25px;
+    border-radius: 4px;
+    margin: 100px 0;
+    color: $primary-color;
+    border: 1px solid $primary-color;
     font-family: $font-opensans;
-    font-size: $font-size-base;
-    font-weight: normal;
-    line-height: 1.63;
+    font-size: $font-size-text-sm;
+    font-weight: 600;
+    line-height: 28px;
+    letter-spacing: 0;
+    transition: 0.4s;
+    width: unset;
+    display: inline-flex;
+    align-self: center;
+
+    &:hover {
+      color: #ffffff;
+      background: $primary-color;
+      border: 1px solid #ffffff;
+    }
+  }
+
+  .wid-map-report {
+
+    .field__label {
+      color: $primary-color;
+      font-family: $font-opensans;
+      font-size: $font-size-text-sm;
+      font-weight: normal;
+      line-height: 1.86;
+      text-transform: uppercase;
+      margin-top: 15px;
+    }
+
+    .field__item {
+      color: $gray-900;
+      font-family: $font-opensans;
+      font-size: $font-size-base;
+      font-weight: normal;
+      line-height: 1.63;
+    }
   }
 }

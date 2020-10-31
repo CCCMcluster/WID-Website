@@ -367,7 +367,7 @@
       color: #8E8E8E;
     }
 
-    .media-oembed-content {
+    .media-oembed-content, video {
       @media only screen and (min-width: 1200px) {
         height: 587px;
       }
@@ -417,14 +417,14 @@
       color: #8E8E8E;
     }
 
-    .media-oembed-content {
+    .media-oembed-content, video {
       @media only screen and (min-width: 1200px) {
         height: 153px;
       }
     }
   }
 
-  .media-oembed-content {
+  .media-oembed-content, video {
     width: 100%;
     border-radius: 4px;
   }

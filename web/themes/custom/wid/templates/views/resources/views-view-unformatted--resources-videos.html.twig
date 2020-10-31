@@ -34,7 +34,7 @@
                 {{ view.style_plugin.getField(key, 'body') }}
               {% else %}
                 {% set description = entity.body.value |render|striptags %}
-                {% autoescape false %}{{ description|length > 50 ? description|slice(0, 50) : description }}{% endautoescape %}
+                {% autoescape false %}{{ description }}{% endautoescape %}
               {% endif %}
             </p>
             <span>{{ view.style_plugin.getField(key, 'created') }}</span>
@@ -51,7 +51,7 @@
                     {{ view.style_plugin.getField(key, 'body') }}
                   {% else %}
                     {% set description = entity.body.value |render|striptags %}
-                    {% autoescape false %}{{ description|length > 50 ? description|slice(0, 50) : description }}{% endautoescape %}
+                    {% autoescape false %}{{ description }}{% endautoescape %}
                   {% endif %}
                 </p>
                 <span>{{ view.style_plugin.getField(key, 'created') }}</span>
