@@ -1,0 +1,7 @@
+name: "WID Resources"
+type: module
+description: 'Adds Resources Content'
+core: 8.x
+dependencies:
+  - node
+  - block

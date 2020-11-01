@@ -1,0 +1,7 @@
+wid_resources.form:
+  path: '/resources/add'
+  defaults:
+    _title: 'Add Resources Content'
+    _form: '\Drupal\wid_resources\Form\ResourcesForm'
+  requirements:
+    _user_is_logged_in: 'TRUE'
