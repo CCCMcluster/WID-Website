@@ -65,7 +65,7 @@ class ResourcesForm extends FormBase {
     $form['actions']['#type'] = 'actions';
     $form['actions']['submit'] = [
       '#type' => 'submit',
-      '#value' => $this->t('Submit'),
+      '#value' => $this->t('Save'),
       '#button_type' => 'primary',
     ];
     return $form;
