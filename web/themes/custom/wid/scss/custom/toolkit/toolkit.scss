@@ -46,7 +46,8 @@
         margin-bottom: 0;
       }
 
-      &:hover, &:focus {
+      &:hover,
+      &:focus {
         color: $primary-color;
         transition: all 0.23s;
       }
@@ -127,7 +128,7 @@
     width: 60%;
   }
 
-  > div {
+  >div {
     position: relative;
   }
 
@@ -182,7 +183,8 @@
         height: 181px;
       }
 
-      &:hover, &:focus {
+      &:hover,
+      &:focus {
         background: $primary-color;
         transition: all 0.23s;
 
@@ -294,7 +296,13 @@
       justify-content: center;
       transition: all 0.23s;
 
-      &:hover, &:focus {
+      &:hover {
+        transition: all 0.23s;
+        box-shadow: 5px 10px 25px #00000029;
+        transform: translateY(-50%) scale(1.05);
+      }
+
+      &:focus {
         transition: all 0.23s;
         box-shadow: 5px 10px 25px #00000029;
       }
@@ -314,7 +322,7 @@
       display: none;
     }
 
-    > div {
+    >div {
       display: inline-block;
     }
 

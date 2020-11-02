@@ -505,7 +505,7 @@
   position: fixed;
   bottom: 35px;
   right: 35px;
-  z-index: 9;
+  z-index: 999;
 
   i {
     font-size: $font-size-title-sm;
