@@ -1,0 +1,21 @@
+<?php
+
+use Drupal\node\NodeInterface;
+
+function resources_node_update(NodeInterface $node) {
+  if ($node->bundle() === 'resources') {
+    drupal_flush_all_caches();
+  }
+}
+
+function resources_node_insert(NodeInterface $node) {
+  if ($node->bundle() == 'resources') {
+    drupal_flush_all_caches();
+  }
+}
+
+function resources_node_delete(NodeInterface $node) {
+  if ($node->bundle() == 'resources') {
+    drupal_flush_all_caches();
+  }
+}
