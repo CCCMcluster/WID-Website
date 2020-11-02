@@ -19,6 +19,9 @@
 {% if title %}
   <h3>{{ title }}</h3>
 {% endif %}
+{% if logged_in %}
+<a href="/resources/add" class="resource-add-button"><i class="ion-android-add"></i></a>
+{% endif %}
 <div class="highlight-wrapper">
     <div class="container">
         <div class="highlight-container">

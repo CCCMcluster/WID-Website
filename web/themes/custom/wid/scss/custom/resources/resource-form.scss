@@ -1,0 +1,98 @@
+.wid-resources-form {
+  #wid-resources-form {
+    padding: 50px 0;
+    width: 50%;
+    margin: 0 80px;
+
+    fieldset {
+      label {
+        font-family: $font-opensans;
+        font-size: $font-size-text-sm;
+        font-weight: normal;
+        line-height: 1.71;
+        color: $gray-900;
+        margin: 10px 0 5px;
+      }
+
+      input,
+      select,
+      textarea {
+        border-radius: 4px;
+        background-color: $gray-200;
+        border: none;
+        font-family: $font-opensans;
+        font-size: $font-size-text-sm;
+        font-weight: 600;
+        line-height: 1.71;
+        color: $gray-900;
+      }
+
+      #edit-wid-resources-document-upload {
+        background-color: transparent;
+        font-family: $font-opensans;
+        font-size: $font-size-text-sm;
+        font-weight: normal;
+        line-height: 1.71;
+        color: $primary-color;
+        padding: 0;
+      }
+
+      .form-required::after {
+        background-image: none;
+      }
+    }
+
+    button {
+      font-family: $font-opensans;
+      font-size: $font-size-text-sm;
+      font-weight: normal;
+      line-height: 1.71;
+      color: #ffffff;
+      font-weight: 600;
+      border-radius: 4px;
+      box-shadow: 5px 10px 20px 0 rgba(0, 0, 0, 0.04);
+      background-color: $primary-color;
+      border: 1px solid $primary-color;
+      padding: 8px 25px;
+      margin-top: 15px;
+      transition: 0.2s;
+
+      &:hover {
+        color: $primary-color;
+        background-color: #ffffff;
+        border: 1px solid $primary-color;
+      }
+    }
+  }
+}
+
+// Responsive
+@media (min-width: 320px) and (max-width: 480px) {
+  .wid-resources-form {
+    #wid-resources-form {
+      padding: 50px 0;
+      width: 100%;
+      margin: 0;
+    }
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .wid-resources-form {
+    #wid-resources-form {
+      padding: 50px 0;
+      width: 100%;
+      margin: 0;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .wid-resources-form {
+    #wid-resources-form {
+      padding: 50px 0;
+      width: 70%;
+      margin: 0;
+    }
+  }
+}

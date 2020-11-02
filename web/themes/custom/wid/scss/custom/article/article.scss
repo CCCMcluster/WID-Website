@@ -97,8 +97,6 @@
   .news-wrapper {
     margin: 25px 0 50px;
 
-
-
     .news-title {
       h3 {
         font-family: $font-opensans;
@@ -116,6 +114,12 @@
       figcaption {
         font-size: 12px;
         font-weight: 600;
+      }
+      .align-right{
+        margin:15px 0px 15px 35px;
+      }
+      .align-left{
+        margin:15px 35px 15px 0px;
       }
     }
   }
@@ -238,6 +242,13 @@
         font-size: $font-size-title-sm;
       }
     }
+    .news-wrapper{
+      .news-desc{
+        .align-left, .align-right{
+          margin: 15px 0;
+        }
+      }
+    }
 
     .more-article-wrapper {
       padding: 50px 0;
@@ -258,6 +269,13 @@
     .article-title {
       h2 {
         font-size: $font-size-title;
+      }
+    }
+    .news-wrapper{
+      .news-desc{
+        .align-left, .align-right{
+          margin: 15px 0;
+        }
       }
     }
 
