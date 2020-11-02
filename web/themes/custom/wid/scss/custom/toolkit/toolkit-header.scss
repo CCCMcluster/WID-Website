@@ -29,7 +29,8 @@
       margin-bottom: 8px;
       transition: all 0.23s;
 
-      &:hover, &:focus {
+      &:hover,
+      &:focus {
         color: $primary-color;
         transition: all 0.23s;
       }
@@ -103,5 +104,23 @@
 
   .card-button {
     display: none;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 992px) {
+  .toolkit-purpose-container {
+    .toolkit-nav {
+      a.active:before {
+        display: none;
+      }
+    }
+  }
+
+  .toolkit-header-wrapper {
+    .toolkit-nav {
+      a.active:before {
+        display: none;
+      }
+    }
   }
 }
