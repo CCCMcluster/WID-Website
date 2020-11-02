@@ -1,4 +1,16 @@
 .wid-resources-form {
+  .wid-resources-form-title {
+    padding: 80px 0 0 0;
+    margin: 0 0 0 80px;
+
+    h2 {
+      font-family: $font-raleway;
+      font-size: $font-size-xxl-alt;
+      font-weight: bold;
+      letter-spacing: 0.7px;
+    }
+  }
+
   #wid-resources-form {
     padding: 50px 0;
     width: 50%;
@@ -69,6 +81,10 @@
 // Responsive
 @media (min-width: 320px) and (max-width: 480px) {
   .wid-resources-form {
+    .wid-resources-form-title {
+      padding: 50px 0 0 0;
+      margin: 0;
+    }
     #wid-resources-form {
       padding: 50px 0;
       width: 100%;
@@ -79,6 +95,10 @@
 
 @media (min-width: 481px) and (max-width: 767px) {
   .wid-resources-form {
+    .wid-resources-form-title {
+      padding: 50px 0 0 0;
+      margin: 0;
+    }
     #wid-resources-form {
       padding: 50px 0;
       width: 100%;
@@ -89,6 +109,10 @@
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .wid-resources-form {
+    .wid-resources-form-title {
+      padding: 50px 0 0 0;
+      margin: 0;
+    }
     #wid-resources-form {
       padding: 50px 0;
       width: 70%;

@@ -31,25 +31,31 @@
     {% set country_title = '' %}
     <div class="global-report-header-background our-single-report-header" {{ row.attributes.addClass(row_classes) }}>
         <div class="global-report-country-nav">
-            <a href="/reports/global" class="global-button">Global Report</a>
+            <a href="/reports/global" class="global-button">{% trans %}Global Report{% endtrans %}</a>
             <div class="dropdown">
                 <button class="dropbtn">
-                    <a href"#" class="active">select country <i class="fa fa-angle-down"></i></a></button>
+                  <a href="#" class="active">{% trans %}select country {% endtrans %}<i class="fa fa-angle-down"></i></a></button>
                 <div class="dropdown-content">
                     {% if active_countries %}
                         <div class="our-single-report-header-nav">
+                          <div class="our-single-report-header-nav-item">
                             {% for country in active_countries %}
-                                {% set country_iso_code = load_tax_term(country.id).field_report_overview_country.value %}
-                                {% if country_iso_code ==  country_report_iso %}
-                                    {% set country_title = country.name %}
-                                {% endif %}
-                                <div class="our-single-report-header-nav-item">
-                                    <a
-                                            href="{{ path('view.country_report.page_1', {'country':  country_iso_code|lower }) }}">
-                                        {{ country.name }}
-                                    </a>
-                                </div>
+                              {% set country_iso_code = load_tax_term(country.id).field_report_overview_country.value %}
+                              {% if country_iso_code ==  country_report_iso %}
+                                {% set country_title = country.name %}
+                                <a
+                                  class="active"
+                                  href="{{ path('view.country_report.page_1', {'country':  country_iso_code|lower }) }}">
+                                  {{ country.name }}
+                                </a>
+                              {% else %}
+                                <a
+                                  href="{{ path('view.country_report.page_1', {'country':  country_iso_code|lower }) }}">
+                                  {{ country.name }}
+                                </a>
+                              {% endif %}
                             {% endfor %}
+                          </div>
                         </div>
                     {% endif %}
                 </div>
@@ -57,7 +63,7 @@
         </div>
         <div class="our-single-report-header-card">
             <div class="container">
-                <div class="country-report-title" data-id="{{ country_title }}">
+                <div id="country-report-title" class="country-report-title" data-id="{{ country_title }}">
                     {{ country_title }}
                 </div>
                 <div class="country-report-wrap">
@@ -79,6 +85,6 @@
     </div>
 {% endfor %}
 <script>
-  let page_title = document.querySelector('.country-report-description-title').dataset.id;
+  let page_title = document.querySelector('#country-report-title').dataset.id;
   document.title = page_title + ' | Women in Displacement';
 </script>
