@@ -54,7 +54,7 @@
                   <li class="step-card-{{ loop.index }}">
                     <div class="step-card">
                       <span class="step-number">{{ loop.index }}</span> <span
-                              class="step-name">{{ vocabulary_tree.name }}</span>
+                        class="step-name">{{ vocabulary_tree.name }}</span>
                     </div>
                   </li>
                 {% endfor %}
@@ -90,6 +90,22 @@
         </div>
       </div>
     </div>
+    {% if is_admin %}
+      <div class="mission-and-method-wrapper">
+        <div class="container">
+          <h2>{% trans %} Toolkit Download Statistics {% endtrans %}</h2>
+          <div class="downloads-container">
+            <div class="downloads-stats">
+              <h4 class="downloads-title">{% trans %}Downloads Statistics{% endtrans %}</h4>
+              <span class="stat-key">Tags: <span class="stat-value">TOOLKIT</span></span>
+            </div>
+            <div class="graph-container">
+              <canvas id="downloads-graph"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
   </div>
 </div>
 

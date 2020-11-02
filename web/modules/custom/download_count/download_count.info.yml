@@ -1,0 +1,13 @@
+name: Download Count
+type: module
+description: 'Tracks file downloads for Drupal private core file fields.'
+configure: download_count.file_settings
+dependencies:
+   - drupal:field
+   - drupal:file
+core: 8.x
+
+# Information added by Drupal.org packaging script on 2019-09-04
+version: '8.x-1.0-alpha1'
+project: 'download_count'
+datestamp: 1567570087

@@ -1,0 +1,21 @@
+sparkline:
+  js:
+    js/download_count.js: {}
+    js/download_count_sparklines.js: {}
+    https://cdnjs.cloudflare.com/ajax/libs/jquery-sparklines/2.1.2/jquery.sparkline.min.js: { type: external}
+
+  dependencies:
+    - core/jquery
+
+export-form-styling:
+  js:
+    js/download_count.js: {}
+
+  dependencies:
+    - core/jquery
+
+
+global-styling-css:
+  css:
+    theme:
+      css/download_count.css: {}
