@@ -24,7 +24,7 @@
     .scale(width / 2 / Math.PI, height / 2 / Math.PI);
 
   d3.select('#wid-map').append('div').attr('class', 'report-section');
-  setActiveCountry(mapData[0].iso_2);
+  setActiveCountry(mapData[0].iso_2, true);
 
   d3.json("https://gist.githack.com/ft9dipesh/7de26da7df31263dd4ab2550f35f3882/raw/d2908030d79c7c1055af3098e49edbc8cacca8b8/world_noAQ.geojson",
     function(data){
@@ -68,7 +68,7 @@
     }
   );
 
-  function setActiveCountry(countryCode) {
+  function setActiveCountry(countryCode, initialLoad=false) {
     d3.selectAll('.report').remove();
     fetch(`${base_url}report/country?iso=${countryCode}`)
       .then(res => res.json())
@@ -78,7 +78,7 @@
           const reportElement = d3.selectAll('.report-section')
             .append('div')
             .attr('class', 'report')
-            .classed('report__active', index===0);
+            .classed('report__active', index===0 && !initialLoad);
           reportElement.append('a')
             .attr('href', report.url)
             .attr('aria-label', report.title)
