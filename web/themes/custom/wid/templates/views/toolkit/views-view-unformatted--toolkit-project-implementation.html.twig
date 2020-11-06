@@ -56,6 +56,13 @@
                                         <div class="file-info-title">
                                             <a href="{{ toolkitLink }}">{{ title }}</a>
                                         </div>
+                                        <div class="file-info-desc">
+                                          <div>
+                                            {% autoescape false %}
+                                              {{ entity.body.value }}
+                                            {% endautoescape %}
+                                          </div>
+                                        </div>
                                         <div class="file-info-doc">
                                             {% if entity.field_toolkit_attachment_type.value == 'Document' %}
                                                 {% set fileSize = entity.field_toolkit_document.entity.field_media_document.entity.filesize.value/1024 %}

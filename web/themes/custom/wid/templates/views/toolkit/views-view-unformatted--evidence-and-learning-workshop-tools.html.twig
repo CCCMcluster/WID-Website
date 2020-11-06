@@ -25,7 +25,7 @@
                     <div class="global-report-row">
                         {% set entity = row.content['#row']._entity %}
                         {% set title = entity.title.value %}
-                        {% set description = entity.body.summary %}
+                        {% set description = entity.body.value %}
                         {% set created_date = entity.created.value | format_date('custom_document_date') %}
                         {% set toolkitLink = path('entity.node.canonical', {'node': entity.nid.value}) %}
                         {% if entity.field_toolkit_cover_img.value %}
@@ -42,9 +42,11 @@
                                     <a href="{{ toolkitLink }}" title="{{ title }}">{{ title }}</a></div>
                             </div>
                             <div class="global-report-row-body">
-                                <p class="workshop-row-body">
-                                    {{ description|length > 425 ? description|slice(0, 425) ~ '...' : description }}
-                                </p>
+                                <div class="workshop-row-body">
+                                    {% autoescape false %}
+                                      {{ description }}
+                                    {% endautoescape %}
+                                </div>
                             </div>
                             <div class="file-info-container">
                                 <div class="file-info-wrap">

@@ -204,6 +204,13 @@
         </div>
     </div>
   {% endif %}
+  {% if not logged_in %}
+    <div class="container">
+      <div class="text-center mt-5 mb-5">
+        {{ drupal_entity('block_content', 19) }}
+      </div>
+    </div>
+  {% endif %}
   <div class="toolkit-item-faq">
         <div class="container d-flex justify-content-center">
             {% set faqBlock = drupal_entity('block_content', 18) %}

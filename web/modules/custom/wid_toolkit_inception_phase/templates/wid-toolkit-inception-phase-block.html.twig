@@ -50,6 +50,13 @@
                                                 <div class="file-info-title">
                                                     <a href="{{ toolkitLink }}">{{ workshop.title }}</a>
                                                 </div>
+                                                <div class="file-info-desc">
+                                                  <div>
+                                                    {% autoescape false %}
+                                                      {{ workshop.description }}
+                                                    {% endautoescape %}
+                                                  </div>
+                                                </div>
                                                 <div class="file-info-doc">
                                                     {% if workshop.document %}
                                                         {% set fileExtension = workshop.document.type %}

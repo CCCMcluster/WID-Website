@@ -74,7 +74,8 @@
   <div class="container">
     <div class="report-item-nav-container">
       <div class="report-item-nav">
-        <span><a href="{{ path('page_manager.page_view_report_report-panels_variant-0') }}"><i class="ion-android-arrow-back"></i>Back to {% trans %}Reports{% endtrans %}</a></span>
+        <span><a href="{{ path('page_manager.page_view_report_report-panels_variant-0') }}"><i
+              class="ion-android-arrow-back"></i>Back to {% trans %}Reports{% endtrans %}</a></span>
       </div>
     </div>
     <div class="report-button">
@@ -116,15 +117,17 @@
       <div{{ content_attributes.addClass('node__content', 'clearfix') }}>
         {{ content.body }}
       </div>
-      <div class="row file-info-container">
-        {% if node.field_attachment_type.value == 'Document' %}
-          {% for document in node.field_report_document %}
-            {% set fileExtension = media_file_type(document.target_id, 'field_media_document') %}
-            {% set fileExtension = fileExtension['iconExist'] ? fileExtension['ext'] : 'file' %}
-            {% set document_url = media_file_url(document.value.target_id, 'field_media_document') %}
-            {% set fileSize = document.entity.field_media_document.entity.filesize.value/1024 %}
-            <div class="file-info">
-              <h2 class="file-info-title">{{ node.field_report_doc_description.value }}</h2>
+      {% if node.field_attachment_type.value == 'Document' %}
+        {% for document in node.field_report_document %}
+          {% set fileExtension = media_file_type(document.target_id, 'field_media_document') %}
+          {% set fileExtension = fileExtension['iconExist'] ? fileExtension['ext'] : 'file' %}
+          {% set document_url = media_file_url(document.value.target_id, 'field_media_document') %}
+          {% set fileSize = document.entity.field_media_document.entity.filesize.value/1024 %}
+          <div class="file-info-container">
+            <div class="file-info-wrap">
+              <div class="file-info-title">
+                {{ node.field_report_doc_description.value }}
+              </div>
               <div class="file-info-doc">
                 <span>
                   <img class="extension-icon mb-1" src="/{{ directory }}/images/icons/{{ fileExtension }}.svg"
@@ -143,34 +146,35 @@
                 <span>Download</span>
               </div>
             </a>
-          {% endfor %}
-        {% elseif node.field_attachment_type.value == 'Link' %}
-          {% for documentLink in node.field_report_link %}
-            <div class="file-info">
-              <h2 class="file-info-title">{{ documentLink.title }}</h2>
-              <div>
+          </div>
+        {% endfor %}
+      {% elseif node.field_attachment_type.value == 'Link' %}
+        {% for documentLink in node.field_report_link %}
+          <div class="file-info">
+            <h2 class="file-info-title">{{ documentLink.title }}</h2>
+            <div>
                 <span class="mr-3">
                   <i class="fa fa-external-link" aria-hidden="true"></i>
                 </span>
-                <span class="mr-3">
+              <span class="mr-3">
                   <i class="fa fa-calendar-o pr-1"></i>
                   {{ documentLink.entity.created.value|format_date('custom_document_date') }}
                 </span>
-              </div>
             </div>
-            <a class="download-button" href="{{ documentLink.uri }}" target="_blank">
-              <div class="button-container">
-                <i class="fa fa-download"></i>
-                <span>
+          </div>
+          <a class="download-button" href="{{ documentLink.uri }}" target="_blank">
+            <div class="button-container">
+              <i class="fa fa-download"></i>
+              <span>
                   Download
                 </span>
-              </div>
-            </a>
-          {% endfor %}
-        {% endif %}
-      </div>
+            </div>
+          </a>
+        {% endfor %}
+      {% endif %}
     </div>
   </div>
+
   <div class="faq-background-image">
     {% set faqBlock = drupal_entity('block_content', 18) %}
     {% set faqDescription = faqBlock.body %}
@@ -195,7 +199,7 @@
           <img class="faq-category-content-img" src="/{{ directory }}/images/icons/faq-methodology.svg"
                alt="faq-methodology">
           <p>{{ faqCategories.1['#title'] }}</p>
-         <div class="arrow-content">
+          <div class="arrow-content">
             <i class="ion-android-arrow-down"></i>
           </div>
         </a>
