@@ -119,6 +119,13 @@
                                                         {{ project_design_workshop.title }}
                                                     </a>
                                                 </div>
+                                                <div class="file-info-desc">
+                                                  <div>
+                                                    {% autoescape false %}
+                                                      {{ project_design_workshop.description }}
+                                                    {% endautoescape %}
+                                                  </div>
+                                                </div>
                                                 <div class="file-info-doc">
                                                     {% if project_design_workshop.document %}
                                                         {% set fileExtension = project_design_workshop.document.type %}
