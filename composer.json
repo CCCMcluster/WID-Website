@@ -31,7 +31,6 @@
         "drupal/country": "^1.0@beta",
         "drupal/ctools": "^3.4",
         "drupal/devel": "^4.0",
-        "drupal/download_count": "^1.0@alpha",
         "drupal/ds": "^3.9",
         "drupal/flag": "^4.0@beta",
         "drupal/google_analytics": "^3.1",

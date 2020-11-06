@@ -1,0 +1,9 @@
+services:
+
+  logger.channel.download_count:
+    parent: logger.channel_base
+    arguments: ['download_count']
+
+  download_count_service:
+    class: Drupal\download_count\DownloadCountService
+    arguments: ['@logger.channel.download_count', '@request_stack', '@config.factory', '@datetime.time', '@flood', '@string_translation', '@database', '@cache_tags.invalidator']

@@ -58,6 +58,7 @@ class InceptionPhaseController extends ControllerBase {
         }
         $document_url = $document_file->createFileUrl();
         $document = [
+          'fid' => $document_file->id(),
           'url' => $document_url,
           'type' => $document_file_type,
           'size' => round($document_file_size / 1024),
@@ -68,6 +69,7 @@ class InceptionPhaseController extends ControllerBase {
       }
       $workshop[$toolkit_tid][$index] = [
         'nid' => $entity->id(),
+        'entity_type' => $entity->getEntityType()->id(),
         'title' => $entity->getTitle(),
         'description' => $entity->get('body')->value,
         'cover_image' => $cover_image,

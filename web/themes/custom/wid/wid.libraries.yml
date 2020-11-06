@@ -4,10 +4,12 @@ global-styling:
     js/popper.min.js: {}
     js/bootstrap.min.js: {}
     js/owl.carousel.min.js: {}
+    https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js: {type: external}
     js/fotorama.js: {}
     js/global.js: {}
   css:
     component:
+      https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.css: {type: external}
       css/style.min.css: {}
   dependencies:
     - core/jquery

@@ -66,16 +66,29 @@
                                 <div class="button-container">
                                     {% if entity.field_toolkit_attachment_type.value == 'Document' %}
                                         {% set document_url = media_file_url(entity.field_toolkit_document.value.0.target_id, 'field_media_document') %}
-                                        <div>
-                                            <a href="{{ document_url }}" download><i class="fa fa-download"></i></a>
+                                        <div class="file--public"
+                                             data-file-id="{{ entity.field_toolkit_document.entity.field_media_document.0.target_id }}"
+                                             data-entity-id="{{ entity.nid.value }}"
+                                             data-entity-type="{{ entity.entityTypeId }}">
+                                            <a href="{{ document_url }}"><i class="fa fa-download"></i></a>
                                         </div>
-                                        <span><a class="download-button" href="{{ document_url }}" download>Download</a></span>
+                                        <span class="file--public"
+                                              data-file-id="{{ entity.field_toolkit_document.entity.field_media_document.0.target_id }}"
+                                              data-entity-id="{{ entity.nid.value }}"
+                                              data-entity-type="{{ entity.entityTypeId }}">
+                                          <a class="download-button" href="{{ document_url }}">Download</a>
+                                        </span>
                                     {% elseif entity.field_toolkit_attachment_type.value == 'Link' %}
                                         <div>
-                                            <a href="{{ entity.field_toolkit_document[0].uri }}" download><i class="fa fa-download"></i></a>
+                                          <a href="{{ entity.field_toolkit_document[0].uri }}" download><i
+                                              class="fa fa-download"></i></a>
                                         </div>
-                                        <span><a class="download-button" href="{{ entity.field_toolkit_document[0].uri }}"
-                                                 download>Download</a></span>
+                                        <span>
+                                            <a class="download-button" href="{{ entity.field_toolkit_document[0].uri }}"
+                                               download>
+                                              Download
+                                            </a>
+                                        </span>
                                     {% endif %}
                                 </div>
                             </div>

@@ -142,13 +142,23 @@
                                                         Download
                                                     </a>
                                                 {% elseif project_design_workshop.document %}
-
-                                                    <div>
-                                                        <a href="{{ project_design_workshop.document.url }}" download><i class="fa fa-download"></i></a>
-                                                    </div>
-                                                    <a class="download-button" href="{{ project_design_workshop.document.url }}" download>
+                                                  <div class="file--public"
+                                                       data-file-id="{{ project_design_workshop.document.fid }}"
+                                                       data-entity-id="{{ project_design_workshop.nid }}"
+                                                       data-entity-type="{{ project_design_workshop.entity_type }}">
+                                                    <a href="{{ project_design_workshop.document.url }}">
+                                                      <i class="fa fa-download"></i>
+                                                    </a>
+                                                  </div>
+                                                  <span class="file--public"
+                                                        data-file-id="{{ project_design_workshop.document.fid }}"
+                                                        data-entity-id="{{ project_design_workshop.nid }}"
+                                                        data-entity-type="{{ project_design_workshop.entity_type }}">
+                                                    <a class="download-button"
+                                                       href="{{ project_design_workshop.document.url }}">
                                                         Download
                                                     </a>
+                                                  </span>
                                                 {% endif %}
                                             </div>
                                         </div>

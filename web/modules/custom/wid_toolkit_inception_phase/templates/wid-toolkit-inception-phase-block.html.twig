@@ -69,12 +69,20 @@
                                                         Download
                                                     </a>
                                                 {% elseif workshop.document %}
-                                                    <div>
-                                                        <a href="{{ workshop.document.url }}" download><i class="fa fa-download"></i></a>
-                                                    </div>
-                                                    <a class="download-button" href="{{ workshop.document.url }}" download>
-                                                        Download
+                                                  <div class="file--public" data-file-id="{{ workshop.document.fid }}"
+                                                       data-entity-id="{{ workshop.nid }}"
+                                                       data-entity-type="{{ workshop.entity_type }}">
+                                                    <a href="{{ workshop.document.url }}">
+                                                      <i class="fa fa-download"></i>
                                                     </a>
+                                                  </div>
+                                                  <span class="file--public" data-file-id="{{ workshop.document.fid }}"
+                                                        data-entity-id="{{ workshop.nid }}"
+                                                        data-entity-type="{{ workshop.entity_type }}">
+                                                      <a class="download-button" href="{{ workshop.document.url }}">
+                                                        Download
+                                                      </a>
+                                                  </span>
                                                 {% endif %}
                                             </div>
                                         </div>
@@ -117,10 +125,15 @@
                                                 <div class="download-section">
                                                     <span class="download">
                                                         {% if training_resource.document is not empty %}
-                                                            <a href="{{ training_resource.document.url }}" download>
+                                                          <div class="file--public"
+                                                               data-file-id="{{ training_resource.document.fid }}"
+                                                               data-entity-id="{{ training_resource.nid }}"
+                                                               data-entity-type="{{ training_resource.entity_type }}">
+                                                            <a href="{{ training_resource.document.url }}">
                                                                 <i class="fa fa-download"></i> Download</a>
+                                                          </div>
                                                         {% elseif training_resource.document_link %}
-                                                            <a href="{{ training_resource.document_link }}" download>
+                                                            <a href="{{ training_resource.document_link }}">
                                                                 <i class="fa fa-download"></i> Download</a>
                                                         {% endif %}
                                                     </span>

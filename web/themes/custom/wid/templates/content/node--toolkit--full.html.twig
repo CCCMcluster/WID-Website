@@ -169,12 +169,14 @@
                                 </span>
                             </div>
                         </div>
-
-                        <div class="button-container">
-                            <a class="download-button" href="{{ document_url }}" download>
-                                <span>
-                                  <i class="fa fa-download"></i></span> Download
-                            </a>
+                        <div class="button-container file--public"
+                             data-file-id="{{ node.field_toolkit_document.entity.field_media_document.0.target_id }}"
+                             data-entity-id="{{ node.nid.value }}"
+                             data-entity-type="{{ node.entityTypeId }}">
+                          <a class="download-button" href="{{ document_url }}">
+                            <span><i class="fa fa-download"></i></span>
+                            Download
+                          </a>
                         </div>
                     </div>
                 {% endfor %}
